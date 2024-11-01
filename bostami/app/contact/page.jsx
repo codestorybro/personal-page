@@ -1,5 +1,5 @@
-import Contact from "@/components/homes/contact";
-import Header from "@/components/homes/header";
+import Contact from "@/components/contact";
+import Header from "@/components/header";
 import React from "react";
 
 export const metadata = {

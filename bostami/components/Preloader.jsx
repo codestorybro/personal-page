@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 export default function Preloader() {
   const [showPreloader, setShowPreloader] = useState(true);
   const [preloaded, setPreloaded] = useState(false);
+
   useEffect(() => {
     setPreloaded(true);
     document

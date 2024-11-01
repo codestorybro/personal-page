@@ -1,5 +1,5 @@
-import Header from "@/components/homes/header";
-import Portfolio from "@/components/homes/portfolio";
+import Header from "@/components/header";
+import Portfolio from "@/components/portfolio";
 import React from "react";
 
 export const metadata = {

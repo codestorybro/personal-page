@@ -1,5 +1,5 @@
-import Header from "@/components/homes/header";
-import PersonalInfo from "@/components/homes/personal-info";
+import Header from "@/components/header";
+import PersonalInfo from "@/components/personal-info";
 import React from "react";
 
 export const metadata = {

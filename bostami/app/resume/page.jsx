@@ -1,5 +1,5 @@
-import Header from "@/components/homes/header";
-import Resume from "@/components/homes/resume/Resume";
+import Header from "@/components/header";
+import Resume from "@/components/resume/Resume";
 import React from "react";
 
 export const metadata = {
