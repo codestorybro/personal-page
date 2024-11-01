@@ -1985,7 +1985,9 @@ textarea:focus::placeholder {
 .page-title {
   position: relative;
   display: inline-block;
-  font-family: Roboto Slab, serif;
+  font-family:
+    Roboto Slab,
+    serif;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1399px),
   lg,

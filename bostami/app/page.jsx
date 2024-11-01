@@ -1,24 +1,23 @@
-import Hero from "@/components/preview/Hero";
-import Buy from "@/components/preview/Buy";
-import CopyRight from "@/components/preview/CopyRight";
-import Demo from "@/components/preview/Demo";
-import Features from "@/components/preview/Features";
-
-import "../public/assets/css/style.css";
+import Header from "@/components/homes/header";
+import PersonalInfo from "@/components/homes/personal-info";
+import React from "react";
 
 export const metadata = {
-  title: "Preview || Bostami - Professional portfolio NextJS Template",
+  title: "Home-2 || Bostami - Professional portfolio NextJS Template",
   description:
-    "Discover Botami,the most impressive portfolio template for work showcase, blog",
+    "Discover Botami, the most impressive portfolio template for work showcase, blog",
 };
-export default function page() {
+export default function Home() {
   return (
     <>
-      <Hero />
-      <Demo />
-      <Features />
-      <Buy />
-      <CopyRight />
+      <div className="page-wrapper page-wrapper-2">
+        <Header />
+        <div className="bostami-page-area z-index-3">
+          <div className="container">
+            <PersonalInfo />
+          </div>
+        </div>
+      </div>
     </>
   );
 }
