@@ -1,4 +1,4 @@
-export const knoledges = [
+export const knowledge = [
   "Digital Design",
   "Marketing",
   "Communication",

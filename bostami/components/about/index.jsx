@@ -1,5 +1,5 @@
 "use client";
-import { itemsTwo } from "@/data/jobFeatures";
+import { items } from "@/data/jobFeatures";
 import React, { useEffect, useState } from "react";
 import { clientLogos } from "@/data/clientLogos";
 import { Navigation, Pagination, Autoplay } from "swiper";
@@ -89,7 +89,7 @@ export default function About() {
             </div>
           </div>
 
-          {itemsTwo.map((elm, i) => (
+          {items.map((elm, i) => (
             <div key={i} className="col-xl-4 col-lg-6 col-md-6">
               <div className={`bostami-what-do-item ${elm.bg}`}>
                 <div className="icon" style={{ margin: "0 auto" }}>

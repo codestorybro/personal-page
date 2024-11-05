@@ -1,7 +1,7 @@
 import { awards } from "@/data/awards";
 import { education } from "@/data/education";
 import { experiences } from "@/data/experience";
-import { knoledges } from "@/data/knoledges";
+import { knowledge } from "@/data/knowledge";
 import { skillData } from "@/data/skills";
 import Image from "next/image";
 import React from "react";
@@ -89,7 +89,7 @@ export default function Resume() {
                     <Image
                       width={24}
                       height={31}
-                      src="/assets/img/icon//Awards-icon.png"
+                      src="/assets/img/icon/Awards-icon.png"
                       alt="awards"
                     />{" "}
                     Awards
@@ -150,7 +150,7 @@ export default function Resume() {
                 </div>
 
                 <div className="knowledeges-item-wrap">
-                  {knoledges.map((elm, i) => (
+                  {knowledge.map((elm, i) => (
                     <span key={i} className="gk-item">
                       {elm}
                     </span>

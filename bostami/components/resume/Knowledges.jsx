@@ -1,4 +1,4 @@
-import { knoledges } from "@/data/knoledges";
+import { knowledge } from "@/data/knowledge";
 import React from "react";
 
 export default function Knowledges() {
@@ -9,7 +9,7 @@ export default function Knowledges() {
       </div>
 
       <div className="knowledeges-item-wrap">
-        {knoledges.map((elm, i) => (
+        {knowledge.map((elm, i) => (
           <span key={i} className="gk-item">
             {elm}
           </span>
