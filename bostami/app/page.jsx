@@ -3,10 +3,11 @@ import PersonalInfo from "@/components/personal-info";
 import React from "react";
 
 export const metadata = {
-  title: "Home-2 || Bostami - Professional portfolio NextJS Template",
+  title: "CodeStoryBro",
   description:
-    "Discover Botami, the most impressive portfolio template for work showcase, blog",
+    "Sprawdź, w jaki sposób CodeStoryBro może pomóc Ci rozwinąć karierę w IT.",
 };
+
 export default function Home() {
   return (
     <>

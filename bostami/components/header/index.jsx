@@ -74,23 +74,6 @@ export default function Header() {
                 <div className="bostami-main-menu-wrap ">
                   <nav className="bastami-main-menu main_menu_2">
                     <ul style={{ display: "flex", alignItems: "center" }}>
-                      <li className={pathname == "/" ? "active" : ""}>
-                        <Link
-                          href="/"
-                          style={{ display: "flex", alignItems: "center" }}
-                        >
-                          <span>
-                            <Image
-                              width={20}
-                              height={20}
-                              src="/assets/img/icon/home.png"
-                              alt="icon"
-                            />
-                          </span>
-                          home
-                        </Link>
-                      </li>
-
                       {menuItems.map((elm, i) => (
                         <li
                           key={i}

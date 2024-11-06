@@ -3,9 +3,8 @@ import Header from "@/components/header";
 import React from "react";
 
 export const metadata = {
-  title: "About || Bostami - Professional portfolio NextJS Template",
-  description:
-    "Discover Botami,the most impressive portfolio template for work showcase, blog",
+  title: "O mnie - CodeStoryBro",
+  description: "Dowiedz się więcej o mojej drodze i podejściu do mentoringu.",
 };
 
 export default function page() {

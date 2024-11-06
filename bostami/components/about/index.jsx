@@ -11,7 +11,7 @@ import { profileInfo } from "@/data/profileInfo";
 
 export default function About() {
   const [showSlider, setShowSlider] = useState(false);
-  
+
   useEffect(() => {
     setShowSlider(true);
   }, []);
