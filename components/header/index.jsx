@@ -12,19 +12,19 @@ export default function Header() {
   const [darkMode, setDarkMode] = useState(false);
   const addDarkbg = () => {
     if (
-      document.body.style.backgroundImage !=
-      "url(/assets/img/bg/page-bg-dark-1.jpg"
+      document.body.style.backgroundColor !=
+      "var(--background-dark)"
     ) {
-      document.body.style.backgroundImage =
-        "url(/assets/img/bg/page-bg-dark-1.jpg";
+      document.body.style.backgroundColor =
+        "var(--background-dark)";
       setDarkMode(true);
     }
   };
   const addlightBg = () => {
     if (
-      document.body.style.backgroundImage != "url(/assets/img/bg/page-bg-1.jpg)"
+      document.body.style.backgroundColor != "var(--background-white)"
     ) {
-      document.body.style.backgroundImage = "url(/assets/img/bg/page-bg-1.jpg)";
+      document.body.style.backgroundColor = "var(--background-white)";
       setDarkMode(false);
     }
   };
@@ -59,12 +59,13 @@ export default function Header() {
             <div className="col-lg-2 col-md-6 col-sm-4 col-4 d-flex align-items-center">
               <div className="bostami-header-logo">
                 <Link className="site-logo" href="/">
-                  <Image
+                  <span>code$toryBro</span>
+                  {/* <Image
                     width={153}
                     height={32}
                     src="/assets/img/logo/logo-2.png"
                     alt="logo"
-                  />
+                  /> */}
                 </Link>
               </div>
             </div>

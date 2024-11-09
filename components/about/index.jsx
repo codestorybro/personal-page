@@ -7,7 +7,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { bioData } from "@/data/bioData";
 import { contactData } from "@/data/contactData";
 import Image from "next/image";
-import { profileInfo } from "@/data/profileInfo";
 
 export default function About() {
   const [showSlider, setShowSlider] = useState(false);
@@ -32,12 +31,12 @@ export default function About() {
         <div className="row">
           <div className="col-lg-4 col-md-8">
             <div className="bostami-parsonal-info-img">
-              <Image
+              {/* <Image
                 width={240}
                 height={240}
                 src={profileInfo.imageSrcThree}
                 alt="profile"
-              />
+              /> */}
             </div>
           </div>
 

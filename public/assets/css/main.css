@@ -38,6 +38,7 @@ CSS INDEX
 *************************************************************** */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@300;400;500;600;700;800;900&display=swap");
 :root {
+  --background-white: #dadada;
   --common-white: #ffffff;
   --common-white-two: #ffffff;
   --common-black: #000;
@@ -53,7 +54,8 @@ CSS INDEX
 }
 
 :root .dark-theme {
-  --common-white: #000;
+  --background-dark: #1f2028;
+  --common-white: #111;
   --common-black: #fff;
   --theme-primary: #1b74e4;
   --theme-secondary: #fa5252;
@@ -73,9 +75,10 @@ body {
   color: var(--body-text);
   font-size: 16px;
   line-height: 28px;
+  transition: all 0.5s;
 }
 .dark-theme {
-  background-color: #1a1a1a;
+  background-color: var(--background-dark);
 }
 .img,
 img {
@@ -85,6 +88,10 @@ img {
   -ms-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
+}
+
+.x-icon {
+  color: var(--body-text)
 }
 
 a,
@@ -1823,15 +1830,10 @@ textarea:focus::placeholder {
   font-weight: 400;
   text-transform: capitalize;
   color: var(--common-white);
-  background: linear-gradient(
-    97deg,
-    rgb(250, 82, 82) 0%,
-    rgb(221, 36, 118) 100%
-  );
+  background: #10498e;
   line-height: 27px;
   padding: 12px 30px;
   border-radius: 10px;
-  border: 1px solid transparent;
   transition: 0.3s;
 }
 .btn-2 .icon {
@@ -1843,9 +1845,7 @@ textarea:focus::placeholder {
 }
 .btn-2:hover,
 .btn-2:focus {
-  background: linear-gradient(80deg, #fa5252 0%, #e12a72 100%);
-  border: 1px solid
-    linear-gradient(97deg, rgb(201, 93, 93) 0%, rgb(221, 36, 118) 100%);
+  background: #1b74e4;
   color: var(--light-white);
   transform: translateY(-2px);
 }
@@ -1861,11 +1861,10 @@ textarea:focus::placeholder {
   text-align: center;
   background-color: var(--common-white);
   border-radius: 50%;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
   margin-right: 10px;
 }
 .dark-btn:hover {
-  background-color: var(--theme-secondary);
+  background-color: #1b74e4;
 }
 
 .home-3 .dark-btn {
@@ -1888,6 +1887,7 @@ textarea:focus::placeholder {
 }
 
 .dark-btn.dark-btn-2 {
+  transition: all 0.3s;
   width: 45px;
   height: 45px;
   display: flex;
@@ -1921,20 +1921,12 @@ textarea:focus::placeholder {
 }
 
 .page-wrapper-2 .form-btn:hover {
-  background: linear-gradient(
-    97deg,
-    rgb(250, 82, 82) 0%,
-    rgb(221, 36, 118) 100%
-  );
+  background: #1b74e4;
   border-color: transparent;
 }
 
 .home-3 .form-btn:hover {
-  background: linear-gradient(
-    97deg,
-    rgb(250, 82, 82) 0%,
-    rgb(221, 36, 118) 100%
-  );
+  background: #1b74e4;
   border-color: transparent;
 }
 
@@ -2073,6 +2065,7 @@ textarea:focus::placeholder {
 }
 
 .bostami-page-area .bostami-page-wrap {
+  transition: background-color 0.5s;
   background: #fff;
   border-radius: 20px;
 }
@@ -2119,12 +2112,7 @@ textarea:focus::placeholder {
   margin-bottom: 11px;
 }
 .bostami-page-area .page-title::after {
-  background: rgb(250, 82, 82);
-  background: linear-gradient(
-    97deg,
-    rgb(250, 82, 82) 0%,
-    rgb(221, 36, 118) 100%
-  );
+  background: #1b74e4;
 }
 @media (max-width: 767px) {
   .bostami-page-area .page-title::after {
@@ -2154,11 +2142,7 @@ textarea:focus::placeholder {
 }
 
 .home-3 .page-title::after {
-  background: linear-gradient(
-    97deg,
-    rgb(250, 82, 82) 0%,
-    rgb(221, 36, 118) 100%
-  );
+  background: #1b74e4;
 }
 
 .page-wrapper.home-3 {
@@ -2460,18 +2444,21 @@ textarea:focus::placeholder {
   height: 40px;
   line-height: 40px;
 }
+.dark-theme .main-style-2 .bostami-main-menu-wrap .bastami-main-menu ul li a {
+  background: #111;
+  border-radius: 8px;
+  padding: 0px 19px;
+  transition: 0.3s;
+  height: 40px;
+  line-height: 40px;
+}
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .main-style-2 .bostami-main-menu-wrap .bastami-main-menu ul li a {
     padding: 0px 10px;
   }
 }
 .main-style-2 .bostami-main-menu-wrap .bastami-main-menu ul li a:hover {
-  background: rgb(250, 82, 82);
-  background: linear-gradient(
-    97deg,
-    rgb(250, 82, 82) 0%,
-    rgb(221, 36, 118) 100%
-  );
+  background: #1b74e4;
 }
 .main-style-2 .bostami-main-menu-wrap .bastami-main-menu ul li a span {
   display: inline-block;
@@ -2482,12 +2469,7 @@ textarea:focus::placeholder {
   width: 20px;
 }
 .main-style-2 .bostami-main-menu-wrap .bastami-main-menu ul li:is(.active) a {
-  background: rgb(250, 82, 82);
-  background: linear-gradient(
-    97deg,
-    rgb(250, 82, 82) 0%,
-    rgb(221, 36, 118) 100%
-  );
+  background: #1b74e4;
 }
 
 .bostami-header-logo {
@@ -2506,21 +2488,15 @@ textarea:focus::placeholder {
   }
 }
 
-.page-wrapper.page-wrapper-2 .bostami-header-logo .site-logo img {
-  width: 150px;
+.page-wrapper.page-wrapper-2 .bostami-header-logo .site-logo span {
+  color: var(--common-black);
+  font-family: "Adrip";
+  font-size: 1.9rem;
 }
-@media (max-width: 767px) {
-  .page-wrapper.page-wrapper-2 .bostami-header-logo .site-logo img {
-    width: 110px;
+@media (min-width: 430px) {
+  .page-wrapper.page-wrapper-2 .bostami-header-logo .site-logo span {
+    font-size: 3rem;
   }
-}
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-  .page-wrapper.page-wrapper-2 .bostami-header-logo .site-logo img {
-    width: 150px;
-  }
-}
-.dark-theme .page-wrapper.page-wrapper-2 {
-  background-image: url(/assets/img/bg/page-bg-dark-1.jpg) !important;
 }
 .home-3 .text-right {
   text-align: right;
@@ -2551,18 +2527,10 @@ textarea:focus::placeholder {
   margin-left: 16px;
 }
 .home-3 .bastami-main-menu ul li:hover {
-  background: linear-gradient(
-    97deg,
-    rgb(250, 82, 82) 0%,
-    rgb(221, 36, 118) 100%
-  );
+  background: #1b74e4;
 }
 .home-3 .bastami-main-menu ul li:is(.active) {
-  background: linear-gradient(
-    97deg,
-    rgb(250, 82, 82) 0%,
-    rgb(221, 36, 118) 100%
-  );
+  background: #1b74e4;
 }
 
 .inner-page .bostami-header-wrap {
@@ -2574,11 +2542,7 @@ textarea:focus::placeholder {
   height: 40px;
 }
 .home-3 .menu-btn.active {
-  background: linear-gradient(
-    97deg,
-    rgb(250, 82, 82) 0%,
-    rgb(221, 36, 118) 100%
-  );
+  background: #1b74e4;
 }
 
 .home-1 .bostami-header-area {
@@ -2769,7 +2733,7 @@ textarea:focus::placeholder {
   font-weight: 500;
   color: var(--common-black);
   font-family: "Roboto Slab", serif;
-  margin-bottom: 8px;
+  margin-bottom: 1.5rem;
 }
 .btn-2.circle {
   border-radius: 30px;
@@ -2828,6 +2792,15 @@ textarea:focus::placeholder {
 .bostami-parsonal-info-social-link li a {
   color: #1c9cea;
   font-size: 20px;
+}
+.bostami-parsonal-info-social-link li a img {
+  filter: brightness(0) saturate(100%) invert(0%) sepia(100%) saturate(20%) hue-rotate(39deg) brightness(101%) contrast(107%);
+}
+.dark-theme .bostami-parsonal-info-social-link li a img {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(1%) hue-rotate(138deg) brightness(103%) contrast(101%);
+}
+.bostami-parsonal-info-social-link li a:hover img {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(1%) hue-rotate(138deg) brightness(103%) contrast(101%);
 }
 .bostami-parsonal-info-contact {
   background-color: var(--light-white);
@@ -2952,11 +2925,7 @@ textarea:focus::placeholder {
   .bostami-parsonal-info-social-link
   li
   a:hover {
-  background: linear-gradient(
-    97deg,
-    rgb(250, 82, 82) 0%,
-    rgb(221, 36, 118) 100%
-  );
+  background: #1b74e4;
 }
 
 .bostami-parsonal-info-area.about-2-page {
@@ -2977,11 +2946,7 @@ textarea:focus::placeholder {
 }
 
 .page-wrapper-2 .bostami-parsonal-info-contact-item .icon:hover {
-  background: linear-gradient(
-    97deg,
-    rgb(250, 82, 82) 0%,
-    rgb(221, 36, 118) 100%
-  );
+  background: #1b74e4;
 }
 
 .home-3 .bostami-parsonal-info-area {
@@ -2999,18 +2964,10 @@ textarea:focus::placeholder {
   }
 }
 .home-3 .bostami-parsonal-info-social-link li a:hover {
-  background: linear-gradient(
-    97deg,
-    rgb(250, 82, 82) 0%,
-    rgb(221, 36, 118) 100%
-  );
+  background: #1b74e4;
 }
 .home-3 .bostami-parsonal-info-contact-item .icon:hover {
-  background: linear-gradient(
-    97deg,
-    rgb(250, 82, 82) 0%,
-    rgb(221, 36, 118) 100%
-  );
+  background: #1b74e4;
 }
 
 /*
@@ -4462,11 +4419,7 @@ textarea:focus::placeholder {
   }
 }
 .blog-details-tag .tag-item a:hover {
-  background: linear-gradient(
-    97deg,
-    rgb(250, 82, 82) 0%,
-    rgb(221, 36, 118) 100%
-  );
+  background: #1b74e4;
   color: #fff;
 }
 
@@ -4589,11 +4542,7 @@ textarea:focus::placeholder {
   transition: 0.3s;
 }
 .blog-details-comment-box form .submit-comments:hover {
-  background: linear-gradient(
-    97deg,
-    rgb(250, 82, 82) 0%,
-    rgb(221, 36, 118) 100%
-  );
+  background: #1b74e4;
   color: #fff;
   border-color: transparent;
 }
@@ -4749,11 +4698,7 @@ textarea:focus::placeholder {
   transition: 0.3s;
 }
 .sidebar-tag a:hover {
-  background: linear-gradient(
-    97deg,
-    rgb(250, 82, 82) 0%,
-    rgb(221, 36, 118) 100%
-  );
+  background: #1b74e4;
   color: #fff;
 }
 
@@ -4791,10 +4736,19 @@ textarea:focus::placeholder {
   .bostami-main-menu-wrap
   .bastami-main-menu
   ul
-  li
-  a {
-  background-color: #1d1d1d;
+  li {
+  background: #1d1d1d;
 }
+.dark-theme
+  .page-wrapper
+  .main-style-2
+  .bostami-main-menu-wrap
+  .bastami-main-menu
+  ul
+  li:hover {
+  background: #1b74e4;
+}
+
 .dark-theme .page-wrapper .bg-light-white-2,
 .dark-theme .page-wrapper .blog-slider-single,
 .dark-theme .page-wrapper .fillter-item {
@@ -4817,7 +4771,7 @@ textarea:focus::placeholder {
   color: #fff;
 }
 .dark-theme .page-wrapper .bastami-main-menu ul li:hover {
-  background-color: #1b74e4;
+  background: #1b74e4;
 }
 .dark-theme .page-wrapper .bostami-what-do-item,
 .dark-theme .page-wrapper .bostami-card-item,
@@ -4837,7 +4791,7 @@ textarea:focus::placeholder {
   background-color: #1b74e4;
 }
 .dark-theme .page-wrapper .btn-1:hover {
-  background-color: #1d1d1d;
+  background-color: #1b74e4;
 }
 .dark-theme
   .page-wrapper
@@ -4980,7 +4934,8 @@ textarea:focus::placeholder {
 }
 
 .dark-theme .page-wrapper-2 .bostami-page-area .bostami-page-wrap {
-  background: #111;
+  transition: background-color 0.5s;
+  background-color: #111;
 }
 .dark-theme
   .page-wrapper-2
@@ -5010,48 +4965,28 @@ textarea:focus::placeholder {
   background-color: transparent;
 }
 .dark-theme .page-wrapper-2 .bostami-parsonal-info-contact-item .icon:hover {
-  background: linear-gradient(
-    97deg,
-    rgb(250, 82, 82) 0%,
-    rgb(221, 36, 118) 100%
-  );
+  background: #1b74e4;
 }
 .dark-theme .home-3 .bastami-main-menu ul li:is(.active) a span svg * {
-  fill: white;
+  fill: #1b74e4;
 }
 .dark-theme .home-3 .bastami-main-menu ul li:hover a span svg * {
-  fill: white;
+  fill: #1b74e4;
 }
 .dark-theme .home-3 .bostami-header-wrap {
   background: transparent !important;
 }
 .dark-theme .home-3 .bostami-parsonal-info-social-link li a:hover {
-  background: linear-gradient(
-    97deg,
-    rgb(250, 82, 82) 0%,
-    rgb(221, 36, 118) 100%
-  );
+  background: #1b74e4;
 }
 .dark-theme .home-3 .bastami-main-menu ul li:is(.active) {
-  background: linear-gradient(
-    97deg,
-    rgb(250, 82, 82) 0%,
-    rgb(221, 36, 118) 100%
-  );
+  background: #1b74e4;
 }
 .dark-theme .home-3 .bastami-main-menu ul li:hover {
-  background: linear-gradient(
-    97deg,
-    rgb(250, 82, 82) 0%,
-    rgb(221, 36, 118) 100%
-  );
+  background: #1b74e4;
 }
 .dark-theme .home-3 .bostami-parsonal-info-contact-item .icon:hover {
-  background: linear-gradient(
-    97deg,
-    rgb(250, 82, 82) 0%,
-    rgb(221, 36, 118) 100%
-  );
+  background: #1b74e4;
 }
 .dark-theme .home-1 .bostami-header-wrap {
   background: transparent;
