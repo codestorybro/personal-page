@@ -2,6 +2,7 @@ import { profileInfo } from "@/data/profileInfo";
 import { socialMediaData } from "@/data/socials";
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 
 export default function PersonalInfo() {
   return (
@@ -35,12 +36,12 @@ export default function PersonalInfo() {
           </ul>
 
           <div className="bostami-parsonal-info-btn">
-            <a className="btn-2 circle" href="/cv.pdf" download>
-              <span style={{ color: "#fff" }} className="icon">
-                <i className="fa-regular fa-download"></i>
-              </span>
-              download cv
-            </a>
+          <Link
+              href='/oferta'
+              className="btn-2 circle"
+            >
+              <span>Oferta</span>
+            </Link>
           </div>
         </div>
       </div>

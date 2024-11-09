@@ -1,19 +1,19 @@
 export const socialMediaData = [
   {
     id: 1,
-    className: "fa-brands fa-facebook-f",
+    className: "fa-regular fa-envelope",
     href: "#",
     color: "#1773EA",
   },
   {
     id: 2,
-    className: "fa-brands fa-twitter",
+    className: "fa-brands fa-square-x-twitter",
     href: "#",
     color: "#1C9CEA",
   },
   {
     id: 3,
-    className: "fa-brands fa-instagram",
+    className: "fa-brands fa-discord",
     href: "#",
     color: "#e12a72",
   },
