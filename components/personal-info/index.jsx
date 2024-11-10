@@ -14,6 +14,7 @@ export default function PersonalInfo() {
               height={240}
               src="/assets/img/logo.png"
               alt="profile"
+              priority
             />
           </div>
 

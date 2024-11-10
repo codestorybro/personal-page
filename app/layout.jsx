@@ -3,7 +3,7 @@ import "../public/main.scss";
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" style={{ background: '#1f2028' }}>
       <head>
         <link
           rel="stylesheet"
