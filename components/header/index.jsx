@@ -4,12 +4,11 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import Menu from "../menu";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
 
 export default function Header() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(localStorage?.getItem("theme") === 'dark');
   const addDarkbg = () => {
     if (
       document.body.style.backgroundColor !=
@@ -28,29 +27,33 @@ export default function Header() {
       setDarkMode(false);
     }
   };
-  const handleDarkmode = () => {
-    const currentState = localStorage?.getItem("idDarkMode");
-    if (JSON.parse(currentState) == true) {
-      localStorage.setItem("idDarkMode", false);
+
+  const toggleTheme = () => {
+    const theme = localStorage?.getItem("theme");
+    if (theme == "dark") {
+      localStorage.setItem("theme", "light");
       document.body.classList.remove("dark-theme");
       addlightBg();
     } else {
-      localStorage?.setItem("idDarkMode", true);
+      localStorage?.setItem("theme", "dark");
       document.body.classList.add("dark-theme");
       addDarkbg();
     }
   };
 
   useEffect(() => {
-    const currentState = localStorage?.getItem("idDarkMode");
-    if (JSON.parse(currentState) == true) {
+    const theme = localStorage?.getItem("theme");
+    if (theme == 'dark') {
       document.body.classList.add("dark-theme");
       addDarkbg();
+      setDarkMode(true);
     } else {
       document.body.classList.remove("dark-theme");
       addlightBg();
+      setDarkMode(false);
     }
   }, []);
+
   return (
     <div className="bostami-header-area mb-80 z-index-5">
       <div className="container">
@@ -97,7 +100,7 @@ export default function Header() {
                 <div className="bostami-header-menu-btn text-right ml-30">
                   <div
                     className="dark-btn dark-btn-2 mode-btn"
-                    onClick={() => handleDarkmode()}
+                    onClick={toggleTheme}
                   >
                     {darkMode ? (
                       <i className="sunicon fa-light fa-sun-bright"></i>

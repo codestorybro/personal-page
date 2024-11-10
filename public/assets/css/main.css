@@ -2193,7 +2193,7 @@ textarea:focus::placeholder {
   display: inline-flex;
   width: 26px;
   height: 26px;
-  background: linear-gradient(180deg, #fa5252 0%, #e12a72 100%);
+  background: #10498e;
   border-radius: 50%;
   text-align: center;
   justify-content: center;
@@ -2203,7 +2203,7 @@ textarea:focus::placeholder {
   overflow: hidden;
 }
 .bostami-header-menu-btn .menu-btn:hover {
-  background: linear-gradient(180deg, #1b74e4 0%, #1b74e4 100%);
+  background: #1b74e4;
 }
 
 .menu-btn span {
@@ -3424,14 +3424,14 @@ textarea:focus::placeholder {
 }
 @media (max-width: 767px) {
   .portfolio-modal-box .modal-dialog .modal-content .modal-header .close {
-    border-color: #e12a72;
-    color: #e12a72;
+    border-color: #1b74e4;
+    color: #1b74e4;
   }
 }
 .portfolio-modal-box .modal-dialog .modal-content .modal-header .close:hover {
   rotate: 90deg;
-  border-color: #e12a72;
-  color: #e12a72;
+  border-color: #1b74e4;
+  color: #1b74e4;
 }
 .portfolio-modal-box .modal-dialog .modal-content .modal-body .h1-modal-img {
   border-radius: 15px;
@@ -3441,7 +3441,7 @@ textarea:focus::placeholder {
 .portfolio-modal-box .modal-dialog .modal-content .modal-body .blog-title {
   font-size: 28px;
   text-align: center;
-  color: #fa5252;
+  color: #1b74e4;
   margin-bottom: 35px;
 }
 @media (max-width: 767px) {
@@ -3781,14 +3781,14 @@ textarea:focus::placeholder {
 }
 @media (max-width: 767px) {
   .modal-header .close {
-    border-color: #e12a72;
-    color: #e12a72;
+    border-color: #1b74e4;
+    color: #1b74e4;
   }
 }
 .modal-header .close:hover {
   rotate: 90deg;
-  border-color: #e12a72;
-  color: #e12a72;
+  border-color: #1b74e4;
+  color: #1b74e4;
 }
 .h1-modal-box .modal-dialog .modal-content .modal-body .h1-modal-img {
   border-radius: 15px;
@@ -3955,7 +3955,7 @@ textarea:focus::placeholder {
   outline: none;
   padding: 8px 20px;
   border-radius: 20px;
-  background: linear-gradient(180deg, #fa5252 0%, #e12a72 100%);
+  background: #1b74e4;
   color: white;
 }
 .h1-modal-box
@@ -3964,11 +3964,11 @@ textarea:focus::placeholder {
   .modal-body
   .h1-modal-comment-box
   button:hover {
-  background: linear-gradient(80deg, #fa5252 0%, #e12a72 100%);
+  background: #1b74e4;
 }
 
 .page-wrapper-2 .blog-slider-wrap .blog-progation span {
-  border: 1px solid #fa5252 !important;
+  border: 1px solid #1b74e4 !important;
 }
 .page-wrapper-2
   .blog-slider-wrap
