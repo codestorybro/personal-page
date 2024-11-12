@@ -31,12 +31,13 @@ export default function About() {
                 <div className="row">
                     <div className="col-lg-4 col-md-8">
                         <div className="bostami-parsonal-info-img">
-                            {/* <Image
-                width={240}
-                height={240}
-                src={profileInfo.imageSrcThree}
-                alt="profile"
-              /> */}
+                            <Image
+                                width={300}
+                                height={300}
+                                src="/assets/img/logo-light.png"
+                                alt="profile"
+                                priority
+                            />
                         </div>
                     </div>
 
@@ -137,13 +138,11 @@ export default function About() {
                             <div className="swiper-container client_slide_active">
                                 {showSlider && (
                                     <Swiper
-                                        // {...setting}
                                         modules={[
                                             Navigation,
                                             Pagination,
                                             Autoplay,
                                         ]}
-                                        // loop={true}
                                         spaceBetween={30}
                                         slidesPerView={2}
                                         loop={true}

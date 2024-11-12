@@ -1,5 +1,4 @@
-import Header from '@/components/header'
-import PersonalInfo from '@/components/personal-info'
+import About from '@/components/about'
 import React from 'react'
 
 export const metadata = {
@@ -10,15 +9,10 @@ export const metadata = {
 
 export default function Home() {
     return (
-        <>
-            <div className="page-wrapper page-wrapper-2">
-                <Header />
-                <div className="bostami-page-area z-index-3">
-                    <div className="container">
-                        <PersonalInfo />
-                    </div>
-                </div>
+        <div className="bostami-page-area z-index-3">
+            <div className="container">
+                <About />
             </div>
-        </>
+        </div>
     )
 }

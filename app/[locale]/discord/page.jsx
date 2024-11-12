@@ -10,11 +10,8 @@ export const metadata = {
 
 export default function page() {
     return (
-        <>
-            <div className="page-wrapper page-wrapper-2">
-                <Header />
-                <Contact />
-            </div>
-        </>
+        <div className="page-wrapper page-wrapper-2">
+            <Contact />
+        </div>
     )
 }

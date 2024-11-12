@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import Menu from '../menu'
 import { usePathname } from 'next/navigation'
 
-export default function Header() {
+export default function Header({ locale }) {
     const pathname = usePathname()
     const [menuOpen, setMenuOpen] = useState(false)
     const [darkMode, setDarkMode] = useState(true)
@@ -49,7 +49,7 @@ export default function Header() {
     }, [])
 
     return (
-        <div className="bostami-header-area mb-80 z-index-5">
+        <div className="bostami-header-area mb-40 z-index-5">
             <div className="container">
                 <div className="bostami-header-wrap main-style-2">
                     <div className="row">
@@ -57,12 +57,6 @@ export default function Header() {
                             <div className="bostami-header-logo">
                                 <Link className="site-logo" href="/">
                                     <span>code$toryBro</span>
-                                    {/* <Image
-                    width={153}
-                    height={32}
-                    src="/assets/img/logo/logo-2.png"
-                    alt="logo"
-                  /> */}
                                 </Link>
                             </div>
                         </div>
@@ -81,13 +75,13 @@ export default function Header() {
                                                 <li
                                                     key={i}
                                                     className={
-                                                        pathname == elm.href
+                                                        pathname == `/${locale}/${elm.href}`
                                                             ? 'active'
                                                             : ''
                                                     }
                                                 >
                                                     <Link
-                                                        href={elm.href}
+                                                        href={`/${locale}/${elm.href}`}
                                                         style={{
                                                             display: 'flex',
                                                             alignItems:
