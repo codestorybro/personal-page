@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 :root {
-    --background-dark: #1f2028;
+    --background-dark: #272727;
     --common-white: #111;
     --common-black: #fff;
     --theme-primary: #1b74e4;
@@ -2899,7 +2899,6 @@ textarea:focus::placeholder {
 }
 .bostami-client-slider-logo {
     padding: 0px 15px;
-    height: 62px;
 }
 
 .bostami-main-menu-wrap {
@@ -2974,7 +2973,6 @@ textarea:focus::placeholder {
 
 .bostami-page-wrap .client-2-wrap {
     border-radius: 20px;
-    padding-left: 25px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -4668,7 +4666,8 @@ textarea:focus::placeholder {
   .page-wrapper .bg-light-white-2,
   .page-wrapper .blog-slider-single,
   .page-wrapper .fillter-item {
-    background-color: #0d0d0d;
+    background-color: #111;
+    box-shadow: -2px -2px 5px #212121, 2px 2px 5px #141414;
 }
   .page-wrapper .knowledeges-item-wrap .gk-item {
     background-color: #1c1c1c;
@@ -4834,8 +4833,8 @@ textarea:focus::placeholder {
   .page-wrapper .bostami-card-item,
   .page-wrapper .blog-slider-single,
   .page-wrapper .fillter-item {
-    border: 1px solid #353535;
-}
+    box-shadow: -2px -2px 5px #212121, 2px 2px 5px #141414;
+    }
  
     .page-wrapper-2
     .main-style-2

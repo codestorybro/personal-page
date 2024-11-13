@@ -10,13 +10,10 @@ $color-bg: #272727;
   border-radius: $ruler*20;
   padding: $ruler;
   background-color:$color-bg;
-  text-shadow: 1px 1px 0 $color-white;
-  color:#61677C;
   font-weight: bold;
   box-shadow: -5px -5px 20px $color-white,  5px 5px 20px $color-shadow;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
-  font-weight: 600;
   
   &:hover {
     box-shadow: -2px -2px 5px $color-white, 2px 2px 5px $color-shadow;

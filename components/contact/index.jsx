@@ -63,9 +63,11 @@ export default function Contact() {
             </div>
 
             <div className="footer-copyright text-center pt-25 pb-25 bg-light-white-2 border-redius-20">
-                <span>
-                    © {new Date().getFullYear()} All Rights Reserved by
-                    elite-themes24.
+                <span style={{ fontSize: 16 }}>
+                    ©{new Date().getFullYear()} All rights reserved by{' '}
+                    <span style={{ fontFamily: 'Adrip', fontSize: 32 }}>
+                        code$toryBro
+                    </span>
                 </span>
             </div>
         </>

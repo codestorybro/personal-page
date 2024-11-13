@@ -53,40 +53,6 @@ export default function About() {
                             <p className="bostami-parsonal-info-bio-text">
                                 {bioData.descTwo}
                             </p>
-
-                            <div className="bostami-parsonal-info-contact">
-                                <h3 className="title">Personal Info</h3>
-                                <div className="row">
-                                    {contactData.map((elm, i) => (
-                                        <div
-                                            key={i}
-                                            className="col-lg-6 col-md-6"
-                                        >
-                                            <div className="bostami-parsonal-info-contact-item">
-                                                <div
-                                                    style={{
-                                                        color: `${elm.color}`,
-                                                        fontSize: `${elm.fontSize}`,
-                                                    }}
-                                                    className="icon"
-                                                >
-                                                    <i
-                                                        className={
-                                                            elm.iconClass
-                                                        }
-                                                    ></i>
-                                                </div>
-                                                <div className="text">
-                                                    <span>
-                                                        {elm.text.label}
-                                                    </span>
-                                                    <p>{elm.text.value}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -110,7 +76,10 @@ export default function About() {
                                     <Image
                                         height={45}
                                         width={180}
-                                        style={{ margin: '0 auto' }}
+                                        style={{
+                                            margin: '0 auto',
+                                            height: 'auto',
+                                        }}
                                         alt="feature"
                                         src={elm.icon}
                                     />
@@ -171,10 +140,6 @@ export default function About() {
                                                     <Image
                                                         height={62}
                                                         width={264}
-                                                        style={{
-                                                            height: '62px',
-                                                            width: 'fit-content',
-                                                        }}
                                                         className="bostami-client-slider-logo"
                                                         src={elm.imgSrc}
                                                         alt="client"
@@ -191,8 +156,8 @@ export default function About() {
             </div>
 
             <div className="footer-copyright text-center pt-25 pb-25">
-                <span>
-                    © {new Date().getFullYear()} All Rights Reserved by{' '}
+                <span style={{ fontSize: 16 }}>
+                    ©{new Date().getFullYear()} All rights reserved by{' '}
                     <span style={{ fontFamily: 'Adrip', fontSize: 32 }}>
                         code$toryBro
                     </span>
