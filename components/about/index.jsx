@@ -192,8 +192,10 @@ export default function About() {
 
             <div className="footer-copyright text-center pt-25 pb-25">
                 <span>
-                    © {new Date().getFullYear()} All Rights Reserved by
-                    elite-themes24.
+                    © {new Date().getFullYear()} All Rights Reserved by{' '}
+                    <span style={{ fontFamily: 'Adrip', fontSize: 32 }}>
+                        code$toryBro
+                    </span>
                 </span>
             </div>
         </>
