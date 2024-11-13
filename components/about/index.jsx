@@ -152,7 +152,7 @@ export default function About() {
                 <span style={{ fontSize: 16 }}>
                     ©{new Date().getFullYear()} All rights reserved by{' '}
                     <span style={{ fontFamily: 'Adrip', fontSize: 32 }}>
-                        code$toryBro
+                        <span style={{ fontSize: 48 }}>c</span>ode$toryBro
                     </span>
                 </span>
             </div>

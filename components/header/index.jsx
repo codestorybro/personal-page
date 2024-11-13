@@ -10,7 +10,8 @@ export default function Header({ locale }) {
                     <div className="row">
                         <div className="col-lg-2 col-md-6 col-sm-4 col-4 d-flex align-items-center">
                             <Link className="site-logo" href="/">
-                                <span>code$toryBro</span>
+                                <span style={{ fontSize: 70 }}>c</span>
+                                ode$toryBro
                             </Link>
                         </div>
 
