@@ -8,11 +8,5 @@ export const metadata = {
 }
 
 export default function Home() {
-    return (
-        <div className="bostami-page-area z-index-3">
-            <div className="container">
-                <About />
-            </div>
-        </div>
-    )
+    return <About />
 }

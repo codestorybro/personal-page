@@ -96,7 +96,7 @@ body {
             color: var(--common-black);
         }
     }
-    &.dark-theme {
+    &  {
         .form-input-item {
             input {
                 color: #fff;
@@ -107,11 +107,6 @@ body {
         }
     }
 }
-// .btn-1{
-//     &:focus{
-//         color: #fff !important;
-//     }
-// }
 
 body {
     background-position: center center;

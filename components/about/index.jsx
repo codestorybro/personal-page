@@ -16,7 +16,7 @@ export default function About() {
     }, [])
 
     return (
-        <div className="bostami-page-wrap pt-60 pl-80 pr-80">
+        <>
             <div className="page-tilte-2-wrap">
                 <div className="row">
                     <div className="col-12">
@@ -196,6 +196,6 @@ export default function About() {
                     elite-themes24.
                 </span>
             </div>
-        </div>
+        </>
     )
 }

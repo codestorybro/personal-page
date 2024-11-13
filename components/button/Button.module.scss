@@ -1,0 +1,32 @@
+$ruler: 16px;
+$color-white: #212121;
+$color-shadow: #141414;
+$color-bg: #272727;
+
+.customButton {
+  border: 0;
+  outline: 0;
+  font-size: $ruler*1.5;
+  border-radius: $ruler*20;
+  padding: $ruler;
+  background-color:$color-bg;
+  text-shadow: 1px 1px 0 $color-white;
+  color:#61677C;
+  font-weight: bold;
+  box-shadow: -5px -5px 20px $color-white,  5px 5px 20px $color-shadow;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  font-weight: 600;
+  
+  &:hover {
+    box-shadow: -2px -2px 5px $color-white, 2px 2px 5px $color-shadow;
+  }
+  
+  &:active {
+    box-shadow: inset 1px 1px 2px $color-shadow, inset -1px -1px 2px $color-white;
+  }
+
+  i {
+    color: #7289da;
+  }
+}

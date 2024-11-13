@@ -1,20 +1,19 @@
 import { ToastContainer } from 'react-toastify'
-import '../../public/main.scss'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
 import Header from '@/components/header'
+import '../../public/main.scss'
 
 export default async function RootLayout({ children, params: { locale } }) {
     if (!routing.locales.includes(locale)) {
         notFound()
     }
-    
     const messages = await getMessages()
 
     return (
-        <html lang={locale} style={{ background: '#1f2028' }}>
+        <html lang={locale}>
             <head>
                 <link
                     rel="stylesheet"
@@ -36,7 +35,13 @@ export default async function RootLayout({ children, params: { locale } }) {
                     />
                     <div className="page-wrapper page-wrapper-2">
                         <Header locale={locale} />
-                        {children}
+                        <div className="bostami-page-area z-index-3">
+                            <div className="container">
+                                <div className="bostami-page-wrap pt-60 pl-80 pr-80">
+                                    {children}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </NextIntlClientProvider>
             </body>
