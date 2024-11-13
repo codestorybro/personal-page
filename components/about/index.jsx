@@ -17,16 +17,6 @@ export default function About() {
 
     return (
         <>
-            <div className="page-tilte-2-wrap">
-                <div className="row">
-                    <div className="col-12">
-                        <div className="bostami-page-title-wrap mb-40">
-                            <h2 className="page-title">About Me</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <div className="about-me-2-wrap">
                 <div className="row">
                     <div className="col-lg-4 col-md-8">
@@ -44,7 +34,7 @@ export default function About() {
                     <div className="col-lg-8 col-md-12">
                         <div className="bostami-parsonal-info-wrap mb-40">
                             <h4 className="bostami-parsonal-info-title">
-                                Who am i?
+                                Feeling tired of keeping up with JS?
                             </h4>
                             <p className="bostami-parsonal-info-bio-text">
                                 {bioData.descOne}
@@ -62,7 +52,9 @@ export default function About() {
                 <div className="row">
                     <div className="col-12">
                         <div className="bostami-section-title-wrap mb-30">
-                            <h2 className="section-title">What I do!</h2>
+                            <h2 className="section-title">
+                                What can you learn?
+                            </h2>
                         </div>
                     </div>
 
@@ -94,14 +86,15 @@ export default function About() {
                 </div>
             </div>
 
-            <div className="client-2-wrap bg-light-white-2 pt-40 pb-65">
+            <div className="col-12">
+                <div className="bostami-section-title-wrap mb-30">
+                    <h2 className="section-title">
+                        Who has already benefited?
+                    </h2>
+                </div>
+            </div>
+            <div className="client-2-wrap bg-light-white-2 pt-65 pb-65">
                 <div className="row">
-                    <div className="col-12">
-                        <div className="bostami-section-title-wrap text-center mb-35">
-                            <h2 className="section-title">Clients</h2>
-                        </div>
-                    </div>
-
                     <div className="col-12">
                         <div className="bostami-client-slider">
                             <div className="swiper-container client_slide_active">

@@ -23,7 +23,7 @@ export default function Contact() {
                                 {contactItems.map((elm, i) => (
                                     <div key={i} className="col-xl-12 col-lg-6">
                                         <div
-                                            className={`bostami-contact-item  ${elm.bgColor} bg-prink mb-30`}
+                                            className={`bostami-contact-item  ${elm.bgColor} mb-30`}
                                         >
                                             <div className="icon">
                                                 <Image
@@ -62,7 +62,7 @@ export default function Contact() {
                 </div>
             </div>
 
-            <div className="footer-copyright text-center pt-25 pb-25 bg-light-white-2 border-redius-20">
+            <div className="footer-copyright text-center pt-25 pb-25">
                 <span style={{ fontSize: 16 }}>
                     ©{new Date().getFullYear()} All rights reserved by{' '}
                     <span style={{ fontFamily: 'Adrip', fontSize: 32 }}>

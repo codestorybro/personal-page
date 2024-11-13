@@ -81,7 +81,6 @@ h6 {
     margin-top: 0px;
     line-height: 1.5;
     font-weight: 700;
-    text-transform: capitalize;
     margin-bottom: 15px;
 }
 
@@ -1996,7 +1995,7 @@ textarea:focus::placeholder {
 }
 
 .bostami-page-area .bostami-page-wrap {
-    border-radius: 20px;
+    border-radius: 112px;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px),
     only screen and (min-width: 768px) and (max-width: 991px) {
@@ -2927,11 +2926,10 @@ textarea:focus::placeholder {
 ******************************************************* 
 *************************************************************** */
 .bostami-what-do-item {
-    border-radius: 12px;
+    border-radius: 56px;
     display: flex;
     gap: 20px;
-    padding: 20px;
-    padding-bottom: 15px;
+    padding: 32px;
     margin-bottom: 30px;
 }
 @media (max-width: 767px) {
@@ -2972,7 +2970,7 @@ textarea:focus::placeholder {
 }
 
 .bostami-page-wrap .client-2-wrap {
-    border-radius: 20px;
+    border-radius: 56px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
