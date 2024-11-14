@@ -19,7 +19,7 @@ $color-shadow: #141414;
   }
   
   &:active {
-    box-shadow: inset 1px 1px 2px $color-shadow, inset -1px -1px 2px $color-white;
+    box-shadow: inset 2px 2px 5px $color-shadow, inset -3px -3px 7px $color-white;
   }
 
   i {
