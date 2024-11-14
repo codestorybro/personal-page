@@ -1909,8 +1909,7 @@ textarea:focus::placeholder {
 
 @media (max-width: 767px) {
     .page-wrapper.page-wrapper-2 {
-        /* padding-top: 20px; */
-        padding-bottom: 120px;
+        padding-bottom: 160px;
     }
 }
 

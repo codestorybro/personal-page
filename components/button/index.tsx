@@ -3,7 +3,7 @@ import styles from './Button.module.scss'
 
 type Props = {
     children: React.ReactNode
-    style: React.CSSProperties
+    style?: React.CSSProperties
     className: string
 }
 
