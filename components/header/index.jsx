@@ -46,6 +46,16 @@ export default function Header({ locale }) {
                                                 <i className="fa-brands fa-discord"></i>
                                             </Button>
                                         </Link>
+                                        <Link
+                                            href={
+                                                locale === 'pl' ? '/en' : '/pl'
+                                            }
+                                            className="ml-20"
+                                        >
+                                            <Button className="nav-btn">
+                                                {locale === 'pl' ? 'PL' : 'EN'}
+                                            </Button>
+                                        </Link>
                                     </nav>
                                 </div>
                             </div>

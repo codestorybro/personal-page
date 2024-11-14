@@ -1,15 +1,9 @@
 export default function Contact() {
     return (
         <>
-            <div className="page-tilte-2-wrap">
-                <div className="row">
-                    <div className="col-12">
-                        <div className="bostami-page-title-wrap mb-40">
-                            <h2 className="page-title">Community</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <h4 className="bostami-parsonal-info-title mb-15">
+                Discord community
+            </h4>
 
             <div className="bostami-contact-2-wrap">
                 <div className="row"></div>

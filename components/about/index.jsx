@@ -87,11 +87,13 @@ export default function About() {
             </div>
 
             <p className="bostami-parsonal-info-bio-text">
-                Psst... I'm also open for collabs & partnerships.
+                Psst... I'm also open for collabs.
             </p>
 
             <Link href="mailto:hello@codestorybro.com" target="_blank">
-                <Button style={{ borderRadius: 56, padding: 20 }}>
+                <Button
+                    style={{ borderRadius: 56, padding: 20, cursor: 'pointer' }}
+                >
                     <Image
                         height={75}
                         width={75}
