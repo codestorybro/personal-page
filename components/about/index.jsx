@@ -91,7 +91,7 @@ export default function About() {
             </p>
 
             <Link href="mailto:hello@codestorybro.com" target="_blank">
-                <Button style={{ borderRadius: 56, minWidth: 300 }}>
+                <Button style={{ borderRadius: 56, padding: 20 }}>
                     <Image
                         height={75}
                         width={75}

@@ -34,9 +34,12 @@ export default function Header({ locale }) {
                         <div className="col-lg-10 col-md-6 col-sm-8 col-8">
                             <div className="header-right-flex">
                                 <div className="bostami-main-menu-wrap ">
-                                    <nav className="bastami-main-menu">
+                                    <nav className="bastami-main-menu navBar">
+                                        <Button className="nav-btn mr-25">
+                                            <i className="fa fa-arrow-up"></i>
+                                        </Button>
                                         <Link href={`/${locale}/discord`}>
-                                            <Button>
+                                            <Button className="nav-btn">
                                                 <i className="fa-brands fa-discord"></i>
                                             </Button>
                                         </Link>
