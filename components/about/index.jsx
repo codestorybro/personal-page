@@ -5,6 +5,8 @@ import { clientLogos } from '@/data/clientLogos'
 import { Navigation, Pagination, Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Image from 'next/image'
+import Link from 'next/link'
+import { Button } from '../button'
 
 export default function About() {
     const [showSlider, setShowSlider] = useState(false)
@@ -49,7 +51,7 @@ export default function About() {
                                 If any of this sounds familiar...
                             </p>
                             <h4 className="bostami-parsonal-info-title mb-15">
-                                You ar in the right place!
+                                You are in the right place!
                             </h4>
                             <p className="bostami-parsonal-info-bio-text">
                                 <span
@@ -65,6 +67,14 @@ export default function About() {
                                 help you set clear career paths, and unlock your
                                 potential in the tech world.
                             </p>
+                            <p className="bostami-parsonal-info-bio-text">
+                                Whether you’re just starting out or looking to
+                                advance, my personalized mentoring will give you
+                                the tools, support, and real-world insights to
+                                fast-track your growth. Let’s work together to
+                                make your journey in tech both fulfilling and
+                                successful!
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -72,7 +82,32 @@ export default function About() {
 
             <div className="col-12">
                 <div className="bostami-section-title-wrap mb-15">
-                    <h4 className="section-title">They already trusted us!</h4>
+                    <h4 className="section-title">Interested?</h4>
+                </div>
+            </div>
+
+            <p className="bostami-parsonal-info-bio-text">
+                Psst... I'm also open for collabs & partnerships.
+            </p>
+
+            <Link href="mailto:hello@codestorybro.com" target="_blank">
+                <Button style={{ borderRadius: 56, minWidth: 300 }}>
+                    <Image
+                        height={75}
+                        width={75}
+                        alt="feature"
+                        className="feature-logo"
+                        src="/assets/img/envelope.svg"
+                    />
+                    <h6 className="title">hello@codestorybro.com</h6>
+                </Button>
+            </Link>
+
+            <div className="col-12 mt-60">
+                <div className="bostami-section-title-wrap mb-15">
+                    <h4 className="section-title">
+                        Who has been cooperated with me?
+                    </h4>
                 </div>
             </div>
             <div className="client-2-wrap bg-light-white-2 pt-65 pb-65">

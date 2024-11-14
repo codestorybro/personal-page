@@ -2945,6 +2945,11 @@ textarea:focus::placeholder {
     padding: 24px;
     margin-bottom: 30px;
 }
+
+.mail-link:active {
+    box-shadow: inset 2px 2px 5px #141414, inset -3px -3px 7px #212121;
+}
+
 @media (max-width: 767px) {
     .bostami-what-do-item {
         flex-wrap: wrap;

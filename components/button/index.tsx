@@ -3,8 +3,9 @@ import styles from './Button.module.scss';
 
 type Props = {
     children: React.ReactNode
+    style: React.CSSProperties
 }
 
-export const Button: FC<Props> = ({ children }) => {
-    return <button type="button" className={styles.customButton}>{children}</button>
+export const Button: FC<Props> = ({ children, ...props }) => {
+    return <button type="button" className={styles.customButton} {...props}>{children}</button>
 }
