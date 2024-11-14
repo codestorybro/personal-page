@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react'
 import { clientLogos } from '@/data/clientLogos'
 import { Navigation, Pagination, Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { bioData } from '@/data/bioData'
 import Image from 'next/image'
 
 export default function About() {
