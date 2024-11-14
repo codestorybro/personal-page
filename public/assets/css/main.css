@@ -47,7 +47,7 @@ a:focus,
 
 a:focus,
 a:hover {
-    color: inherit;
+    color: white;
     text-decoration: none;
 }
 
@@ -2457,6 +2457,14 @@ textarea:focus::placeholder {
 
 .site-logo:hover {
     opacity: 0.5;
+}
+
+.site-home-logo {
+    cursor: default;
+}
+
+.site-home-logo:hover {
+    opacity: 1;
 }
 
 .home-3 .text-right {

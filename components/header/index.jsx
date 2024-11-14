@@ -2,15 +2,21 @@
 import { Button } from '@/components/button'
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 
 export default function Header({ locale }) {
+    const pathname = usePathname()
+
     return (
         <div className="bostami-header-area mb-40 z-index-5">
             <div className="container">
                 <div className="bostami-header-wrap main-style-2">
                     <div className="row">
                         <div className="col-lg-2 col-md-6 col-sm-4 col-4 d-flex align-items-center">
-                            <Link className="site-logo" href="/">
+                            <Link
+                                className={`site-logo ${pathname === '/pl' || pathname === '/en' ? 'site-home-logo' : ''}`}
+                                href="/"
+                            >
                                 <span>
                                     <Image
                                         width={50}
