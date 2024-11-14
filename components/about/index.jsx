@@ -16,33 +16,8 @@ export default function About() {
 
     return (
         <>
-            <div className="about-me-2-wrap">
+            <div className="what-i-do-2">
                 <div className="row">
-                    <div className="col-lg-8 col-md-12">
-                        <div className="bostami-parsonal-info-wrap mb-40">
-                            <h4 className="bostami-parsonal-info-title">
-                                Feeling tired learning JavaScript?
-                            </h4>
-                            <p className="bostami-parsonal-info-bio-text">
-                                {bioData.descOne}
-                            </p>
-
-                            <p className="bostami-parsonal-info-bio-text">
-                                {bioData.descTwo}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className="what-i-do-2 mb-50">
-                <div className="row">
-                    <div className="col-12">
-                        <div className="bostami-section-title-wrap mb-30">
-                            <h4 className="section-title">Do you...</h4>
-                        </div>
-                    </div>
-
                     {items.map((elm, i) => (
                         <div key={i} className="col-xl-4 col-lg-6 col-md-6">
                             <div className={`bostami-what-do-item`}>
@@ -51,16 +26,15 @@ export default function About() {
                                     style={{ margin: '0 auto' }}
                                 >
                                     <Image
-                                        height={200}
-                                        width={200}
+                                        height={75}
+                                        width={75}
                                         alt="feature"
                                         className="feature-logo"
                                         src={elm.icon}
                                     />
                                 </div>
-                                <div className="text">
-                                    <h4 className="title">{elm.title}</h4>
-                                    <p>{elm.description}</p>
+                                <div>
+                                    <h6 className="title">{elm.title}</h6>
                                 </div>
                             </div>
                         </div>
@@ -68,11 +42,38 @@ export default function About() {
                 </div>
             </div>
 
+            <div className="about-me-2-wrap">
+                <div className="row">
+                    <div className="col-lg-8 col-md-12">
+                        <div className="bostami-parsonal-info-wrap mb-60">
+                            <p className="bostami-parsonal-info-bio-text">
+                                If any of this sounds familiar...
+                            </p>
+                            <h4 className="bostami-parsonal-info-title mb-15">
+                                You ar in the right place!
+                            </h4>
+                            <p className="bostami-parsonal-info-bio-text">
+                                <span
+                                    style={{
+                                        fontFamily: 'Adrip',
+                                        fontSize: 24,
+                                    }}
+                                >
+                                    <span style={{ fontSize: 32 }}>c</span>
+                                    ode$toryBro
+                                </span>{' '}
+                                is here to guide you through the challenges,
+                                help you set clear career paths, and unlock your
+                                potential in the tech world.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div className="col-12">
-                <div className="bostami-section-title-wrap mb-30">
-                    <h4 className="section-title">
-                        Who has already benefited?
-                    </h4>
+                <div className="bostami-section-title-wrap mb-15">
+                    <h4 className="section-title">They already trusted us!</h4>
                 </div>
             </div>
             <div className="client-2-wrap bg-light-white-2 pt-65 pb-65">

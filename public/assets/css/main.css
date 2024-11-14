@@ -2037,7 +2037,6 @@ textarea:focus::placeholder {
 }
 .bostami-page-area .bostami-parsonal-info-title {
     font-weight: 500;
-    margin-bottom: 11px;
 }
 .bostami-page-area .page-title::after {
     background: #1b74e4;
@@ -2909,6 +2908,7 @@ textarea:focus::placeholder {
 
 .feature-logo {
     height: auto;
+    margin-bottom: 20px;
 }
 
 .bostami-main-menu-wrap {
@@ -2937,10 +2937,12 @@ textarea:focus::placeholder {
 ******************************************************* 
 *************************************************************** */
 .bostami-what-do-item {
+    place-items: center;
+    text-align: center;
     border-radius: 56px;
-    display: flex;
+    display: block;
     gap: 20px;
-    padding: 32px;
+    padding: 24px;
     margin-bottom: 30px;
 }
 @media (max-width: 767px) {
@@ -2955,7 +2957,7 @@ textarea:focus::placeholder {
 }
 .bostami-what-do-item .text .title {
     margin-bottom: 10px;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 500;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1399px),
