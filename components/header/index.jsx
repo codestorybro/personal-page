@@ -15,7 +15,7 @@ export default function Header({ locale }) {
                                     <Image
                                         width={50}
                                         height={62}
-                                        src="/assets/img/logo.webp"
+                                        src="/assets/img/logo-main.svg"
                                         alt="profile"
                                         priority
                                     />

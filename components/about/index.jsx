@@ -39,27 +39,22 @@ export default function About() {
                 <div className="row">
                     <div className="col-12">
                         <div className="bostami-section-title-wrap mb-30">
-                            <h3 className="section-title">
-                                What can you learn?
-                            </h3>
+                            <h4 className="section-title">Do you...</h4>
                         </div>
                     </div>
 
                     {items.map((elm, i) => (
                         <div key={i} className="col-xl-4 col-lg-6 col-md-6">
-                            <div className={`bostami-what-do-item ${elm.bg}`}>
+                            <div className={`bostami-what-do-item`}>
                                 <div
                                     className="icon"
                                     style={{ margin: '0 auto' }}
                                 >
                                     <Image
-                                        height={45}
-                                        width={180}
-                                        style={{
-                                            margin: '0 auto',
-                                            height: 'auto',
-                                        }}
+                                        height={200}
+                                        width={200}
                                         alt="feature"
+                                        className="feature-logo"
                                         src={elm.icon}
                                     />
                                 </div>
@@ -75,9 +70,9 @@ export default function About() {
 
             <div className="col-12">
                 <div className="bostami-section-title-wrap mb-30">
-                    <h3 className="section-title">
+                    <h4 className="section-title">
                         Who has already benefited?
-                    </h3>
+                    </h4>
                 </div>
             </div>
             <div className="client-2-wrap bg-light-white-2 pt-65 pb-65">

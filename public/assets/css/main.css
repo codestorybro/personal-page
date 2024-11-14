@@ -2901,8 +2901,13 @@ textarea:focus::placeholder {
     padding-bottom: 70px;
     background-color: var(--light-white-2);
 }
+
 .bostami-client-slider-logo {
     padding: 0px 15px;
+    height: auto;
+}
+
+.feature-logo {
     height: auto;
 }
 
