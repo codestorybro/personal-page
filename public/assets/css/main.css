@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 :root {
-    --background-dark: #1D1E22;
+    --background-dark: #1d1e22;
     --common-white: #111;
     --common-black: #fff;
     --theme-primary: #1b74e4;
@@ -29,7 +29,8 @@ body {
     transition: all 0.5s;
 }
 
-.img, img {
+.img,
+img {
     max-width: 100%;
     -webkit-transition: 0.3s;
     -moz-transition: 0.3s;
@@ -38,17 +39,20 @@ body {
     transition: 0.3s;
 }
 
-a:focus, .button:focus {
+a:focus,
+.button:focus {
     text-decoration: none;
     outline: none;
 }
 
-a:focus, a:hover {
+a:focus,
+a:hover {
     color: inherit;
     text-decoration: none;
 }
 
-a, button {
+a,
+button {
     color: inherit;
     outline: medium none;
     text-decoration: none;
@@ -1638,6 +1642,13 @@ textarea:focus::placeholder {
     padding-left: 30px;
 }
 
+@media (max-width: 767px) {
+    .container {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+
 .row {
     --bs-gutter-x: 30px;
 }
@@ -1720,7 +1731,7 @@ textarea:focus::placeholder {
 ************
 *************************
 02. button
-******************************************************* 
+*******************************************************
 *************************************************************** */
 .btn-1 {
     display: inline-block;
@@ -1864,7 +1875,7 @@ textarea:focus::placeholder {
 ************
 *************************
 03. page
-******************************************************* 
+*******************************************************
 *************************************************************** */
 .page-wrapper {
     height: 100vh;
@@ -1894,6 +1905,12 @@ textarea:focus::placeholder {
 .page-wrapper.page-wrapper-2 {
     padding-top: 30px;
     padding-bottom: 60px;
+}
+
+@media (max-width: 767px) {
+    .page-wrapper.page-wrapper-2 {
+        padding-bottom: 160px;
+    }
 }
 
 .page-wrapper.page-wrapper-2.inner-page {
@@ -1988,6 +2005,7 @@ textarea:focus::placeholder {
         padding-right: 40px;
     }
 }
+
 @media (max-width: 767px) {
     .section-wrapper:is(.pr-60) {
         padding-right: 20px;
@@ -1997,6 +2015,13 @@ textarea:focus::placeholder {
 .bostami-page-area .bostami-page-wrap {
     border-radius: 112px;
 }
+
+@media (max-width: 767px) {
+    .bostami-page-area .bostami-page-wrap {
+        border-radius: 60px;
+    }
+}
+
 @media only screen and (min-width: 992px) and (max-width: 1199px),
     only screen and (min-width: 768px) and (max-width: 991px) {
     .bostami-page-area .bostami-page-wrap:is(.pl-80) {
@@ -2102,11 +2127,11 @@ textarea:focus::placeholder {
 ************
 *************************
 04. header
-******************************************************* 
+*******************************************************
 *************************************************************** */
 .bostami-header-wrap {
     background: var(--light-white);
-    padding: 20px;
+    padding: 20px 0;
     border-radius: 12px;
 }
 
@@ -2241,6 +2266,26 @@ textarea:focus::placeholder {
     transform: scaleY(1);
 }
 
+@media (max-width: 767px) {
+    /* Kontener główny kieszonki */
+    .navBar {
+        background-color: var(--background-dark);
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 20px;
+        box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        box-sizing: border-box;
+        border-top-left-radius: 40px;
+        border-top-right-radius: 40px;
+        overflow: hidden;
+        z-index: 1000;
+    }
+}
+
 .bastami-main-menu ul li {
     background-color: var(--light-white);
     border-radius: 12px;
@@ -2358,7 +2403,7 @@ textarea:focus::placeholder {
     height: 40px;
     line-height: 40px;
 }
-  .main-style-2 .bostami-main-menu-wrap .bastami-main-menu ul li a {
+.main-style-2 .bostami-main-menu-wrap .bastami-main-menu ul li a {
     background: #111;
     border-radius: 8px;
     padding: 0px 19px;
@@ -2567,7 +2612,7 @@ textarea:focus::placeholder {
 ************
 *************************
 05. parsonal info
-******************************************************* 
+*******************************************************
 *************************************************************** */
 .bostami-parsonal-info-area {
     width: 400px;
@@ -2654,7 +2699,7 @@ textarea:focus::placeholder {
 .btn-2.circle {
     border-radius: 30px;
 }
-  .btn-2.circle {
+.btn-2.circle {
     color: #fff;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
@@ -2713,7 +2758,7 @@ textarea:focus::placeholder {
     filter: brightness(0) saturate(100%) invert(0%) sepia(100%) saturate(20%)
         hue-rotate(39deg) brightness(101%) contrast(107%);
 }
-  .bostami-parsonal-info-social-link li a img {
+.bostami-parsonal-info-social-link li a img {
     filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(1%)
         hue-rotate(138deg) brightness(103%) contrast(101%);
 }
@@ -2893,7 +2938,7 @@ textarea:focus::placeholder {
 ************
 *************************
 06. client
-******************************************************* 
+*******************************************************
 *************************************************************** */
 .bostami-client {
     padding-top: 40px;
@@ -2934,7 +2979,7 @@ textarea:focus::placeholder {
 ************
 *************************
 07. what do
-******************************************************* 
+*******************************************************
 *************************************************************** */
 .bostami-what-do-item {
     place-items: center;
@@ -2947,7 +2992,9 @@ textarea:focus::placeholder {
 }
 
 .mail-link:active {
-    box-shadow: inset 2px 2px 5px #141414, inset -3px -3px 7px #212121;
+    box-shadow:
+        inset 2px 2px 5px #141414,
+        inset -3px -3px 7px #212121;
 }
 
 @media (max-width: 767px) {
@@ -3012,7 +3059,7 @@ textarea:focus::placeholder {
 ************
 *************************
 08. resume
-******************************************************* 
+*******************************************************
 *************************************************************** */
 @media only screen and (min-width: 768px) and (max-width: 991px),
     (max-width: 767px) {
@@ -3151,7 +3198,7 @@ textarea:focus::placeholder {
 ************
 *************************
 09. portfolio
-******************************************************* 
+*******************************************************
 *************************************************************** */
 .fillter-btn-wrap {
     text-align: right;
@@ -3519,7 +3566,7 @@ textarea:focus::placeholder {
 ************
 *************************
 10. blog
-******************************************************* 
+*******************************************************
 *************************************************************** */
 .blog-slider-single {
     border-radius: 12px;
@@ -3927,7 +3974,7 @@ textarea:focus::placeholder {
 ************
 *************************
 11. contact
-******************************************************* 
+*******************************************************
 *************************************************************** */
 .contact-area {
     padding: 60px 45px;
@@ -4040,7 +4087,7 @@ textarea:focus::placeholder {
 ************
 *************************
 12. preloader
-******************************************************* 
+*******************************************************
 *************************************************************** */
 /* preloader */
 #preloader {
@@ -4174,7 +4221,7 @@ textarea:focus::placeholder {
 ************
 *************************
 13. blog details
-******************************************************* 
+*******************************************************
 *************************************************************** */
 .blog-details-area {
     background-color: #fff;
@@ -4481,7 +4528,7 @@ textarea:focus::placeholder {
 ************
 *************************
 14. sidebar
-******************************************************* 
+*******************************************************
 *************************************************************** */
 .sidebar-wrap {
     padding: 30px;
@@ -4636,9 +4683,9 @@ textarea:focus::placeholder {
 ************
 *************************
 15. dark theme
-******************************************************* 
+*******************************************************
 *************************************************************** */
-  .overly {
+.overly {
     position: fixed;
     left: 0;
     top: 0;
@@ -4650,27 +4697,21 @@ textarea:focus::placeholder {
     overflow-y: scroll;
 }
 
-  .page-wrapper .bostami-header-wrap,
-  .page-wrapper .bostami-parsonal-info-area,
-  .page-wrapper .bostami-main-menu-wrap {
+.page-wrapper .bostami-header-wrap,
+.page-wrapper .bostami-parsonal-info-area,
+.page-wrapper .bostami-main-menu-wrap {
     background-color: #000;
 }
-  .page-wrapper .mobile-menu-wrap .mobile_menu .mean-bar,
-  .page-wrapper .mobile-menu-wrap .mobile_menu .mean-bar .mean-nav,
-  .page-wrapper .bostami-parsonal-info-contact,
-  .page-wrapper .bostami-parsonal-info-bio,
-  .page-wrapper .bostami-parsonal-info-social-link li a,
- 
-    .page-wrapper
-    .main-style-2
-    .bostami-main-menu-wrap
-    .bastami-main-menu
-    ul
-    li {
+.page-wrapper .mobile-menu-wrap .mobile_menu .mean-bar,
+.page-wrapper .mobile-menu-wrap .mobile_menu .mean-bar .mean-nav,
+.page-wrapper .bostami-parsonal-info-contact,
+.page-wrapper .bostami-parsonal-info-bio,
+.page-wrapper .bostami-parsonal-info-social-link li a,
+.page-wrapper .main-style-2 .bostami-main-menu-wrap .bastami-main-menu ul li {
     background: #1d1d1d;
 }
- 
-    .page-wrapper
+
+.page-wrapper
     .main-style-2
     .bostami-main-menu-wrap
     .bastami-main-menu
@@ -4679,87 +4720,69 @@ textarea:focus::placeholder {
     background: #1b74e4;
 }
 
-  .page-wrapper .bg-light-white-2,
-  .page-wrapper .blog-slider-single,
-  .page-wrapper .fillter-item {
+.page-wrapper .bg-light-white-2,
+.page-wrapper .blog-slider-single,
+.page-wrapper .fillter-item {
     transition: all 0.3s;
-    background-color: #1D1E22;
-    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5), -4px -4px 16px rgba(255, 255, 255, 0.05);
+    background-color: #1d1e22;
+    box-shadow:
+        4px 4px 16px rgba(0, 0, 0, 0.5),
+        -4px -4px 16px rgba(255, 255, 255, 0.05);
 }
 
 .bg-light-white-2:hover {
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5), -4px -4px 8px rgba(255, 255, 255, 0.05);
+    box-shadow:
+        4px 4px 8px rgba(0, 0, 0, 0.5),
+        -4px -4px 8px rgba(255, 255, 255, 0.05);
 }
-  .page-wrapper .knowledeges-item-wrap .gk-item {
+.page-wrapper .knowledeges-item-wrap .gk-item {
     background-color: #1c1c1c;
 }
-  .page-wrapper .bastami-main-menu ul li,
-  .page-wrapper .bostami-contact-item {
+.page-wrapper .bastami-main-menu ul li,
+.page-wrapper .bostami-contact-item {
     background-color: #212425;
 }
-  .page-wrapper .bastami-main-menu ul li.active a {
+.page-wrapper .bastami-main-menu ul li.active a {
     color: #fff;
 }
-  .page-wrapper .bastami-main-menu ul li.active {
+.page-wrapper .bastami-main-menu ul li.active {
     background-color: #1b74e4;
 }
-  .page-wrapper .bastami-main-menu ul li:hover a {
+.page-wrapper .bastami-main-menu ul li:hover a {
     color: #fff;
 }
-  .page-wrapper .bastami-main-menu ul li:hover {
+.page-wrapper .bastami-main-menu ul li:hover {
     background: #1b74e4;
 }
-  .page-wrapper .bostami-what-do-item,
-  .page-wrapper .bostami-card-item,
-  .page-wrapper .form-btn,
- 
-    .page-wrapper
-    .mobile-menu-wrap
-    .mobile_menu
-    .mean-bar
-    .mean-nav
-    ul
-    li
-    a {
+.page-wrapper .bostami-what-do-item,
+.page-wrapper .bostami-card-item,
+.page-wrapper .form-btn,
+.page-wrapper .mobile-menu-wrap .mobile_menu .mean-bar .mean-nav ul li a {
     background-color: transparent;
 }
-  .page-wrapper .bostami-parsonal-info-social-link li a:hover {
+.page-wrapper .bostami-parsonal-info-social-link li a:hover {
     background-color: #1b74e4;
 }
-  .page-wrapper .btn-1:hover {
+.page-wrapper .btn-1:hover {
     background-color: #1b74e4;
 }
- 
-    .page-wrapper
-    .mobile-menu-wrap
-    .mobile_menu
-    .mean-bar
-    .mean-nav
-    ul
-    li
-    a,
-  .page-wrapper .btn-1,
-  .page-wrapper .bostami-card-item .card-title,
-  .page-wrapper .form-btn {
+
+.page-wrapper .mobile-menu-wrap .mobile_menu .mean-bar .mean-nav ul li a,
+.page-wrapper .btn-1,
+.page-wrapper .bostami-card-item .card-title,
+.page-wrapper .form-btn {
     color: #fff;
 }
-  .page-wrapper .bostami-parsonal-info-bio,
-  .page-wrapper .bostami-contact-item .text span {
+.page-wrapper .bostami-parsonal-info-bio,
+.page-wrapper .bostami-contact-item .text span {
     color: #a6a6a6;
 }
- 
-    .page-wrapper
-    .mobile-menu-wrap
-    .mobile_menu
-    .mean-bar
-    .mean-nav
-    ul
-    li
-    a:hover {
+
+.page-wrapper .mobile-menu-wrap .mobile_menu .mean-bar .mean-nav ul li a:hover {
     color: #fa5252;
 }
- 
-    .page-wrapper
+
+.page-wrapper
     .mobile-menu-wrap
     .mobile_menu
     .mean-bar
@@ -4769,8 +4792,8 @@ textarea:focus::placeholder {
     a {
     color: #fa5252;
 }
- 
-    .page-wrapper
+
+.page-wrapper
     .mobile-menu-wrap
     .mobile_menu
     .mean-bar
@@ -4783,8 +4806,8 @@ textarea:focus::placeholder {
     * {
     fill: #fff;
 }
- 
-    .page-wrapper
+
+.page-wrapper
     .mobile-menu-wrap
     .mobile_menu
     .mean-bar
@@ -4796,8 +4819,8 @@ textarea:focus::placeholder {
     img {
     filter: brightness(5);
 }
- 
-    .page-wrapper
+
+.page-wrapper
     .mobile-menu-wrap
     .mobile_menu
     .mean-bar
@@ -4810,8 +4833,8 @@ textarea:focus::placeholder {
     * {
     fill: #fa5252;
 }
- 
-    .page-wrapper
+
+.page-wrapper
     .mobile-menu-wrap
     .mobile_menu
     .mean-bar
@@ -4824,8 +4847,8 @@ textarea:focus::placeholder {
     * {
     fill: #fa5252;
 }
- 
-    .page-wrapper
+
+.page-wrapper
     .mobile-menu-wrap
     .mobile_menu
     .mean-bar
@@ -4837,8 +4860,8 @@ textarea:focus::placeholder {
     img {
     filter: saturate(25);
 }
- 
-    .page-wrapper
+
+.page-wrapper
     .mobile-menu-wrap
     .mobile_menu
     .mean-bar
@@ -4850,19 +4873,23 @@ textarea:focus::placeholder {
     img {
     filter: saturate(25);
 }
-  .page-wrapper .bostami-what-do-item,
-  .page-wrapper .bostami-card-item,
-  .page-wrapper .blog-slider-single,
-  .page-wrapper .fillter-item {
-        box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5), -4px -4px 16px rgba(255, 255, 255, 0.05);
-        transition: all 0.3s;
-    }
+.page-wrapper .bostami-what-do-item,
+.page-wrapper .bostami-card-item,
+.page-wrapper .blog-slider-single,
+.page-wrapper .fillter-item {
+    box-shadow:
+        4px 4px 16px rgba(0, 0, 0, 0.5),
+        -4px -4px 16px rgba(255, 255, 255, 0.05);
+    transition: all 0.3s;
+}
 
-    .bostami-what-do-item:hover {
-        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5), -4px -4px 8px rgba(255, 255, 255, 0.05);
-    }
- 
-    .page-wrapper-2
+.bostami-what-do-item:hover {
+    box-shadow:
+        4px 4px 8px rgba(0, 0, 0, 0.5),
+        -4px -4px 8px rgba(255, 255, 255, 0.05);
+}
+
+.page-wrapper-2
     .main-style-2
     .bostami-main-menu-wrap
     .bastami-main-menu
@@ -4878,10 +4905,12 @@ textarea:focus::placeholder {
     border: 0;
     outline: 0;
     font-size: 24px;
-    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5), -4px -4px 16px rgba(255, 255, 255, 0.05);
+    box-shadow:
+        4px 4px 16px rgba(0, 0, 0, 0.5),
+        -4px -4px 16px rgba(255, 255, 255, 0.05);
 }
- 
-    .page-wrapper-2
+
+.page-wrapper-2
     .main-style-2
     .bostami-main-menu-wrap
     .bastami-main-menu
@@ -4893,81 +4922,66 @@ textarea:focus::placeholder {
     * {
     fill: white;
 }
-  .page-wrapper-2 .bostami-header-wrap.main-style-2 {
+.page-wrapper-2 .bostami-header-wrap.main-style-2 {
     background-color: transparent;
 }
-  .page-wrapper-2 .bostami-main-menu-wrap {
+.page-wrapper-2 .bostami-main-menu-wrap {
     background: transparent;
 }
- 
-    .page-wrapper-2
-    .bostami-parsonal-info-area.bostami-parsonal-info-2-area {
+
+.page-wrapper-2 .bostami-parsonal-info-area.bostami-parsonal-info-2-area {
     background: transparent;
 }
-  .page-wrapper-2 .bostami-page-area .bostami-parsonal-info-contact {
+.page-wrapper-2 .bostami-page-area .bostami-parsonal-info-contact {
     background-color: transparent;
 }
-  .page-wrapper-2 .bostami-parsonal-info-contact-item .icon:hover {
+.page-wrapper-2 .bostami-parsonal-info-contact-item .icon:hover {
     background: #1b74e4;
 }
-  .home-3 .bastami-main-menu ul li:is(.active) a span svg * {
+.home-3 .bastami-main-menu ul li:is(.active) a span svg * {
     fill: #1b74e4;
 }
-  .home-3 .bastami-main-menu ul li:hover a span svg * {
+.home-3 .bastami-main-menu ul li:hover a span svg * {
     fill: #1b74e4;
 }
-  .home-3 .bostami-header-wrap {
+.home-3 .bostami-header-wrap {
     background: transparent !important;
 }
-  .home-3 .bostami-parsonal-info-social-link li a:hover {
+.home-3 .bostami-parsonal-info-social-link li a:hover {
     background: #1b74e4;
 }
-  .home-3 .bastami-main-menu ul li:is(.active) {
+.home-3 .bastami-main-menu ul li:is(.active) {
     background: #1b74e4;
 }
-  .home-3 .bastami-main-menu ul li:hover {
+.home-3 .bastami-main-menu ul li:hover {
     background: #1b74e4;
 }
-  .home-3 .bostami-parsonal-info-contact-item .icon:hover {
+.home-3 .bostami-parsonal-info-contact-item .icon:hover {
     background: #1b74e4;
 }
-  .home-1 .bostami-header-wrap {
+.home-1 .bostami-header-wrap {
     background: transparent;
 }
-  .home-1 .bastami-main-menu ul li.active a span svg * {
+.home-1 .bastami-main-menu ul li.active a span svg * {
     fill: white;
 }
-  .home-1 .bastami-main-menu ul li a span svg *,
-  .home-3 .bastami-main-menu ul li a span svg * {
+.home-1 .bastami-main-menu ul li a span svg *,
+.home-3 .bastami-main-menu ul li a span svg * {
     fill: #a6a6a6;
 }
-  .home-1 .bastami-main-menu ul li:hover a span svg * {
+.home-1 .bastami-main-menu ul li:hover a span svg * {
     fill: white;
 }
- 
-    .home-1
-    .mobile-menu-wrap
-    .mobile_menu
-    .mean-bar
-    .mean-nav
-    ul
-    li
-    a:hover {
+
+.home-1 .mobile-menu-wrap .mobile_menu .mean-bar .mean-nav ul li a:hover {
     color: #1b74e4;
 }
- 
-    .home-1
-    .mobile-menu-wrap
-    .mobile_menu
-    .mean-bar
-    .mean-nav
-    ul
-    li.active
-    a {
+
+.home-1 .mobile-menu-wrap .mobile_menu .mean-bar .mean-nav ul li.active a {
     color: #1b74e4;
 }
- 
-    .home-1
+
+.home-1
     .mobile-menu-wrap
     .mobile_menu
     .mean-bar
@@ -4980,8 +4994,8 @@ textarea:focus::placeholder {
     * {
     fill: #1b74e4;
 }
- 
-    .home-1
+
+.home-1
     .mobile-menu-wrap
     .mobile_menu
     .mean-bar
@@ -4994,8 +5008,8 @@ textarea:focus::placeholder {
     * {
     fill: #1b74e4;
 }
- 
-    .home-1
+
+.home-1
     .mobile-menu-wrap
     .mobile_menu
     .mean-bar
@@ -5007,8 +5021,8 @@ textarea:focus::placeholder {
     img {
     filter: saturate(25);
 }
- 
-    .home-1
+
+.home-1
     .mobile-menu-wrap
     .mobile_menu
     .mean-bar
@@ -5020,14 +5034,14 @@ textarea:focus::placeholder {
     img {
     filter: saturate(25);
 }
-  .h1-modal-box .modal-dialog {
+.h1-modal-box .modal-dialog {
     background-color: #323232;
 }
-  .h1-modal-box .modal-dialog .modal-content {
+.h1-modal-box .modal-dialog .modal-content {
     background-color: #323232;
 }
- 
-    .h1-modal-box
+
+.h1-modal-box
     .modal-dialog
     .modal-content
     .modal-body
@@ -5036,14 +5050,14 @@ textarea:focus::placeholder {
     background: #000;
     color: white;
 }
-  .portfolio-modal-box .modal-dialog {
+.portfolio-modal-box .modal-dialog {
     background-color: #323232;
 }
-  .portfolio-modal-box .modal-dialog .modal-content {
+.portfolio-modal-box .modal-dialog .modal-content {
     background-color: #323232;
 }
- 
-    .portfolio-modal-box
+
+.portfolio-modal-box
     .modal-dialog
     .modal-content
     .modal-body
@@ -5054,12 +5068,12 @@ textarea:focus::placeholder {
 }
 
 /*# sourceMappingURL=main.css.map */
-  .bostami-parsonal-info-contact-item:not(:first-child) {
+.bostami-parsonal-info-contact-item:not(:first-child) {
     border-color: #333;
 }
-  .contact-form .input-box {
+.contact-form .input-box {
     border-bottom-color: #333;
 }
-  .bostami-parsonal-info-btn .btn-2 {
+.bostami-parsonal-info-btn .btn-2 {
     color: #fff;
 }
