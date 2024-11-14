@@ -1,7 +1,6 @@
 $ruler: 16px;
 $color-white: #212121;
 $color-shadow: #141414;
-$color-bg: #272727;
 
 .customButton {
   border: 0;
@@ -9,14 +8,14 @@ $color-bg: #272727;
   font-size: $ruler*1.5;
   border-radius: $ruler*20;
   padding: $ruler;
-  background-color:$color-bg;
   font-weight: bold;
-  box-shadow: -5px -5px 20px $color-white,  5px 5px 20px $color-shadow;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s;
   cursor: pointer;
-  
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5), -4px -4px 16px rgba(255, 255, 255, 0.05);
+  background: #1D1E22;
+
   &:hover {
-    box-shadow: -2px -2px 5px $color-white, 2px 2px 5px $color-shadow;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5), -4px -4px 8px rgba(255, 255, 255, 0.05);
   }
   
   &:active {

@@ -1,6 +1,7 @@
 'use client'
 import { Button } from '@/components/button'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Header({ locale }) {
     return (
@@ -10,8 +11,23 @@ export default function Header({ locale }) {
                     <div className="row">
                         <div className="col-lg-2 col-md-6 col-sm-4 col-4 d-flex align-items-center">
                             <Link className="site-logo" href="/">
-                                <span style={{ fontSize: 70 }}>c</span>
-                                ode$toryBro
+                                <span>
+                                    <Image
+                                        width={50}
+                                        height={62}
+                                        src="/assets/img/logo.webp"
+                                        alt="profile"
+                                        priority
+                                    />
+                                </span>
+                                <span>
+                                    <span
+                                        style={{ fontSize: 70, marginLeft: 8 }}
+                                    >
+                                        c
+                                    </span>
+                                    ode$toryBro
+                                </span>
                             </Link>
                         </div>
 

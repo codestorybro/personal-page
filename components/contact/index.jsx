@@ -49,7 +49,7 @@ export default function Contact() {
                     </div>
 
                     <div className="col-xl-8  col-lg-12">
-                        <div className="contact-area bg-light-white-2 mb-60">
+                        <div className="contact-area bg-light-white-2">
                             <h5 className="contact-title">
                                 I'm always open to discussing produuct
                             </h5>
@@ -62,7 +62,7 @@ export default function Contact() {
                 </div>
             </div>
 
-            <div className="footer-copyright text-center pt-25 pb-25">
+            <div className="footer-copyright text-center pt-25 pb-25 mt-50">
                 <span style={{ fontSize: 16 }}>
                     ©{new Date().getFullYear()} All rights reserved by{' '}
                     <span style={{ fontFamily: 'Adrip', fontSize: 32 }}>

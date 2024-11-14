@@ -5,7 +5,6 @@ import { clientLogos } from '@/data/clientLogos'
 import { Navigation, Pagination, Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { bioData } from '@/data/bioData'
-import { contactData } from '@/data/contactData'
 import Image from 'next/image'
 
 export default function About() {
@@ -19,22 +18,10 @@ export default function About() {
         <>
             <div className="about-me-2-wrap">
                 <div className="row">
-                    <div className="col-lg-4 col-md-8">
-                        <div className="bostami-parsonal-info-img">
-                            <Image
-                                width={300}
-                                height={300}
-                                src="/assets/img/logo-light.png"
-                                alt="profile"
-                                priority
-                            />
-                        </div>
-                    </div>
-
                     <div className="col-lg-8 col-md-12">
                         <div className="bostami-parsonal-info-wrap mb-40">
                             <h4 className="bostami-parsonal-info-title">
-                                Feeling tired of keeping up with JS?
+                                Feeling tired learning JavaScript?
                             </h4>
                             <p className="bostami-parsonal-info-bio-text">
                                 {bioData.descOne}
@@ -52,9 +39,9 @@ export default function About() {
                 <div className="row">
                     <div className="col-12">
                         <div className="bostami-section-title-wrap mb-30">
-                            <h2 className="section-title">
+                            <h3 className="section-title">
                                 What can you learn?
-                            </h2>
+                            </h3>
                         </div>
                     </div>
 
@@ -88,9 +75,9 @@ export default function About() {
 
             <div className="col-12">
                 <div className="bostami-section-title-wrap mb-30">
-                    <h2 className="section-title">
+                    <h3 className="section-title">
                         Who has already benefited?
-                    </h2>
+                    </h3>
                 </div>
             </div>
             <div className="client-2-wrap bg-light-white-2 pt-65 pb-65">
@@ -132,7 +119,7 @@ export default function About() {
                                                 <div className="swiper-slide">
                                                     <Image
                                                         height={62}
-                                                        width={264}
+                                                        width={196}
                                                         className="bostami-client-slider-logo"
                                                         src={elm.imgSrc}
                                                         alt="client"
@@ -148,7 +135,7 @@ export default function About() {
                 </div>
             </div>
 
-            <div className="footer-copyright text-center pt-25 pb-25">
+            <div className="footer-copyright text-center pt-25 pb-25 mt-50">
                 <span style={{ fontSize: 16 }}>
                     ©{new Date().getFullYear()} All rights reserved by{' '}
                     <span style={{ fontFamily: 'Adrip', fontSize: 32 }}>
