@@ -48,7 +48,15 @@ export default function Header({ locale }) {
                                         </Link>
                                         <Link
                                             href={
-                                                locale === 'pl' ? '/en' : '/pl'
+                                                locale === 'pl'
+                                                    ? pathname.replace(
+                                                          '/pl',
+                                                          '/en'
+                                                      )
+                                                    : pathname.replace(
+                                                          '/en',
+                                                          '/pl'
+                                                      )
                                             }
                                             className="ml-20"
                                         >

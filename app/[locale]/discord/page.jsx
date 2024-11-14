@@ -1,5 +1,4 @@
-import Contact from '@/components/contact'
-import Header from '@/components/header'
+import Discord from '@/components/discord'
 import React from 'react'
 
 export const metadata = {
@@ -8,6 +7,6 @@ export const metadata = {
         'Rozwijaj się, buduj sieć kontaktów i szukaj ciekawych projektów w społeczności CodeStoryBro na Discordzie.',
 }
 
-export default function page() {
-    return <Contact />
+export default function DiscordPage() {
+    return <Discord />
 }

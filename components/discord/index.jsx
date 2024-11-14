@@ -1,4 +1,4 @@
-export default function Contact() {
+export default function Discord() {
     return (
         <>
             <h4 className="bostami-parsonal-info-title mb-15">
