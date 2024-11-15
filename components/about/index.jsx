@@ -7,9 +7,11 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '../button'
+import { useTranslations } from 'next-intl'
 
 export default function About() {
     const [showSlider, setShowSlider] = useState(false)
+    const t = useTranslations('home')
 
     useEffect(() => {
         setShowSlider(true)
@@ -48,7 +50,7 @@ export default function About() {
                     <div className="col-lg-8 col-md-12">
                         <div className="bostami-parsonal-info-wrap mb-60">
                             <p className="bostami-parsonal-info-bio-text">
-                                If any of this sounds familiar...
+                                {t('p1')}
                             </p>
                             <h4 className="bostami-parsonal-info-title mb-15">
                                 You are in the right place!
