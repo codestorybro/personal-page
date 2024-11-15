@@ -12,6 +12,7 @@ import { useTranslations } from 'next-intl'
 export default function About() {
     const [showSlider, setShowSlider] = useState(false)
     const t = useTranslations('home')
+    const p = useTranslations('page')
 
     useEffect(() => {
         setShowSlider(true)
@@ -50,10 +51,10 @@ export default function About() {
                     <div className="col-lg-8 col-md-12">
                         <div className="bostami-parsonal-info-wrap mb-60">
                             <p className="bostami-parsonal-info-bio-text">
-                                {t('p1')}
+                                {t('p01')}
                             </p>
                             <h4 className="bostami-parsonal-info-title mb-15">
-                                You are in the right place!
+                                {t('t1')}
                             </h4>
                             <p className="bostami-parsonal-info-bio-text">
                                 <span
@@ -65,17 +66,10 @@ export default function About() {
                                     <span style={{ fontSize: 32 }}>c</span>
                                     ode$toryBro
                                 </span>{' '}
-                                is here to guide you through the challenges,
-                                help you set clear career paths, and unlock your
-                                potential in the tech world.
+                                {t('p11')}
                             </p>
                             <p className="bostami-parsonal-info-bio-text">
-                                Whether you’re just starting out or looking to
-                                advance, my personalized mentoring will give you
-                                the tools, support, and real-world insights to
-                                fast-track your growth. Let’s work together to
-                                make your journey in tech both fulfilling and
-                                successful!
+                                {t('p12')}
                             </p>
                         </div>
                     </div>
@@ -84,13 +78,11 @@ export default function About() {
 
             <div className="col-12">
                 <div className="bostami-section-title-wrap mb-15">
-                    <h4 className="section-title">Interested?</h4>
+                    <h4 className="section-title">{t('t2')}</h4>
                 </div>
             </div>
 
-            <p className="bostami-parsonal-info-bio-text">
-                Psst... I'm also open for collabs.
-            </p>
+            <p className="bostami-parsonal-info-bio-text">{t('p21')}</p>
 
             <Link href="mailto:hello@codestorybro.com" target="_blank">
                 <Button
@@ -109,9 +101,7 @@ export default function About() {
 
             <div className="col-12 mt-60">
                 <div className="bostami-section-title-wrap mb-15">
-                    <h4 className="section-title">
-                        Who has been cooperated with me?
-                    </h4>
+                    <h4 className="section-title">{t('t3')}</h4>
                 </div>
             </div>
             <div className="client-2-wrap bg-light-white-2 pt-65 pb-65">
@@ -171,7 +161,7 @@ export default function About() {
 
             <div className="footer-copyright text-center pt-25 pb-25 mt-50">
                 <span style={{ fontSize: 16 }}>
-                    ©{new Date().getFullYear()} All rights reserved by{' '}
+                    ©{new Date().getFullYear()} {p('copy')}{' '}
                     <span style={{ fontFamily: 'Adrip', fontSize: 32 }}>
                         <span style={{ fontSize: 48 }}>c</span>ode$toryBro
                     </span>

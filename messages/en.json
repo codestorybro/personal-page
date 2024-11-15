@@ -1,5 +1,17 @@
 {
     "home": {
-        "p1": "If any of this sounds familiar..."
+        "s01": "Tired of learning React?",
+        "s02": "Trying to fire a passion in JS?",
+        "s03": "Wondering about IT career?",
+        "p01": "If any of this sounds familiar...",
+        "t1": "You are in the right place!",
+        "p11": "is here to guide you through the challenges, help you set clear career paths, and unlock your potential in the tech world.",
+        "p12": "Whether you’re just starting out or looking to advance, my personalized mentoring will give you the tools, support, and real-world insights to fast-track your growth. Let’s work together to make your journey in tech both fulfilling and successful!",
+        "t2": "Interested?",
+        "p21": "Psst... I'm also open for collabs.",
+        "t3": "Who has been cooperated with me?"
+    },
+    "page": {
+        "copy": "All rights reserved by"
     }
 }

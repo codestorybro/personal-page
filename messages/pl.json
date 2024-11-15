@@ -1,5 +1,17 @@
 {
     "home": {
-        "p1": "Jeśli coś z tego brzmi znajomo..."
+        "s01": "Zmęczony nauką Reacta?",
+        "s02": "Próbujesz zapalić pasję w JS?",
+        "s03": "Zastanawiasz się nad karierą IT?",
+        "p01": "Jeśli coś z tego brzmi znajomo...",
+        "t1": "Jesteś we właściwym miejscu!",
+        "p11": "jest tu, aby prowadzić Cię przez wyzwania, pomóc Ci wyznaczyć jasne ścieżki kariery i odblokować Twój potencjał w świecie technologii.",
+        "p12": "Czy dopiero zaczynasz czy szukasz możliwości rozwoju, moje spersonalizowane mentorowanie dostarczy Ci narzędzi, wsparcia i wglądu w realny świat, aby przyspieszyć Twój rozwój. Pracujmy razem, aby Twoja podróż w technologii była zarówno satysfakcjonująca, jak i udana!",
+        "t2": "Zainteresowany?",
+        "p21": "Psst... Jestem również otwarty na współpracę.",
+        "t3": "Kto współpracował ze mną?"
+    },
+    "page": {
+        "copy": "Wszelkie prawa zastrzeżone przez"
     }
 }
