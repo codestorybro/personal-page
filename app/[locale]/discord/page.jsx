@@ -1,4 +1,4 @@
-import Discord from '@/components/discord'
+import Discord from '../../../components/discord'
 import React from 'react'
 import { getMessages } from 'next-intl/server'
 

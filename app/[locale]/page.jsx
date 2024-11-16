@@ -1,4 +1,4 @@
-import About from '@/components/about'
+import About from '../../components/about'
 import React from 'react'
 import { getMessages } from 'next-intl/server'
 

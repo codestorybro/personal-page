@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { clientLogos } from '@/data/client-logos'
+import { clientLogos } from '../../data/client-logos'
 import { Navigation, Pagination, Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Image from 'next/image'
