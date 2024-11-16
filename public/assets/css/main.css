@@ -4885,16 +4885,7 @@ textarea:focus::placeholder {
 .page-wrapper .bostami-card-item,
 .page-wrapper .blog-slider-single,
 .page-wrapper .fillter-item {
-    box-shadow:
-        4px 4px 16px rgba(0, 0, 0, 0.5),
-        -4px -4px 16px rgba(255, 255, 255, 0.05);
     transition: all 0.3s;
-}
-
-.bostami-what-do-item:hover {
-    box-shadow:
-        4px 4px 8px rgba(0, 0, 0, 0.5),
-        -4px -4px 8px rgba(255, 255, 255, 0.05);
 }
 
 .page-wrapper-2

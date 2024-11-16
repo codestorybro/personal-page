@@ -1,7 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import { clientLogos } from '@/data/client-logos'
-import { whyWorth } from '@/data/why-worth'
 import { Navigation, Pagination, Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Image from 'next/image'
@@ -12,7 +11,7 @@ import { useTranslations } from 'next-intl'
 export default function About() {
     const [showSlider, setShowSlider] = useState(false)
     const t = useTranslations('home')
-    const p = useTranslations('page')
+    const f = useTranslations('general')
 
     useEffect(() => {
         setShowSlider(true)
@@ -20,29 +19,66 @@ export default function About() {
 
     return (
         <>
+            <h4 className="bostami-parsonal-info-title mb-30">
+                <Image
+                    height={32}
+                    width={32}
+                    alt="hi"
+                    src="/assets/img/five.svg"
+                />{' '}
+                {t('hello')}
+            </h4>
+
             <div className="what-i-do-2">
                 <div className="row">
-                    {whyWorth.map((elm, i) => (
-                        <div key={i} className="col-xl-4 col-lg-6 col-md-6">
-                            <div className={`bostami-what-do-item`}>
-                                <div
-                                    className="icon"
-                                    style={{ margin: '0 auto' }}
-                                >
-                                    <Image
-                                        height={75}
-                                        width={75}
-                                        alt="feature"
-                                        className="feature-logo"
-                                        src={elm.icon}
-                                    />
-                                </div>
-                                <div>
-                                    <h6 className="title">{elm.title}</h6>
-                                </div>
+                    <div className="col-xl-4 col-lg-6 col-md-6">
+                        <div className={`bostami-what-do-item`}>
+                            <div className="icon" style={{ margin: '0 auto' }}>
+                                <Image
+                                    height={75}
+                                    width={75}
+                                    alt="feature"
+                                    className="feature-logo"
+                                    src="/assets/img/sweat.svg"
+                                />
+                            </div>
+                            <div>
+                                <h6 className="title">{t('s01')}</h6>
                             </div>
                         </div>
-                    ))}
+                    </div>
+                    <div className="col-xl-4 col-lg-6 col-md-6">
+                        <div className={`bostami-what-do-item`}>
+                            <div className="icon" style={{ margin: '0 auto' }}>
+                                <Image
+                                    height={75}
+                                    width={75}
+                                    alt="feature"
+                                    className="feature-logo"
+                                    src="/assets/img/fire.svg"
+                                />
+                            </div>
+                            <div>
+                                <h6 className="title">{t('s02')}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-xl-4 col-lg-6 col-md-6">
+                        <div className={`bostami-what-do-item`}>
+                            <div className="icon" style={{ margin: '0 auto' }}>
+                                <Image
+                                    height={75}
+                                    width={75}
+                                    alt="feature"
+                                    className="feature-logo"
+                                    src="/assets/img/path.svg"
+                                />
+                            </div>
+                            <div>
+                                <h6 className="title">{t('s03')}</h6>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -88,14 +124,9 @@ export default function About() {
                 <Button
                     style={{ borderRadius: 56, padding: 20, cursor: 'pointer' }}
                 >
-                    <Image
-                        height={75}
-                        width={75}
-                        alt="feature"
-                        className="feature-logo"
-                        src="/assets/img/envelope.svg"
-                    />
-                    <h6 className="title">hello@codestorybro.com</h6>
+                    <h6 className="title" style={{ marginBottom: 0 }}>
+                        hello@codestorybro.com
+                    </h6>
                 </Button>
             </Link>
 
@@ -161,7 +192,7 @@ export default function About() {
 
             <div className="footer-copyright text-center pt-25 pb-25 mt-50">
                 <span style={{ fontSize: 16 }}>
-                    ©{new Date().getFullYear()} {p('copy')}{' '}
+                    ©{new Date().getFullYear()} {f('copy')}{' '}
                     <span style={{ fontFamily: 'Adrip', fontSize: 32 }}>
                         <span style={{ fontSize: 48 }}>c</span>ode$toryBro
                     </span>

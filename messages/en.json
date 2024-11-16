@@ -1,8 +1,9 @@
 {
     "home": {
+        "hello": "Hello",
         "s01": "Tired of learning React?",
         "s02": "Trying to fire a passion in JS?",
-        "s03": "Wondering about IT career?",
+        "s03": "Wondering about IT path?",
         "p01": "If any of this sounds familiar...",
         "t1": "You are in the right place!",
         "p11": "is here to guide you through the challenges, help you set clear career paths, and unlock your potential in the tech world.",
@@ -11,7 +12,17 @@
         "p21": "Psst... I'm also open for collabs.",
         "t3": "Who has been cooperated with me?"
     },
-    "page": {
+    "discord": {
+        "s01": "Make connections",
+        "s02": "Share ideas",
+        "s03": "Grow together",
+        "t1": "Open-minded people",
+        "p1": "Collaboration makes us stronger. Discord provides a space for thoughtful and meaningful discussions about software development. Whether you're seeking advice, sharing your perspective, or just looking for camaraderie, this community welcomes you. Here, we’ll cheer for your achievements and empathize with your challenges. While our primary focus is on software development, we also celebrate the human side of things (yes, we even have an rpg channel).",
+        "t2": "Webinars",
+        "p2": "Our webinars take place roughly once a month, with topics chosen collaboratively by the community. This ensures that each session is tailored to your needs and interests. Every webinar delivers practical knowledge, real-world examples, and interactive discussions led by experienced professionals. Whether you're diving into React, exploring TypeScript, or seeking career guidance in IT, our webinars will help you grow your skills, ask questions live, and connect with like-minded individuals. Join us and take your expertise to the next level!",
+        "joinCommunity": "Join community"
+    },
+        "general": {
         "copy": "All rights reserved by"
     }
 }

@@ -1,12 +1,15 @@
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
+import { Button } from '../button'
+import Link from 'next/link'
 
 export default function Discord() {
-    const p = useTranslations('page')
+    const d = useTranslations('discord')
+    const f = useTranslations('general')
 
     return (
         <>
-            <h4 className="bostami-parsonal-info-title mb-15">
+            <h4 className="bostami-parsonal-info-title mb-30">
                 <i className="fa-brands fa-discord"></i> Discord
             </h4>
 
@@ -20,13 +23,11 @@ export default function Discord() {
                                     width={75}
                                     alt="feature"
                                     className="feature-logo"
-                                    src="/assets/img/sweat.svg"
+                                    src="/assets/img/support.svg"
                                 />
                             </div>
                             <div>
-                                <h6 className="title">
-                                    Make connections and friends
-                                </h6>
+                                <h6 className="title">{d('s01')}</h6>
                             </div>
                         </div>
                     </div>
@@ -38,13 +39,11 @@ export default function Discord() {
                                     width={75}
                                     alt="feature"
                                     className="feature-logo"
-                                    src="/assets/img/fire.svg"
+                                    src="/assets/img/light-bulb.svg"
                                 />
                             </div>
                             <div>
-                                <h6 className="title">
-                                    Share ideas and projects
-                                </h6>
+                                <h6 className="title">{d('s02')}</h6>
                             </div>
                         </div>
                     </div>
@@ -56,22 +55,51 @@ export default function Discord() {
                                     width={75}
                                     alt="feature"
                                     className="feature-logo"
-                                    src="/assets/img/path.svg"
+                                    src="/assets/img/deal.svg"
                                 />
                             </div>
                             <div>
-                                <h6 className="title">
-                                    Learn and grow together
-                                </h6>
+                                <h6 className="title">{d('s03')}</h6>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <div className="about-me-2-wrap">
+                <div className="row">
+                    <div className="col-lg-8 col-md-12">
+                        <div className="bostami-parsonal-info-wrap">
+                            <h4 className="bostami-parsonal-info-title mb-15">
+                                {d('t1')}
+                            </h4>
+                            <p className="bostami-parsonal-info-bio-text">
+                                {d('p1')}
+                            </p>
+                            <h4 className="bostami-parsonal-info-title mb-15">
+                                {d('t2')}
+                            </h4>
+                            <p className="bostami-parsonal-info-bio-text">
+                                {d('p2')}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <Link href="https://discord.gg/7VNpaBGCNr" target="_blank">
+                <Button
+                    style={{ borderRadius: 56, padding: 20, cursor: 'pointer' }}
+                >
+                    <h6 className="title" style={{ marginBottom: 0 }}>
+                        {d('joinCommunity')}
+                    </h6>
+                </Button>
+            </Link>
+
             <div className="footer-copyright text-center pt-25 pb-25 mt-50">
                 <span style={{ fontSize: 16 }}>
-                    ©{new Date().getFullYear()} {p('copy')}{' '}
+                    ©{new Date().getFullYear()} {f('copy')}{' '}
                     <span style={{ fontFamily: 'Adrip', fontSize: 32 }}>
                         <span style={{ fontSize: 48 }}>c</span>ode$toryBro
                     </span>
