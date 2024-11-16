@@ -9,9 +9,9 @@ export default function Discord() {
 
     return (
         <>
-            <h4 className="bostami-parsonal-info-title mb-30">
+            <h2 className="bostami-parsonal-info-title mb-30">
                 <i className="fa-brands fa-discord"></i> Discord
-            </h4>
+            </h2>
 
             <div className="what-i-do-2">
                 <div className="row">

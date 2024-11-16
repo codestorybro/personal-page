@@ -19,15 +19,15 @@ export default function About() {
 
     return (
         <>
-            <h4 className="bostami-parsonal-info-title mb-30">
+            <h2 className="bostami-parsonal-info-title mb-30">
                 <Image
-                    height={32}
-                    width={32}
+                    height={42}
+                    width={42}
                     alt="hi"
                     src="/assets/img/five.svg"
                 />{' '}
                 {t('hello')}
-            </h4>
+            </h2>
 
             <div className="what-i-do-2">
                 <div className="row">
@@ -120,9 +120,14 @@ export default function About() {
 
             <p className="bostami-parsonal-info-bio-text">{t('p21')}</p>
 
-            <Link href="mailto:hello@codestorybro.com" target="_blank">
+            <Link
+                href="mailto:hello@codestorybro.com"
+                aria-label="send an email"
+                target="_blank"
+            >
                 <Button
                     style={{ borderRadius: 56, padding: 20, cursor: 'pointer' }}
+                    aria-label="send an email"
                 >
                     <h6 className="title" style={{ marginBottom: 0 }}>
                         hello@codestorybro.com
