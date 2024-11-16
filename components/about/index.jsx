@@ -1,7 +1,7 @@
 'use client'
-import { items } from '@/data/jobFeatures'
 import React, { useEffect, useState } from 'react'
-import { clientLogos } from '@/data/clientLogos'
+import { clientLogos } from '@/data/client-logos'
+import { whyWorth } from '@/data/why-worth'
 import { Navigation, Pagination, Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Image from 'next/image'
@@ -22,7 +22,7 @@ export default function About() {
         <>
             <div className="what-i-do-2">
                 <div className="row">
-                    {items.map((elm, i) => (
+                    {whyWorth.map((elm, i) => (
                         <div key={i} className="col-xl-4 col-lg-6 col-md-6">
                             <div className={`bostami-what-do-item`}>
                                 <div

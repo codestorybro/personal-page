@@ -1,4 +1,4 @@
-export const items = [
+export const whyWorth = [
     {
         id: 1,
         icon: '/assets/img/sweat.svg',
