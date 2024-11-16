@@ -4,6 +4,7 @@ import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
 import Header from '@/components/header'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import '../../public/main.scss'
 
 export const metadata = {
@@ -77,6 +78,7 @@ export default async function RootLayout({ children, params: { locale } }) {
                 />
                 <link rel="manifest" href="/favicon/site.webmanifest" />
             </head>
+            <GoogleAnalytics gaId="G-08Z48FJ7RM" />
             <body>
                 <NextIntlClientProvider messages={messages}>
                     <ToastContainer

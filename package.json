@@ -10,10 +10,11 @@
     },
     "dependencies": {
         "@emailjs/browser": "^3.11.0",
+        "@next/third-parties": "^15.0.3",
         "emailjs": "^4.0.2",
         "eslint-config-next": "^14.1.0",
         "framer-motion": "^10.13.0",
-        "next": "^14.1.0",
+        "next": "^15.0.3",
         "next-intl": "^3.25.0",
         "prop-types": "^15.8.1",
         "react": "^18.2.0",
