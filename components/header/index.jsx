@@ -49,7 +49,12 @@ export default function Header({ locale }) {
                                                 className="nav-btn"
                                                 aria-label="go to discord page"
                                             >
-                                                <i className="fa-brands fa-discord"></i>
+                                                <Image
+                                                    height={24}
+                                                    width={30}
+                                                    alt="discord"
+                                                    src="/assets/img/discord.svg"
+                                                />{' '}
                                             </Button>
                                         </Link>
                                         <Link

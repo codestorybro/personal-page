@@ -10,7 +10,13 @@ export default function Discord() {
     return (
         <>
             <h2 className="bostami-parsonal-info-title mb-30">
-                <i className="fa-brands fa-discord"></i> Discord
+                <Image
+                    height={40}
+                    width={50}
+                    alt="discord"
+                    src="/assets/img/discord-white.svg"
+                />{' '}
+                Discord
             </h2>
 
             <div className="what-i-do-2">
