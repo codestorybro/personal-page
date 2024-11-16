@@ -24,6 +24,7 @@ export default function Discord() {
                                     alt="feature"
                                     className="feature-logo"
                                     src="/assets/img/support.svg"
+                                    priority
                                 />
                             </div>
                             <div>
@@ -40,6 +41,7 @@ export default function Discord() {
                                     alt="feature"
                                     className="feature-logo"
                                     src="/assets/img/light-bulb.svg"
+                                    priority
                                 />
                             </div>
                             <div>

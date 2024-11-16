@@ -1,5 +1,7 @@
 {
     "home": {
+        "og-title": "CodeStoryBro - Rozwijaj się jako programista",
+        "og-description": "CodeStoryBro jest tutaj, aby pomóc Ci ustalić jasną ścieżkę kariery i uwolnić potencjał w świecie IT. Niezależnie od tego, czy dopiero zaczynasz swoją przygodę, czy już działasz, spersonalizowany mentoring zapewni Ci narzędzia, wsparcie i praktyczną wiedzę, aby przyspieszyć Twój rozwój.",
         "hello": "Cześć",
         "s01": "Zmęczony nauką Reacta?",
         "s02": "Próbujesz rozpalić pasję w JS?",
@@ -13,6 +15,8 @@
         "t3": "Kto współpracował ze mną?"
     },
     "discord": {
+        "og-title": "Sprawdź społeczność CodeStoryBro na Discord",
+        "og-description": "Rozwijaj się, buduj sieć kontaktów i szukaj ciekawych projektów w społeczności CodeStoryBro na Discordzie.",
         "s01": "Nawiązuj kontakty",
         "s02": "Dziel się pomysłami",
         "s03": "Rozwijaj się wspólnie",

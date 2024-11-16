@@ -6,6 +6,45 @@ import { routing } from '@/i18n/routing'
 import Header from '@/components/header'
 import '../../public/main.scss'
 
+export const metadata = {
+    title: 'CodeStoryBro',
+    description:
+        'CodeStoryBro is here to guide you through the challenges, help you set clear career paths, and unlock your potential in the tech world. Whether you’re just starting out or looking to advance, personalized mentoring will give you the tools, support, and real-world insights to fast-track your growth.',
+    keywords: ['React', 'JavaScript', 'TypeScript'],
+    authors: [{ name: 'Marcin Kołodziej' }],
+    creator: 'CodeStoryBro',
+    publisher: 'Marcin Kołodziej',
+    openGraph: {
+        title: 'CodeStoryBro - Empower Your Coding Journey',
+        description:
+            'CodeStoryBro is here to guide you through the challenges, help you set clear career paths, and unlock your potential in the tech world. Whether you’re just starting out or looking to advance, personalized mentoring will give you the tools, support, and real-world insights to fast-track your growth.',
+        url: 'https://codestorybro.com',
+        siteName: 'CodeStoryBro',
+        locale: 'en',
+        type: 'website',
+        images: {
+            url: 'https://www.codestorybro.com/assets/img/og-image.png',
+            width: 1200,
+            height: 630,
+            alt: 'CodeStoryBro',
+        },
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'CodeStoryBro - Empower Your Coding Journey',
+        site: '@codestorybro',
+        creator: '@codestorybro',
+        description:
+            'CodeStoryBro is here to guide you through the challenges, help you set clear career paths, and unlock your potential in the tech world. Whether you’re just starting out or looking to advance, personalized mentoring will give you the tools, support, and real-world insights to fast-track your growth.',
+        images: {
+            url: 'https://www.codestorybro.com/assets/img/og-image.png',
+            width: 1200,
+            height: 630,
+            alt: 'CodeStoryBro',
+        },
+    },
+}
+
 export default async function RootLayout({ children, params: { locale } }) {
     if (!routing.locales.includes(locale)) {
         notFound()
