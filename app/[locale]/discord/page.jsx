@@ -2,7 +2,8 @@ import Discord from '../../../components/discord'
 import React from 'react'
 import { getMessages } from 'next-intl/server'
 
-export async function generateMetadata({ params: { locale } }) {
+export async function generateMetadata({ params }) {
+    const { locale } = await params
     const messages = await getMessages()
 
     return {
