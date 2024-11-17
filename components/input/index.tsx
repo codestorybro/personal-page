@@ -1,0 +1,20 @@
+import React, { FC } from 'react'
+import styles from './Input.module.scss'
+
+type Props = {
+    style?: React.CSSProperties
+    className?: string
+    label?: string
+}
+
+export const Input: FC<Props> = ({ className, label, ...props }) => {
+    return (
+        <label className={`${styles.customLabel} ${className}`}>
+            <span>{label}</span>
+            <input
+                className={styles.customInput}
+                {...props}
+            />
+        </label>
+    )
+}

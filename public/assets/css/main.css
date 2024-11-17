@@ -323,6 +323,25 @@ p {
     min-width: 300px;
 }
 
+.subscribe-form {
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.subscribe-button {
+    margin-top: 10px;
+}
+
+@media (min-width: 680px) {
+    .subscribe-form {
+        display: flex;
+    }
+    .subscribe-button {
+        margin-top: 96px;
+    }
+}
+
 .site-logo:hover {
     opacity: 0.5;
 }

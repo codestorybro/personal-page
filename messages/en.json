@@ -26,7 +26,10 @@
         "p2": "Our webinars take place roughly once a month, with topics chosen collaboratively by the community. This ensures that each session is tailored to your needs and interests. Every webinar delivers practical knowledge, real-world examples, and interactive discussions led by experienced professionals. Whether you're diving into React, exploring TypeScript, or seeking career guidance in IT, our webinars will help you grow your skills, ask questions live, and connect with like-minded individuals. Join us and take your expertise to the next level!",
         "joinCommunity": "Join community"
     },
-        "general": {
+    "general": {
+        "subscribe": "Subscribe",
+        "newsletter": "Stay ahead and subscribe to the newsletter!",
+        "email": "Email address",
         "copy": "All rights reserved by"
     }
 }

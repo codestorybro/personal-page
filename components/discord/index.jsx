@@ -2,6 +2,7 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { Button } from '../button'
 import Link from 'next/link'
+import { Input } from '../input'
 
 export default function Discord() {
     const d = useTranslations('discord')
@@ -105,7 +106,14 @@ export default function Discord() {
                 </Button>
             </Link>
 
-            <div className="footer-copyright text-center pt-25 pb-25 mt-50">
+            <Input
+                placeholder={f('email')}
+                label={f('newsletter')}
+                className="mt-60"
+                type="email"
+            />
+
+            <div className="footer-copyright text-center pt-25 pb-25">
                 <span style={{ fontSize: 16 }}>
                     ©{new Date().getFullYear()} {f('copy')}{' '}
                     <span style={{ fontFamily: 'Adrip', fontSize: 32 }}>

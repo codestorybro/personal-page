@@ -12,7 +12,7 @@
         "p12": "Bez znaczenia czy dopiero zaczynasz, czy szukasz już szukasz możliwości rozwoju, dostarczę Ci narzędzi, wsparcia i wglądu w rzeczywistość projektową, aby przyspieszyć Twój rozwój. Temat jest prosty - pracujemy razem, aby Twoja podróż w tej branży była zarówno satysfakcjonująca, jak i udana.",
         "t2": "Zainteresowany?",
         "p21": "Psst... Jestem również otwarty na collabo.",
-        "t3": "Kto współpracował ze mną?"
+        "t3": "Kto ze mną współpracował?"
     },
     "discord": {
         "og-title": "Sprawdź społeczność CodeStoryBro na Discord",
@@ -27,6 +27,9 @@
         "joinCommunity": "Dołącz do społeczności"
     },
     "general": {
+        "subscribe": "Subskrybuj",
+        "newsletter": "Bądź na bieżąco i zapisz się do newslettera!",
+        "email": "Adres email",
         "copy": "Wszelkie prawa zastrzeżone"
     }
 }
