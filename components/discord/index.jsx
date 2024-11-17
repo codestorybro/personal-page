@@ -20,7 +20,7 @@ export default function Discord() {
             </h2>
 
             <div className="what-i-do-2">
-                <div className="row">
+                <div className="row row-left">
                     <div className="col-xl-4 col-lg-6 col-md-6">
                         <div className={`bostami-what-do-item`}>
                             <div className="icon" style={{ margin: '0 auto' }}>
@@ -34,7 +34,7 @@ export default function Discord() {
                                 />
                             </div>
                             <div>
-                                <h6 className="title">{d('s01')}</h6>
+                                <h5 className="title">{d('s01')}</h5>
                             </div>
                         </div>
                     </div>
@@ -51,7 +51,7 @@ export default function Discord() {
                                 />
                             </div>
                             <div>
-                                <h6 className="title">{d('s02')}</h6>
+                                <h5 className="title">{d('s02')}</h5>
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@ export default function Discord() {
                                 />
                             </div>
                             <div>
-                                <h6 className="title">{d('s03')}</h6>
+                                <h5 className="title">{d('s03')}</h5>
                             </div>
                         </div>
                     </div>

@@ -22,9 +22,6 @@
 .swiper-wrapper {
     transform: translate3d(0px, 0, 0);
 }
-.swiper-container-pointer-events.swiper-container-vertical {
-    touch-action: pan-x;
-}
 .swiper-slide {
     flex-shrink: 0;
     width: 100%;

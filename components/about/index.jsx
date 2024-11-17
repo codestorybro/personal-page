@@ -30,7 +30,7 @@ export default function About() {
             </h2>
 
             <div className="what-i-do-2">
-                <div className="row">
+                <div className="row row-left">
                     <div className="col-xl-4 col-lg-6 col-md-6">
                         <div className={`bostami-what-do-item`}>
                             <div className="icon" style={{ margin: '0 auto' }}>
@@ -43,7 +43,7 @@ export default function About() {
                                 />
                             </div>
                             <div>
-                                <h6 className="title">{t('s01')}</h6>
+                                <h5 className="title">{t('s01')}</h5>
                             </div>
                         </div>
                     </div>
@@ -59,7 +59,7 @@ export default function About() {
                                 />
                             </div>
                             <div>
-                                <h6 className="title">{t('s02')}</h6>
+                                <h5 className="title">{t('s02')}</h5>
                             </div>
                         </div>
                     </div>
@@ -75,7 +75,7 @@ export default function About() {
                                 />
                             </div>
                             <div>
-                                <h6 className="title">{t('s03')}</h6>
+                                <h5 className="title">{t('s03')}</h5>
                             </div>
                         </div>
                     </div>
@@ -136,60 +136,54 @@ export default function About() {
             </Link>
 
             <div className="col-12 mt-60">
-                <div className="bostami-section-title-wrap mb-15">
+                <div className="bostami-section-title-wrap mb-30">
                     <h4 className="section-title">{t('t3')}</h4>
                 </div>
             </div>
-            <div className="client-2-wrap bg-light-white-2 pt-65 pb-65">
-                <div className="row">
-                    <div className="col-12">
-                        <div className="bostami-client-slider">
-                            <div className="swiper-container client_slide_active">
-                                {showSlider && (
-                                    <Swiper
-                                        modules={[
-                                            Navigation,
-                                            Pagination,
-                                            Autoplay,
-                                        ]}
-                                        spaceBetween={30}
-                                        slidesPerView={2}
-                                        loop={true}
-                                        autoplay={{
-                                            delay: 3000, // Time between each slide (in milliseconds)
-                                            disableOnInteraction: false, // Set to false if you want the auto slider to continue even when the user interacts with the slider (e.g., clicking on a slide).
-                                        }}
-                                        breakpoints={{
-                                            // when window width is >= 576px
-                                            450: {
-                                                slidesPerView: 3,
-                                            },
-                                            // when window width is >= 768px
-                                            768: {
-                                                slidesPerView: 4,
-                                            },
-                                            1200: {
-                                                // when window width is >= 992px
-                                                slidesPerView: 5,
-                                            },
-                                        }}
-                                    >
-                                        {clientLogos.map((elm, i) => (
-                                            <SwiperSlide key={i}>
-                                                <div className="swiper-slide">
-                                                    <Image
-                                                        height={62}
-                                                        width={196}
-                                                        className="bostami-client-slider-logo"
-                                                        src={elm.imgSrc}
-                                                        alt="client"
-                                                    />
-                                                </div>
-                                            </SwiperSlide>
-                                        ))}
-                                    </Swiper>
-                                )}
-                            </div>
+            <div className="row">
+                <div className="col-12">
+                    <div className="bostami-client-slider">
+                        <div className="swiper-container client_slide_active">
+                            {showSlider && (
+                                <Swiper
+                                    modules={[Navigation, Pagination, Autoplay]}
+                                    spaceBetween={30}
+                                    slidesPerView={2}
+                                    loop={true}
+                                    autoplay={{
+                                        delay: 3000, // Time between each slide (in milliseconds)
+                                        disableOnInteraction: false, // Set to false if you want the auto slider to continue even when the user interacts with the slider (e.g., clicking on a slide).
+                                    }}
+                                    breakpoints={{
+                                        // when window width is >= 576px
+                                        450: {
+                                            slidesPerView: 3,
+                                        },
+                                        // when window width is >= 768px
+                                        768: {
+                                            slidesPerView: 4,
+                                        },
+                                        1200: {
+                                            // when window width is >= 992px
+                                            slidesPerView: 5,
+                                        },
+                                    }}
+                                >
+                                    {clientLogos.map((elm, i) => (
+                                        <SwiperSlide key={i}>
+                                            <div className="swiper-slide">
+                                                <Image
+                                                    height={62}
+                                                    width={196}
+                                                    className="bostami-client-slider-logo"
+                                                    src={elm.imgSrc}
+                                                    alt="client"
+                                                />
+                                            </div>
+                                        </SwiperSlide>
+                                    ))}
+                                </Swiper>
+                            )}
                         </div>
                     </div>
                 </div>
