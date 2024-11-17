@@ -18,7 +18,7 @@ $color-bg: #1d1e22;
 }
 
 .customInput {
-  margin-top: $ruler/2;
+  margin-top: calc($ruler / 2);
   color: #feeeee;
   caret-color: #feeeee;
   box-shadow:  inset 2px 2px 5px $color-shadow, inset -5px -5px 10px $color-white;

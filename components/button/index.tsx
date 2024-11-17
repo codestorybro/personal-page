@@ -1,7 +1,8 @@
 import React, { FC } from 'react'
 import styles from './Button.module.scss'
+import { ButtonHTMLAttributes } from 'react'
 
-type Props = {
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode
     style?: React.CSSProperties
     className: string

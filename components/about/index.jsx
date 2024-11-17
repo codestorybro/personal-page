@@ -7,7 +7,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '../button'
 import { useTranslations } from 'next-intl'
-import { Input } from '../input'
+import { SubscribeForm } from '../subscribe-form'
 
 export default function About() {
     const [showSlider, setShowSlider] = useState(false)
@@ -190,17 +190,7 @@ export default function About() {
                 </div>
             </div>
 
-            <form className="subscribe-form">
-                <Input
-                    placeholder={f('email')}
-                    label={f('newsletter')}
-                    className="mt-60"
-                    type="email"
-                />
-                <Button className="subscribe-button" style={{ fontSize: 16 }}>
-                    {f('subscribe')}
-                </Button>
-            </form>
+            <SubscribeForm />
 
             <div className="footer-copyright text-center pt-25 pb-25">
                 <span style={{ fontSize: 16 }}>

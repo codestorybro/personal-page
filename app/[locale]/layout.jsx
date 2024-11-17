@@ -3,7 +3,8 @@ import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { routing } from '../../i18n/routing'
 import Header from '../../components/header'
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { Toaster } from 'react-hot-toast'
+import Scripts from './Scripts'
 import '../../public/main.scss'
 
 export const metadata = {
@@ -64,8 +65,7 @@ export default async function RootLayout({ children, params }) {
                 />
                 <link
                     href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,400;0,500;1,400;1,500&display=swap"
-                    rel="preload"
-                    as="style"
+                    rel="stylesheet"
                 />
                 <link
                     rel="icon"
@@ -85,10 +85,15 @@ export default async function RootLayout({ children, params }) {
                     href="/favicon/apple-touch-icon.png"
                 />
                 <link rel="manifest" href="/favicon/site.webmanifest" />
+                <meta
+                    name="google-site-verification"
+                    content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION}
+                />
             </head>
-            <GoogleAnalytics gaId="G-08Z48FJ7RM" />
             <body>
                 <NextIntlClientProvider messages={messages}>
+                    <Scripts />
+                    <Toaster />
                     <div className="page-wrapper page-wrapper-2">
                         <Header locale={locale} />
                         <div className="bostami-page-area z-index-3">

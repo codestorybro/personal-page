@@ -136,7 +136,7 @@ p {
     padding-top: 20px;
 }
 
-@media(min-width: 500px) {
+@media(min-width: 600px) {
     .pt-60 {
         padding-top: 60px;
     }
@@ -146,7 +146,7 @@ p {
     padding-top: 35px;
 }
 
-@media(min-width: 500px) {
+@media(min-width: 600px) {
     .pt-65 {
         padding-top: 65px;
     }
@@ -156,7 +156,7 @@ p {
     padding-right: 20px;
 }
 
-@media(min-width: 500px) {
+@media(min-width: 600px) {
     .pr-80 {
         padding-right: 80px;
     }
@@ -170,7 +170,7 @@ p {
     padding-bottom: 35px;
 }
 
-@media(min-width: 500px) {
+@media(min-width: 600px) {
     .pb-60 {
         padding-bottom: 65px;
     }
@@ -180,7 +180,7 @@ p {
     padding-left: 20px;
 }
 
-@media(min-width: 500px) {
+@media(min-width: 600px) {
     .pl-80 {
         padding-left: 80px;
     }
@@ -268,7 +268,7 @@ p {
     border-radius: 46px;
 }
 
-@media(min-width: 500px) {
+@media(min-width: 600px) {
     .bostami-page-area .bostami-page-wrap {
         border-radius: 112px;
     }
@@ -359,7 +359,7 @@ p {
     height: auto;
 }
 
-@media(min-width: 500px) {
+@media(min-width: 600px) {
     .bostami-client-slider-logo {
         padding: 0px 15px;
     }

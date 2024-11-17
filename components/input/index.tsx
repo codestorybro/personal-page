@@ -1,9 +1,8 @@
 import React, { FC } from 'react'
 import styles from './Input.module.scss'
+import { InputHTMLAttributes } from 'react'
 
-type Props = {
-    style?: React.CSSProperties
-    className?: string
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
     label?: string
 }
 
