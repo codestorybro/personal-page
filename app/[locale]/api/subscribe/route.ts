@@ -1,10 +1,7 @@
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(
-    req: {
-        [x: string]: any
-        body: string
-    },
+    req: NextRequest | Request,
     res: {
         status: (arg0: number) => {
             (): any
