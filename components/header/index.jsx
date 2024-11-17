@@ -3,9 +3,11 @@ import { Button } from '../button'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import { useWindowSize } from '@uidotdev/usehooks'
 
 export default function Header({ locale }) {
     const pathname = usePathname()
+    const { width } = useWindowSize()
 
     return (
         <div className="bostami-header-area mb-40 z-index-5">
@@ -17,23 +19,38 @@ export default function Header({ locale }) {
                                 className={`site-logo ${pathname === '/pl' || pathname === '/en' ? 'site-home-logo' : ''}`}
                                 href="/"
                             >
-                                <span>
+                                {width < 992 ? (
                                     <Image
-                                        width={50}
-                                        height={62}
-                                        src="/assets/img/logo-main.svg"
+                                        width={270}
+                                        height={65}
+                                        src="/assets/img/mobile-logo.webp"
                                         alt="profile"
                                         priority
                                     />
-                                </span>
-                                <span>
-                                    <span
-                                        style={{ fontSize: 70, marginLeft: 8 }}
-                                    >
-                                        c
-                                    </span>
-                                    ode$toryBro
-                                </span>
+                                ) : (
+                                    <>
+                                        <span>
+                                            <Image
+                                                width={50}
+                                                height={62}
+                                                src="/assets/img/logo-main.svg"
+                                                alt="profile"
+                                                priority
+                                            />
+                                        </span>
+                                        <span>
+                                            <span
+                                                style={{
+                                                    fontSize: 70,
+                                                    marginLeft: 8,
+                                                }}
+                                            >
+                                                c
+                                            </span>
+                                            ode$toryBro
+                                        </span>
+                                    </>
+                                )}
                             </Link>
                         </div>
 

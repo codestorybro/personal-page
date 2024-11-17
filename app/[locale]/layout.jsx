@@ -1,4 +1,3 @@
-import { ToastContainer } from 'react-toastify'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
@@ -65,7 +64,8 @@ export default async function RootLayout({ children, params }) {
                 />
                 <link
                     href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,400;0,500;1,400;1,500&display=swap"
-                    rel="stylesheet"
+                    rel="preload"
+                    as="style"
                 />
                 <link
                     rel="icon"
@@ -89,17 +89,6 @@ export default async function RootLayout({ children, params }) {
             <GoogleAnalytics gaId="G-08Z48FJ7RM" />
             <body>
                 <NextIntlClientProvider messages={messages}>
-                    <ToastContainer
-                        position="top-right"
-                        autoClose={2000}
-                        hideProgressBar={false}
-                        newestOnTop={false}
-                        closeOnClick
-                        rtl={false}
-                        pauseOnFocusLoss
-                        draggable
-                        pauseOnHover
-                    />
                     <div className="page-wrapper page-wrapper-2">
                         <Header locale={locale} />
                         <div className="bostami-page-area z-index-3">
