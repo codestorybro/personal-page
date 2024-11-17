@@ -52,6 +52,10 @@ export default function Header({ locale }) {
                                                 <Image
                                                     height={24}
                                                     width={30}
+                                                    style={{
+                                                        marginLeft: '2px',
+                                                        marginBottom: '2px',
+                                                    }}
                                                     alt="discord"
                                                     src="/assets/img/discord.svg"
                                                 />{' '}
@@ -72,7 +76,11 @@ export default function Header({ locale }) {
                                             className="ml-20"
                                         >
                                             <Button className="nav-btn">
-                                                {locale === 'pl' ? 'PL' : 'EN'}
+                                                <span>
+                                                    {locale === 'pl'
+                                                        ? 'PL'
+                                                        : 'EN'}
+                                                </span>
                                             </Button>
                                         </Link>
                                     </nav>

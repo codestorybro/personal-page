@@ -230,9 +230,12 @@ p {
     z-index: 5;
 }
 
+.nav-btn > span {
+    margin-left: 2px;
+    margin-bottom: 2px;
+}
+
 .page-wrapper {
-    height: 100vh;
-    width: 100vw;
     display: block;
     background-position: center center;
     background-size: cover;
@@ -245,13 +248,13 @@ p {
 
 .page-wrapper.page-wrapper-2 {
     padding-top: 30px;
-    padding-bottom: 150px;
+    padding-bottom: 60px;
+    margin-bottom: 100px;
 }
 
 @media(min-width: 992px) {
     .page-wrapper.page-wrapper-2 {
-        padding-top: 30px;
-        padding-bottom: 60px;
+        margin-bottom: 0;
     }
 }
 
