@@ -140,7 +140,7 @@ export default function About() {
                     <h4 className="section-title">{t('t3')}</h4>
                 </div>
             </div>
-            <div className="row">
+            <div className="row client-row">
                 <div className="col-12">
                     <div className="bostami-client-slider">
                         <div className="swiper-container client_slide_active">

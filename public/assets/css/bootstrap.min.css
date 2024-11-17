@@ -222,6 +222,19 @@ button:not(:disabled) {
         max-width: 1320px;
     }
 }
+
+.client-row {
+    margin-left: -32px !important;
+    margin-right: -32px !important;
+}
+
+@media (min-width: 500px) {
+    .client-row {
+        margin-left: -94px !important;
+        margin-right: -94px !important;
+    }
+}
+
 .row {
     --bs-gutter-x: 1.5rem;
     --bs-gutter-y: 0;
