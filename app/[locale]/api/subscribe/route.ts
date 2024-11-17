@@ -1,15 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-export async function POST(
-    req: NextRequest | Request,
-    res: {
-        status: (arg0: number) => {
-            (): any
-            new (): any
-            json: { (arg0: { error: any }): any; new (): any }
-        }
-    }
-) {
+export async function POST(req: NextRequest | Request) {
     const body = await req.json()
     const { email } = body
 
