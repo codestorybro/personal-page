@@ -20,7 +20,7 @@ export default function Discord() {
                 Discord
             </h2>
 
-            <div className="what-i-do-2">
+            <div className="what-i-do">
                 <div className="row row-left">
                     <div className="col-xl-4 col-lg-6 col-md-6">
                         <div className={`bostami-what-do-item`}>
