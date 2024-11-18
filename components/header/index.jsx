@@ -1,9 +1,11 @@
 'use client'
+import React from 'react'
 import { Button } from '../button'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useWindowSize } from '@uidotdev/usehooks'
+import PropTypes from 'prop-types'
 
 export default function Header({ locale }) {
     const pathname = usePathname()
@@ -21,9 +23,9 @@ export default function Header({ locale }) {
                             >
                                 {width < 992 ? (
                                     <Image
-                                        width={279}
-                                        height={75}
-                                        src="/assets/img/mobile-main-logo.webp"
+                                        width={100}
+                                        height={124}
+                                        src="/assets/img/logo-main.svg"
                                         alt="profile"
                                         priority
                                     />
@@ -144,4 +146,8 @@ export default function Header({ locale }) {
             </div>
         </div>
     )
+}
+
+Header.propTypes = {
+    locale: PropTypes.string.isRequired,
 }

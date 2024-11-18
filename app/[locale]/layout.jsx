@@ -1,3 +1,4 @@
+import React from 'react'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
@@ -5,6 +6,7 @@ import { routing } from '../../i18n/routing'
 import Header from '../../components/header'
 import { Toaster } from 'react-hot-toast'
 import Scripts from './Scripts'
+import PropTypes from 'prop-types'
 import '../../public/main.scss'
 
 export const metadata = {
@@ -57,16 +59,6 @@ export default async function RootLayout({ children, params }) {
     return (
         <html lang={locale}>
             <head>
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link
-                    rel="preconnect"
-                    href="https://fonts.gstatic.com"
-                    crossOrigin="true"
-                />
-                <link
-                    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,400;0,500;1,400;1,500&display=swap"
-                    rel="stylesheet"
-                />
                 <link
                     rel="icon"
                     type="image/png"
@@ -87,6 +79,7 @@ export default async function RootLayout({ children, params }) {
                 <link rel="manifest" href="/favicon/site.webmanifest" />
                 <meta
                     name="google-site-verification"
+                    // eslint-disable-next-line no-undef
                     content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION}
                 />
             </head>
@@ -108,4 +101,9 @@ export default async function RootLayout({ children, params }) {
             </body>
         </html>
     )
+}
+
+RootLayout.propTypes = {
+    children: PropTypes.node.isRequired,
+    params: PropTypes.object.isRequired,
 }
