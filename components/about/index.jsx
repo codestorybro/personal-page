@@ -39,7 +39,7 @@ export default function About() {
                                     width={75}
                                     alt="feature"
                                     className="feature-logo"
-                                    src="/assets/img/sweat.svg"
+                                    src="/assets/img/fire.svg"
                                 />
                             </div>
                             <div>
@@ -55,7 +55,7 @@ export default function About() {
                                     width={75}
                                     alt="feature"
                                     className="feature-logo"
-                                    src="/assets/img/fire.svg"
+                                    src="/assets/img/graph.svg"
                                 />
                             </div>
                             <div>
