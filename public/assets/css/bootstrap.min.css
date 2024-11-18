@@ -109,7 +109,6 @@ h4,
 h5,
 h6 {
     margin-top: 0;
-    margin-bottom: 0.5rem;
     font-weight: 500;
     line-height: 1.2;
 }
@@ -162,12 +161,6 @@ select {
 [type='submit'],
 button {
     -webkit-appearance: button;
-}
-[type='button']:not(:disabled),
-[type='reset']:not(:disabled),
-[type='submit']:not(:disabled),
-button:not(:disabled) {
-    cursor: pointer;
 }
 .container,
 .container-fluid,
@@ -241,6 +234,7 @@ button:not(:disabled) {
     place-items: center;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     margin-top: calc(-1 * var(--bs-gutter-y));
     margin-right: calc(-0.5 * var(--bs-gutter-x));
     margin-left: calc(-0.5 * var(--bs-gutter-x));
@@ -256,6 +250,7 @@ button:not(:disabled) {
 
 .footer-copyright {
     text-align: center;
+    display: inline-block;
 }
 
 @media (max-width: 340px) {

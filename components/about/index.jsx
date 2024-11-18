@@ -20,7 +20,7 @@ export default function About() {
 
     return (
         <>
-            <h2 className="bostami-parsonal-info-title mb-30">
+            <h2 className="bostami-parsonal-info-title page-title mb-30">
                 <Image
                     height={42}
                     width={42}
@@ -30,7 +30,7 @@ export default function About() {
                 {t('hello')}
             </h2>
 
-            <div className="what-i-do-2">
+            <div className="what-i-do">
                 <div className="row row-left">
                     <div className="col-xl-4 col-lg-6 col-md-6">
                         <div className={`bostami-what-do-item`}>
@@ -90,7 +90,7 @@ export default function About() {
                             <p className="bostami-parsonal-info-bio-text">
                                 {t('p01')}
                             </p>
-                            <h4 className="bostami-parsonal-info-title mb-15">
+                            <h4 className="bostami-parsonal-info-title">
                                 {t('t1')}
                             </h4>
                             <p className="bostami-parsonal-info-bio-text">
@@ -114,7 +114,7 @@ export default function About() {
             </div>
 
             <div className="col-12">
-                <div className="bostami-section-title-wrap mb-15">
+                <div className="bostami-section-title-wrap">
                     <h4 className="section-title">{t('t2')}</h4>
                 </div>
             </div>
@@ -126,14 +126,9 @@ export default function About() {
                 aria-label="send an email"
                 target="_blank"
             >
-                <Button
-                    style={{ borderRadius: 56, padding: 20, cursor: 'pointer' }}
-                    aria-label="send an email"
-                >
-                    <h6 className="title" style={{ marginBottom: 0 }}>
-                        hello@codestorybro.com
-                    </h6>
-                </Button>
+                <h6 className="mail" style={{ marginBottom: 0 }}>
+                    hello@codestorybro.com
+                </h6>
             </Link>
 
             <div className="col-12 mt-60">
