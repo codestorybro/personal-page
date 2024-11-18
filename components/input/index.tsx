@@ -9,11 +9,8 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 export const Input: FC<Props> = ({ className, label, ...props }) => {
     return (
         <label className={`${styles.customLabel} ${className}`}>
-            <span>{label}</span>
-            <input
-                className={styles.customInput}
-                {...props}
-            />
+            <span style={{ fontSize: '15px' }}>{label}</span>
+            <input className={styles.customInput} {...props} />
         </label>
     )
 }

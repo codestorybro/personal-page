@@ -69,7 +69,7 @@ h6 {
     margin-top: 0px;
     line-height: 1.5;
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 6px;
 }
 
 h2 {
@@ -125,7 +125,13 @@ p {
 }
 
 .ml-20 {
-    margin-left: 20px;
+    margin-left: 8px;
+}
+
+@media (min-width: 356px) {
+    .ml-20 {
+        margin-left: 20px;
+    }
 }
 
 .pt-25 {
@@ -189,6 +195,7 @@ p {
 .container {
     padding-right: 30px;
     padding-left: 30px;
+    text-align: center;
 }
 
 @media (max-width: 500px) {
@@ -273,6 +280,28 @@ p {
     }
 }
 
+.mail {
+    cursor: pointer;
+    position: relative;
+    display: inline;
+    color: #fff;
+}
+
+.mail::after {
+    content: '';
+    position: absolute;
+    height: 3px;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    background-image: linear-gradient(to right, #3b5566, #4ca1af);
+    transition: width 0.5s;
+}
+
+.mail:hover::after {
+    width: 100%;
+}
+
 .bostami-page-area .bostami-parsonal-info-contact .title {
     font-weight: 500;
 }
@@ -281,6 +310,11 @@ p {
 }
 .bostami-page-area .bostami-parsonal-info-title {
     font-weight: 500;
+}
+
+.page-title {
+    font-size: 30px;
+    text-align: left;
 }
 
 .bostami-header-wrap {
@@ -329,7 +363,8 @@ p {
 }
 
 .subscribe-button {
-    margin-top: 10px;
+    margin-top: 12px;
+    width: 100%;
 }
 
 @media (min-width: 680px) {
@@ -338,6 +373,7 @@ p {
     }
     .subscribe-button {
         margin-top: 96px;
+        width: auto;
     }
 }
 
@@ -380,6 +416,11 @@ p {
 
 .bostami-client-slider .swiper-slide {
     text-align: center !important;
+    cursor: grab;
+}
+
+.bostami-client-slider:active .swiper-slide:active {
+    cursor: grabbing;
 }
 
 .bostami-what-do-item {

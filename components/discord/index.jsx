@@ -10,10 +10,10 @@ export default function Discord() {
 
     return (
         <>
-            <h2 className="bostami-parsonal-info-title mb-30">
+            <h2 className="bostami-parsonal-info-title page-title mb-30">
                 <Image
                     height={40}
-                    width={50}
+                    width={40}
                     alt="discord"
                     src="/assets/img/discord-white.svg"
                 />{' '}
@@ -79,13 +79,13 @@ export default function Discord() {
                 <div className="row">
                     <div className="col-lg-8 col-md-12">
                         <div className="bostami-parsonal-info-wrap">
-                            <h4 className="bostami-parsonal-info-title mb-15">
+                            <h4 className="bostami-parsonal-info-title">
                                 {d('t1')}
                             </h4>
                             <p className="bostami-parsonal-info-bio-text">
                                 {d('p1')}
                             </p>
-                            <h4 className="bostami-parsonal-info-title mb-15">
+                            <h4 className="bostami-parsonal-info-title">
                                 {d('t2')}
                             </h4>
                             <p className="bostami-parsonal-info-bio-text">

@@ -59,41 +59,80 @@ export default function Header({ locale }) {
                                 <div className="bostami-main-menu-wrap ">
                                     <nav className="bastami-main-menu navBar">
                                         <Link
+                                            href={`/${locale}/`}
+                                            aria-label="go to home page"
+                                        >
+                                            <Button
+                                                className="nav-btn"
+                                                aria-label="go to home page"
+                                                isActive={
+                                                    pathname === `/${locale}`
+                                                }
+                                            >
+                                                <Image
+                                                    height={30}
+                                                    width={30}
+                                                    alt="discord"
+                                                    src="/assets/img/home.svg"
+                                                />
+                                            </Button>
+                                        </Link>
+                                        <Link
                                             href={`/${locale}/discord`}
                                             aria-label="go to discord page"
                                         >
                                             <Button
-                                                className="nav-btn"
+                                                className="nav-btn ml-20"
                                                 aria-label="go to discord page"
+                                                isActive={
+                                                    pathname ===
+                                                    `/${locale}/discord`
+                                                }
                                             >
                                                 <Image
-                                                    height={24}
+                                                    height={30}
                                                     width={30}
                                                     alt="discord"
                                                     src="/assets/img/discord.svg"
-                                                />{' '}
+                                                />
                                             </Button>
                                         </Link>
                                         <Link
-                                            href={
-                                                locale === 'pl'
-                                                    ? pathname.replace(
-                                                          '/pl',
-                                                          '/en'
-                                                      )
-                                                    : pathname.replace(
-                                                          '/en',
-                                                          '/pl'
-                                                      )
-                                            }
+                                            href={pathname.replace(
+                                                '/en',
+                                                '/pl'
+                                            )}
                                             className="ml-20"
                                         >
-                                            <Button className="nav-btn">
-                                                <span>
-                                                    {locale === 'pl'
-                                                        ? 'PL'
-                                                        : 'EN'}
-                                                </span>
+                                            <Button
+                                                className="nav-btn"
+                                                isActive={locale === 'pl'}
+                                            >
+                                                <Image
+                                                    height={30}
+                                                    width={30}
+                                                    alt="language"
+                                                    src="/assets/img/pl.svg"
+                                                />
+                                            </Button>
+                                        </Link>
+                                        <Link
+                                            href={pathname.replace(
+                                                '/pl',
+                                                '/en'
+                                            )}
+                                            className="ml-20"
+                                        >
+                                            <Button
+                                                className="nav-btn"
+                                                isActive={locale === 'en'}
+                                            >
+                                                <Image
+                                                    height={30}
+                                                    width={30}
+                                                    alt="language"
+                                                    src="/assets/img/en.svg"
+                                                />
                                             </Button>
                                         </Link>
                                     </nav>
