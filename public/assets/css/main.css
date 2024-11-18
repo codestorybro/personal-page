@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 :root {
-    --background-dark: #1d1e22;
+    --background-dark: #272727;
     --common-white: #111;
     --common-black: #fff;
     --theme-primary: #1b74e4;
@@ -26,7 +26,7 @@ html {
 }
 
 body {
-    font-family: "Noto Sans", sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     font-weight: 400;
     font-style: normal;
     color: var(--body-text);
@@ -64,7 +64,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Noto Sans", sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     color: var(--body-heading);
     margin-top: 0px;
     line-height: 1.5;
@@ -89,7 +89,7 @@ h6 {
 }
 
 p {
-    font-family: "Noto Sans", sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 27px;
@@ -136,7 +136,7 @@ p {
     padding-top: 20px;
 }
 
-@media(min-width: 600px) {
+@media (min-width: 600px) {
     .pt-60 {
         padding-top: 60px;
     }
@@ -146,7 +146,7 @@ p {
     padding-top: 35px;
 }
 
-@media(min-width: 600px) {
+@media (min-width: 600px) {
     .pt-65 {
         padding-top: 65px;
     }
@@ -156,7 +156,7 @@ p {
     padding-right: 20px;
 }
 
-@media(min-width: 600px) {
+@media (min-width: 600px) {
     .pr-80 {
         padding-right: 80px;
     }
@@ -170,7 +170,7 @@ p {
     padding-bottom: 35px;
 }
 
-@media(min-width: 600px) {
+@media (min-width: 600px) {
     .pb-60 {
         padding-bottom: 65px;
     }
@@ -180,7 +180,7 @@ p {
     padding-left: 20px;
 }
 
-@media(min-width: 600px) {
+@media (min-width: 600px) {
     .pl-80 {
         padding-left: 80px;
     }
@@ -252,12 +252,11 @@ p {
     margin-bottom: 100px;
 }
 
-@media(min-width: 992px) {
+@media (min-width: 992px) {
     .page-wrapper.page-wrapper-2 {
         margin-bottom: 0;
     }
 }
-
 
 .bostami-section-title-wrap .section-title {
     margin-bottom: 0;
@@ -268,7 +267,7 @@ p {
     border-radius: 46px;
 }
 
-@media(min-width: 600px) {
+@media (min-width: 600px) {
     .bostami-page-area .bostami-page-wrap {
         border-radius: 112px;
     }
@@ -359,7 +358,7 @@ p {
     height: auto;
 }
 
-@media(min-width: 600px) {
+@media (min-width: 600px) {
     .bostami-client-slider-logo {
         padding: 0px 15px;
     }
@@ -407,7 +406,7 @@ p {
 .page-wrapper .blog-slider-single,
 .page-wrapper .fillter-item {
     transition: all 0.3s;
-    background-color: #1d1e22;
+    background-color: #272727;
     box-shadow:
         4px 4px 16px rgba(0, 0, 0, 0.5),
         -4px -4px 16px rgba(255, 255, 255, 0.05);
@@ -446,21 +445,21 @@ p {
     background: transparent;
 }
 
-@media(max-width: 991px) {
+@media (max-width: 991px) {
     .navBar {
-        background-color:var(--background-dark);
+        background-color: var(--background-dark);
         width: 100%;
         position: fixed;
         bottom: 0;
         left: 50%;
         transform: translateX(-50%);
         padding: 20px;
-        box-shadow: 0 -5px 15px rgba(0,0,0,.3);
+        box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
         text-align: center;
         box-sizing: border-box;
         border-top-left-radius: 40px;
         border-top-right-radius: 40px;
         overflow: hidden;
-        z-index: 1000
+        z-index: 1000;
     }
 }

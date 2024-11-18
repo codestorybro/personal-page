@@ -21,9 +21,9 @@ export default function Header({ locale }) {
                             >
                                 {width < 992 ? (
                                     <Image
-                                        width={270}
-                                        height={65}
-                                        src="/assets/img/mobile-logo.webp"
+                                        width={279}
+                                        height={75}
+                                        src="/assets/img/mobile-main-logo.webp"
                                         alt="profile"
                                         priority
                                     />
@@ -69,10 +69,6 @@ export default function Header({ locale }) {
                                                 <Image
                                                     height={24}
                                                     width={30}
-                                                    style={{
-                                                        marginLeft: '2px',
-                                                        marginBottom: '2px',
-                                                    }}
                                                     alt="discord"
                                                     src="/assets/img/discord.svg"
                                                 />{' '}

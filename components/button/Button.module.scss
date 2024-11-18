@@ -3,26 +3,22 @@ $color-white: #212121;
 $color-shadow: #141414;
 
 .customButton {
-  border: 0;
-  outline: 0;
-  font-size: $ruler*1.5;
-  border-radius: $ruler*20;
-  padding: $ruler;
-  font-weight: bold;
-  transition: all 0.3s;
-  cursor: pointer;
-  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5), -4px -4px 16px rgba(255, 255, 255, 0.05);
-  background: #1D1E22;
+    border: 0;
+    outline: 0;
+    font-size: $ruler * 1.5;
+    border-radius: $ruler * 20;
+    padding: $ruler;
+    font-weight: bold;
+    transition: all 0.3s;
+    cursor: pointer;
+    box-shadow: -5px -5px 20px $color-white,  5px 5px 20px $color-shadow;
+    background: #272727;
 
-  &:hover {
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5), -4px -4px 8px rgba(255, 255, 255, 0.05);
-  }
-  
-  &:active {
-    box-shadow: inset 2px 2px 5px $color-shadow, inset -3px -3px 7px $color-white;
-  }
+    &:hover {
+        box-shadow: -2px -2px 5px $color-white, 2px 2px 5px $color-shadow;
+    }
 
-  i {
-    color: #7289da;
-  }
+    &:active {
+        box-shadow: inset 1px 1px 2px $color-shadow, inset -1px -1px 2px $color-white;
+    }
 }

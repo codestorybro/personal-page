@@ -1,41 +1,43 @@
 $ruler: 16px;
 $color-shadow: #141414;
 $color-white: #212121;
-$color-bg: #1d1e22;
+$color-bg: #272727;
 
 .customLabel {
-  display: block;
-  color: #fff;
-  width: 100%;
-  font-size: $ruler;
-  margin-right: $ruler;
-  
-  span {
-    @media (min-width: 1200px) {
-      margin-left: $ruler;
+    display: block;
+    color: #fff;
+    width: 100%;
+    font-size: $ruler;
+    margin-right: $ruler;
+
+    span {
+        @media (min-width: 1200px) {
+            margin-left: $ruler;
+        }
     }
-  }
 }
 
 .customInput {
-  margin-top: calc($ruler / 2);
-  color: #feeeee;
-  caret-color: #feeeee;
-  box-shadow:  inset 2px 2px 5px $color-shadow, inset -5px -5px 10px $color-white;
-  width: 100%;
-  box-sizing: border-box;
-  transition: all 0.2s ease-in-out;
-  appearance: none;
-  -webkit-appearance: none;
-  border: 0;
-  outline: 0;
-  font-size: $ruler;
-  border-radius: $ruler*20;
-  padding: $ruler;
-  background-color:$color-bg;
-  text-shadow: 1px 1px 0 $color-white;
+    margin-top: calc($ruler / 2);
+    color: #feeeee;
+    caret-color: #feeeee;
+    box-shadow:
+        inset 2px 2px 5px $color-shadow,
+        inset -5px -5px 10px $color-white;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    appearance: none;
+    -webkit-appearance: none;
+    border: 0;
+    outline: 0;
+    font-size: $ruler;
+    border-radius: $ruler * 20;
+    padding: $ruler;
+    background-color: $color-bg;
+    text-shadow: 1px 1px 0 $color-white;
 
-  @media (min-width: 1200px) {
-    margin-left: $ruler;
-  }
+    @media (min-width: 1200px) {
+        margin-left: $ruler;
+    }
 }
