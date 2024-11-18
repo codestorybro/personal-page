@@ -2,9 +2,7 @@ import About from '../../components/about'
 import React from 'react'
 import { getMessages } from 'next-intl/server'
 
-// eslint-disable-next-line no-undef
 export const revalidate = 60
-export const dynamic = 'force-static'
 
 export async function generateMetadata({ params }) {
     const { locale } = await params

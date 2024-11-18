@@ -61,7 +61,7 @@ export default function Header({ locale }) {
                                 <div className="bostami-main-menu-wrap ">
                                     <nav className="bastami-main-menu navBar">
                                         <Link
-                                            href={`/${locale}/`}
+                                            href={`/${locale}`}
                                             aria-label="go to home page"
                                         >
                                             <Button
@@ -74,7 +74,7 @@ export default function Header({ locale }) {
                                                 <Image
                                                     height={30}
                                                     width={30}
-                                                    alt="discord"
+                                                    alt="home"
                                                     src="/assets/img/home.svg"
                                                 />
                                             </Button>
@@ -113,7 +113,7 @@ export default function Header({ locale }) {
                                                 <Image
                                                     height={30}
                                                     width={30}
-                                                    alt="language"
+                                                    alt="language pl"
                                                     src="/assets/img/pl.svg"
                                                 />
                                             </Button>
@@ -132,7 +132,7 @@ export default function Header({ locale }) {
                                                 <Image
                                                     height={30}
                                                     width={30}
-                                                    alt="language"
+                                                    alt="language en"
                                                     src="/assets/img/en.svg"
                                                 />
                                             </Button>
