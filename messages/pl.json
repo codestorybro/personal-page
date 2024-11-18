@@ -30,6 +30,9 @@
         "subscribe": "Subskrybuj",
         "newsletter": "Bądź na bieżąco i zapisz się do newslettera!",
         "email": "Adres email",
-        "copy": "Wszelkie prawa zastrzeżone"
+        "copy": "Wszelkie prawa zastrzeżone",
+        "subscribe-success": "Sprawdź swojego emaila, aby potwierdzić subskrypcję",
+        "subscribe-email-empty": "Email jest pusty",
+        "subscribe-email-invalid": "Email jest nieprawidłowy"
     }
 }

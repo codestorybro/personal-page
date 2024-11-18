@@ -30,6 +30,9 @@
         "subscribe": "Subscribe",
         "newsletter": "Stay ahead and subscribe to the newsletter!",
         "email": "Email address",
-        "copy": "All rights reserved by"
+        "copy": "All rights reserved by",
+        "subscribe-success": "Check your email to confirm your subscription",
+        "subscribe-email-empty": "Email is empty",
+        "subscribe-email-invalid": "Email is not valid"
     }
 }

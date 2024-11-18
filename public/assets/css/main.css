@@ -317,6 +317,10 @@ p {
     text-align: left;
 }
 
+.what-i-do-2 {
+    justify-self: center;
+}
+
 .bostami-header-wrap {
     background: var(--light-white);
     padding: 20px 0;

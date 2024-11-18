@@ -17,6 +17,7 @@ export const SubscribeForm: React.FC = () => {
     const f = useTranslations('general')
     const [isLoading, setIsLoading] = useState(false)
     const { register, handleSubmit, reset } = useForm<{ email: string }>()
+    const t = useTranslations('general')
 
     const onSubmit: SubmitHandler<{ email: string }> = ({
         email,
@@ -24,11 +25,11 @@ export const SubscribeForm: React.FC = () => {
         email: string
     }) => {
         if (!email) {
-            return toast.error('Email is empty')
+            return toast.error(t('subscribe-email-empty'))
         }
 
         if (!isValidEmail(email)) {
-            return toast.error('Email is not valid')
+            return toast.error(t('subscribe-email-invalid'))
         }
 
         setIsLoading(true)
@@ -46,7 +47,7 @@ export const SubscribeForm: React.FC = () => {
                     if (!data.ok)
                         throw new Error(`${data.status} — ${data.statusText}`)
                     reset()
-                    return 'Check your email to confirm your subscription'
+                    return t('subscribe-success')
                 },
                 error: (err) => err.message,
             },

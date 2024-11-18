@@ -98,7 +98,11 @@ export default function Discord() {
 
             <Link href="https://discord.gg/7VNpaBGCNr" target="_blank">
                 <Button
-                    style={{ borderRadius: 56, padding: 20, cursor: 'pointer' }}
+                    style={{
+                        borderRadius: 56,
+                        padding: '8px 16px',
+                        cursor: 'pointer',
+                    }}
                 >
                     <h6 className="title" style={{ marginBottom: 0 }}>
                         {d('joinCommunity')}

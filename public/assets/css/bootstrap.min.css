@@ -162,12 +162,6 @@ select {
 button {
     -webkit-appearance: button;
 }
-[type='button']:not(:disabled),
-[type='reset']:not(:disabled),
-[type='submit']:not(:disabled),
-button:not(:disabled) {
-    cursor: pointer;
-}
 .container,
 .container-fluid,
 .container-lg,
