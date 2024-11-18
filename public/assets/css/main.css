@@ -21,6 +21,12 @@
     }
 }
 
+.nav-btn:active {
+    box-shadow: none !important;
+    background-color: #272727 !important;
+    border: 1px solid #434343 !important;
+}
+
 html {
     background-color: var(--background-dark);
 }
