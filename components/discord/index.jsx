@@ -3,11 +3,9 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { Button } from '../button'
 import Link from 'next/link'
-import { SubscribeForm } from '../subscribe-form'
 
 export default function Discord() {
     const d = useTranslations('discord')
-    const f = useTranslations('general')
 
     return (
         <>
@@ -103,6 +101,7 @@ export default function Discord() {
                         borderRadius: 56,
                         padding: '8px 16px',
                         cursor: 'pointer',
+                        marginTop: 16,
                     }}
                 >
                     <h6 className="title" style={{ marginBottom: 0 }}>
@@ -110,17 +109,6 @@ export default function Discord() {
                     </h6>
                 </Button>
             </Link>
-
-            <SubscribeForm />
-
-            <div className="footer-copyright text-center pt-25 pb-25">
-                <span style={{ fontSize: 16 }}>
-                    ©{new Date().getFullYear()} {f('copy')}{' '}
-                    <span style={{ fontFamily: 'Adrip', fontSize: 32 }}>
-                        <span style={{ fontSize: 48 }}>c</span>ode$toryBro
-                    </span>
-                </span>
-            </div>
         </>
     )
 }

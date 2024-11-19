@@ -6,12 +6,10 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
-import { SubscribeForm } from '../subscribe-form'
 
 export default function About() {
     const [showSlider, setShowSlider] = useState(false)
     const t = useTranslations('home')
-    const f = useTranslations('general')
 
     useEffect(() => {
         setShowSlider(true)
@@ -86,9 +84,6 @@ export default function About() {
                 <div className="row">
                     <div className="col-lg-8 col-md-12">
                         <div className="bostami-parsonal-info-wrap mb-60">
-                            <p className="bostami-parsonal-info-bio-text">
-                                {t('p01')}
-                            </p>
                             <h4 className="bostami-parsonal-info-title">
                                 {t('t1')}
                             </h4>
@@ -111,24 +106,6 @@ export default function About() {
                     </div>
                 </div>
             </div>
-
-            <div className="col-12">
-                <div className="bostami-section-title-wrap">
-                    <h4 className="section-title">{t('t2')}</h4>
-                </div>
-            </div>
-
-            <p className="bostami-parsonal-info-bio-text">{t('p21')}</p>
-
-            <Link
-                href="mailto:hello@codestorybro.com"
-                aria-label="send an email"
-                target="_blank"
-            >
-                <h6 className="mail" style={{ marginBottom: 0 }}>
-                    hello@codestorybro.com
-                </h6>
-            </Link>
 
             <div className="col-12 mt-60">
                 <div className="bostami-section-title-wrap mb-30">
@@ -184,16 +161,22 @@ export default function About() {
                 </div>
             </div>
 
-            <SubscribeForm />
-
-            <div className="footer-copyright text-center pt-25 pb-25">
-                <span style={{ fontSize: 16 }}>
-                    ©{new Date().getFullYear()} {f('copy')}{' '}
-                    <span style={{ fontFamily: 'Adrip', fontSize: 32 }}>
-                        <span style={{ fontSize: 48 }}>c</span>ode$toryBro
-                    </span>
-                </span>
+            <div className="col-12">
+                <div className="bostami-section-title-wrap">
+                    <h4 className="section-title mt-60">{t('t2')}</h4>
+                </div>
             </div>
+            <p className="bostami-parsonal-info-bio-text">
+                {t('p21')}
+                {' — '}
+                <Link
+                    href="mailto:hello@codestorybro.com"
+                    aria-label="send an email"
+                    target="_blank"
+                >
+                    <span className="mail">hello@codestorybro.com</span>
+                </Link>
+            </p>
         </>
     )
 }

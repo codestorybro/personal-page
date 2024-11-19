@@ -9,12 +9,17 @@ $color-bg: #272727;
     width: 100%;
     font-size: $ruler;
     margin-right: $ruler;
+    text-align: left;
 
     span {
         float: left;
         @media (min-width: 1200px) {
             margin-left: $ruler;
         }
+    }
+
+    @media (max-width: 679px) {
+       text-align: center;
     }
 }
 
@@ -37,8 +42,4 @@ $color-bg: #272727;
     padding: $ruler;
     background-color: $color-bg;
     text-shadow: 1px 1px 0 $color-white;
-
-    @media (min-width: 1200px) {
-        margin-left: $ruler;
-    }
 }

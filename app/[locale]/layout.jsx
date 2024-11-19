@@ -8,6 +8,7 @@ import { Toaster } from 'react-hot-toast'
 import Scripts from './Scripts'
 import PropTypes from 'prop-types'
 import '../../public/main.scss'
+import { SubscribeForm } from '../../components/subscribe-form'
 
 export const metadata = {
     title: 'CodeStoryBro',
@@ -93,6 +94,25 @@ export default async function RootLayout({ children, params }) {
                             <div className="container">
                                 <div className="bostami-page-wrap pt-60 pl-80 pr-80">
                                     {children}
+                                </div>
+
+                                <SubscribeForm />
+                                <div className="footer-copyright text-center pt-25 pb-25">
+                                    <span style={{ fontSize: 16 }}>
+                                        ©{new Date().getFullYear()}{' '}
+                                        {messages.general['copy']}{' '}
+                                        <span
+                                            style={{
+                                                fontFamily: 'Adrip',
+                                                fontSize: 32,
+                                            }}
+                                        >
+                                            <span style={{ fontSize: 48 }}>
+                                                c
+                                            </span>
+                                            ode$toryBro
+                                        </span>
+                                    </span>
                                 </div>
                             </div>
                         </div>
