@@ -387,6 +387,27 @@ p {
     }
 }
 
+.cert-form {
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.cert-button {
+    margin-top: 12px;
+    width: 100%;
+}
+
+@media (min-width: 680px) {
+    .cert-form {
+        display: flex;
+    }
+    .cert-button {
+        margin-top: 36px;
+        width: auto;
+    }
+}
+
 .site-logo:hover {
     opacity: 0.5;
 }

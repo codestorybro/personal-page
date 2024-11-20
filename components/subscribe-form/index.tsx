@@ -14,7 +14,6 @@ const isValidEmail = (email: string) => {
 
 export const SubscribeForm: React.FC = () => {
     const locale = useLocale()
-    const f = useTranslations('general')
     const [isLoading, setIsLoading] = useState(false)
     const { register, handleSubmit, reset } = useForm<{ email: string }>()
     const t = useTranslations('general')
@@ -61,8 +60,8 @@ export const SubscribeForm: React.FC = () => {
         <form className="subscribe-form" onSubmit={handleSubmit(onSubmit)}>
             <Input
                 {...register('email')}
-                placeholder={f('email')}
-                label={f('newsletter')}
+                placeholder={t('email')}
+                label={t('newsletter')}
                 className="mt-60"
                 type="text"
                 autoComplete="off"
@@ -78,7 +77,7 @@ export const SubscribeForm: React.FC = () => {
                     padding: '8px 16px',
                 }}
             >
-                {f('subscribe')}
+                {t('subscribe')}
             </Button>
         </form>
     )

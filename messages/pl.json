@@ -32,6 +32,13 @@
         "copy": "Wszelkie prawa zastrzeżone",
         "subscribe-success": "Sprawdź swojego emaila, aby potwierdzić subskrypcję",
         "subscribe-email-empty": "Email jest pusty",
-        "subscribe-email-invalid": "Email jest nieprawidłowy"
+        "subscribe-email-invalid": "Email jest nieprawidłowy",
+        "check": "Sprawdź",
+        "certificate-id": "Identyfikator certyfikatu",
+        "certificate-check": "Sprawdź certyfikat",
+        "certificate-check-success": "Certyfikat jest ważny",
+        "certificate-check-invalid": "Certyfikat o podanym ID nie istnieje",
+        "certificate-check-empty": "ID certyfikatu jest puste",
+        "certificate-check-error": "Wystąpił błąd podczas sprawdzania certyfikatu"
     }
 }
