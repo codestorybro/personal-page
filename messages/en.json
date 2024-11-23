@@ -39,6 +39,8 @@
         "certificate-check-success": "Certificate is valid",
         "certificate-check-invalid": "Certificate with the given ID does not exist",
         "certificate-check-empty": "Certificate ID is empty",
-        "certificate-check-error": "An error occurred while checking the certificate"
+        "certificate-check-error": "An error occurred while checking the certificate",
+        "cert-title": "Certificate of Completion",
+        "cert-issued": "Issued to"
     }
 }

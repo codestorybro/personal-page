@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
 import toast from 'react-hot-toast'
 import { CertificateForm } from '../certificate-form'
-import { CertificateHolo } from '../certificate-holo'
+import { Checkmark } from 'react-checkmark'
 
 export default function Certificate({ id }) {
     const [user, setUser] = useState(null)
@@ -24,7 +24,6 @@ export default function Certificate({ id }) {
             .catch(() => {
                 setUser(null)
             })
-        
 
         toast.promise(
             res,
@@ -52,7 +51,10 @@ export default function Certificate({ id }) {
     return (
         <>
             <CertificateForm certId={id} />
-            {id && !isLoading && <CertificateHolo user={user}/>}
+            {id && !isLoading && user && <div style={{ fontSize: 16, color: '#7ac142' }}>
+                <div style={{margin: '16px 0'}}>{user.name} - {user.type}</div>
+                <Checkmark style={{ marginBottom: 16 }} />
+            </div>}
         </>
     )
 }
