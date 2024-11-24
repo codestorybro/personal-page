@@ -3,13 +3,15 @@ import React from 'react'
 import { Button } from '../button'
 import Link from 'next/link'
 import Image from 'next/image'
-import { usePathname } from 'next/navigation'
+import { usePathname, useSearchParams } from 'next/navigation'
 import { useWindowSize } from '@uidotdev/usehooks'
 import PropTypes from 'prop-types'
 
 export default function Header({ locale }) {
     const pathname = usePathname()
+    const searchParams = useSearchParams()
     const { width } = useWindowSize()
+    const certId = searchParams.get('certId')
 
     return (
         <div className="bostami-header-area mb-40 z-index-5">
@@ -100,10 +102,7 @@ export default function Header({ locale }) {
                                             </Button>
                                         </Link>
                                         <Link
-                                            href={pathname.replace(
-                                                '/en',
-                                                '/pl'
-                                            )}
+                                            href={`${pathname.replace('/en', '/pl')}${certId ? `?certId=${certId}` : ''}`}
                                             className="ml-20"
                                         >
                                             <Button
@@ -119,10 +118,7 @@ export default function Header({ locale }) {
                                             </Button>
                                         </Link>
                                         <Link
-                                            href={pathname.replace(
-                                                '/pl',
-                                                '/en'
-                                            )}
+                                            href={`${pathname.replace('/pl', '/en')}${certId ? `?certId=${certId}` : ''}`}
                                             className="ml-20"
                                         >
                                             <Button

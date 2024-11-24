@@ -42,7 +42,7 @@ export default function Certificate({ id }) {
                     else return t('certificate-check-invalid')
                 },
             },
-            { success: { duration: 4000 }, error: { duration: 4000 } }
+            { success: { style: { display: 'none' } }, error: { duration: 4000 } }
         )
 
         res.finally(() => setIsLoading(false))
