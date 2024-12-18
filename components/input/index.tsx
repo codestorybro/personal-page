@@ -1,5 +1,4 @@
 import React, { FC } from 'react'
-import styles from './Input.module.scss'
 import { InputHTMLAttributes } from 'react'
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
@@ -8,9 +7,12 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 
 export const Input: FC<Props> = ({ className, label, ...props }) => {
     return (
-        <label className={`${styles.customLabel} ${className}`}>
-            <div style={{ fontSize: '15px' }}>{label}</div>
-            <input className={styles.customInput} {...props} />
+        <label className="flex flex-col w-full text-white">
+            <span>{label}</span>
+            <input
+                className="my-2 p-4 shadow-input bg-background rounded-page"
+                {...props}
+            />
         </label>
     )
 }

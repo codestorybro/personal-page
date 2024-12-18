@@ -1,13 +1,13 @@
-import Certificate from '../../../components/certificate'
+import Check from '../../../pages/check'
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export default async function DiscordPage({ searchParams }) {
+export default async function CheckPage({ searchParams }) {
     const { certId } = await searchParams
 
-    return <Certificate id={certId} />
+    return <Check id={certId} />
 }
 
-DiscordPage.propTypes = {
+CheckPage.propTypes = {
     searchParams: PropTypes.object.isRequired,
 }

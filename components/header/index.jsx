@@ -6,6 +6,9 @@ import Image from 'next/image'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { useWindowSize } from '@uidotdev/usehooks'
 import PropTypes from 'prop-types'
+import { pages } from '../../utils/pages'
+import { languages } from '../../utils/languages'
+import { NavButton } from '../nav-button'
 
 export default function Header({ locale }) {
     const pathname = usePathname()
@@ -14,132 +17,43 @@ export default function Header({ locale }) {
     const certId = searchParams.get('certId')
 
     return (
-        <div className="bostami-header-area mb-40 z-index-5">
-            <div className="container">
-                <div className="bostami-header-wrap main-style-2">
-                    <div className="row">
-                        <div className="col-lg-2 col-md-6 col-sm-4 col-4 d-flex align-items-center">
-                            <Link
-                                className={`site-logo ${pathname === '/pl' || pathname === '/en' ? 'site-home-logo' : ''}`}
-                                href="/"
-                            >
-                                {width < 992 ? (
-                                    <Image
-                                        width={100}
-                                        height={124}
-                                        src="/assets/img/logo-main.svg"
-                                        alt="profile"
-                                        priority
-                                    />
-                                ) : (
-                                    <>
-                                        <span>
-                                            <Image
-                                                width={50}
-                                                height={62}
-                                                src="/assets/img/logo-main.svg"
-                                                alt="profile"
-                                                priority
-                                            />
-                                        </span>
-                                        <span>
-                                            <span
-                                                style={{
-                                                    fontSize: 70,
-                                                    marginLeft: 8,
-                                                }}
-                                            >
-                                                c
-                                            </span>
-                                            ode$toryBro
-                                        </span>
-                                    </>
-                                )}
-                            </Link>
-                        </div>
-
-                        <div className="col-lg-10 col-md-6 col-sm-8 col-8">
-                            <div className="header-right-flex">
-                                <div className="bostami-main-menu-wrap ">
-                                    <nav className="bastami-main-menu navBar">
-                                        <Link
-                                            href={`/${locale}`}
-                                            aria-label="go to home page"
-                                        >
-                                            <Button
-                                                className="nav-btn"
-                                                aria-label="go to home page"
-                                                isActive={
-                                                    pathname === `/${locale}`
-                                                }
-                                            >
-                                                <Image
-                                                    height={30}
-                                                    width={30}
-                                                    alt="home"
-                                                    src="/assets/img/home.svg"
-                                                />
-                                            </Button>
-                                        </Link>
-                                        <Link
-                                            href={`/${locale}/discord`}
-                                            aria-label="go to discord page"
-                                        >
-                                            <Button
-                                                className="nav-btn ml-20"
-                                                aria-label="go to discord page"
-                                                isActive={
-                                                    pathname ===
-                                                    `/${locale}/discord`
-                                                }
-                                            >
-                                                <Image
-                                                    height={30}
-                                                    width={30}
-                                                    alt="discord"
-                                                    src="/assets/img/discord.svg"
-                                                />
-                                            </Button>
-                                        </Link>
-                                        <Link
-                                            href={`${pathname.replace('/en', '/pl')}${certId ? `?certId=${certId}` : ''}`}
-                                            className="ml-20"
-                                        >
-                                            <Button
-                                                className="nav-btn"
-                                                isActive={locale === 'pl'}
-                                            >
-                                                <Image
-                                                    height={30}
-                                                    width={30}
-                                                    alt="language pl"
-                                                    src="/assets/img/pl.svg"
-                                                />
-                                            </Button>
-                                        </Link>
-                                        <Link
-                                            href={`${pathname.replace('/pl', '/en')}${certId ? `?certId=${certId}` : ''}`}
-                                            className="ml-20"
-                                        >
-                                            <Button
-                                                className="nav-btn"
-                                                isActive={locale === 'en'}
-                                            >
-                                                <Image
-                                                    height={30}
-                                                    width={30}
-                                                    alt="language en"
-                                                    src="/assets/img/en.svg"
-                                                />
-                                            </Button>
-                                        </Link>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <div className="flex w-full	justify-between">
+            <Link href="/">
+                <div className="flex flex-row items-center ml-16">
+                    <Image
+                        width={50}
+                        height={62}
+                        src="/assets/img/logo-main.svg"
+                        alt="profile"
+                        priority
+                    />
+                    <span className="font-logoText text-5xl text-white ml-4">
+                        <span className="text-7xl">c</span>
+                        ode$toryBro
+                    </span>
                 </div>
-            </div>
+            </Link>
+
+            <nav className="flex items-center">
+                {pages.map(({ ariaLabel, href, imgSrc, imgAlt }, index) => (
+                    <NavButton
+                        key={index}
+                        href={`/${locale}${href}`}
+                        ariaLabel={ariaLabel}
+                        imgSrc={imgSrc}
+                        imgAlt={imgAlt}
+                    />
+                ))}
+                {languages.map(({ ariaLabel, href, imgSrc, imgAlt }, index) => (
+                    <NavButton
+                        key={index}
+                        href={`${pathname.replace(pathname.slice(0, 3), href)}${certId ? `?certId=${certId}` : ''}`}
+                        ariaLabel={ariaLabel}
+                        imgSrc={imgSrc}
+                        imgAlt={imgAlt}
+                    />
+                ))}
+            </nav>
         </div>
     )
 }

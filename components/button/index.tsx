@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
-import styles from './Button.module.scss'
 import { ButtonHTMLAttributes } from 'react'
+import clsx from 'clsx'
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode
@@ -17,8 +17,14 @@ export const Button: FC<Props> = ({
 }) => {
     return (
         <button
+            className={clsx(
+                className,
+                `py-3 px-5 mb-4 ml-6 border border-button rounded-button shadow-page text-white font-bold transition-all duration-300 ease-in-out`,
+                'hover:shadow-none',
+                'active:bg-darkerBackground active:shadow-none',
+                isActive && 'bg-darkerBackground shadow-none'
+            )}
             type="button"
-            className={`${styles.customButton} ${isActive && styles['customButton-active']} ${className}`}
             {...props}
         >
             {children}

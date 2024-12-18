@@ -8,26 +8,28 @@ import React from 'react'
 import { usePathname, useRouter } from '../../i18n/routing'
 import { useSearchParams } from 'next/navigation'
 
-export const CertificateForm: React.FC<{certId: string}> = ({ certId }) => {
-    const { register, handleSubmit } = useForm<{ id: string }>();
+export const CertificateForm: React.FC<{ certId: string }> = ({ certId }) => {
+    const { register, handleSubmit } = useForm<{ id: string }>()
     const t = useTranslations('general')
-    const searchParams = useSearchParams();
-    const pathname = usePathname();
-    const router = useRouter();
+    const searchParams = useSearchParams()
+    const pathname = usePathname()
+    const router = useRouter()
 
     const updateSearchQuery = (updatedQuery) => {
-        const params = new URLSearchParams(searchParams);
+        const params = new URLSearchParams(searchParams)
         Object.keys(updatedQuery).forEach((key) => {
-          if (updatedQuery[key]) {
-            params.set(key, updatedQuery[key]);
-          } else {
-            params.delete(key);
-          }
-        });
-        const queryString = params.toString();
-        const updatedPath = queryString ? `${pathname}?${queryString}` : pathname;
-        router.push(updatedPath);
-      };
+            if (updatedQuery[key]) {
+                params.set(key, updatedQuery[key])
+            } else {
+                params.delete(key)
+            }
+        })
+        const queryString = params.toString()
+        const updatedPath = queryString
+            ? `${pathname}?${queryString}`
+            : pathname
+        router.push(updatedPath)
+    }
 
     const onSubmit: SubmitHandler<{ id: string }> = ({
         id,
@@ -38,11 +40,11 @@ export const CertificateForm: React.FC<{certId: string}> = ({ certId }) => {
             return toast.error(t('certificate-check-empty'))
         }
 
-        updateSearchQuery({ certId: id });
+        updateSearchQuery({ certId: id })
     }
 
     return (
-        <form className="cert-form" onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-row ">
             <Input
                 {...register('id')}
                 placeholder={t('certificate-id')}
@@ -53,14 +55,7 @@ export const CertificateForm: React.FC<{certId: string}> = ({ certId }) => {
                 id="id"
                 defaultValue={certId}
             />
-            <Button
-                type="submit"
-                className="cert-button"
-                style={{
-                    fontSize: '16px',
-                    padding: '8px 16px',
-                }}
-            >
+            <Button type="submit" className="h-min place-self-end my-2 ">
                 {t('check')}
             </Button>
         </form>

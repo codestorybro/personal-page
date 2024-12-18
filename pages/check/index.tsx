@@ -2,22 +2,21 @@
 import React, { useEffect, useState } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
 import toast from 'react-hot-toast'
-import { CertificateForm } from '../certificate-form'
-import { Checkmark } from 'react-checkmark'
+import { CertificateForm } from '../../components/certificate-form'
+import Checkmark from '../../components/checkmark'
 
-export default function Certificate({ id }) {
+export default function Check({ id }) {
     const [user, setUser] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
     const t = useTranslations('general')
     const locale = useLocale()
-    
+
     useEffect(() => {
         if (!id) return
         setIsLoading(true)
 
         const res = fetch(`/${locale}/api/cert-check?certId=${id}`)
-        res
-            .then((res) => res.json())
+        res.then((res) => res.json())
             .then(({ body }) => {
                 setUser(body)
             })
@@ -42,7 +41,10 @@ export default function Certificate({ id }) {
                     else return t('certificate-check-invalid')
                 },
             },
-            { success: { style: { display: 'none' } }, error: { duration: 4000 } }
+            {
+                success: { style: { display: 'none' } },
+                error: { duration: 4000 },
+            }
         )
 
         res.finally(() => setIsLoading(false))
@@ -51,10 +53,14 @@ export default function Certificate({ id }) {
     return (
         <>
             <CertificateForm certId={id} />
-            {id && !isLoading && user && <div style={{ fontSize: 16, color: '#7ac142' }}>
-                <div style={{margin: '16px 0'}}>{user.name} - {user.type}</div>
-                <Checkmark style={{ marginBottom: 16 }} />
-            </div>}
+            {id && !isLoading && user && (
+                <div className="flex flex-col items-center justify-center">
+                    <div className="my-4 text-lg font-bold text-success transition-opacity duration-500 opacity-0 animate-fadeIn">
+                        {user.name} - {user.type}
+                        <Checkmark />
+                    </div>
+                </div>
+            )}
         </>
     )
 }

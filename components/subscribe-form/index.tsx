@@ -57,12 +57,14 @@ export const SubscribeForm: React.FC = () => {
     }
 
     return (
-        <form className="subscribe-form" onSubmit={handleSubmit(onSubmit)}>
+        <form
+            className="flex flex-row align-bottom w-full "
+            onSubmit={handleSubmit(onSubmit)}
+        >
             <Input
                 {...register('email')}
                 placeholder={t('email')}
                 label={t('newsletter')}
-                className="mt-60"
                 type="text"
                 autoComplete="off"
                 name="email"
@@ -70,12 +72,8 @@ export const SubscribeForm: React.FC = () => {
             />
             <Button
                 type="submit"
-                className="subscribe-button"
+                className="place-self-end"
                 disabled={isLoading}
-                style={{
-                    fontSize: '16px',
-                    padding: '8px 16px',
-                }}
             >
                 {t('subscribe')}
             </Button>

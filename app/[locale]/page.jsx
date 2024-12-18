@@ -1,4 +1,4 @@
-import About from '../../components/about'
+import Home from '../../pages/home'
 import React from 'react'
 import { getMessages } from 'next-intl/server'
 
@@ -23,6 +23,6 @@ export async function generateMetadata({ params }) {
     }
 }
 
-export default function Home() {
-    return <About />
+export default function HomePage() {
+    return <Home />
 }

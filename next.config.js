@@ -4,9 +4,7 @@ const withNextIntl = createNextIntlPlugin()
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    sassOptions: {
-        silenceDeprecations: ['legacy-js-api'],
-      }
+    reactStrictMode: true,
 }
 
 module.exports = withNextIntl(nextConfig)
