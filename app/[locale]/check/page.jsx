@@ -1,5 +1,4 @@
-import Check from '../../../pages/check'
-import React from 'react'
+import Check from '@/pages/check'
 import PropTypes from 'prop-types'
 
 export default async function CheckPage({ searchParams }) {

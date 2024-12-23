@@ -1,5 +1,4 @@
-import Discord from '../../../pages/discord'
-import React from 'react'
+import Discord from '@/pages/discord'
 import { getMessages } from 'next-intl/server'
 
 export async function generateMetadata({ params }) {

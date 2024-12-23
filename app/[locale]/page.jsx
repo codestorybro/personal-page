@@ -1,5 +1,4 @@
-import Home from '../../pages/home'
-import React from 'react'
+import Home from '@/pages/home'
 import { getMessages } from 'next-intl/server'
 
 export const revalidate = 60

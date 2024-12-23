@@ -1,7 +1,7 @@
-import Link from 'next/link'
-import { Button } from '../button'
-import { usePathname } from 'next/navigation'
+import { Button } from '@/components/button'
 import Image from 'next/image'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export const NavButton = ({ href, ariaLabel, imgSrc, imgAlt }) => {
     const pathname = usePathname()

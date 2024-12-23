@@ -1,11 +1,10 @@
 'use client'
-import { useForm, SubmitHandler } from 'react-hook-form'
-import { Input } from '../input'
-import { Button } from '../button'
-import { useTranslations, useLocale } from 'next-intl'
-import { useState } from 'react'
+import { Button } from '@/components/button'
+import { Input } from '@/components/input'
+import { useLocale, useTranslations } from 'next-intl'
+import React, { useState } from 'react'
+import { SubmitHandler, useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
-import React from 'react'
 
 const isValidEmail = (email: string) => {
     const pattern = /\S+@\S+\.\S+/

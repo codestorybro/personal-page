@@ -1,19 +1,19 @@
 'use client'
-import React from 'react'
-import { Button } from '../button'
-import Link from 'next/link'
 import Image from 'next/image'
+import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
-import { useWindowSize } from '@uidotdev/usehooks'
 import PropTypes from 'prop-types'
-import { pages } from '../../utils/pages'
-import { languages } from '../../utils/languages'
-import { NavButton } from '../nav-button'
+
+// COMPONENTS§
+import { NavButton } from '@/components/nav-button'
+
+// PAGES
+import { languages } from '@/utils/languages'
+import { pages } from '@/utils/pages'
 
 export default function Header({ locale }) {
     const pathname = usePathname()
     const searchParams = useSearchParams()
-    const { width } = useWindowSize()
     const certId = searchParams.get('certId')
 
     return (

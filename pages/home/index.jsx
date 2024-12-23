@@ -1,11 +1,10 @@
-import React from 'react'
-import Link from 'next/link'
+import { Card } from '@/components/card'
+import { CardList } from '@/components/card-list'
+import { PageTitle } from '@/components/page-title'
+import { Section } from '@/components/section'
+import { clientLogos } from '@/utils/client-logos'
 import { useTranslations } from 'next-intl'
-import { Card } from '../../components/card'
-import { CardList } from '../../components/card-list'
-import { PageTitle } from '../../components/page-title'
-import { Section } from '../../components/section'
-import { clientLogos } from '../../utils/client-logos'
+import Link from 'next/link'
 
 export default function Home() {
     const t = useTranslations('home')

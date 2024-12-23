@@ -1,6 +1,5 @@
 'use client'
-import React from 'react'
-import { SubscribeForm } from '../subscribe-form'
+import { SubscribeForm } from '@/components/subscribe-form'
 
 export default function Footer({ messages }) {
     return (

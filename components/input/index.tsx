@@ -1,5 +1,4 @@
-import React, { FC } from 'react'
-import { InputHTMLAttributes } from 'react'
+import { FC, InputHTMLAttributes } from 'react'
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
     label?: string

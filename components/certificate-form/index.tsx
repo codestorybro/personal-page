@@ -1,12 +1,12 @@
 'use client'
-import { useForm, SubmitHandler } from 'react-hook-form'
-import { Input } from '../input'
-import { Button } from '../button'
+import { Button } from '@/components/button'
+import { Input } from '@/components/input'
+import { usePathname, useRouter } from '@/i18n/routing'
 import { useTranslations } from 'next-intl'
-import toast from 'react-hot-toast'
-import React from 'react'
-import { usePathname, useRouter } from '../../i18n/routing'
 import { useSearchParams } from 'next/navigation'
+import React from 'react'
+import { SubmitHandler, useForm } from 'react-hook-form'
+import toast from 'react-hot-toast'
 
 export const CertificateForm: React.FC<{ certId: string }> = ({ certId }) => {
     const { register, handleSubmit } = useForm<{ id: string }>()

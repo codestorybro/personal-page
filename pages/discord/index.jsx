@@ -1,11 +1,10 @@
-import React from 'react'
+import { Button } from '@/components/button'
+import { Card } from '@/components/card'
+import { CardList } from '@/components/card-list'
+import { PageTitle } from '@/components/page-title'
+import { Section } from '@/components/section'
 import { useTranslations } from 'next-intl'
-import { Button } from '../../components/button'
 import Link from 'next/link'
-import { PageTitle } from '../../components/page-title'
-import { CardList } from '../../components/card-list'
-import { Card } from '../../components/card'
-import { Section } from '../../components/section'
 
 export default function Discord() {
     const d = useTranslations('discord')

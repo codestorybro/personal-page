@@ -1,6 +1,3 @@
-// Komponent React: Checkmark.tsx
-import React from 'react'
-
 const Checkmark: React.FC = () => {
     return (
         <div className="flex items-center justify-center w-full h-full mt-4">

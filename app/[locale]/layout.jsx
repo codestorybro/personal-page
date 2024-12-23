@@ -1,15 +1,14 @@
-import React from 'react'
+import '@/assets/css/globals.css'
+import Footer from '@/components/footer'
+import Header from '@/components/header'
+import { PageWrapper } from '@/components/page-wrapper'
+import { routing } from '@/i18n/routing'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
-import { routing } from '../../i18n/routing'
-import Header from '../../components/header'
-import Footer from '../../components/footer'
+import PropTypes from 'prop-types'
 import { Toaster } from 'react-hot-toast'
 import Scripts from './Scripts'
-import PropTypes from 'prop-types'
-import '../../public/assets/css/globals.css'
-import { PageWrapper } from '../../components/page-wrapper'
 
 export const metadata = {
     title: 'CodeStoryBro',

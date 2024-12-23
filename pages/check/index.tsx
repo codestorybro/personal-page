@@ -1,9 +1,9 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import { CertificateForm } from '@/components/certificate-form'
+import Checkmark from '@/components/checkmark'
 import { useLocale, useTranslations } from 'next-intl'
+import { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
-import { CertificateForm } from '../../components/certificate-form'
-import Checkmark from '../../components/checkmark'
 
 export default function Check({ id }) {
     const [user, setUser] = useState(null)
