@@ -1,8 +1,6 @@
 import Home from '@/pages/home'
 import { getMessages } from 'next-intl/server'
 
-export const revalidate = 60
-
 export async function generateMetadata({ params }) {
     const { locale } = await params
     const messages = await getMessages()

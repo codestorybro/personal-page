@@ -2,7 +2,7 @@ import '@/assets/css/globals.css'
 import Footer from '@/components/footer'
 import Header from '@/components/header'
 import { PageWrapper } from '@/components/page-wrapper'
-import { routing } from '@/i18n/routing'
+import { routing, TLocale } from '@/i18n/routing'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
@@ -49,7 +49,15 @@ export const metadata = {
     },
 }
 
-export default async function RootLayout({ children, params }) {
+interface RootLayoutProps {
+    children: React.ReactNode
+    params: { locale: TLocale }
+}
+
+export default async function RootLayout({
+    children,
+    params,
+}: RootLayoutProps) {
     const { locale } = await params
 
     if (!routing.locales.includes(locale)) {

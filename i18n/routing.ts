@@ -1,6 +1,8 @@
 import { createNavigation } from 'next-intl/navigation'
 import { defineRouting } from 'next-intl/routing'
 
+export type TLocale = 'pl' | 'en'
+
 export const routing = defineRouting({
     // A list of all locales that are supported
     locales: ['pl', 'en'],
