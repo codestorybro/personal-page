@@ -1,12 +1,11 @@
 import '@/assets/css/globals.css'
 import Footer from '@/components/footer'
 import Header from '@/components/header'
-import { PageWrapper } from '@/components/page-wrapper'
+import PageWrapper from '@/components/page-wrapper'
 import { routing, TLocale } from '@/i18n/routing'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
-import PropTypes from 'prop-types'
 import { Toaster } from 'react-hot-toast'
 import Scripts from './Scripts'
 
@@ -49,15 +48,12 @@ export const metadata = {
     },
 }
 
-interface RootLayoutProps {
+interface Props {
     children: React.ReactNode
     params: { locale: TLocale }
 }
 
-export default async function RootLayout({
-    children,
-    params,
-}: RootLayoutProps) {
+export default async function RootLayout({ children, params }: Props) {
     const { locale } = await params
 
     if (!routing.locales.includes(locale)) {
@@ -115,16 +111,11 @@ export default async function RootLayout({
                         <div className="max-w-screen-xl w-full">
                             <Header locale={locale} />
                             <PageWrapper>{children}</PageWrapper>
-                            <Footer messages={messages} />
+                            <Footer />
                         </div>
                     </div>
                 </NextIntlClientProvider>
             </body>
         </html>
     )
-}
-
-RootLayout.propTypes = {
-    children: PropTypes.node.isRequired,
-    params: PropTypes.object.isRequired,
 }

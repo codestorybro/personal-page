@@ -1,9 +1,17 @@
-import { Button } from '@/components/button'
+import Button from '@/components/button'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { FC } from 'react'
 
-export const NavButton = ({ href, ariaLabel, imgSrc, imgAlt }) => {
+interface Props {
+    href: string
+    ariaLabel: string
+    imgSrc: string
+    imgAlt: string
+}
+
+const NavButton: FC<Props> = ({ href, ariaLabel, imgSrc, imgAlt }) => {
     const pathname = usePathname()
 
     const isActive =
@@ -22,3 +30,5 @@ export const NavButton = ({ href, ariaLabel, imgSrc, imgAlt }) => {
         </Link>
     )
 }
+
+export default NavButton

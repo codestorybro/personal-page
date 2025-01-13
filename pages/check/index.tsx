@@ -1,12 +1,21 @@
 'use client'
-import { CertificateForm } from '@/components/certificate-form'
+import CertificateForm from '@/components/certificate-form'
 import Checkmark from '@/components/checkmark'
 import { useLocale, useTranslations } from 'next-intl'
-import { useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 
-export default function Check({ id }) {
-    const [user, setUser] = useState(null)
+interface Props {
+    id?: string
+}
+
+interface IUser {
+    name: string
+    type: string
+}
+
+const Check: FC<Props> = ({ id }) => {
+    const [user, setUser] = useState<IUser | null>(null)
     const [isLoading, setIsLoading] = useState(false)
     const t = useTranslations('general')
     const locale = useLocale()
@@ -33,7 +42,6 @@ export default function Check({ id }) {
                         setUser(null)
                         throw new Error(`${data.status} — ${data.statusText}`)
                     }
-                    setUser(data.body)
                     return t('certificate-check-success')
                 },
                 error: (err) => {
@@ -64,3 +72,5 @@ export default function Check({ id }) {
         </>
     )
 }
+
+export default Check

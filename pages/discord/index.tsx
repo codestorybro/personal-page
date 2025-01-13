@@ -1,12 +1,12 @@
-import { Button } from '@/components/button'
-import { Card } from '@/components/card'
-import { CardList } from '@/components/card-list'
-import { PageTitle } from '@/components/page-title'
-import { Section } from '@/components/section'
+import Button from '@/components/button'
+import Card from '@/components/card'
+import CardList from '@/components/card-list'
+import PageTitle from '@/components/page-title'
+import Section from '@/components/section'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 
-export default function Discord() {
+const Discord = () => {
     const d = useTranslations('discord')
 
     return (
@@ -59,3 +59,5 @@ export default function Discord() {
         </>
     )
 }
+
+export default Discord

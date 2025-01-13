@@ -1,6 +1,12 @@
 import clsx from 'clsx'
+import { FC } from 'react'
 
-export const CardList = ({ children, hasText }) => {
+interface Props {
+    children: React.ReactNode
+    hasText?: boolean
+}
+
+const CardList: FC<Props> = ({ children, hasText }) => {
     return (
         <div
             className={clsx(
@@ -12,3 +18,5 @@ export const CardList = ({ children, hasText }) => {
         </div>
     )
 }
+
+export default CardList

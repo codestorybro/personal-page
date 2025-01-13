@@ -1,6 +1,13 @@
 import clsx from 'clsx'
+import { FC } from 'react'
 
-export const Section = ({ title, wrap, children }) => {
+interface Props {
+    title?: string
+    wrap?: boolean
+    children: React.ReactNode
+}
+
+const Section: FC<Props> = ({ title, wrap, children }) => {
     return (
         <div
             className={clsx(
@@ -13,3 +20,5 @@ export const Section = ({ title, wrap, children }) => {
         </div>
     )
 }
+
+export default Section
