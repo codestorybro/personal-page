@@ -1,7 +1,16 @@
 import clsx from 'clsx'
 import Image from 'next/image'
+import { FC } from 'react'
 
-export const Card = ({ text, imgSrc, imgAlt, imgHeight, imgWidth }) => {
+interface Props {
+    text?: string
+    imgSrc: string
+    imgAlt: string
+    imgHeight: number
+    imgWidth: number
+}
+
+const Card: FC<Props> = ({ text, imgSrc, imgAlt, imgHeight, imgWidth }) => {
     return (
         <div
             className={clsx(
@@ -19,3 +28,5 @@ export const Card = ({ text, imgSrc, imgAlt, imgHeight, imgWidth }) => {
         </div>
     )
 }
+
+export default Card

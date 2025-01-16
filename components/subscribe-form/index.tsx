@@ -1,8 +1,8 @@
 'use client'
-import { Button } from '@/components/button'
-import { Input } from '@/components/input'
+import Button from '@/components/button'
+import Input from '@/components/input'
 import { useLocale, useTranslations } from 'next-intl'
-import React, { useState } from 'react'
+import { FC, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 
@@ -11,7 +11,7 @@ const isValidEmail = (email: string) => {
     return pattern.test(email)
 }
 
-export const SubscribeForm: React.FC = () => {
+const SubscribeForm: FC = () => {
     const locale = useLocale()
     const [isLoading, setIsLoading] = useState(false)
     const { register, handleSubmit, reset } = useForm<{ email: string }>()
@@ -79,3 +79,5 @@ export const SubscribeForm: React.FC = () => {
         </form>
     )
 }
+
+export default SubscribeForm

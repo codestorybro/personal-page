@@ -1,12 +1,12 @@
-import { Card } from '@/components/card'
-import { CardList } from '@/components/card-list'
-import { PageTitle } from '@/components/page-title'
-import { Section } from '@/components/section'
+import Card from '@/components/card'
+import CardList from '@/components/card-list'
+import PageTitle from '@/components/page-title'
+import Section from '@/components/section'
 import { clientLogos } from '@/utils/client-logos'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 
-export default function Home() {
+const Home = () => {
     const t = useTranslations('home')
 
     return (
@@ -50,7 +50,7 @@ export default function Home() {
                 <p>{t('p12')}</p>
             </Section>
             <Section title={t('t3')}>
-                <CardList className="max-w-screen-md">
+                <CardList>
                     {clientLogos.map((logo, index) => (
                         <Card
                             key={index}
@@ -80,3 +80,5 @@ export default function Home() {
         </>
     )
 }
+
+export default Home

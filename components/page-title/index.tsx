@@ -1,6 +1,13 @@
 import Image from 'next/image'
+import { FC } from 'react'
 
-export const PageTitle = ({ title, imgSrc, imgAlt }) => {
+interface Props {
+    title: string
+    imgSrc: string
+    imgAlt: string
+}
+
+const PageTitle: FC<Props> = ({ title, imgSrc, imgAlt }) => {
     return (
         <h2 className="flex text-3xl text-white mb-16">
             <Image
@@ -14,3 +21,5 @@ export const PageTitle = ({ title, imgSrc, imgAlt }) => {
         </h2>
     )
 }
+
+export default PageTitle

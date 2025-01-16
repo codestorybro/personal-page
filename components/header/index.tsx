@@ -1,20 +1,20 @@
 'use client'
+import NavButton from '@/components/nav-button'
+import { languages } from '@/utils/languages'
+import { pages } from '@/utils/pages'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
-import PropTypes from 'prop-types'
+import { FC } from 'react'
 
-// COMPONENTS§
-import { NavButton } from '@/components/nav-button'
+interface Props {
+    locale: string
+}
 
-// PAGES
-import { languages } from '@/utils/languages'
-import { pages } from '@/utils/pages'
-
-export default function Header({ locale }) {
+const Header: FC<Props> = ({ locale }) => {
     const pathname = usePathname()
     const searchParams = useSearchParams()
-    const certId = searchParams.get('certId')
+    const certId = searchParams?.get('certId')
 
     return (
         <div className="flex w-full	justify-between">
@@ -47,7 +47,7 @@ export default function Header({ locale }) {
                 {languages.map(({ ariaLabel, href, imgSrc, imgAlt }, index) => (
                     <NavButton
                         key={index}
-                        href={`${pathname.replace(pathname.slice(0, 3), href)}${certId ? `?certId=${certId}` : ''}`}
+                        href={`${pathname?.replace(pathname.slice(0, 3), href)}${certId ? `?certId=${certId}` : ''}`}
                         ariaLabel={ariaLabel}
                         imgSrc={imgSrc}
                         imgAlt={imgAlt}
@@ -58,6 +58,4 @@ export default function Header({ locale }) {
     )
 }
 
-Header.propTypes = {
-    locale: PropTypes.string.isRequired,
-}
+export default Header

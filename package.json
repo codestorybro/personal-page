@@ -14,7 +14,6 @@
         "framer-motion": "^10.13.0",
         "next": "^15.0.3",
         "next-intl": "^3.25.0",
-        "prop-types": "^15.8.1",
         "react": "^18.2.0",
         "react-checkmark": "^2.1.1",
         "react-dom": "^18.2.0",

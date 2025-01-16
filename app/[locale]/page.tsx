@@ -1,9 +1,15 @@
 import Home from '@/pages/home'
 import { getMessages } from 'next-intl/server'
 
-export async function generateMetadata({ params }) {
+interface Props {
+    params: Promise<{ locale: string }>
+}
+
+export async function generateMetadata({ params }: Props) {
     const { locale } = await params
-    const messages = await getMessages()
+    const messages = (await getMessages()) as {
+        home: { 'og-description': string; 'og-title': string }
+    }
 
     return {
         description: messages.home['og-description'],

@@ -1,23 +1,27 @@
 'use client'
-import { Button } from '@/components/button'
-import { Input } from '@/components/input'
+import Button from '@/components/button'
+import Input from '@/components/input'
 import { usePathname, useRouter } from '@/i18n/routing'
 import { useTranslations } from 'next-intl'
 import { useSearchParams } from 'next/navigation'
-import React from 'react'
+import { FC } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 
-export const CertificateForm: React.FC<{ certId: string }> = ({ certId }) => {
+interface Props {
+    certId?: string
+}
+
+const CertificateForm: FC<Props> = ({ certId }) => {
     const { register, handleSubmit } = useForm<{ id: string }>()
     const t = useTranslations('general')
     const searchParams = useSearchParams()
     const pathname = usePathname()
     const router = useRouter()
 
-    const updateSearchQuery = (updatedQuery) => {
-        const params = new URLSearchParams(searchParams)
-        Object.keys(updatedQuery).forEach((key) => {
+    const updateSearchQuery = (updatedQuery: { certId: string }) => {
+        const params = new URLSearchParams(searchParams!)
+        Object.keys(updatedQuery).forEach((key: keyof typeof updatedQuery) => {
             if (updatedQuery[key]) {
                 params.set(key, updatedQuery[key])
             } else {
@@ -61,3 +65,5 @@ export const CertificateForm: React.FC<{ certId: string }> = ({ certId }) => {
         </form>
     )
 }
+
+export default CertificateForm
