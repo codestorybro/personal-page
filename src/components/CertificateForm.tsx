@@ -46,7 +46,7 @@ const CertificateForm: FC<Props> = ({ certId }) => {
       return toast.error(t('certificate_check_empty'));
     }
 
-    updateSearchQuery({ certId: id });
+    return updateSearchQuery({ certId: id });
   };
 
   return (

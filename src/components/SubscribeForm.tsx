@@ -51,7 +51,7 @@ const SubscribeForm: FC = () => {
       { success: { duration: 4000 }, error: { duration: 4000 } },
     );
 
-    res.finally(() => setIsLoading(false));
+    return res.finally(() => setIsLoading(false));
   };
 
   return (
