@@ -85,15 +85,15 @@ export default async function Index(props: IIndexProps) {
         <div className="relative mt-0 flex w-full justify-center overflow-hidden py-16 sm:py-0 lg:w-1/2">
           <div className="relative grid items-start gap-[calc(0.25rem*8)] sm:grid-cols-3 lg:translate-x-20">
             <div className="mt-48 hidden justify-center sm:flex">
-              <Image alt="hero 1 image" width={160} height={192} src="/assets/img/hero/1.webp" className="h-48 w-40 rounded-xl object-cover shadow-lg" />
+              <Image draggable={false} alt="hero 1 image" width={160} height={192} src="/assets/img/hero/1.webp" className="h-48 w-40 rounded-xl object-cover shadow-lg" />
             </div>
             <div className="mt-16 hidden flex-col sm:flex">
-              <Image alt="hero 2 image" width={160} height={256} src="/assets/img/hero/2.webp" className="h-64 w-40 rounded-xl object-cover shadow-lg" />
-              <Image alt="hero 3 image" width={160} height={256} src="/assets/img/hero/3.webp" className="h-64 w-40 rounded-xl object-cover shadow-lg" />
+              <Image draggable={false} alt="hero 2 image" width={160} height={256} src="/assets/img/hero/2.webp" className="h-64 w-40 rounded-xl object-cover shadow-lg" />
+              <Image draggable={false} alt="hero 3 image" width={160} height={256} src="/assets/img/hero/3.webp" className="h-64 w-40 rounded-xl object-cover shadow-lg" />
             </div>
             <div className="flex flex-col">
-              <Image alt="hero 4 image" width={160} height={256} src="/assets/img/hero/4.webp" className="h-64 w-40 rounded-xl object-cover shadow-lg" />
-              <Image alt="hero 5 image" width={160} height={208} src="/assets/img/hero/5.webp" className="mt-14 hidden h-52 w-40 rounded-xl object-cover shadow-lg sm:block" />
+              <Image draggable={false} alt="hero 4 image" width={160} height={256} src="/assets/img/hero/4.webp" className="h-64 w-40 rounded-xl object-cover shadow-lg" />
+              <Image draggable={false} alt="hero 5 image" width={160} height={208} src="/assets/img/hero/5.webp" className="mt-14 hidden h-52 w-40 rounded-xl object-cover shadow-lg sm:block" />
             </div>
           </div>
         </div>
@@ -105,9 +105,10 @@ export default async function Index(props: IIndexProps) {
               className="order-last grid w-full grid-cols-1 items-start justify-center gap-6 lg:order-first lg:grid-cols-2"
             >
               <div className="m-auto flex items-start justify-start gap-2.5 sm:justify-end sm:pt-24 lg:m-0 lg:justify-center">
-                <Image width={384} height={288} className="rounded-xl object-cover" src="/assets/img/about/about-1.webp" alt="about Us image 1" />
+                <Image draggable={false} width={384} height={288} className="rounded-xl object-cover" src="/assets/img/about/about-1.webp" alt="about Us image 1" />
               </div>
               <Image
+                draggable={false}
                 width={320}
                 height={213}
                 className="m-auto hidden rounded-xl object-cover sm:block lg:m-0"
@@ -124,11 +125,6 @@ export default async function Index(props: IIndexProps) {
                     {t('learn_with_fun')}
                   </h2>
                   <p className="text-center text-lg font-normal leading-relaxed lg:text-start">
-                    <span className="font-logoText text-2xl leading-3">
-                      <span className="text-4xl leading-3">c</span>
-                      ode$toryBro
-                    </span>
-                    {' '}
                     {t('about')}
                   </p>
                 </div>

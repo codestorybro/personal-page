@@ -55,7 +55,7 @@ export default async function RootLayout(props: {
   // which dynamically adds a `style` attribute to the body tag.
 
   return (
-    <html lang={locale} className="bg-background">
+    <html lang={locale} className="bg-black">
       <body suppressHydrationWarning>
         <NextIntlClientProvider
           locale={locale}

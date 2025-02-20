@@ -21,10 +21,12 @@ export default function middleware(
   request: NextRequest,
   event: NextFetchEvent,
 ) {
-  // Run Clerk middleware only when it's necessary
-  if (
-    isAuthPage(request) || isProtectedRoute(request)
-  ) {
+  const path = request.nextUrl.pathname;
+  if (path === '/robots.txt' || path === '/sitemap.xml') {
+    return;
+  }
+
+  if (isAuthPage(request) || isProtectedRoute(request)) {
     return clerkMiddleware(async (auth, req) => {
       if (isProtectedRoute(req)) {
         const locale
@@ -33,7 +35,6 @@ export default function middleware(
         const signInUrl = new URL(`${locale}/sign-in`, req.url);
 
         await auth.protect({
-          // `unauthenticatedUrl` is needed to avoid error: "Unable to find `next-intl` locale because the middleware didn't run on this request"
           unauthenticatedUrl: signInUrl.toString(),
         });
       }
@@ -47,9 +48,7 @@ export default function middleware(
 
 export const config = {
   matcher: [
-    // Skip Next.js internals and all static files, unless found in search params
-    '/((?!_next|monitoring|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
-    // Always run for API routes
+    '/((?!_next|monitoring|robots.txt|sitemap.xml|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
     '/(api|trpc)(.*)',
   ],
 };
