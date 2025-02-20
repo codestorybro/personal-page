@@ -1,0 +1,38 @@
+{
+  "OG": {
+    "title": "CodeStoryBro",
+    "desc": "CodeStoryBro to merytoryka i społeczność, która rozumie Twój programistyczny ból. Dołącz i rozwijaj swoje umiejętności!"
+  },
+  "General": {
+    "subscribe_success": "Sprawdź swoją skrzynkę e-mail, aby potwierdzić subskrypcję",
+    "subscribe_email_empty": "E-mail jest pusty",
+    "subscribe_email_invalid": "E-mail nie jest poprawny",
+    "subscribe": "Subskrybuj",
+    "newsletter": "Bądź na bieżąco i zapisz się do newslettera!",
+    "email": "Adres email",
+    "copy": "Wszelkie prawa zastrzeżone",
+    "check": "Sprawdź",
+    "certificate_check": "Sprawdź certyfikat",
+    "certificate_check_invalid": "Certyfikat o podanym ID nie istnieje",
+    "certificate_check_empty": "ID certyfikatu jest puste",
+    "certificate_check_error": "Wystąpił błąd podczas sprawdzania certyfikatu"
+  },
+  "Home": {
+    "sometimes_code_works": "Czasami kod działa.",
+    "or": "Albo",
+    "not": "nie.",
+    "lets_talk_about_it": "Pogadajmy o tym.",
+    "loose_stories": "Luźne historie z życia programisty i praktyczna wiedza w lekkiej formie.",
+    "join_community": "Dołącz do społeczności",
+    "learn_with_fun": "Połączenie nauki z rozrywką",
+    "about": "to luźne, humorystyczne podejście do programowania. Opowiadamy o błędach, które kosztowały godziny debugowania, o sukcesach po niekończących się poprawkach, ale przede wszystkim dzielimy się doświadczeniami w lekkiej, przystępnej formie.",
+    "q1": "Czy muszę być programistą, żeby dołączyć do społeczności?",
+    "a1": "Nie, ale istnieje ryzyko, że nim zostaniesz.",
+    "q2": "Koduję w PHP. Czy mogę dołączyć?",
+    "a2": "Tak, ale będziemy Cię bacznie obserwować.",
+    "q3": "Czy muszę płacić za dostęp do społeczności?",
+    "a3": "Nie. Ale jeśli chcesz wysłać kawę, to nasz backendowiec na pewno się ucieszy.",
+    "q4": "Mój kod nie działa, ale nie ma błędów. Pomożecie mi?",
+    "a4": "Pewnie, choć problem może być głębszy. Prawdopodobnie to kod testuje Ciebie, a nie ty kod."
+  }
+}
