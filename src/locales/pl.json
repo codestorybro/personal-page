@@ -34,5 +34,16 @@
     "a3": "Nie. Ale jeśli chcesz wysłać kawę, to nasz backendowiec na pewno się ucieszy.",
     "q4": "Mój kod nie działa, ale nie ma błędów. Pomożecie mi?",
     "a4": "Pewnie, choć problem może być głębszy. Prawdopodobnie to kod testuje Ciebie, a nie ty kod."
+  },
+  "Principles": {
+    "title": "Nasze pryncypia",
+    "code_for_people": "Kod jest dla ludzi",
+    "code_for_people_desc": "Piszesz kod dla innych programistów (i dla siebie za pół roku, kiedy zapomnisz, co tu się działo). Dobre standardy to nie sztuka dla sztuki, tylko sposób, żeby inni (i Ty) nie cierpieli.",
+    "new_technologies": "Nowe technologie? Tak, ale z głową",
+    "new_technologies_desc": "Eksperymenty są super, dopóki nie wysadzisz produkcji. Nowinki to nie zawsze złoto – czasem to tylko błyszcząca pułapka. Balans między świeżymi rozwiązaniami a stabilnością to klucz.",
+    "code_today": "Kod na dziś, ale z myślą o jutrze",
+    "code_today_desc": "Wymagania zmieniają się szybciej niż frameworki JavaScript. Dlatego kod powinien być elastyczny i łatwy do rozbudowy – nigdy nie wiesz, co przyszłość przyniesie (poza kolejnymi zmianami od Project Managera).",
+    "no_path": "Nie ma jedynej słusznej ścieżki",
+    "no_path_desc": "Nie ma świętych zasad kodowania – są tylko te, które faktycznie pomagają. Kod ma działać i być zrozumiały, a nie wyglądać jak podręcznik do teorii informatyki."
   }
 }

@@ -34,5 +34,16 @@
     "a3": "No. But if you want to send coffee, our backend developer will be happy.",
     "q4": "My code doesn't work, but there are no errors. Can you help me?",
     "a4": "Sure, although the problem may be deeper. Probably the code is testing you, not you the code."
+  },
+  "Principles": {
+    "title": "Our principles",
+    "code_for_people": "Code is for people",
+    "code_for_people_desc": "You write code for other programmers (and for yourself in half a year, when you forget what was going on here). Good standards are not an art for art's sake, but a way for others (and you) not to suffer.",
+    "new_technologies": "New technologies? Yes, but wisely",
+    "new_technologies_desc": "Experiments are great, until you blow up production. Novelties are not always gold - sometimes it's just a shiny trap. The balance between fresh solutions and stability is the key.",
+    "code_today": "Code for today, but with tomorrow in mind",
+    "code_today_desc": "Requirements change faster than JavaScript frameworks. That's why the code should be flexible and easy to expand - you never know what the future will bring (except for more changes from the Project Manager).",
+    "no_path": "There is no one right path",
+    "no_path_desc": "There are no sacred coding rules - there are only those that actually help. The code should work and be understandable, not look like a computer science textbook."
   }
 }

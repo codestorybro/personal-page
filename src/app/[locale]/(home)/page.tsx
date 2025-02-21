@@ -1,4 +1,5 @@
 import Button from '@/components/Button';
+import { Principles } from '@/components/Principles';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
 
@@ -133,9 +134,10 @@ export default async function Index(props: IIndexProps) {
           </div>
         </div>
       </section>
+      <Principles locale={locale} />
       <section className="py-10 sm:py-16 lg:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="w-fit bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 bg-clip-text font-bold leading-tight text-transparent">Frequently Asked Questions</h2>
+          <h2 className="w-fit bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 bg-clip-text font-bold leading-tight text-transparent">FAQ</h2>
 
           <div className="mt-12 flow-root sm:mt-16">
             <div className="-my-9 divide-y divide-zinc-800">
