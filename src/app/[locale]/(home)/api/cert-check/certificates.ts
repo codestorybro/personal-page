@@ -1,4 +1,5 @@
 export const certificates = [
+  // TYPESCRIPT FUNDAMENTALS
   {
     type: 'TypeScript Fundamentals Attendee',
     certId: 'TSFL-2024-48372915',
@@ -124,6 +125,7 @@ export const certificates = [
     certId: 'TSFL-2024-51739482',
     name: 'Marek Lempart',
   },
+  // REACT NATIVE FUNDAMENTALS
   {
     type: 'React Native Fundamentals Attendee',
     certId: 'RNFL-2025-46350729',
@@ -218,5 +220,51 @@ export const certificates = [
     type: 'React Native Fundamentals Attendee',
     certId: 'RNFL-2025-12533200',
     name: 'Marek Lempart',
+  },
+  // REACT V19 FUNDAMENTALS
+  {
+    type: 'React v19 Fundamentals Attendee',
+    certId: 'R19FL-2025-38492715',
+    name: 'Rafał Pobóg-Ruszkowski',
+  },
+  {
+    type: 'React v19 Fundamentals Attendee',
+    certId: 'R19FL-2025-76140293',
+    name: 'Marta Tabor',
+  },
+  {
+    type: 'React v19 Fundamentals Attendee',
+    certId: 'R19FL-2025-15839672',
+    name: 'Mariusz Fit',
+  },
+  {
+    type: 'React v19 Fundamentals Attendee',
+    certId: 'R19FL-2025-60428197',
+    name: 'Arkadiusz Smęder',
+  },
+  {
+    type: 'React v19 Fundamentals Attendee',
+    certId: 'R19FL-2025-29037486',
+    name: 'Klaudia Pawełek',
+  },
+  {
+    type: 'React v19 Fundamentals Attendee',
+    certId: 'R19FL-2025-84321957',
+    name: 'Natalia Chybińska',
+  },
+  {
+    type: 'React v19 Fundamentals Attendee',
+    certId: 'R19FL-2025-71649508',
+    name: 'Marek Lempart',
+  },
+  {
+    type: 'React v19 Fundamentals Attendee',
+    certId: 'R19FL-2025-50273864',
+    name: 'Kacper Radziewicz',
+  },
+  {
+    type: 'React v19 Fundamentals Attendee',
+    certId: 'R19FL-2025-93714028',
+    name: 'Apolinary Szumski',
   },
 ];
