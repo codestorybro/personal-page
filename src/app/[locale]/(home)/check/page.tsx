@@ -1,7 +1,7 @@
-import CertificateForm from '@/components/CertificateForm';
-import CertValidate from '@/components/CertValidate';
 import { getTranslations } from 'next-intl/server';
 import { Suspense } from 'react';
+import CertificateForm from '@/components/CertificateForm';
+import CertValidate from '@/components/CertValidate';
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;

@@ -1,6 +1,6 @@
+import { setRequestLocale } from 'next-intl/server';
 import Footer from '@/components/Footer';
 import { Header } from '@/components/Header';
-import { setRequestLocale } from 'next-intl/server';
 
 export default async function Layout(props: {
   children: React.ReactNode;

@@ -1,7 +1,7 @@
-import Button from '@/components/Button';
-import { Principles } from '@/components/Principles';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
+import Button from '@/components/Button';
+import { Principles } from '@/components/Principles';
 
 type IIndexProps = {
   params: Promise<{ locale: string }>;

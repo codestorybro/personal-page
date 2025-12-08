@@ -1,9 +1,9 @@
 'use client';
 import type { FC } from 'react';
-import Checkmark from '@/components/Checkmark';
 import { useLocale, useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import Checkmark from '@/components/Checkmark';
 
 type Props = {
   id?: string;
@@ -43,6 +43,7 @@ const CertValidate: FC<Props> = ({ id }) => {
             setUser(null);
             throw new Error(`${data.status} — ${data.statusText}`);
           }
+          return ''; // Return an empty string to satisfy the renderable requirement
         },
         error: (err: { status: number }) => {
           if (err.status >= 400) {
