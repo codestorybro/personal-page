@@ -13,9 +13,12 @@
     "copy": "Wszelkie prawa zastrzeżone",
     "check": "Sprawdź",
     "certificate_check": "Sprawdź certyfikat",
+    "certificate_check_subtitle": "Wprowadź ID certyfikatu, aby zweryfikować jego autentyczność",
     "certificate_check_invalid": "Certyfikat o podanym ID nie istnieje",
     "certificate_check_empty": "ID certyfikatu jest puste",
     "certificate_check_error": "Wystąpił błąd podczas sprawdzania certyfikatu",
+    "certificate_valid": "Certyfikat jest ważny ✓",
+    "certificate_not_found": "Certyfikat nieznaleziony",
     "contact": "Skontaktuj się",
     "open_menu": "Otwórz menu",
     "close_menu": "Zamknij menu"

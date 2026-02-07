@@ -1,6 +1,7 @@
 'use client';
 import type { FC } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
+import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useSearchParams } from 'next/navigation';
 import { useForm } from 'react-hook-form';
@@ -50,8 +51,13 @@ const CertificateForm: FC<Props> = ({ certId }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="m-auto flex max-w-lg flex-row">
-
+    <motion.form
+      onSubmit={handleSubmit(onSubmit)}
+      className="m-auto flex max-w-lg flex-col gap-4 sm:flex-row"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+    >
       <Input
         {...register('id')}
         placeholder={t('certificate_check')}
@@ -60,15 +66,14 @@ const CertificateForm: FC<Props> = ({ certId }) => {
         name="id"
         id="id"
         defaultValue={certId}
-        className="min-w-0 flex-auto rounded-md bg-white/5 px-3.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
       />
       <Button
         type="submit"
-        className="ml-4 flex-none !px-4 !py-2 !text-sm"
+        className="flex-none sm:!px-6 sm:!py-3"
       >
         {t('check')}
       </Button>
-    </form>
+    </motion.form>
   );
 };
 
