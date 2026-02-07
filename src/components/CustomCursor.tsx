@@ -7,12 +7,14 @@ export const CustomCursor = () => {
   const [isHovering, setIsHovering] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
+  // Main cursor - no spring/debounce, instant tracking
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  const springConfig = { damping: 25, stiffness: 400 };
-  const cursorXSpring = useSpring(cursorX, springConfig);
-  const cursorYSpring = useSpring(cursorY, springConfig);
+  // Glow effect - with spring for smooth trailing effect
+  const glowSpringConfig = { damping: 20, stiffness: 150 };
+  const glowX = useSpring(cursorX, glowSpringConfig);
+  const glowY = useSpring(cursorY, glowSpringConfig);
 
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
@@ -63,34 +65,37 @@ export const CustomCursor = () => {
 
   return (
     <>
-      {/* Main cursor dot */}
+      {/* Cursor glow - trailing with blur effect */}
       <motion.div
-        className="pointer-events-none fixed left-0 top-0 z-[9999] hidden mix-blend-difference lg:block"
+        className="pointer-events-none fixed left-0 top-0 z-[9998] hidden lg:block"
         style={{
-          x: cursorXSpring,
-          y: cursorYSpring,
+          x: glowX,
+          y: glowY,
           translateX: '-50%',
           translateY: '-50%',
         }}
       >
         <motion.div
-          className="rounded-full bg-white"
+          className="rounded-full bg-indigo-500"
+          style={{
+            filter: 'blur(10px)',
+          }}
           animate={{
-            width: isHovering ? 60 : 12,
-            height: isHovering ? 60 : 12,
-            opacity: isVisible ? 1 : 0,
+            width: isHovering ? 30 : 40,
+            height: isHovering ? 30 : 40,
+            opacity: isVisible ? 0.8 : 0,
           }}
           transition={{
             type: 'spring',
-            damping: 20,
-            stiffness: 300,
+            damping: 15,
+            stiffness: 200,
           }}
         />
       </motion.div>
 
-      {/* Cursor ring */}
+      {/* Main cursor dot - instant tracking, no debounce */}
       <motion.div
-        className="pointer-events-none fixed left-0 top-0 z-[9998] hidden lg:block"
+        className="pointer-events-none fixed left-0 top-0 z-[9999] hidden mix-blend-difference lg:block"
         style={{
           x: cursorX,
           y: cursorY,
@@ -99,16 +104,16 @@ export const CustomCursor = () => {
         }}
       >
         <motion.div
-          className="rounded-full border-2 border-indigo-500/50"
+          className="rounded-full bg-white"
           animate={{
-            width: isHovering ? 80 : 40,
-            height: isHovering ? 80 : 40,
-            opacity: isVisible ? 0.5 : 0,
+            width: isHovering ? 8 : 16,
+            height: isHovering ? 8 : 16,
+            opacity: isVisible ? 1 : 0,
           }}
           transition={{
             type: 'spring',
-            damping: 15,
-            stiffness: 200,
+            damping: 20,
+            stiffness: 300,
           }}
         />
       </motion.div>
