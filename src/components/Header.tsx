@@ -20,7 +20,7 @@ export const Header: FC<Props> = () => {
     >
       <MotionLink
         href="/"
-        className="flex h-22 flex-row items-center rounded-3xl pr-4 focus:outline-none focus:ring-2 focus-visible:outline-none"
+        className="flex h-22 flex-row items-center rounded-3xl pr-4 focus:outline-none focus-visible:ring-2"
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         transition={{ type: 'spring', stiffness: 400, damping: 17 }}

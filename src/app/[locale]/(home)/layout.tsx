@@ -13,9 +13,13 @@ export default async function Layout(props: {
   return (
     <div className="flex min-h-screen flex-col justify-between">
       <CustomCursor />
-      <div className="flex flex-col items-center p-8 font-bodyText text-base text-bodyText lg:pr-0">
-        <div className="w-full max-w-screen-xl">
+      <header className="sticky top-0 z-50 bg-black/80 backdrop-blur-md">
+        <div className="mx-auto mt-2 w-full max-w-screen-xl px-8">
           <Header locale={locale} />
+        </div>
+      </header>
+      <div className="flex flex-col items-center p-8 pt-0 font-bodyText text-base text-bodyText lg:pr-0">
+        <div className="w-full max-w-screen-xl">
           <div className="my-8">{props.children}</div>
         </div>
       </div>
