@@ -61,17 +61,14 @@ export default function NotFound() {
         >
           <MotionLink
             href="/"
-            className="group relative inline-flex cursor-pointer items-center justify-center gap-3 rounded-xl border border-[#333333] px-6 py-3 text-base font-medium text-white transition-all duration-300 hover:border-sky-400/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 sm:px-8 sm:py-4 sm:text-lg"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+            className="group relative inline-flex cursor-pointer items-center justify-center gap-3 rounded-lg border border-[#333333] px-6 py-3 text-base font-medium text-white hover:border-indigo-400/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black sm:px-8 sm:py-4 sm:text-lg"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: 'tween', duration: 0.3 }}
           >
             {/* Blur glow effect on hover */}
-            <motion.span
-              className="pointer-events-none absolute inset-0 rounded-xl bg-sky-500"
-              initial={{ opacity: 0, filter: 'blur(20px)' }}
-              whileHover={{ opacity: 0.4, filter: 'blur(25px)' }}
-              transition={{ duration: 0.3 }}
+            <span
+              className="pointer-events-none absolute inset-0 rounded-lg bg-indigo-500 opacity-0 blur-[20px] transition-opacity duration-300 group-hover:opacity-40"
               aria-hidden="true"
             />
             <span className="relative z-10">{translations.back_home}</span>
@@ -83,7 +80,7 @@ export default function NotFound() {
           {['bubble-1', 'bubble-2', 'bubble-3', 'bubble-4', 'bubble-5'].map((id, i) => (
             <motion.div
               key={id}
-              className="absolute rounded-full bg-sky-500/10"
+              className="absolute rounded-full bg-indigo-500/10"
               style={{
                 width: (i + 1) * 40 + 50,
                 height: (i + 1) * 40 + 50,

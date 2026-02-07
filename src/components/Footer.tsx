@@ -11,8 +11,8 @@ const Footer: FC = () => {
 
   return (
     <footer className="mx-4 mt-4 border-t-2 border-t-zinc-800 pb-4">
-      <div className="mx-auto flex w-full max-w-screen-xl flex-col items-center gap-4 p-4 sm:flex-row sm:justify-between">
-        <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+      <div className="mx-auto flex w-full max-w-screen-xl flex-col items-center gap-4 p-4 text-center sm:flex-row sm:justify-between sm:text-left">
+        <span className="text-sm text-gray-500 dark:text-gray-400">
           ©
           {new Date().getFullYear()}
           {' '}
@@ -28,21 +28,27 @@ const Footer: FC = () => {
         <nav className="flex items-center gap-4" aria-label="Footer navigation">
           <MotionLink
             href="/check"
-            className="text-sm text-gray-400 transition-colors hover:text-white focus:outline-none focus-visible:text-white focus-visible:underline"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+            className="group relative rounded-lg px-2 py-1 text-sm text-gray-400 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
           >
-            {t('certificate_check')}
+            <span
+              className="pointer-events-none absolute inset-0 rounded-lg bg-indigo-500 opacity-0 blur-[10px] transition-opacity duration-300 group-hover:opacity-60"
+              aria-hidden="true"
+            />
+            <span className="relative z-10">{t('certificate_check')}</span>
           </MotionLink>
           <MotionLink
             href="mailto:hello@codestorybro.com"
-            className="text-sm text-gray-400 transition-colors hover:text-white focus:outline-none focus-visible:text-white focus-visible:underline"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+            className="group relative rounded-lg px-2 py-1 text-sm text-gray-400 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
           >
-            {t('contact')}
+            <span
+              className="pointer-events-none absolute inset-0 rounded-lg bg-indigo-500 opacity-0 blur-[10px] transition-opacity duration-300 group-hover:opacity-60"
+              aria-hidden="true"
+            />
+            <span className="relative z-10">{t('contact')}</span>
           </MotionLink>
         </nav>
       </div>

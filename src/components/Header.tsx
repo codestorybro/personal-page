@@ -31,16 +31,17 @@ export const Header: FC<Props> = () => {
       className="flex w-full items-center justify-between"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+      transition={{ duration: 0.3 }}
     >
       <MotionLink
         href="/"
-        className="flex h-22 flex-row items-center rounded-3xl px-4 focus:outline-none focus-visible:ring-2"
+        className="flex flex-row items-center rounded-lg px-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         transition={{ type: 'spring', stiffness: 400, damping: 17 }}
       >
         <motion.div
+          className="flex items-center"
           animate={{ rotate: [0, 5, -5, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
         >
@@ -51,9 +52,10 @@ export const Header: FC<Props> = () => {
             src="/assets/img/logo-main.svg"
             alt="profile"
             priority
+            className="h-6 w-auto sm:h-12"
           />
         </motion.div>
-        <span className="ml-4 font-logoText text-3xl italic text-white sm:text-5xl" style={{ lineHeight: '95px' }}>
+        <span className="ml-2 translate-y-[0.15em] font-logoText text-xl italic leading-none text-white sm:ml-4 sm:text-5xl">
           CodeStoryBro
         </span>
       </MotionLink>
@@ -67,15 +69,12 @@ export const Header: FC<Props> = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={social.name}
-            className="relative rounded-lg p-2 text-gray-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+            className="group relative rounded-lg p-2 text-gray-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
-            <motion.span
-              className="pointer-events-none absolute inset-0 rounded-lg bg-indigo-500"
-              initial={{ opacity: 0, filter: 'blur(10px)' }}
-              whileHover={{ opacity: 0.6, filter: 'blur(12px)' }}
-              transition={{ duration: 0.3 }}
+            <span
+              className="pointer-events-none absolute inset-0 rounded-lg bg-indigo-500 opacity-0 blur-[10px] transition-opacity duration-300 group-hover:opacity-60"
               aria-hidden="true"
             />
             <social.icon size={24} weight="regular" className="relative z-10" />
@@ -122,30 +121,38 @@ export const Header: FC<Props> = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="fixed inset-0 top-[88px] z-40 bg-black/80 backdrop-blur-md lg:hidden"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
+            className="fixed inset-x-0 top-[60px] z-40 overflow-hidden lg:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
           >
-            <nav className="flex flex-col items-center gap-6 pt-12" aria-label="Social media links mobile">
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 rounded-lg px-6 py-3 text-xl text-gray-300 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  <social.icon size={28} weight="regular" />
-                  <span>{social.name}</span>
-                </motion.a>
-              ))}
-            </nav>
+            <motion.div
+              className="bg-black"
+              initial={{ y: '-100%' }}
+              animate={{ y: 0 }}
+              exit={{ y: '-100%' }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+            >
+              <nav className="flex flex-col items-center gap-6 py-8" aria-label="Social media links mobile">
+                {socialLinks.map((social, index) => (
+                  <motion.a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 rounded-lg px-6 py-3 text-xl text-gray-300 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <social.icon size={28} weight="regular" />
+                    <span>{social.name}</span>
+                  </motion.a>
+                ))}
+              </nav>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

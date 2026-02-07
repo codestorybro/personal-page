@@ -11,7 +11,7 @@ export default async function Layout(props: {
 
   return (
     <div className="flex min-h-screen flex-col justify-between">
-      <header className="sticky top-0 z-50 bg-black/80 backdrop-blur-md">
+      <header className="sticky top-0 z-50 bg-black/70 backdrop-blur-md">
         <div className="mx-auto my-2 w-full max-w-screen-xl px-8">
           <Header locale={locale} />
         </div>
