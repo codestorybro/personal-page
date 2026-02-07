@@ -16,8 +16,7 @@ const Footer: FC = () => {
           {t('copy')}
           {' '}
           <span style={{ lineHeight: '49px' }} className="font-logoText text-2xl leading-3">
-            <span className="text-4xl leading-3">c</span>
-            ode$toryBro
+            CodeStoryBro
           </span>
         </span>
         <LocaleSwitcher />

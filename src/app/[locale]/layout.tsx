@@ -1,11 +1,18 @@
 import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
+import localFont from 'next/font/local';
 import { notFound } from 'next/navigation';
 import { Toaster } from 'react-hot-toast';
 import GA from '@/app/[locale]/ga';
 import { routing } from '@/libs/i18nNavigation';
 import '@/styles/global.css';
+
+const rushDriver = localFont({
+  src: '../../../public/assets/fonts/RushDriver-Italic.otf',
+  variable: '--font-rush-driver',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   icons: [
@@ -55,7 +62,7 @@ export default async function RootLayout(props: {
   // which dynamically adds a `style` attribute to the body tag.
 
   return (
-    <html lang={locale} className="bg-black">
+    <html lang={locale} className={`bg-black ${rushDriver.variable}`}>
       <body suppressHydrationWarning>
         <NextIntlClientProvider
           locale={locale}

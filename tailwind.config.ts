@@ -20,7 +20,7 @@ export default {
         success: '#79c142',
       },
       fontFamily: {
-        logoText: ['Adrip', 'sans-serif'],
+        logoText: ['var(--font-rush-driver)', 'sans-serif'],
         bodyText: ['Inter', 'sans-serif'],
       },
       boxShadow: {

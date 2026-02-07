@@ -26,3 +26,10 @@ body {
     font-style: normal;
   }
 }
+
+/* Hide default cursor on desktop for custom cursor */
+@media (min-width: 1024px) {
+  * {
+    cursor: none !important;
+  }
+}
