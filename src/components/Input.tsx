@@ -7,9 +7,20 @@ type Props = {
 
 const Input: FC<Props> = ({ className, label, ...props }) => {
   return (
-    <label className={clsx('flex w-full flex-col text-white')}>
-      <span>{label}</span>
-      <input className={clsx('block w-full rounded-lg border border-gray-300 bg-gray-50 text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500', className)} {...props} />
+    <label className="flex w-full flex-col gap-2 text-white">
+      {label && <span className="text-sm text-gray-400">{label}</span>}
+      <input
+        className={clsx(
+          'block w-full rounded-lg border-0 bg-white/5 px-4 py-3 text-base text-white',
+          'ring-1 ring-inset ring-white/10',
+          'placeholder:text-gray-500',
+          'transition-all duration-200',
+          'focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-indigo-500',
+          'hover:bg-white/[0.07] hover:ring-white/20',
+          className,
+        )}
+        {...props}
+      />
     </label>
   );
 };
