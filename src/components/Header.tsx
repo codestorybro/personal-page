@@ -38,7 +38,7 @@ export const Header: FC<Props> = () => {
             priority
           />
         </motion.div>
-        <span className="ml-4 font-logoText text-5xl italic text-white" style={{ lineHeight: '95px' }}>
+        <span className="ml-4 font-logoText text-3xl italic text-white sm:text-5xl" style={{ lineHeight: '95px' }}>
           CodeStoryBro
         </span>
       </MotionLink>

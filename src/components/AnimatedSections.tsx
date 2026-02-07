@@ -8,8 +8,6 @@ import { FadeInLeft, FadeInRight, FadeInUp, StaggerContainer, StaggerItem } from
 type HeroSectionProps = {
   translations: {
     sometimes_code_works: string;
-    or: string;
-    not: string;
     lets_talk_about_it: string;
     loose_stories: string;
     join_community: string;
@@ -38,25 +36,10 @@ export const HeroSection = ({ translations: t }: HeroSectionProps) => {
           <h1 className="inline-block text-4xl font-bold text-white lg:text-5xl">
             {t.sometimes_code_works}
             <motion.p
-              className="text-base sm:text-right"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8, duration: 0.5 }}
-            >
-              {t.or}
-              &nbsp;
-              <motion.span
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1.2, duration: 0.3 }}
-              >
-                {t.not}
-              </motion.span>
-            </motion.p>
-            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.5, duration: 0.5 }}
+              transition={{ delay: 0.8, duration: 0.5 }}
+              className="mt-3"
             >
               {t.lets_talk_about_it}
             </motion.p>

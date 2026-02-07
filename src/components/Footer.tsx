@@ -1,7 +1,6 @@
 'use client';
 import type { FC } from 'react';
 import { useTranslations } from 'next-intl';
-import { LocaleSwitcher } from './LocaleSwitcher';
 
 const Footer: FC = () => {
   const t = useTranslations('General');
@@ -19,7 +18,6 @@ const Footer: FC = () => {
             CodeStoryBro
           </span>
         </span>
-        <LocaleSwitcher />
         {/* <SubscribeForm /> */}
       </div>
     </footer>

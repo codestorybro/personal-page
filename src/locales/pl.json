@@ -18,11 +18,9 @@
     "certificate_check_error": "Wystąpił błąd podczas sprawdzania certyfikatu"
   },
   "Home": {
-    "sometimes_code_works": "Czasami kod działa.",
-    "or": "Albo",
-    "not": "nie.",
-    "lets_talk_about_it": "Pogadajmy o tym.",
-    "loose_stories": "Luźne historie z życia programistów i praktyczna wiedza w lekkiej formie.",
+    "sometimes_code_works": "Kod to tylko fragment historii.",
+    "lets_talk_about_it": "Reszta dzieje się między ludźmi.",
+    "loose_stories": "O produktach, zespołach i lekcjach, którymi warto się dzielić.",
     "join_community": "Dołącz do społeczności",
     "learn_with_fun": "Połączenie nauki z rozrywką",
     "about": "Tworzymy luźne, humorystyczne podejście do programowania. Opowiadamy o błędach, które kosztowały godziny debugowania, o sukcesach po niekończących się poprawkach, ale przede wszystkim dzielimy się doświadczeniami w lekkiej, przystępnej formie.",

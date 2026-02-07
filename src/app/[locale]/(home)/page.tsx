@@ -60,8 +60,6 @@ export default async function Index(props: IIndexProps) {
 
   const heroTranslations = {
     sometimes_code_works: t('sometimes_code_works'),
-    or: t('or'),
-    not: t('not'),
     lets_talk_about_it: t('lets_talk_about_it'),
     loose_stories: t('loose_stories'),
     join_community: t('join_community'),
