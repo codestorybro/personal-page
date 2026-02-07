@@ -1,25 +1,88 @@
-import type { ButtonHTMLAttributes, FC } from 'react';
-import clsx from 'clsx';
+'use client';
 
-type Props = {
+import type { FC } from 'react';
+import clsx from 'clsx';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+
+const MotionLink = motion.create(Link);
+
+type ButtonProps = {
   children: React.ReactNode;
   className?: string;
-  isActive?: boolean;
-} & ButtonHTMLAttributes<HTMLButtonElement>;
+  disabled?: boolean;
+  type?: 'button' | 'submit' | 'reset';
+  onClick?: () => void;
+};
 
-const Button: FC<Props> = ({ children, className, isActive, ...props }) => {
+type ButtonLinkProps = {
+  children: React.ReactNode;
+  href: string;
+  className?: string;
+  target?: string;
+  rel?: string;
+};
+
+const baseClassName = 'bg-transparent group relative inline-flex cursor-pointer items-center justify-center gap-3 rounded-xl border border-[#333333] px-6 py-3 text-base font-medium text-white transition-all duration-300 hover:border-sky-400/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 sm:px-8 sm:py-4 sm:text-lg';
+
+const GlowEffect = () => (
+  <motion.span
+    className="pointer-events-none absolute inset-0 rounded-xl bg-sky-500"
+    initial={{ opacity: 0, filter: 'blur(20px)' }}
+    whileHover={{ opacity: 0.4, filter: 'blur(25px)' }}
+    transition={{ duration: 0.3 }}
+    aria-hidden="true"
+  />
+);
+
+const Button: FC<ButtonProps> = ({ children, className, disabled, type = 'button', onClick }) => {
   return (
-    <button
-      className={clsx(
-        'inline-block cursor-pointer rounded bg-indigo-600 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-500 ease-in-out hover:bg-indigo-700 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-indigo-700 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]',
-        'active:bg-indigo-700',
-        className,
-      )}
-      type="button"
-      {...props}
+    <motion.button
+      className={clsx(baseClassName, className)}
+      type={type}
+      disabled={disabled}
+      onClick={onClick}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.98 }}
+      transition={{ type: 'spring', stiffness: 400, damping: 17 }}
     >
-      {children}
-    </button>
+      <GlowEffect />
+      <span className="relative z-10">{children}</span>
+    </motion.button>
+  );
+};
+
+export const ButtonLink: FC<ButtonLinkProps> = ({ children, href, className, target, rel }) => {
+  const isExternal = href.startsWith('http');
+
+  if (isExternal) {
+    return (
+      <motion.a
+        href={href}
+        target={target || '_blank'}
+        rel={rel || 'noopener noreferrer'}
+        className={clsx(baseClassName, className)}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.98 }}
+        transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+      >
+        <GlowEffect />
+        <span className="relative z-10">{children}</span>
+      </motion.a>
+    );
+  }
+
+  return (
+    <MotionLink
+      href={href}
+      className={clsx(baseClassName, className)}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.98 }}
+      transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+    >
+      <GlowEffect />
+      <span className="relative z-10">{children}</span>
+    </MotionLink>
   );
 };
 

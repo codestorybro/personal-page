@@ -64,7 +64,7 @@ const CertificateForm: FC<Props> = ({ certId }) => {
       />
       <Button
         type="submit"
-        className="ml-4 flex-none rounded-md bg-indigo-500 px-3.5 text-sm font-semibold text-white hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+        className="ml-4 flex-none !px-4 !py-2 !text-sm"
       >
         {t('check')}
       </Button>

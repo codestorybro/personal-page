@@ -15,7 +15,16 @@
     "certificate_check": "Sprawdź certyfikat",
     "certificate_check_invalid": "Certyfikat o podanym ID nie istnieje",
     "certificate_check_empty": "ID certyfikatu jest puste",
-    "certificate_check_error": "Wystąpił błąd podczas sprawdzania certyfikatu"
+    "certificate_check_error": "Wystąpił błąd podczas sprawdzania certyfikatu",
+    "contact": "Skontaktuj się",
+    "open_menu": "Otwórz menu",
+    "close_menu": "Zamknij menu"
+  },
+  "NotFound": {
+    "title": "404",
+    "heading": "Ups! Strona nie istnieje",
+    "description": "Wygląda na to, że kod się zgubił... Ale spokojnie, to nie Twoja wina (prawdopodobnie).",
+    "back_home": "Wróć na stronę główną"
   },
   "Home": {
     "sometimes_code_works": "Kod to tylko fragment historii.",

@@ -1,5 +1,4 @@
 import { setRequestLocale } from 'next-intl/server';
-import { CustomCursor } from '@/components/CustomCursor';
 import Footer from '@/components/Footer';
 import { Header } from '@/components/Header';
 
@@ -12,9 +11,8 @@ export default async function Layout(props: {
 
   return (
     <div className="flex min-h-screen flex-col justify-between">
-      <CustomCursor />
       <header className="sticky top-0 z-50 bg-black/80 backdrop-blur-md">
-        <div className="mx-auto mt-2 w-full max-w-screen-xl px-8">
+        <div className="mx-auto my-2 w-full max-w-screen-xl px-8">
           <Header locale={locale} />
         </div>
       </header>

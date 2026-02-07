@@ -2,6 +2,7 @@
 import type { FC } from 'react';
 import { DiscordLogoIcon, GithubLogoIcon, InstagramLogoIcon, LinkedinLogoIcon, ListIcon, XIcon, XLogoIcon, YoutubeLogoIcon } from '@phosphor-icons/react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -22,6 +23,7 @@ const socialLinks = [
 ];
 
 export const Header: FC<Props> = () => {
+  const t = useTranslations('General');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
@@ -33,7 +35,7 @@ export const Header: FC<Props> = () => {
     >
       <MotionLink
         href="/"
-        className="flex h-22 flex-row items-center rounded-3xl pr-4 focus:outline-none focus-visible:ring-2"
+        className="flex h-22 flex-row items-center rounded-3xl px-4 focus:outline-none focus-visible:ring-2"
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         transition={{ type: 'spring', stiffness: 400, damping: 17 }}
@@ -65,11 +67,18 @@ export const Header: FC<Props> = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={social.name}
-            className="rounded-lg p-2 text-gray-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+            className="relative rounded-lg p-2 text-gray-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
-            <social.icon size={24} weight="regular" />
+            <motion.span
+              className="pointer-events-none absolute inset-0 rounded-lg bg-indigo-500"
+              initial={{ opacity: 0, filter: 'blur(10px)' }}
+              whileHover={{ opacity: 0.6, filter: 'blur(12px)' }}
+              transition={{ duration: 0.3 }}
+              aria-hidden="true"
+            />
+            <social.icon size={24} weight="regular" className="relative z-10" />
           </motion.a>
         ))}
       </nav>
@@ -79,7 +88,7 @@ export const Header: FC<Props> = () => {
         type="button"
         className="rounded-lg p-2 text-gray-400 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 lg:hidden"
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        aria-label={isMobileMenuOpen ? 'Zamknij menu' : 'Otwórz menu'}
+        aria-label={isMobileMenuOpen ? t('close_menu') : t('open_menu')}
         aria-expanded={isMobileMenuOpen}
       >
         <AnimatePresence mode="wait">
@@ -113,7 +122,7 @@ export const Header: FC<Props> = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="fixed inset-0 top-[88px] z-40 bg-black/95 backdrop-blur-md lg:hidden"
+            className="fixed inset-0 top-[88px] z-40 bg-black/80 backdrop-blur-md lg:hidden"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
