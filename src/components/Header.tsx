@@ -8,6 +8,8 @@ type Props = {
   locale: string;
 };
 
+const MotionLink = motion.create(Link);
+
 export const Header: FC<Props> = () => {
   return (
     <motion.div
@@ -16,31 +18,30 @@ export const Header: FC<Props> = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
     >
-      <Link href="/" className="rounded-3xl pr-4 focus:outline-none focus:ring-2 focus-visible:outline-none">
+      <MotionLink
+        href="/"
+        className="flex h-22 flex-row items-center rounded-3xl pr-4 focus:outline-none focus:ring-2 focus-visible:outline-none"
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+        transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+      >
         <motion.div
-          className="flex h-22 flex-row items-center focus:outline-none focus-visible:outline-none"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+          animate={{ rotate: [0, 5, -5, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
         >
-          <motion.div
-            animate={{ rotate: [0, 5, -5, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            <Image
-              draggable={false}
-              width={50}
-              height={68}
-              src="/assets/img/logo-main.svg"
-              alt="profile"
-              priority
-            />
-          </motion.div>
-          <span className="ml-4 font-logoText text-5xl italic text-white" style={{ lineHeight: '95px' }}>
-            CodeStoryBro
-          </span>
+          <Image
+            draggable={false}
+            width={50}
+            height={68}
+            src="/assets/img/logo-main.svg"
+            alt="profile"
+            priority
+          />
         </motion.div>
-      </Link>
+        <span className="ml-4 font-logoText text-5xl italic text-white" style={{ lineHeight: '95px' }}>
+          CodeStoryBro
+        </span>
+      </MotionLink>
     </motion.div>
   );
 };

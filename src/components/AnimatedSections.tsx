@@ -3,7 +3,6 @@
 import type { Variants } from 'framer-motion';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Button from '@/components/Button';
 import { FadeInLeft, FadeInRight, FadeInUp, StaggerContainer, StaggerItem } from './AnimatedElements';
 
 type HeroSectionProps = {
@@ -68,19 +67,17 @@ export const HeroSection = ({ translations: t }: HeroSectionProps) => {
         </FadeInUp>
         <FadeInUp delay={0.8}>
           <div className="mt-6 flex space-x-4">
-            <a href="https://discord.gg/7VNpaBGCNr" target="_blank" rel="noreferrer">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-              >
-                <Button
-                  className="flex-none rounded-md bg-indigo-500 px-3.5 text-sm font-semibold text-white hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-                >
-                  {t.join_community}
-                </Button>
-              </motion.div>
-            </a>
+            <motion.a
+              href="https://discord.gg/7VNpaBGCNr"
+              target="_blank"
+              rel="noreferrer"
+              className="flex-none rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+            >
+              {t.join_community}
+            </motion.a>
           </div>
         </FadeInUp>
       </div>
