@@ -11,6 +11,8 @@ import Link from 'next/link';
 import { FadeInUp } from './AnimatedElements';
 import { ShareButtons } from './ShareButtons';
 
+const MotionLink = motion.create(Link);
+
 type BlogPostViewProps = {
   post: BlogPost;
   contentHtml: string;
@@ -46,13 +48,20 @@ export const BlogPostView: FC<BlogPostViewProps> = ({
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         {/* Back button */}
         <FadeInUp>
-          <Link
+          <MotionLink
             href={`/${locale}/blog`}
-            className="mb-8 inline-flex items-center gap-2 text-gray-400 transition-colors hover:text-white"
+            className="group relative mb-8 inline-flex items-center gap-2 rounded-lg border border-[#333333] px-4 py-2 text-sm font-medium text-white hover:border-indigo-400/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: 'tween', duration: 0.3 }}
           >
-            <ArrowLeftIcon size={18} />
-            {t.back_to_blog}
-          </Link>
+            <span
+              className="pointer-events-none absolute inset-0 rounded-lg bg-indigo-500 opacity-0 blur-[15px] transition-opacity duration-300 group-hover:opacity-40"
+              aria-hidden="true"
+            />
+            <ArrowLeftIcon size={16} className="relative z-10" />
+            <span className="relative z-10">{t.back_to_blog}</span>
+          </MotionLink>
         </FadeInUp>
 
         {/* Header */}
@@ -151,17 +160,20 @@ export const BlogPostView: FC<BlogPostViewProps> = ({
         {/* Back to blog */}
         <FadeInUp delay={0.5}>
           <div className="mt-12">
-            <Link
+            <MotionLink
               href={`/${locale}/blog`}
-              className="group relative inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-6 py-3 font-medium text-white transition-all duration-300 hover:border-indigo-500/30 hover:bg-white/10"
+              className="group relative inline-flex items-center gap-2 rounded-lg border border-[#333333] px-4 py-2 text-sm font-medium text-white hover:border-indigo-400/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: 'tween', duration: 0.3 }}
             >
               <span
-                className="pointer-events-none absolute inset-0 rounded-lg bg-indigo-500 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-20"
+                className="pointer-events-none absolute inset-0 rounded-lg bg-indigo-500 opacity-0 blur-[15px] transition-opacity duration-300 group-hover:opacity-40"
                 aria-hidden="true"
               />
-              <ArrowLeftIcon size={18} className="relative z-10" />
+              <ArrowLeftIcon size={16} className="relative z-10" />
               <span className="relative z-10">{t.back_to_blog}</span>
-            </Link>
+            </MotionLink>
           </div>
         </FadeInUp>
       </div>
