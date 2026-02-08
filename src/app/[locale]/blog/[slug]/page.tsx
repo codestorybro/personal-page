@@ -13,6 +13,8 @@ type BlogPostPageProps = {
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   const { locale, slug } = await params;
   const post = await getBlogPostBySlug(slug);
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://codestorybro.com';
+  const postUrl = `${siteUrl}/${locale}/blog/${slug}`;
 
   if (!post) {
     return {
@@ -20,23 +22,56 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     };
   }
 
+  const ogImage = post.coverImage || `${siteUrl}/assets/img/og-default.png`;
+
   return {
     title: `${post.title} | CodeStoryBro`,
     description: post.description,
+    keywords: [...post.tags, 'CodeStoryBro', 'programowanie', 'software development', 'blog'],
+    authors: [{ name: 'Marcin Kołodziej', url: siteUrl }],
+    creator: 'Marcin Kołodziej',
+    publisher: 'CodeStoryBro',
+    alternates: {
+      canonical: postUrl,
+    },
     openGraph: {
       title: post.title,
       description: post.description,
       type: 'article',
+      url: postUrl,
+      siteName: 'CodeStoryBro',
       publishedTime: post.publishedAt,
+      modifiedTime: post.publishedAt,
       authors: ['Marcin Kołodziej'],
-      images: post.coverImage ? [{ url: post.coverImage }] : [],
+      tags: post.tags,
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
       locale,
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.description,
-      images: post.coverImage ? [post.coverImage] : [],
+      images: [ogImage],
+      creator: '@codestorybro',
+      site: '@codestorybro',
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        'index': true,
+        'follow': true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
   };
 }
