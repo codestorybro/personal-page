@@ -1,7 +1,6 @@
 'use client';
 
 import type { FC } from 'react';
-import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { FadeInLeft, FadeInRight, FadeInUp } from './AnimatedElements';
 
@@ -34,19 +33,16 @@ export const WhoIsSection: FC<WhoIsSectionProps> = ({ translations: t }) => {
     <section className="py-16 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <FadeInUp>
-          <motion.h2
-            className="mb-12 w-fit bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 bg-[length:200%_auto] bg-clip-text text-3xl font-bold leading-tight text-transparent sm:text-4xl lg:text-5xl"
-            animate={{
-              backgroundPosition: ['0% center', '200% center'],
-            }}
-            transition={{
-              duration: 3,
-              ease: 'linear',
-              repeat: Infinity,
-            }}
-          >
-            {t.title}
-          </motion.h2>
+          <div className="relative mb-12 w-fit">
+            {/* Glow blur behind the title */}
+            <div
+              className="pointer-events-none absolute -inset-4 bg-gradient-to-r from-blue-600/30 via-green-500/30 to-indigo-400/30 blur-2xl"
+              aria-hidden="true"
+            />
+            <h2 className="relative bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 bg-clip-text pb-1 text-3xl font-bold leading-relaxed text-transparent sm:text-4xl lg:text-5xl">
+              {t.title}
+            </h2>
+          </div>
         </FadeInUp>
 
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">

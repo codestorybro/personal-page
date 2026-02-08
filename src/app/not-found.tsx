@@ -1,8 +1,8 @@
 'use client';
 
+import translations from '@/locales/pl.json';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import translations from '@/locales/pl.json';
 
 const MotionLink = motion.create(Link);
 

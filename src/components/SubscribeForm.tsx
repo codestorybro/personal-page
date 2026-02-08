@@ -1,11 +1,11 @@
 'use client';
 import type { FC } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
+import Input from '@/components/Input';
 import { useLocale, useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import Input from '@/components/Input';
 import Button from './Button';
 
 const isValidEmail = (email: string) => {

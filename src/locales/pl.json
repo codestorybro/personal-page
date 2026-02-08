@@ -62,5 +62,19 @@
     "collab_education": "współpracę przy projektach edukacyjnych i społecznościowych",
     "collab_outro_1": "Jeśli masz pomysł - napisz.",
     "collab_outro_2": "Zobaczymy, czy i jak możemy zrobić z tego coś ciekawego."
+  },
+  "Blog": {
+    "title": "Blog",
+    "subtitle": "Moje myśli, spostrzeżenia i doświadczenia spisane w jednym miejscu.",
+    "description": "O inżynierii i zespołach z perspektywy praktyka. Decyzje, błędy i lekcje z perspektywy managera.",
+    "search_placeholder": "Szukaj artykułów...",
+    "read_more": "Czytaj więcej",
+    "min_read": "min czytania",
+    "no_posts": "Nie znaleziono artykułów pasujących do kryteriów.",
+    "all_tags": "Wszystkie",
+    "clear_filters": "Wyczyść filtry",
+    "back_to_blog": "Wróć do bloga",
+    "share": "Udostępnij:",
+    "published_on": "Opublikowano"
   }
 }

@@ -1,9 +1,9 @@
+import GA from '@/app/[locale]/ga';
+import { routing } from '@/libs/i18nNavigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Toaster } from 'react-hot-toast';
-import GA from '@/app/[locale]/ga';
-import { routing } from '@/libs/i18nNavigation';
 
 export function generateStaticParams() {
   return routing.locales.map(locale => ({ locale }));

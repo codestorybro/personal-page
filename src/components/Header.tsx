@@ -23,8 +23,9 @@ const socialLinks = [
   { name: 'Email', href: 'mailto:hello@codestorybro.com', icon: EnvelopeSimpleIcon },
 ];
 
-export const Header: FC<Props> = () => {
+export const Header: FC<Props> = ({ locale }) => {
   const t = useTranslations('General');
+  const tBlog = useTranslations('Blog');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
@@ -61,8 +62,28 @@ export const Header: FC<Props> = () => {
         </span>
       </MotionLink>
 
-      {/* Desktop social links */}
-      <nav className="hidden items-center gap-2 lg:flex" aria-label="Social media links">
+      {/* Desktop navigation */}
+      <nav className="hidden items-center gap-2 lg:flex" aria-label="Main navigation">
+        {/* Blog link */}
+        <MotionLink
+          href={`/${locale}/blog`}
+          className="group relative mr-4 rounded-lg px-4 py-2 font-medium text-gray-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <span
+            className="pointer-events-none absolute inset-0 rounded-lg bg-indigo-500 opacity-0 blur-[10px] transition-opacity duration-300 group-hover:opacity-40"
+            aria-hidden="true"
+          />
+          <span className="relative z-10">
+            {tBlog('title')}
+          </span>
+        </MotionLink>
+
+        {/* Divider */}
+        <div className="mr-2 h-6 w-px bg-white/20" />
+
+        {/* Social links */}
         {socialLinks.map(social => (
           <motion.a
             key={social.name}
@@ -135,7 +156,23 @@ export const Header: FC<Props> = () => {
               exit={{ y: '-100%' }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
             >
-              <nav className="flex flex-col items-center gap-6 py-8" aria-label="Social media links mobile">
+              <nav className="flex flex-col items-center gap-6 py-8" aria-label="Mobile navigation">
+                {/* Blog link */}
+                <MotionLink
+                  href={`/${locale}/blog`}
+                  className="rounded-lg px-6 py-3 text-xl text-gray-300 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0 }}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {tBlog('title')}
+                </MotionLink>
+
+                {/* Divider */}
+                <div className="h-px w-32 bg-white/20" />
+
+                {/* Social links */}
                 {socialLinks.map((social, index) => (
                   <motion.a
                     key={social.name}
@@ -145,7 +182,7 @@ export const Header: FC<Props> = () => {
                     className="flex items-center gap-3 rounded-lg px-6 py-3 text-xl text-gray-300 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
+                    transition={{ delay: (index + 1) * 0.1 }}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <social.icon size={28} weight="regular" />

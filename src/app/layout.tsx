@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import localFont from 'next/font/local';
 import { CustomCursor } from '@/components/CustomCursor';
+import localFont from 'next/font/local';
 import '@/styles/global.css';
 
 const rushDriver = localFont({

@@ -1,8 +1,8 @@
-import { getTranslations } from 'next-intl/server';
-import { Suspense } from 'react';
 import CertificateForm from '@/components/CertificateForm';
 import CertValidate from '@/components/CertValidate';
 import { CheckPageWrapper } from '@/components/CheckPageWrapper';
+import { getTranslations } from 'next-intl/server';
+import { Suspense } from 'react';
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;

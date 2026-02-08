@@ -1,6 +1,6 @@
-import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { FAQSection, HeroSection } from '@/components/AnimatedSections';
 import { WhoIsSection } from '@/components/WhoIsSection';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 type IIndexProps = {
   params: Promise<{ locale: string }>;
