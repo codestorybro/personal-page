@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { FadeInUp } from '@/components/AnimatedElements';
 
 import { BlogList } from '@/components/BlogList';
+import { BlogListJsonLd } from '@/components/JsonLd';
 import { getBlogPosts } from '@/libs/notion';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
@@ -10,13 +11,70 @@ type BlogPageProps = {
   params: Promise<{ locale: string }>;
 };
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://codestorybro.com';
+
 export async function generateMetadata({ params }: BlogPageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'Blog' });
 
+  const canonicalUrl = `${SITE_URL}/${locale}/blog`;
+
   return {
     title: `${t('title')} | CodeStoryBro`,
     description: t('description'),
+    keywords: [
+      'blog',
+      'programowanie',
+      'software development',
+      'inżynieria oprogramowania',
+      'zarządzanie zespołem',
+      'CodeStoryBro',
+    ],
+    authors: [{ name: 'Marcin Kołodziej', url: SITE_URL }],
+    creator: 'Marcin Kołodziej',
+    publisher: 'CodeStoryBro',
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        pl: `${SITE_URL}/pl/blog`,
+        en: `${SITE_URL}/en/blog`,
+      },
+    },
+    openGraph: {
+      title: `${t('title')} | CodeStoryBro`,
+      description: t('description'),
+      type: 'website',
+      url: canonicalUrl,
+      siteName: 'CodeStoryBro',
+      locale,
+      images: [
+        {
+          url: `${SITE_URL}/assets/img/og-image.png`,
+          width: 1200,
+          height: 630,
+          alt: `${t('title')} – CodeStoryBro`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${t('title')} | CodeStoryBro`,
+      description: t('description'),
+      images: [`${SITE_URL}/assets/img/og-image.png`],
+      creator: '@codestorybro',
+      site: '@codestorybro',
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        'index': true,
+        'follow': true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
   };
 }
 
@@ -38,6 +96,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
 
   return (
     <main className="min-h-screen py-16 sm:py-24">
+      <BlogListJsonLd locale={locale} />
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <FadeInUp>

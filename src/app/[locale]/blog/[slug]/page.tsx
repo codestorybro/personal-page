@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
 import { BlogPostView } from '@/components/BlogPostView';
+import { BlogArticleJsonLd } from '@/components/JsonLd';
 import { getBlogPostBySlug, getBlogPosts, renderBlocksToHtml } from '@/libs/notion';
 
 import { getTranslations, setRequestLocale } from 'next-intl/server';
@@ -107,12 +108,23 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://codestorybro.com';
 
   return (
-    <BlogPostView
-      post={post}
-      contentHtml={contentHtml}
-      translations={translations}
-      locale={locale}
-      siteUrl={siteUrl}
-    />
+    <>
+      <BlogArticleJsonLd
+        title={post.title}
+        description={post.description}
+        slug={post.slug}
+        publishedAt={post.publishedAt}
+        coverImage={post.coverImage}
+        tags={post.tags}
+        locale={locale}
+      />
+      <BlogPostView
+        post={post}
+        contentHtml={contentHtml}
+        translations={translations}
+        locale={locale}
+        siteUrl={siteUrl}
+      />
+    </>
   );
 }

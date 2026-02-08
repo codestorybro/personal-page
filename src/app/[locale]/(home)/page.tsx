@@ -1,10 +1,13 @@
 import { FAQSection, HeroSection } from '@/components/AnimatedSections';
+import { HomeJsonLd } from '@/components/JsonLd';
 import { WhoIsSection } from '@/components/WhoIsSection';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 type IIndexProps = {
   params: Promise<{ locale: string }>;
 };
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://codestorybro.com';
 
 export async function generateMetadata(props: IIndexProps) {
   const { locale } = await props.params;
@@ -13,26 +16,45 @@ export async function generateMetadata(props: IIndexProps) {
     namespace: 'OG',
   });
 
+  const canonicalUrl = `${SITE_URL}/${locale}`;
+
   return {
     title: t('title'),
     description: t('desc'),
-    keywords: ['React', 'JavaScript', 'TypeScript'],
-    authors: [{ name: 'Marcin Kołodziej' }],
-    creator: 'CodeStoryBro',
-    publisher: 'Marcin Kołodziej',
+    keywords: [
+      'React',
+      'JavaScript',
+      'TypeScript',
+      'programowanie',
+      'software development',
+      'engineering manager',
+      'CodeStoryBro',
+    ],
+    authors: [{ name: 'Marcin Kołodziej', url: SITE_URL }],
+    creator: 'Marcin Kołodziej',
+    publisher: 'CodeStoryBro',
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        pl: `${SITE_URL}/pl`,
+        en: `${SITE_URL}/en`,
+      },
+    },
     openGraph: {
       title: t('title'),
       description: t('desc'),
-      url: `https://codestorybro.com`,
+      url: canonicalUrl,
       siteName: 'CodeStoryBro',
       type: 'website',
       locale,
-      images: {
-        url: 'https://www.codestorybro.com/assets/img/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'CodeStoryBro',
-      },
+      images: [
+        {
+          url: `${SITE_URL}/assets/img/og-image.png`,
+          width: 1200,
+          height: 630,
+          alt: 'CodeStoryBro',
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
@@ -40,11 +62,17 @@ export async function generateMetadata(props: IIndexProps) {
       creator: '@codestorybro',
       title: t('title'),
       description: t('desc'),
-      images: {
-        url: 'https://www.codestorybro.com/assets/img/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'CodeStoryBro',
+      images: [`${SITE_URL}/assets/img/og-image.png`],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        'index': true,
+        'follow': true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
       },
     },
   };
@@ -103,6 +131,7 @@ export default async function Index(props: IIndexProps) {
 
   return (
     <>
+      <HomeJsonLd />
       <HeroSection translations={heroTranslations} />
       <WhoIsSection translations={whoIsTranslations} />
       <FAQSection translations={faqTranslations} />

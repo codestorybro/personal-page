@@ -119,7 +119,7 @@ export const WhoIsSection: FC<WhoIsSectionProps> = ({ translations: t }) => {
             <div className="relative lg:sticky lg:top-24">
               <div className="overflow-hidden rounded-2xl">
                 <Image
-                  src="/assets/img/about/about-1.webp"
+                  src="/assets/img/about/about.webp"
                   alt="CodeStoryBro"
                   width={600}
                   height={800}
