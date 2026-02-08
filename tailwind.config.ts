@@ -42,15 +42,10 @@ export default {
       },
       animation: {
         circle: 'spin 1.5s linear infinite',
-        checkmark: 'checkmark-draw 0.6s forwards',
         fadeIn: 'fadeIn 0.3s forwards',
       },
       keyframes: {
-        'checkmark-draw': {
-          '0%': { strokeDasharray: '0, 24' },
-          '100%': { strokeDasharray: '24, 0' },
-        },
-        'fadeIn': {
+        fadeIn: {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
         },

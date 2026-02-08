@@ -17,9 +17,8 @@ type HeroSectionProps = {
 
 export const HeroSection = ({ translations: t }: HeroSectionProps) => {
   const imageVariants: Variants = {
-    hidden: { opacity: 0, scale: 0.8, y: 50 },
+    hidden: { scale: 0.8, y: 50 },
     visible: (i: number) => ({
-      opacity: 1,
       scale: 1,
       y: 0,
       transition: {
@@ -78,7 +77,7 @@ export const HeroSection = ({ translations: t }: HeroSectionProps) => {
               animate="visible"
               whileHover={{ y: -10, transition: { duration: 0.3 } }}
             >
-              <Image draggable={false} alt="hero 2 image" width={160} height={256} src="/assets/img/hero/2.webp" className="h-64 w-40 rounded-xl object-cover shadow-lg" />
+              <Image draggable={false} alt="hero 2 image" width={160} height={256} src="/assets/img/hero/2.webp" className="h-64 w-40 rounded-xl object-cover shadow-lg" priority />
             </motion.div>
             <motion.div
               custom={2}
@@ -99,7 +98,7 @@ export const HeroSection = ({ translations: t }: HeroSectionProps) => {
               animate="visible"
               whileHover={{ y: -10, transition: { duration: 0.3 } }}
             >
-              <Image draggable={false} alt="hero 4 image" width={160} height={256} src="/assets/img/hero/4.webp" className="h-64 w-40 rounded-xl object-cover shadow-lg" />
+              <Image draggable={false} alt="hero 4 image" width={160} height={256} src="/assets/img/hero/4.webp" className="h-64 w-40 rounded-xl object-cover shadow-lg" priority />
             </motion.div>
             <motion.div
               custom={4}

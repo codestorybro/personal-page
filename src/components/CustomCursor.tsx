@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 export const CustomCursor = () => {
   const [isHovering, setIsHovering] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   // Main cursor - no spring/debounce, instant tracking
   const cursorX = useMotionValue(-100);
@@ -15,6 +16,11 @@ export const CustomCursor = () => {
   const glowSpringConfig = { damping: 20, stiffness: 150 };
   const glowX = useSpring(cursorX, glowSpringConfig);
   const glowY = useSpring(cursorY, glowSpringConfig);
+
+  // Check for touch device after mount to avoid hydration mismatch
+  useEffect(() => {
+    setIsTouchDevice('ontouchstart' in window);
+  }, []);
 
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
@@ -59,7 +65,7 @@ export const CustomCursor = () => {
   }, [cursorX, cursorY]);
 
   // Hide custom cursor on touch devices
-  if (typeof window !== 'undefined' && 'ontouchstart' in window) {
+  if (isTouchDevice) {
     return null;
   }
 

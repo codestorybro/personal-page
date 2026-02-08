@@ -124,7 +124,6 @@ export const WhoIsSection: FC<WhoIsSectionProps> = ({ translations: t }) => {
                   width={600}
                   height={800}
                   className="size-full object-cover"
-                  priority
                 />
               </div>
               {/* Decorative glow */}
