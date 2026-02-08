@@ -1,10 +1,19 @@
 import type { MetadataRoute } from 'next';
+import { getBlogPosts } from '@/libs/notion';
 import { getBaseUrl } from '@/utils/Helpers';
 
 export const dynamic = 'force-dynamic';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = getBaseUrl();
+  const posts = await getBlogPosts();
+
+  const blogPostUrls: MetadataRoute.Sitemap = posts.map(post => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: post.publishedAt,
+    changeFrequency: 'weekly',
+    priority: 0.8,
+  }));
 
   return [
     {
@@ -25,5 +34,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.5,
     },
+    ...blogPostUrls,
   ];
 }

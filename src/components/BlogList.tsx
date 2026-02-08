@@ -3,7 +3,6 @@
 import type { BlogPost } from '@/libs/notion';
 
 import type { FC } from 'react';
-import { MagnifyingGlassIcon, XIcon } from '@phosphor-icons/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -200,26 +199,12 @@ export const BlogList: FC<BlogListProps> = ({ posts, translations: t }) => {
           <div className="relative">
             <div className="pointer-events-none absolute inset-0 rounded-xl bg-gradient-to-r from-indigo-500/20 to-green-500/20 opacity-50 blur-xl" />
             <div className="relative flex items-center">
-              <MagnifyingGlassIcon
-                size={20}
-                className="pointer-events-none absolute left-4 text-gray-400"
-              />
               <Input
                 type="text"
                 value={searchQuery}
                 onChange={e => setSearchQuery(e.target.value)}
                 placeholder={t.search_placeholder}
-                className="px-14"
               />
-              {searchQuery && (
-                <button
-                  type="button"
-                  onClick={() => setSearchQuery('')}
-                  className="absolute right-4 text-gray-400 hover:text-white"
-                >
-                  <XIcon size={18} />
-                </button>
-              )}
             </div>
           </div>
 
