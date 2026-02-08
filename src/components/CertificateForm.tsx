@@ -3,10 +3,8 @@ import type { FC } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import Button from '@/components/Button';
 import Input from '@/components/Input';
-import { usePathname, useRouter } from '@/libs/i18nNavigation';
 import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
-import { useSearchParams } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 
@@ -16,7 +14,6 @@ type Props = {
 
 const CertificateForm: FC<Props> = ({ certId }) => {
   const { register, handleSubmit } = useForm<{ id: string }>();
-  const t = useTranslations('General');
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
@@ -44,7 +41,7 @@ const CertificateForm: FC<Props> = ({ certId }) => {
     id: string;
   }) => {
     if (!id) {
-      return toast.error(t('certificate_check_empty'));
+      return toast.error('ID certyfikatu jest puste');
     }
 
     return updateSearchQuery({ certId: id });
@@ -60,7 +57,7 @@ const CertificateForm: FC<Props> = ({ certId }) => {
     >
       <Input
         {...register('id')}
-        placeholder={t('certificate_check')}
+        placeholder="Sprawdź certyfikat"
         type="text"
         autoComplete="off"
         name="id"
@@ -71,7 +68,7 @@ const CertificateForm: FC<Props> = ({ certId }) => {
         type="submit"
         className="flex-none sm:!px-6 sm:!py-3"
       >
-        {t('check')}
+        Sprawdź
       </Button>
     </motion.form>
   );

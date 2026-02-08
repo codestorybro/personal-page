@@ -2,7 +2,6 @@
 import type { FC } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import Input from '@/components/Input';
-import { useLocale, useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
@@ -14,10 +13,8 @@ const isValidEmail = (email: string) => {
 };
 
 const SubscribeForm: FC = () => {
-  const locale = useLocale();
   const [isLoading, setIsLoading] = useState(false);
   const { register, handleSubmit, reset } = useForm<{ email: string }>();
-  const t = useTranslations('General');
 
   const onSubmit: SubmitHandler<{ email: string }> = ({
     email,
@@ -25,16 +22,16 @@ const SubscribeForm: FC = () => {
     email: string;
   }) => {
     if (!email) {
-      return toast.error(t('subscribe_email_empty'));
+      return toast.error('E-mail jest pusty');
     }
 
     if (!isValidEmail(email)) {
-      return toast.error(t('subscribe_email_invalid'));
+      return toast.error('E-mail nie jest poprawny');
     }
 
     setIsLoading(true);
 
-    const res = fetch(`/${locale}/api/subscribe`, {
+    const res = fetch('/api/subscribe', {
       method: 'POST',
       body: JSON.stringify({ email }),
     });
@@ -42,10 +39,10 @@ const SubscribeForm: FC = () => {
     toast.promise(
       res,
       {
-        loading: t('loading'),
+        loading: 'Ładowanie...',
         success: () => {
           reset();
-          return t('subscribe_success');
+          return 'Sprawdź swoją skrzynkę e-mail, aby potwierdzić subskrypcję';
         },
       },
       { success: { duration: 4000 }, error: { duration: 4000 } },
@@ -58,11 +55,11 @@ const SubscribeForm: FC = () => {
     <form onSubmit={handleSubmit(onSubmit)} className="relative isolate overflow-hidden">
       <div className="mx-auto max-w-7xl">
         <div className="max-w-xl lg:max-w-lg">
-          <p className="mt-4 text-lg text-gray-300">{t('newsletter')}</p>
+          <p className="mt-4 text-lg text-gray-300">Bądź na bieżąco i zapisz się do newslettera!</p>
           <div className="mx-1 mb-1 mt-6 flex max-w-md gap-x-4">
             <Input
               {...register('email')}
-              placeholder={t('email')}
+              placeholder="Adres email"
               type="text"
               autoComplete="off"
               name="email"
@@ -74,7 +71,7 @@ const SubscribeForm: FC = () => {
               disabled={isLoading}
               className="flex-none rounded-md bg-indigo-500 px-3.5 text-sm font-semibold text-white hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
             >
-              {t('subscribe')}
+              Subskrybuj
             </Button>
           </div>
         </div>

@@ -1,12 +1,16 @@
 'use client';
 
-import translations from '@/locales/pl.json';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 const MotionLink = motion.create(Link);
 
-const t = translations.NotFound;
+const t = {
+  title: '404',
+  heading: 'Ups! Zjechałeś z trasy',
+  description: 'Ta strona nie istnieje, ale to dobry moment, żeby wrócić na właściwe tory.',
+  back_home: 'Wróć na stronę główną',
+};
 
 export default function NotFound() {
   return (

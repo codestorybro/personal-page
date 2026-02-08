@@ -1,14 +1,11 @@
 'use client';
 import type { FC } from 'react';
 import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
 const MotionLink = motion.create(Link);
 
 const Footer: FC = () => {
-  const t = useTranslations('General');
-
   return (
     <footer className="mx-4 mt-4 border-t-2 border-t-zinc-800 pb-4">
       <div className="mx-auto flex w-full max-w-screen-xl flex-col items-center gap-4 p-4 text-center sm:flex-row sm:justify-between sm:text-left">
@@ -16,7 +13,7 @@ const Footer: FC = () => {
           ©
           {new Date().getFullYear()}
           {' '}
-          {t('copy')}
+          Wszelkie prawa zastrzeżone
           {' '}
           <span
             style={{ lineHeight: '49px' }}
@@ -36,7 +33,7 @@ const Footer: FC = () => {
               className="pointer-events-none absolute inset-0 rounded-lg bg-indigo-500 opacity-0 blur-[10px] transition-opacity duration-300 group-hover:opacity-60"
               aria-hidden="true"
             />
-            <span className="relative z-10">{t('certificate_check')}</span>
+            <span className="relative z-10">Sprawdź certyfikat</span>
           </MotionLink>
           <MotionLink
             href="mailto:hello@codestorybro.com"
@@ -48,7 +45,7 @@ const Footer: FC = () => {
               className="pointer-events-none absolute inset-0 rounded-lg bg-indigo-500 opacity-0 blur-[10px] transition-opacity duration-300 group-hover:opacity-60"
               aria-hidden="true"
             />
-            <span className="relative z-10">{t('contact')}</span>
+            <span className="relative z-10">Skontaktuj się</span>
           </MotionLink>
         </nav>
       </div>

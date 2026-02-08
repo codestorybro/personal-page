@@ -5,23 +5,15 @@ import { FadeInUp } from '@/components/AnimatedElements';
 import { BlogList } from '@/components/BlogList';
 import { BlogListJsonLd } from '@/components/JsonLd';
 import { getBlogPosts } from '@/libs/notion';
-import { getTranslations, setRequestLocale } from 'next-intl/server';
-
-type BlogPageProps = {
-  params: Promise<{ locale: string }>;
-};
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://codestorybro.com';
 
-export async function generateMetadata({ params }: BlogPageProps): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'Blog' });
-
-  const canonicalUrl = `${SITE_URL}/${locale}/blog`;
+export async function generateMetadata(): Promise<Metadata> {
+  const canonicalUrl = `${SITE_URL}/blog`;
 
   return {
-    title: `${t('title')} | CodeStoryBro`,
-    description: t('description'),
+    title: 'Blog | CodeStoryBro',
+    description: 'O inżynierii i zespołach z perspektywy praktyka. Decyzje, błędy i lekcje z perspektywy managera.',
     keywords: [
       'blog',
       'programowanie',
@@ -35,31 +27,27 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
     publisher: 'CodeStoryBro',
     alternates: {
       canonical: canonicalUrl,
-      languages: {
-        pl: `${SITE_URL}/pl/blog`,
-        en: `${SITE_URL}/en/blog`,
-      },
     },
     openGraph: {
-      title: `${t('title')} | CodeStoryBro`,
-      description: t('description'),
+      title: 'Blog | CodeStoryBro',
+      description: 'O inżynierii i zespołach z perspektywy praktyka. Decyzje, błędy i lekcje z perspektywy managera.',
       type: 'website',
       url: canonicalUrl,
       siteName: 'CodeStoryBro',
-      locale,
+      locale: 'pl',
       images: [
         {
           url: `${SITE_URL}/assets/img/og-image.png`,
           width: 1200,
           height: 630,
-          alt: `${t('title')} – CodeStoryBro`,
+          alt: 'Blog – CodeStoryBro',
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${t('title')} | CodeStoryBro`,
-      description: t('description'),
+      title: 'Blog | CodeStoryBro',
+      description: 'O inżynierii i zespołach z perspektywy praktyka. Decyzje, błędy i lekcje z perspektywy managera.',
       images: [`${SITE_URL}/assets/img/og-image.png`],
       creator: '@codestorybro',
       site: '@codestorybro',
@@ -78,25 +66,21 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
   };
 }
 
-export default async function BlogPage({ params }: BlogPageProps) {
-  const { locale } = await params;
-  setRequestLocale(locale);
-
-  const t = await getTranslations({ locale, namespace: 'Blog' });
+export default async function BlogPage() {
   const posts = await getBlogPosts();
 
   const translations = {
-    search_placeholder: t('search_placeholder'),
-    read_more: t('read_more'),
-    min_read: t('min_read'),
-    no_posts: t('no_posts'),
-    all_tags: t('all_tags'),
-    clear_filters: t('clear_filters'),
+    search_placeholder: 'Szukaj artykułów...',
+    read_more: 'Czytaj więcej',
+    min_read: 'min czytania',
+    no_posts: 'Nie znaleziono artykułów pasujących do kryteriów.',
+    all_tags: 'Wszystkie',
+    clear_filters: 'Wyczyść filtry',
   };
 
   return (
     <main className="min-h-screen py-16 sm:py-24">
-      <BlogListJsonLd locale={locale} />
+      <BlogListJsonLd />
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <FadeInUp>
@@ -108,17 +92,17 @@ export default async function BlogPage({ params }: BlogPageProps) {
             />
             <div className="relative">
               <h1 className="bg-gradient-to-r from-indigo-400 via-green-400 to-blue-400 bg-clip-text pb-2 text-4xl font-bold leading-relaxed text-transparent sm:text-5xl lg:text-6xl">
-                {t('title')}
+                Blog
               </h1>
               <p className="mt-4 max-w-2xl text-lg text-gray-400">
-                {t('subtitle')}
+                Moje myśli, spostrzeżenia i doświadczenia spisane w jednym miejscu.
               </p>
             </div>
           </div>
         </FadeInUp>
 
         {/* Blog list */}
-        <BlogList posts={posts} translations={translations} locale={locale} />
+        <BlogList posts={posts} translations={translations} />
       </div>
     </main>
   );

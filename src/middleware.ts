@@ -1,20 +1,14 @@
 import type { NextFetchEvent, NextRequest } from 'next/server';
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
-import createMiddleware from 'next-intl/middleware';
-import { routing } from './libs/i18nNavigation';
-
-const intlMiddleware = createMiddleware(routing);
+import { NextResponse } from 'next/server';
 
 const isProtectedRoute = createRouteMatcher([
   '/dashboard(.*)',
-  '/:locale/dashboard(.*)',
 ]);
 
 const isAuthPage = createRouteMatcher([
   '/sign-in(.*)',
-  '/:locale/sign-in(.*)',
   '/sign-up(.*)',
-  '/:locale/sign-up(.*)',
 ]);
 
 export default function middleware(
@@ -29,21 +23,18 @@ export default function middleware(
   if (isAuthPage(request) || isProtectedRoute(request)) {
     return clerkMiddleware(async (auth, req) => {
       if (isProtectedRoute(req)) {
-        const locale
-          = req.nextUrl.pathname.match(/(\/.*)\/dashboard/)?.at(1) ?? '';
-
-        const signInUrl = new URL(`${locale}/sign-in`, req.url);
+        const signInUrl = new URL('/sign-in', req.url);
 
         await auth.protect({
           unauthenticatedUrl: signInUrl.toString(),
         });
       }
 
-      return intlMiddleware(req);
+      return NextResponse.next();
     })(request, event);
   }
 
-  return intlMiddleware(request);
+  return NextResponse.next();
 }
 
 export const config = {

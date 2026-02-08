@@ -64,12 +64,8 @@ export const HomeJsonLd: FC = () => {
 };
 
 // Blog list page JSON-LD
-type BlogListJsonLdProps = {
-  locale: string;
-};
-
-export const BlogListJsonLd: FC<BlogListJsonLdProps> = ({ locale }) => {
-  const blogUrl = `${SITE_URL}/${locale}/blog`;
+export const BlogListJsonLd: FC = () => {
+  const blogUrl = `${SITE_URL}/blog`;
 
   return (
     <JsonLd
@@ -80,7 +76,7 @@ export const BlogListJsonLd: FC<BlogListJsonLdProps> = ({ locale }) => {
           'name': 'Blog – CodeStoryBro',
           'description': 'Myśli, spostrzeżenia i doświadczenia z mojej podróży',
           'url': blogUrl,
-          'inLanguage': locale === 'pl' ? 'pl-PL' : 'en-US',
+          'inLanguage': 'pl-PL',
           'isPartOf': {
             '@id': `${SITE_URL}/#website`,
           },
@@ -106,7 +102,6 @@ type BlogArticleJsonLdProps = {
   modifiedAt?: string;
   coverImage: string | null;
   tags: string[];
-  locale: string;
 };
 
 export const BlogArticleJsonLd: FC<BlogArticleJsonLdProps> = ({
@@ -117,9 +112,8 @@ export const BlogArticleJsonLd: FC<BlogArticleJsonLdProps> = ({
   modifiedAt,
   coverImage,
   tags,
-  locale,
 }) => {
-  const articleUrl = `${SITE_URL}/${locale}/blog/${slug}`;
+  const articleUrl = `${SITE_URL}/blog/${slug}`;
   const ogImage = coverImage || `${SITE_URL}/assets/img/og-default.png`;
 
   return (
@@ -162,13 +156,13 @@ export const BlogArticleJsonLd: FC<BlogArticleJsonLdProps> = ({
               '@type': 'ListItem',
               'position': 1,
               'name': 'Strona główna',
-              'item': `${SITE_URL}/${locale}`,
+              'item': SITE_URL,
             },
             {
               '@type': 'ListItem',
               'position': 2,
               'name': 'Blog',
-              'item': `${SITE_URL}/${locale}/blog`,
+              'item': `${SITE_URL}/blog`,
             },
             {
               '@type': 'ListItem',

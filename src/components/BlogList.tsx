@@ -48,13 +48,12 @@ type BlogPostCardProps = {
     min_read: string;
   };
   formatDate: (date: string) => string;
-  locale: string;
   tagColorMap: Map<string, typeof tagColors[0]>;
 };
 
-const BlogPostCard: FC<BlogPostCardProps> = ({ post, translations: t, formatDate, locale, tagColorMap }) => {
+const BlogPostCard: FC<BlogPostCardProps> = ({ post, translations: t, formatDate, tagColorMap }) => {
   return (
-    <Link href={`/${locale}/blog/${post.slug}`} className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black">
+    <Link href={`/blog/${post.slug}`} className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black">
       <motion.article
         className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm transition-colors duration-300 hover:border-indigo-500/30 hover:bg-white/10"
         whileHover={{ scale: 1.01, y: -2 }}
@@ -153,10 +152,9 @@ type BlogListProps = {
     all_tags: string;
     clear_filters: string;
   };
-  locale: string;
 };
 
-export const BlogList: FC<BlogListProps> = ({ posts, translations: t, locale }) => {
+export const BlogList: FC<BlogListProps> = ({ posts, translations: t }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
 
@@ -186,7 +184,7 @@ export const BlogList: FC<BlogListProps> = ({ posts, translations: t, locale }) 
   }, [posts, searchQuery, selectedTag]);
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString(locale, {
+    return new Date(dateString).toLocaleDateString('pl', {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
@@ -311,7 +309,7 @@ export const BlogList: FC<BlogListProps> = ({ posts, translations: t, locale }) 
                 <div className="grid gap-6">
                   {filteredPosts.map(post => (
                     <StaggerItem key={post.id}>
-                      <BlogPostCard post={post} translations={t} formatDate={formatDate} locale={locale} tagColorMap={tagColorMap} />
+                      <BlogPostCard post={post} translations={t} formatDate={formatDate} tagColorMap={tagColorMap} />
                     </StaggerItem>
                   ))}
                 </div>

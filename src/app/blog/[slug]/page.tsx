@@ -4,18 +4,17 @@ import { BlogPostView } from '@/components/BlogPostView';
 import { BlogArticleJsonLd } from '@/components/JsonLd';
 import { getBlogPostBySlug, getBlogPosts, renderBlocksToHtml } from '@/libs/notion';
 
-import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 
 type BlogPostPageProps = {
-  params: Promise<{ locale: string; slug: string }>;
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const { locale, slug } = await params;
+  const { slug } = await params;
   const post = await getBlogPostBySlug(slug);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://codestorybro.com';
-  const postUrl = `${siteUrl}/${locale}/blog/${slug}`;
+  const postUrl = `${siteUrl}/blog/${slug}`;
 
   if (!post) {
     return {
@@ -53,7 +52,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
           alt: post.title,
         },
       ],
-      locale,
+      locale: 'pl',
     },
     twitter: {
       card: 'summary_large_image',
@@ -86,8 +85,7 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const { locale, slug } = await params;
-  setRequestLocale(locale);
+  const { slug } = await params;
 
   const post = await getBlogPostBySlug(slug);
 
@@ -95,14 +93,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
-  const t = await getTranslations({ locale, namespace: 'Blog' });
   const contentHtml = await renderBlocksToHtml(post.id);
 
   const translations = {
-    back_to_blog: t('back_to_blog'),
-    share: t('share'),
-    min_read: t('min_read'),
-    published_on: t('published_on'),
+    back_to_blog: 'Wróć do bloga',
+    share: 'Udostępnij:',
+    min_read: 'min czytania',
+    published_on: 'Opublikowano',
   };
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://codestorybro.com';
@@ -116,13 +113,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         publishedAt={post.publishedAt}
         coverImage={post.coverImage}
         tags={post.tags}
-        locale={locale}
       />
       <BlogPostView
         post={post}
         contentHtml={contentHtml}
         translations={translations}
-        locale={locale}
         siteUrl={siteUrl}
       />
     </>

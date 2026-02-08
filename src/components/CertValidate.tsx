@@ -2,7 +2,6 @@
 import type { FC } from 'react';
 import { SealCheckIcon, XCircleIcon } from '@phosphor-icons/react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useLocale, useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 
@@ -20,8 +19,6 @@ type ValidationState = 'idle' | 'loading' | 'valid' | 'invalid' | 'error';
 const CertValidate: FC<Props> = ({ id }) => {
   const [user, setUser] = useState<IUser | null>(null);
   const [validationState, setValidationState] = useState<ValidationState>('idle');
-  const t = useTranslations('General');
-  const locale = useLocale();
 
   useEffect(() => {
     if (!id) {
@@ -32,7 +29,7 @@ const CertValidate: FC<Props> = ({ id }) => {
 
     setValidationState('loading');
 
-    fetch(`/${locale}/api/cert-check?certId=${id}`)
+    fetch(`/api/cert-check?certId=${id}`)
       .then((res) => {
         if (!res.ok) {
           if (res.status === 400 || res.status === 404) {
@@ -54,9 +51,9 @@ const CertValidate: FC<Props> = ({ id }) => {
       .catch(() => {
         setValidationState('error');
         setUser(null);
-        toast.error(t('certificate_check_error'), { duration: 4000 });
+        toast.error('Wystąpił błąd podczas sprawdzania certyfikatu', { duration: 4000 });
       });
-  }, [id, locale, t]);
+  }, [id]);
 
   return (
     <AnimatePresence mode="wait">
@@ -92,7 +89,7 @@ const CertValidate: FC<Props> = ({ id }) => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.3 }}
           >
-            <p className="text-sm text-green-400">{t('certificate_valid')}</p>
+            <p className="text-sm text-green-400">Certyfikat jest ważny ✓</p>
           </motion.div>
         </motion.div>
       )}
@@ -120,7 +117,7 @@ const CertValidate: FC<Props> = ({ id }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.3 }}
           >
-            <p className="text-xl font-bold text-white">{t('certificate_not_found')}</p>
+            <p className="text-xl font-bold text-white">Certyfikat nieznaleziony</p>
             <p className="text-gray-400">{id}</p>
           </motion.div>
           <motion.div
@@ -129,7 +126,7 @@ const CertValidate: FC<Props> = ({ id }) => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.3 }}
           >
-            <p className="text-sm text-red-400">{t('certificate_check_invalid')}</p>
+            <p className="text-sm text-red-400">Certyfikat o podanym ID nie istnieje</p>
           </motion.div>
         </motion.div>
       )}

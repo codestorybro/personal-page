@@ -22,7 +22,6 @@ type BlogPostViewProps = {
     min_read: string;
     published_on: string;
   };
-  locale: string;
   siteUrl: string;
 };
 
@@ -30,18 +29,17 @@ export const BlogPostView: FC<BlogPostViewProps> = ({
   post,
   contentHtml,
   translations: t,
-  locale,
   siteUrl,
 }) => {
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString(locale, {
+    return new Date(dateString).toLocaleDateString('pl', {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
     });
   };
 
-  const postUrl = `${siteUrl}/${locale}/blog/${post.slug}`;
+  const postUrl = `${siteUrl}/blog/${post.slug}`;
 
   return (
     <article className="min-h-screen py-16 sm:py-24">
@@ -49,7 +47,7 @@ export const BlogPostView: FC<BlogPostViewProps> = ({
         {/* Back button */}
         <FadeInUp>
           <MotionLink
-            href={`/${locale}/blog`}
+            href="/blog"
             className="group relative mb-8 inline-flex items-center gap-2 rounded-lg border border-[#333333] px-4 py-2 text-sm font-medium text-white hover:border-indigo-400/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -161,7 +159,7 @@ export const BlogPostView: FC<BlogPostViewProps> = ({
         <FadeInUp delay={0.5}>
           <div className="mt-12">
             <MotionLink
-              href={`/${locale}/blog`}
+              href="/blog"
               className="group relative inline-flex items-center gap-2 rounded-lg border border-[#333333] px-4 py-2 text-sm font-medium text-white hover:border-indigo-400/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

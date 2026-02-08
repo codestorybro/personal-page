@@ -2,14 +2,9 @@
 import type { FC } from 'react';
 import { DiscordLogoIcon, EnvelopeSimpleIcon, GithubLogoIcon, InstagramLogoIcon, LinkedinLogoIcon, ListIcon, XIcon, XLogoIcon, YoutubeLogoIcon } from '@phosphor-icons/react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-
-type Props = {
-  locale: string;
-};
 
 const MotionLink = motion.create(Link);
 
@@ -23,9 +18,7 @@ const socialLinks = [
   { name: 'Email', href: 'mailto:hello@codestorybro.com', icon: EnvelopeSimpleIcon },
 ];
 
-export const Header: FC<Props> = ({ locale }) => {
-  const t = useTranslations('General');
-  const tBlog = useTranslations('Blog');
+export const Header: FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
@@ -66,7 +59,7 @@ export const Header: FC<Props> = ({ locale }) => {
       <nav className="hidden items-center gap-2 lg:flex" aria-label="Main navigation">
         {/* Blog link */}
         <MotionLink
-          href={`/${locale}/blog`}
+          href="/blog"
           className="group relative mr-4 rounded-lg px-4 py-2 font-medium text-gray-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -76,7 +69,7 @@ export const Header: FC<Props> = ({ locale }) => {
             aria-hidden="true"
           />
           <span className="relative z-10">
-            {tBlog('title')}
+            Blog
           </span>
         </MotionLink>
 
@@ -109,7 +102,7 @@ export const Header: FC<Props> = ({ locale }) => {
         type="button"
         className="rounded-lg p-2 text-gray-400 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 lg:hidden"
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        aria-label={isMobileMenuOpen ? t('close_menu') : t('open_menu')}
+        aria-label={isMobileMenuOpen ? 'Zamknij menu' : 'Otwórz menu'}
         aria-expanded={isMobileMenuOpen}
       >
         <AnimatePresence mode="wait">
@@ -159,14 +152,14 @@ export const Header: FC<Props> = ({ locale }) => {
               <nav className="flex flex-col items-center gap-6 py-8" aria-label="Mobile navigation">
                 {/* Blog link */}
                 <MotionLink
-                  href={`/${locale}/blog`}
+                  href="/blog"
                   className="rounded-lg px-6 py-3 text-xl text-gray-300 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0 }}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  {tBlog('title')}
+                  Blog
                 </MotionLink>
 
                 {/* Divider */}

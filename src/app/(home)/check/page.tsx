@@ -1,21 +1,12 @@
 import CertificateForm from '@/components/CertificateForm';
 import CertValidate from '@/components/CertValidate';
 import { CheckPageWrapper } from '@/components/CheckPageWrapper';
-import { getTranslations } from 'next-intl/server';
 import { Suspense } from 'react';
 
-export async function generateMetadata(props: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await props.params;
-  const t = await getTranslations({
-    locale,
-    namespace: 'OG',
-  });
-
+export async function generateMetadata() {
   return {
-    title: t('title'),
-    description: t('desc'),
+    title: 'CodeStoryBro',
+    description: 'CodeStoryBro to merytoryka i społeczność, która rozumie Twój programistyczny ból. Dołącz i rozwijaj swoje umiejętności!',
   };
 }
 
@@ -25,12 +16,11 @@ type Props = {
 
 export default async function Check({ searchParams }: Props) {
   const { certId } = await searchParams;
-  const t = await getTranslations('General');
 
   return (
     <CheckPageWrapper
-      title={t('certificate_check')}
-      subtitle={t('certificate_check_subtitle')}
+      title="Sprawdź certyfikat"
+      subtitle="Wprowadź ID certyfikatu, aby zweryfikować jego autentyczność"
     >
       <CertificateForm certId={certId} />
 
