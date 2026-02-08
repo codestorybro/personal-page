@@ -42,7 +42,7 @@ const SubscribeForm: FC = () => {
     toast.promise(
       res,
       {
-        loading: 'Loading ...',
+        loading: t('loading'),
         success: () => {
           reset();
           return t('subscribe_success');

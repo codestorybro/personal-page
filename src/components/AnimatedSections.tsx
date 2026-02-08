@@ -3,7 +3,7 @@
 import type { Variants } from 'framer-motion';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { FadeInLeft, FadeInRight, FadeInUp, StaggerContainer, StaggerItem } from './AnimatedElements';
+import { FadeInLeft, FadeInUp, StaggerContainer, StaggerItem } from './AnimatedElements';
 import { ButtonLink } from './Button';
 
 type HeroSectionProps = {
@@ -11,7 +11,7 @@ type HeroSectionProps = {
     sometimes_code_works: string;
     lets_talk_about_it: string;
     loose_stories: string;
-    join_community: string;
+    check_my_work: string;
   };
 };
 
@@ -51,8 +51,8 @@ export const HeroSection = ({ translations: t }: HeroSectionProps) => {
         </FadeInUp>
         <FadeInUp delay={0.8}>
           <div className="mt-6 flex space-x-4">
-            <ButtonLink href="https://discord.gg/7VNpaBGCNr">
-              {t.join_community}
+            <ButtonLink href="https://youtube.com/@codestorybro" target="_blank">
+              {t.check_my_work}
             </ButtonLink>
           </div>
         </FadeInUp>
@@ -118,72 +118,6 @@ export const HeroSection = ({ translations: t }: HeroSectionProps) => {
   );
 };
 
-type AboutSectionProps = {
-  translations: {
-    learn_with_fun: string;
-    about: string;
-  };
-};
-
-export const AboutSection = ({ translations: t }: AboutSectionProps) => {
-  return (
-    <section className="relative lg:py-24">
-      <div className="mx-auto w-full max-w-7xl px-4 md:px-5 lg:px-5">
-        <div className="grid w-full grid-cols-1 items-center justify-start gap-12 lg:grid-cols-2">
-          <div
-            className="order-last grid w-full grid-cols-1 items-start justify-center gap-6 lg:order-first lg:grid-cols-2"
-          >
-            <FadeInLeft delay={0.2}>
-              <div className="m-auto flex items-start justify-start gap-2.5 sm:justify-end sm:pt-24 lg:m-0 lg:justify-center">
-                <motion.div
-                  whileHover={{ scale: 1.03, rotate: 1 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
-                >
-                  <Image draggable={false} width={384} height={288} className="rounded-xl object-cover" src="/assets/img/about/about-1.webp" alt="about Us image 1" />
-                </motion.div>
-              </div>
-            </FadeInLeft>
-            <FadeInUp delay={0.4}>
-              <motion.div
-                whileHover={{ scale: 1.03, rotate: -1 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-                className="m-auto hidden sm:block lg:m-0"
-              >
-                <Image
-                  draggable={false}
-                  width={320}
-                  height={213}
-                  className="rounded-xl object-cover"
-                  src="/assets/img/about/about-2.webp"
-                  alt="about Us image 2"
-                />
-              </motion.div>
-            </FadeInUp>
-          </div>
-          <div className="inline-flex w-full flex-col items-center justify-center gap-10 lg:items-start">
-            <div className="flex w-full flex-col items-start justify-center gap-8">
-              <div className="flex w-full flex-col items-center justify-start gap-3 lg:items-start">
-                <FadeInRight delay={0.2}>
-                  <h2
-                    className="bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 bg-clip-text text-center font-bold leading-normal text-transparent lg:text-start"
-                  >
-                    {t.learn_with_fun}
-                  </h2>
-                </FadeInRight>
-                <FadeInRight delay={0.4}>
-                  <p className="text-center text-lg font-normal leading-relaxed lg:text-start">
-                    {t.about}
-                  </p>
-                </FadeInRight>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
 type FAQSectionProps = {
   translations: {
     q1: string;
@@ -192,8 +126,6 @@ type FAQSectionProps = {
     a2: string;
     q3: string;
     a3: string;
-    q4: string;
-    a4: string;
   };
 };
 
@@ -202,7 +134,6 @@ export const FAQSection = ({ translations: t }: FAQSectionProps) => {
     { q: t.q1, a: t.a1 },
     { q: t.q2, a: t.a2 },
     { q: t.q3, a: t.a3 },
-    { q: t.q4, a: t.a4 },
   ];
 
   return (

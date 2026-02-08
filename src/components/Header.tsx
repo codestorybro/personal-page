@@ -1,6 +1,6 @@
 'use client';
 import type { FC } from 'react';
-import { DiscordLogoIcon, GithubLogoIcon, InstagramLogoIcon, LinkedinLogoIcon, ListIcon, XIcon, XLogoIcon, YoutubeLogoIcon } from '@phosphor-icons/react';
+import { DiscordLogoIcon, EnvelopeSimpleIcon, GithubLogoIcon, InstagramLogoIcon, LinkedinLogoIcon, ListIcon, XIcon, XLogoIcon, YoutubeLogoIcon } from '@phosphor-icons/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
@@ -20,6 +20,7 @@ const socialLinks = [
   { name: 'GitHub', href: 'https://github.com/codestorybro', icon: GithubLogoIcon },
   { name: 'YouTube', href: 'https://youtube.com/@codestorybro', icon: YoutubeLogoIcon },
   { name: 'Discord', href: 'https://discord.gg/7VNpaBGCNr', icon: DiscordLogoIcon },
+  { name: 'Email', href: 'mailto:hello@codestorybro.com', icon: EnvelopeSimpleIcon },
 ];
 
 export const Header: FC<Props> = () => {

@@ -21,39 +21,46 @@
     "certificate_not_found": "Certyfikat nieznaleziony",
     "contact": "Skontaktuj się",
     "open_menu": "Otwórz menu",
-    "close_menu": "Zamknij menu"
+    "close_menu": "Zamknij menu",
+    "loading": "Ładowanie..."
   },
   "NotFound": {
     "title": "404",
-    "heading": "Ups! Strona nie istnieje",
-    "description": "Wygląda na to, że kod się zgubił... Ale spokojnie, to nie Twoja wina (prawdopodobnie).",
+    "heading": "Ups! Zjechałeś z trasy",
+    "description": "Ta strona nie istnieje, ale to dobry moment, żeby wrócić na właściwe tory.",
     "back_home": "Wróć na stronę główną"
   },
   "Home": {
     "sometimes_code_works": "Kod to tylko fragment historii.",
     "lets_talk_about_it": "Reszta dzieje się między ludźmi.",
     "loose_stories": "O produktach, zespołach i lekcjach, którymi warto się dzielić.",
-    "join_community": "Dołącz do społeczności",
-    "learn_with_fun": "Połączenie nauki z rozrywką",
-    "about": "Tworzymy luźne, humorystyczne podejście do programowania. Opowiadamy o błędach, które kosztowały godziny debugowania, o sukcesach po niekończących się poprawkach, ale przede wszystkim dzielimy się doświadczeniami w lekkiej, przystępnej formie.",
-    "q1": "Czy muszę być programistą, żeby dołączyć do społeczności?",
-    "a1": "Nie, ale istnieje ryzyko, że nim zostaniesz.",
-    "q2": "Koduję w PHP. Czy mogę dołączyć?",
-    "a2": "Tak, ale będziemy Cię bacznie obserwować.",
-    "q3": "Czy muszę płacić za dostęp do społeczności?",
-    "a3": "Nie. Ale jeśli chcesz wysłać kawę, to nasz backendowiec na pewno się ucieszy.",
-    "q4": "Mój kod nie działa, ale nie ma błędów. Pomożecie mi?",
-    "a4": "Pewnie, choć problem może być głębszy. Prawdopodobnie to kod testuje Ciebie, a nie ty kod."
+    "check_my_work": "Sprawdź moją twórczość",
+    "q1": "Czy muszę być programistą, żeby tu być?",
+    "a1": "Nie, ale jest spora szansa, że zaczniesz myśleć jak inżynier.",
+    "q2": "Pracuję w innej technologii niż React - ma sens?",
+    "a2": "Oczywiście. Skupiam się przede wszystkim na decyzjach i konsekwencjach, a nie na konkretnych frameworkach.",
+    "q3": "Jak się z Tobą skontaktować?",
+    "a3": "Najwygodniej przez media społecznościowe, ale zawsze możesz wysłać maila. Linki znajdziesz w górnym menu oraz w stopce."
   },
-  "Principles": {
-    "title": "Nasze pryncypia",
-    "code_for_people": "Kod jest dla ludzi",
-    "code_for_people_desc": "Piszesz kod dla innych programistów (i dla siebie za pół roku, kiedy zapomnisz, co tu się działo). Dobre standardy to nie sztuka dla sztuki, tylko sposób, żeby inni (i Ty) nie cierpieli.",
-    "new_technologies": "Nowe technologie? Tak, ale z głową",
-    "new_technologies_desc": "Eksperymenty są super, dopóki nie wysadzisz produkcji. Nowinki to nie zawsze złoto – czasem to tylko błyszcząca pułapka. Balans między świeżymi rozwiązaniami a stabilnością to klucz.",
-    "code_today": "Kod na dziś, ale z myślą o jutrze",
-    "code_today_desc": "Wymagania zmieniają się szybciej niż frameworki JavaScript. Dlatego kod powinien być elastyczny i łatwy do rozbudowy – nigdy nie wiesz, co przyszłość przyniesie (poza kolejnymi zmianami od Project Managera).",
-    "no_path": "Nie ma jedynej słusznej ścieżki",
-    "no_path_desc": "Nie ma świętych zasad kodowania – są tylko te, które faktycznie pomagają. Kod ma działać i być zrozumiały, a nie wyglądać jak podręcznik do teorii informatyki."
+  "WhoIs": {
+    "title": "Kim jest CodeStoryBro?",
+    "intro_1": "Nie zaczynałem od sceny ani od zarządzania zespołami.",
+    "intro_2": "Na początku po prostu pisałem kod i uczyłem się na własnych błędach.",
+    "experience_1": "Przez lata pracowałem jako software developer od poziomu Juniora po Staffa, później jako Engineering Manager.",
+    "experience_2": "Budowałem produkty, prowadziłem zespoły, podejmowałem decyzje, które czasem działały, a czasem zostawiały ślad na dłużej.",
+    "today_intro": "Dziś łączę te doświadczenia, opowiadając o inżynierii z perspektywy praktyka:",
+    "today_code": "o kodzie, który trafia na produkcję,",
+    "today_people": "o ludziach i relacjach, które za nim stoją,",
+    "today_lessons": "oraz o wnioskach, które warto wynosić dalej - również na scenę.",
+    "summary_1": "Porządkuję te historie.",
+    "summary_2": "Nie udaję, że istnieją proste odpowiedzi.",
+    "collab_title": "Współpraca",
+    "collab_intro": "Jeśli organizujesz konferencję, meetup albo event związany z technologią, zespołami lub rozwojem inżynierów to porozmawiajmy.",
+    "collab_open": "Jestem otwarty na:",
+    "collab_conferences": "wystąpienia konferencyjne i warsztaty",
+    "collab_podcasts": "rozmowy w podcastach i formatach wideo",
+    "collab_education": "współpracę przy projektach edukacyjnych i społecznościowych",
+    "collab_outro_1": "Jeśli masz pomysł - napisz.",
+    "collab_outro_2": "Zobaczymy, czy i jak możemy zrobić z tego coś ciekawego."
   }
 }

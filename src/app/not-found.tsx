@@ -2,15 +2,11 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import translations from '@/locales/pl.json';
 
 const MotionLink = motion.create(Link);
 
-// Translations for not-found page (outside of [locale] routing)
-const translations = {
-  heading: 'Ups! Strona nie istnieje',
-  description: 'Wygląda na to, że kod się zgubił... Ale spokojnie, to nie Twoja wina (prawdopodobnie).',
-  back_home: 'Wróć na stronę główną',
-};
+const t = translations.NotFound;
 
 export default function NotFound() {
   return (
@@ -41,7 +37,7 @@ export default function NotFound() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}
         >
-          {translations.heading}
+          {t.heading}
         </motion.p>
 
         <motion.p
@@ -50,7 +46,7 @@ export default function NotFound() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.5 }}
         >
-          {translations.description}
+          {t.description}
         </motion.p>
 
         <motion.div
@@ -71,7 +67,7 @@ export default function NotFound() {
               className="pointer-events-none absolute inset-0 rounded-lg bg-indigo-500 opacity-0 blur-[20px] transition-opacity duration-300 group-hover:opacity-40"
               aria-hidden="true"
             />
-            <span className="relative z-10">{translations.back_home}</span>
+            <span className="relative z-10">{t.back_home}</span>
           </MotionLink>
         </motion.div>
 
