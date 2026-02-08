@@ -4,6 +4,7 @@ import type {
   RichTextItemResponse,
 } from '@notionhq/client/build/src/api-endpoints';
 import { Client } from '@notionhq/client';
+import { unstable_cache } from 'next/cache';
 
 // Initialize Notion client
 const notion = new Client({
@@ -11,6 +12,9 @@ const notion = new Client({
 });
 
 const databaseId = process.env.NOTION_DATABASE_ID || '';
+
+// Cache revalidation time in seconds (5 minutes)
+const CACHE_REVALIDATE = 300;
 
 export type BlogPost = {
   id: string;
@@ -27,14 +31,6 @@ export type BlogPost = {
 // Helper to extract plain text from rich text
 function extractPlainText(richText: RichTextItemResponse[]): string {
   return richText.map(text => text.plain_text).join('');
-}
-
-// Calculate reading time based on character count (average 1000 chars per minute for Polish)
-function calculateReadingTime(content: string): number {
-  const charsPerMinute = 1000;
-  const chars = content.length;
-  const minutes = Math.ceil(chars / charsPerMinute);
-  return Math.max(1, minutes);
 }
 
 // Convert Notion page to BlogPost
@@ -68,10 +64,17 @@ function pageToPost(page: PageObjectResponse): BlogPost {
 
   // Extract tags
   const tagsProp = properties['Tags'] || properties['Tagi'];
+
+  // Extract reading time
+  const readingTimeProp = properties['ReadingTime'];
   /* eslint-enable dot-notation */
   const tags = tagsProp?.type === 'multi_select'
     ? tagsProp.multi_select.map(tag => tag.name)
     : [];
+
+  const readingTime = readingTimeProp?.type === 'number' && readingTimeProp.number
+    ? readingTimeProp.number
+    : 5; // Default 5 min if not set
 
   // Extract cover image
   let coverImage: string | null = null;
@@ -91,12 +94,12 @@ function pageToPost(page: PageObjectResponse): BlogPost {
     publishedAt,
     tags,
     coverImage,
-    readingTime: 1, // Will be calculated when content is fetched
+    readingTime,
   };
 }
 
-// Fetch all published blog posts
-export async function getBlogPosts(): Promise<BlogPost[]> {
+// Internal function to fetch blog posts from Notion
+async function fetchBlogPosts(): Promise<BlogPost[]> {
   if (!databaseId) {
     console.warn('NOTION_DATABASE_ID is not set');
     return [];
@@ -123,17 +126,9 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
       ],
     });
 
-    const posts = await Promise.all(
-      response.results
-        .filter((page): page is PageObjectResponse => 'properties' in page)
-        .map(async (page) => {
-          const post = pageToPost(page);
-          // Fetch content to calculate reading time
-          const content = await getPostContent(page.id);
-          post.readingTime = calculateReadingTime(content);
-          return post;
-        }),
-    );
+    const posts = response.results
+      .filter((page): page is PageObjectResponse => 'properties' in page)
+      .map(page => pageToPost(page));
 
     return posts;
   } catch (error) {
@@ -142,8 +137,15 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
   }
 }
 
-// Fetch a single blog post by slug
-export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
+// Cached version - fetch all published blog posts
+export const getBlogPosts = unstable_cache(
+  fetchBlogPosts,
+  ['blog-posts'],
+  { revalidate: CACHE_REVALIDATE },
+);
+
+// Internal function to fetch a single blog post by slug
+async function fetchBlogPostBySlug(slug: string): Promise<BlogPost | null> {
   if (!databaseId) {
     console.warn('NOTION_DATABASE_ID is not set');
     return null;
@@ -176,15 +178,19 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> 
     }
 
     const post = pageToPost(page as PageObjectResponse);
-    post.content = await getPostContent(page.id);
-    post.readingTime = calculateReadingTime(post.content);
-
     return post;
   } catch (error) {
     console.error('Error fetching blog post:', error);
     return null;
   }
 }
+
+// Cached version - fetch a single blog post by slug
+export const getBlogPostBySlug = unstable_cache(
+  fetchBlogPostBySlug,
+  ['blog-post'],
+  { revalidate: CACHE_REVALIDATE },
+);
 
 // Get all unique tags from posts
 export async function getAllTags(): Promise<string[]> {
@@ -198,69 +204,8 @@ export async function getAllTags(): Promise<string[]> {
   return Array.from(tagSet).sort();
 }
 
-// Convert Notion blocks to HTML content
-async function getPostContent(pageId: string): Promise<string> {
-  try {
-    const blocks = await notion.blocks.children.list({
-      block_id: pageId,
-      page_size: 100,
-    });
-
-    let content = '';
-
-    for (const block of blocks.results) {
-      if (!('type' in block)) {
-        continue;
-      }
-
-      const blockObj = block as BlockObjectResponse;
-
-      switch (blockObj.type) {
-        case 'paragraph':
-          content += extractPlainText(blockObj.paragraph.rich_text);
-          break;
-        case 'heading_1':
-          content += extractPlainText(blockObj.heading_1.rich_text);
-          break;
-        case 'heading_2':
-          content += extractPlainText(blockObj.heading_2.rich_text);
-          break;
-        case 'heading_3':
-          content += extractPlainText(blockObj.heading_3.rich_text);
-          break;
-        case 'bulleted_list_item':
-          content += extractPlainText(blockObj.bulleted_list_item.rich_text);
-          break;
-        case 'numbered_list_item':
-          content += extractPlainText(blockObj.numbered_list_item.rich_text);
-          break;
-        case 'quote':
-          content += extractPlainText(blockObj.quote.rich_text);
-          break;
-        case 'code':
-          content += extractPlainText(blockObj.code.rich_text);
-          break;
-        case 'callout':
-          content += extractPlainText(blockObj.callout.rich_text);
-          break;
-        case 'toggle':
-          content += extractPlainText(blockObj.toggle.rich_text);
-          break;
-        default:
-          break;
-      }
-      content += '\n';
-    }
-
-    return content;
-  } catch (error) {
-    console.error('Error fetching post content:', error);
-    return '';
-  }
-}
-
-// Render blocks to HTML
-export async function renderBlocksToHtml(pageId: string): Promise<string> {
+// Internal function to render blocks to HTML
+async function fetchBlocksAsHtml(pageId: string): Promise<string> {
   try {
     const blocks = await notion.blocks.children.list({
       block_id: pageId,
@@ -352,6 +297,13 @@ export async function renderBlocksToHtml(pageId: string): Promise<string> {
     return '';
   }
 }
+
+// Cached version - render blocks to HTML
+export const renderBlocksToHtml = unstable_cache(
+  fetchBlocksAsHtml,
+  ['blog-content'],
+  { revalidate: CACHE_REVALIDATE },
+);
 
 // Render rich text with formatting
 function renderRichText(richText: RichTextItemResponse[]): string {

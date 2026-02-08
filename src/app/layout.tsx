@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import GA from '@/app/ga';
 import { CustomCursor } from '@/components/CustomCursor';
+import { NavigationProgress } from '@/components/NavigationProgress';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import localFont from 'next/font/local';
 import { Toaster } from 'react-hot-toast';
@@ -45,6 +46,7 @@ export default function RootLayout({
   return (
     <html lang="pl" className={`bg-black ${rushDriver.variable}`}>
       <body suppressHydrationWarning className="cursor-none">
+        <NavigationProgress />
         <GA />
         <Toaster />
         <CustomCursor />
