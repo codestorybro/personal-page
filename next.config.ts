@@ -5,6 +5,8 @@ const config = {
   },
   poweredByHeader: false,
   reactStrictMode: true,
+  // Ensure consistent URL handling (no trailing slash)
+  trailingSlash: false,
 };
 
 export default config;

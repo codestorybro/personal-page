@@ -6,7 +6,7 @@ export default function BlogLayout(props: {
 }) {
   return (
     <div className="flex min-h-screen flex-col justify-between">
-      <header className="sticky top-0 z-50 border-b border-white/20 bg-black/70 backdrop-blur-md">
+      <header className="sticky top-0 z-50 border-b border-white/20 bg-black">
         <div className="mx-auto my-2 w-full max-w-screen-xl px-8">
           <Header />
         </div>

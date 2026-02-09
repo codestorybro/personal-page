@@ -1,12 +1,45 @@
+import type { Metadata } from 'next';
+
 import CertificateForm from '@/components/CertificateForm';
 import CertValidate from '@/components/CertValidate';
 import { CheckPageWrapper } from '@/components/CheckPageWrapper';
 import { Suspense } from 'react';
 
-export async function generateMetadata() {
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://codestorybro.com';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const canonicalUrl = `${SITE_URL}/check`;
+
   return {
-    title: 'CodeStoryBro',
-    description: 'CodeStoryBro to merytoryka i społeczność, która rozumie Twój programistyczny ból. Dołącz i rozwijaj swoje umiejętności!',
+    title: 'Weryfikacja certyfikatu | CodeStoryBro',
+    description: 'Zweryfikuj autentyczność certyfikatu CodeStoryBro. Wprowadź ID certyfikatu, aby sprawdzić jego ważność.',
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title: 'Weryfikacja certyfikatu | CodeStoryBro',
+      description: 'Zweryfikuj autentyczność certyfikatu CodeStoryBro. Wprowadź ID certyfikatu, aby sprawdzić jego ważność.',
+      type: 'website',
+      url: canonicalUrl,
+      siteName: 'CodeStoryBro',
+      locale: 'pl',
+      images: [
+        {
+          url: `${SITE_URL}/assets/img/og-image.png`,
+          width: 1200,
+          height: 630,
+          alt: 'CodeStoryBro - Weryfikacja certyfikatu',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Weryfikacja certyfikatu | CodeStoryBro',
+      description: 'Zweryfikuj autentyczność certyfikatu CodeStoryBro. Wprowadź ID certyfikatu, aby sprawdzić jego ważność.',
+      images: [`${SITE_URL}/assets/img/og-image.png`],
+      creator: '@codestorybro',
+      site: '@codestorybro',
+    },
   };
 }
 

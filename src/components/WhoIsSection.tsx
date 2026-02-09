@@ -36,7 +36,7 @@ export const WhoIsSection: FC<WhoIsSectionProps> = ({ translations: t }) => {
           <div className="relative mb-12 w-fit">
             {/* Glow blur behind the title */}
             <div
-              className="pointer-events-none absolute -inset-4 bg-gradient-to-r from-blue-600/30 via-green-500/30 to-indigo-400/30 blur-2xl"
+              className="pointer-events-none absolute -inset-0 bg-gradient-to-r from-blue-600/30 via-indigo-500/30 to-black blur-xl"
               aria-hidden="true"
             />
             <h2 className="relative bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 bg-clip-text pb-1 text-3xl font-bold leading-relaxed text-transparent sm:text-4xl lg:text-5xl">

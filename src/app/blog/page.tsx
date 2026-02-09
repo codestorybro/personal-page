@@ -48,7 +48,14 @@ export async function generateMetadata(): Promise<Metadata> {
       card: 'summary_large_image',
       title: 'Blog | CodeStoryBro',
       description: 'O inżynierii i zespołach z perspektywy praktyka. Decyzje, błędy i lekcje z perspektywy managera.',
-      images: [`${SITE_URL}/assets/img/og-image.png`],
+      images: [
+        {
+          url: `${SITE_URL}/assets/img/og-image.png`,
+          width: 1200,
+          height: 630,
+          alt: 'Blog – CodeStoryBro',
+        },
+      ],
       creator: '@codestorybro',
       site: '@codestorybro',
     },

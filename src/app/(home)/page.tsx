@@ -9,7 +9,7 @@ export async function generateMetadata() {
 
   return {
     title: 'CodeStoryBro',
-    description: 'CodeStoryBro to merytoryka i społeczność, która rozumie Twój programistyczny ból. Dołącz i rozwijaj swoje umiejętności!',
+    description: 'Kod to tylko fragment historii. Reszta dzieje się między ludźmi.',
     keywords: [
       'React',
       'JavaScript',
@@ -27,7 +27,7 @@ export async function generateMetadata() {
     },
     openGraph: {
       title: 'CodeStoryBro',
-      description: 'CodeStoryBro to merytoryka i społeczność, która rozumie Twój programistyczny ból. Dołącz i rozwijaj swoje umiejętności!',
+      description: 'Kod to tylko fragment historii. Reszta dzieje się między ludźmi.',
       url: canonicalUrl,
       siteName: 'CodeStoryBro',
       type: 'website',
@@ -46,8 +46,15 @@ export async function generateMetadata() {
       site: '@codestorybro',
       creator: '@codestorybro',
       title: 'CodeStoryBro',
-      description: 'CodeStoryBro to merytoryka i społeczność, która rozumie Twój programistyczny ból. Dołącz i rozwijaj swoje umiejętności!',
-      images: [`${SITE_URL}/assets/img/og-image.png`],
+      description: 'Kod to tylko fragment historii. Reszta dzieje się między ludźmi.',
+      images: [
+        {
+          url: `${SITE_URL}/assets/img/og-image.png`,
+          width: 1200,
+          height: 630,
+          alt: 'CodeStoryBro',
+        },
+      ],
     },
     robots: {
       index: true,

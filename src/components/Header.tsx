@@ -136,14 +136,14 @@ export const Header: FC = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="fixed inset-x-0 top-[60px] z-40 overflow-hidden lg:hidden"
+            className="fixed inset-x-0 bottom-0 top-[60px] z-40 overflow-y-auto lg:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
             <motion.div
-              className="bg-black"
+              className="min-h-full bg-black"
               initial={{ y: '-100%' }}
               animate={{ y: 0 }}
               exit={{ y: '-100%' }}
