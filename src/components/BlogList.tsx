@@ -71,7 +71,7 @@ const BlogPostCard: FC<BlogPostCardProps> = ({ post, translations: t, formatDate
           {post.coverImage && (
             <div className="relative h-48 w-full shrink-0 overflow-hidden sm:h-auto sm:w-48 md:w-56">
               <Image
-                src={post.coverImage}
+                src={`/api/blog-image/${post.id}`}
                 alt={post.title}
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-105"

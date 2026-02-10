@@ -129,7 +129,7 @@ export const BlogPostView: FC<BlogPostViewProps> = ({
                 aria-hidden="true"
               />
               <Image
-                src={post.coverImage}
+                src={`/api/blog-image/${post.id}`}
                 alt={post.title}
                 width={800}
                 height={450}
