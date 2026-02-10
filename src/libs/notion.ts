@@ -5,6 +5,7 @@ import type {
 } from '@notionhq/client/build/src/api-endpoints';
 import { Client } from '@notionhq/client';
 import { unstable_cache } from 'next/cache';
+import { createHighlighter, type Highlighter } from 'shiki';
 
 // Initialize Notion client
 const notion = new Client({
@@ -15,6 +16,63 @@ const databaseId = process.env.NOTION_DATABASE_ID || '';
 
 // Cache revalidation time in seconds (5 minutes)
 const CACHE_REVALIDATE = 300;
+
+// Cached shiki highlighter instance
+let highlighterPromise: Promise<Highlighter> | null = null;
+
+async function getHighlighter(): Promise<Highlighter> {
+  if (!highlighterPromise) {
+    highlighterPromise = createHighlighter({
+      themes: ['github-dark'],
+      langs: [
+        'javascript',
+        'typescript',
+        'jsx',
+        'tsx',
+        'json',
+        'html',
+        'css',
+        'bash',
+        'shell',
+        'python',
+        'sql',
+        'yaml',
+        'markdown',
+        'plaintext',
+      ],
+    });
+  }
+  return highlighterPromise;
+}
+
+// Map Notion language names to shiki language names
+function mapNotionLangToShiki(notionLang: string): string {
+  const langMap: Record<string, string> = {
+    'javascript': 'javascript',
+    'typescript': 'typescript',
+    'jsx': 'jsx',
+    'tsx': 'tsx',
+    'json': 'json',
+    'html': 'html',
+    'css': 'css',
+    'bash': 'bash',
+    'shell': 'shell',
+    'python': 'python',
+    'sql': 'sql',
+    'yaml': 'yaml',
+    'markdown': 'markdown',
+    'plain text': 'plaintext',
+    'plaintext': 'plaintext',
+    // Common aliases
+    'js': 'javascript',
+    'ts': 'typescript',
+    'sh': 'bash',
+    'zsh': 'bash',
+    'py': 'python',
+    'md': 'markdown',
+  };
+  return langMap[notionLang.toLowerCase()] || 'plaintext';
+}
 
 export type BlogPost = {
   id: string;
@@ -204,6 +262,155 @@ export async function getAllTags(): Promise<string[]> {
   return Array.from(tagSet).sort();
 }
 
+// Get list style based on nesting depth
+function getListStyle(depth: number): string {
+  const styles = ['decimal', 'lower-alpha', 'lower-roman'];
+  return styles[depth % styles.length] || 'decimal';
+}
+
+// Recursively render a single block to HTML
+async function renderBlock(blockObj: BlockObjectResponse, depth: number = 0): Promise<string> {
+  let html = '';
+  let childrenHtml = '';
+
+  // Check if block has children and fetch them
+  if (blockObj.has_children) {
+    const children = await notion.blocks.children.list({
+      block_id: blockObj.id,
+      page_size: 100,
+    });
+    childrenHtml = await renderBlocksArray(children.results as BlockObjectResponse[], depth + 1);
+  }
+
+  switch (blockObj.type) {
+    case 'paragraph': {
+      const text = renderRichText(blockObj.paragraph.rich_text);
+      if (text) {
+        html += `<p class="mb-4 text-gray-300 leading-relaxed">${text}</p>`;
+      }
+      break;
+    }
+    case 'heading_1': {
+      const text = renderRichText(blockObj.heading_1.rich_text);
+      html += `<h1 class="text-3xl font-bold text-white mt-8 mb-4">${text}</h1>`;
+      break;
+    }
+    case 'heading_2': {
+      const text = renderRichText(blockObj.heading_2.rich_text);
+      html += `<h2 class="text-2xl font-bold text-white mt-6 mb-3">${text}</h2>`;
+      break;
+    }
+    case 'heading_3': {
+      const text = renderRichText(blockObj.heading_3.rich_text);
+      html += `<h3 class="text-xl font-bold text-white mt-4 mb-2">${text}</h3>`;
+      break;
+    }
+    case 'bulleted_list_item': {
+      const text = renderRichText(blockObj.bulleted_list_item.rich_text);
+      html += `<li class="mb-2 text-gray-300">${text}${childrenHtml}</li>`;
+      break;
+    }
+    case 'numbered_list_item': {
+      const text = renderRichText(blockObj.numbered_list_item.rich_text);
+      html += `<li class="mb-2 text-gray-300">${text}${childrenHtml}</li>`;
+      break;
+    }
+    case 'quote': {
+      const text = renderRichText(blockObj.quote.rich_text);
+      html += `<blockquote class="border-l-4 border-indigo-500 pl-4 my-4 italic text-gray-400">${text}</blockquote>`;
+      break;
+    }
+    case 'code': {
+      const text = extractPlainText(blockObj.code.rich_text);
+      const notionLang = blockObj.code.language || 'plain text';
+      const lang = mapNotionLangToShiki(notionLang);
+
+      try {
+        const highlighter = await getHighlighter();
+        const highlighted = highlighter.codeToHtml(text, {
+          lang,
+          theme: 'github-dark',
+        });
+        // Wrap in custom container and override some styles
+        html += `<div class="my-4 overflow-x-auto rounded-lg [&_pre]:!bg-white/5 [&_pre]:!p-4 [&_pre]:!m-0 [&_code]:!text-sm">${highlighted}</div>`;
+      } catch {
+        // Fallback if highlighting fails
+        html += `<pre class="bg-white/5 rounded-lg p-4 my-4 overflow-x-auto"><code class="text-sm text-gray-300">${escapeHtml(text)}</code></pre>`;
+      }
+      break;
+    }
+    case 'callout': {
+      const text = renderRichText(blockObj.callout.rich_text);
+      const emoji = blockObj.callout.icon?.type === 'emoji' ? blockObj.callout.icon.emoji : '💡';
+      html += `<div class="bg-white/5 border border-white/10 rounded-lg p-4 my-4 flex gap-3"><span class="text-xl">${emoji}</span><div class="text-gray-300">${text}</div></div>`;
+      break;
+    }
+    case 'divider': {
+      html += `<hr class="my-8 border-white/10" />`;
+      break;
+    }
+    case 'image': {
+      let src = '';
+      if (blockObj.image.type === 'external') {
+        src = blockObj.image.external.url;
+      } else if (blockObj.image.type === 'file') {
+        src = blockObj.image.file.url;
+      }
+      const caption = blockObj.image.caption ? extractPlainText(blockObj.image.caption) : '';
+      html += `<figure class="my-6"><img src="${src}" alt="${caption}" class="rounded-lg w-full" />${caption ? `<figcaption class="text-center text-sm text-gray-500 mt-2">${caption}</figcaption>` : ''}</figure>`;
+      break;
+    }
+    default:
+      break;
+  }
+
+  return html;
+}
+
+// Render an array of blocks, grouping list items into proper ul/ol wrappers
+async function renderBlocksArray(blocks: BlockObjectResponse[], depth: number = 0): Promise<string> {
+  let html = '';
+  let i = 0;
+
+  while (i < blocks.length) {
+    const block = blocks[i];
+
+    if (!block || !('type' in block)) {
+      i++;
+      continue;
+    }
+
+    // Group consecutive bulleted list items
+    if (block.type === 'bulleted_list_item') {
+      html += '<ul class="list-disc ml-6 mb-4">';
+      while (i < blocks.length && blocks[i] && 'type' in blocks[i]! && blocks[i]!.type === 'bulleted_list_item') {
+        html += await renderBlock(blocks[i] as BlockObjectResponse, depth);
+        i++;
+      }
+      html += '</ul>';
+      continue;
+    }
+
+    // Group consecutive numbered list items
+    if (block.type === 'numbered_list_item') {
+      const listStyle = getListStyle(depth);
+      html += `<ol class="ml-6 mb-4" style="list-style-type: ${listStyle}">`;
+      while (i < blocks.length && blocks[i] && 'type' in blocks[i]! && blocks[i]!.type === 'numbered_list_item') {
+        html += await renderBlock(blocks[i] as BlockObjectResponse, depth);
+        i++;
+      }
+      html += '</ol>';
+      continue;
+    }
+
+    // Regular block
+    html += await renderBlock(block as BlockObjectResponse, depth);
+    i++;
+  }
+
+  return html;
+}
+
 // Internal function to render blocks to HTML
 async function fetchBlocksAsHtml(pageId: string): Promise<string> {
   try {
@@ -212,86 +419,7 @@ async function fetchBlocksAsHtml(pageId: string): Promise<string> {
       page_size: 100,
     });
 
-    let html = '';
-
-    for (const block of blocks.results) {
-      if (!('type' in block)) {
-        continue;
-      }
-
-      const blockObj = block as BlockObjectResponse;
-
-      switch (blockObj.type) {
-        case 'paragraph': {
-          const text = renderRichText(blockObj.paragraph.rich_text);
-          if (text) {
-            html += `<p class="mb-4 text-gray-300 leading-relaxed">${text}</p>`;
-          }
-          break;
-        }
-        case 'heading_1': {
-          const text = renderRichText(blockObj.heading_1.rich_text);
-          html += `<h1 class="text-3xl font-bold text-white mt-8 mb-4">${text}</h1>`;
-          break;
-        }
-        case 'heading_2': {
-          const text = renderRichText(blockObj.heading_2.rich_text);
-          html += `<h2 class="text-2xl font-bold text-white mt-6 mb-3">${text}</h2>`;
-          break;
-        }
-        case 'heading_3': {
-          const text = renderRichText(blockObj.heading_3.rich_text);
-          html += `<h3 class="text-xl font-bold text-white mt-4 mb-2">${text}</h3>`;
-          break;
-        }
-        case 'bulleted_list_item': {
-          const text = renderRichText(blockObj.bulleted_list_item.rich_text);
-          html += `<li class="ml-6 mb-2 text-gray-300 list-disc">${text}</li>`;
-          break;
-        }
-        case 'numbered_list_item': {
-          const text = renderRichText(blockObj.numbered_list_item.rich_text);
-          html += `<li class="ml-6 mb-2 text-gray-300 list-decimal">${text}</li>`;
-          break;
-        }
-        case 'quote': {
-          const text = renderRichText(blockObj.quote.rich_text);
-          html += `<blockquote class="border-l-4 border-indigo-500 pl-4 my-4 italic text-gray-400">${text}</blockquote>`;
-          break;
-        }
-        case 'code': {
-          const text = extractPlainText(blockObj.code.rich_text);
-          const language = blockObj.code.language || 'plaintext';
-          html += `<pre class="bg-white/5 rounded-lg p-4 my-4 overflow-x-auto"><code class="language-${language} text-sm text-gray-300">${escapeHtml(text)}</code></pre>`;
-          break;
-        }
-        case 'callout': {
-          const text = renderRichText(blockObj.callout.rich_text);
-          const emoji = blockObj.callout.icon?.type === 'emoji' ? blockObj.callout.icon.emoji : '💡';
-          html += `<div class="bg-white/5 border border-white/10 rounded-lg p-4 my-4 flex gap-3"><span class="text-xl">${emoji}</span><div class="text-gray-300">${text}</div></div>`;
-          break;
-        }
-        case 'divider': {
-          html += `<hr class="my-8 border-white/10" />`;
-          break;
-        }
-        case 'image': {
-          let src = '';
-          if (blockObj.image.type === 'external') {
-            src = blockObj.image.external.url;
-          } else if (blockObj.image.type === 'file') {
-            src = blockObj.image.file.url;
-          }
-          const caption = blockObj.image.caption ? extractPlainText(blockObj.image.caption) : '';
-          html += `<figure class="my-6"><img src="${src}" alt="${caption}" class="rounded-lg w-full" />${caption ? `<figcaption class="text-center text-sm text-gray-500 mt-2">${caption}</figcaption>` : ''}</figure>`;
-          break;
-        }
-        default:
-          break;
-      }
-    }
-
-    return html;
+    return await renderBlocksArray(blocks.results as BlockObjectResponse[]);
   } catch (error) {
     console.error('Error rendering blocks:', error);
     return '';
