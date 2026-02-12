@@ -14,10 +14,8 @@ const personSchema = {
   'sameAs': [
     'https://twitter.com/codestorybro',
     'https://linkedin.com/in/codestorybro',
-    'https://github.com/codestorybro',
     'https://youtube.com/@codestorybro',
     'https://instagram.com/codestorybro',
-    'https://discord.gg/7VNpaBGCNr',
   ],
   'jobTitle': 'Engineering Manager & Leadership Mentor',
   'knowsAbout': [

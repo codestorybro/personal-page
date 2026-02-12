@@ -1,6 +1,6 @@
 'use client';
 import type { FC } from 'react';
-import { DiscordLogoIcon, EnvelopeSimpleIcon, GithubLogoIcon, InstagramLogoIcon, LinkedinLogoIcon, ListIcon, XIcon, XLogoIcon, YoutubeLogoIcon } from '@phosphor-icons/react';
+import { EnvelopeSimpleIcon, InstagramLogoIcon, LinkedinLogoIcon, ListIcon, XIcon, XLogoIcon, YoutubeLogoIcon } from '@phosphor-icons/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -12,9 +12,7 @@ const socialLinks = [
   { name: 'X', href: 'https://x.com/codestorybro', icon: XLogoIcon },
   { name: 'LinkedIn', href: 'https://linkedin.com/in/codestorybro/', icon: LinkedinLogoIcon },
   { name: 'Instagram', href: 'https://instagram.com/codestorybro/', icon: InstagramLogoIcon },
-  { name: 'GitHub', href: 'https://github.com/codestorybro', icon: GithubLogoIcon },
   { name: 'YouTube', href: 'https://youtube.com/@codestorybro', icon: YoutubeLogoIcon },
-  { name: 'Discord', href: 'https://discord.gg/7VNpaBGCNr', icon: DiscordLogoIcon },
   { name: 'Email', href: 'mailto:hello@codestorybro.com', icon: EnvelopeSimpleIcon },
 ];
 

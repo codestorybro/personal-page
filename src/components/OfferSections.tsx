@@ -226,7 +226,7 @@ export const AcademySection: FC = () => {
                 </div>
                 <div>
                   <span className="text-sm text-gray-500">Dodatkowe</span>
-                  <p className="text-white">Materiały, zadania, społeczność Discord</p>
+                  <p className="text-white">Materiały, zadania, wartościowa społeczność</p>
                 </div>
               </div>
             </div>
