@@ -1,6 +1,5 @@
 import { OfertaJsonLd } from '@/components/JsonLd';
 import {
-  AcademySection,
   CorporateSection,
   MentoringSection,
   OfferCTASection,
@@ -14,8 +13,8 @@ export async function generateMetadata() {
   const canonicalUrl = `${SITE_URL}/oferta`;
 
   return {
-    title: 'Oferta | Mentoring i szkolenia dla developerów',
-    description: 'Mentoring 1:1, program grupowy i warsztaty dla developerów. Przejdź z roli technicznej do Engineering Managera z CodeStoryBro.',
+    title: 'Oferta | Mentoring i szkolenia dla wschodzących managerów',
+    description: 'Mentoring 1:1 i warsztaty dla developerów. Przejdź z roli technicznej do Engineering Managera z CodeStoryBro.',
     keywords: [
       'mentoring dla programistów',
       'szkolenia engineering manager',
@@ -36,7 +35,7 @@ export async function generateMetadata() {
     },
     openGraph: {
       title: 'Oferta | Mentoring dla developerów | CodeStoryBro',
-      description: 'Mentoring 1:1, program grupowy i warsztaty. Pomogę Ci przejść z roli technicznej do Engineering Managera.',
+      description: 'Mentoring 1:1 i warsztaty. Pomogę Ci przejść z roli technicznej do Engineering Managera.',
       url: canonicalUrl,
       siteName: 'CodeStoryBro',
       type: 'website',
@@ -55,7 +54,7 @@ export async function generateMetadata() {
       site: '@codestorybro',
       creator: '@codestorybro',
       title: 'Oferta | Mentoring dla developerów | CodeStoryBro',
-      description: 'Mentoring 1:1, program grupowy i warsztaty. Przejdź z roli technicznej do Engineering Managera.',
+      description: 'Mentoring 1:1 i warsztaty. Przejdź z roli technicznej do Engineering Managera.',
       images: [
         {
           url: `${SITE_URL}/assets/img/og-oferta.png`,
@@ -85,7 +84,6 @@ export default function OfertaPage() {
       <OfertaJsonLd />
       <OfferHeroSection />
       <MentoringSection />
-      <AcademySection />
       <CorporateSection />
       <SpeakingSection />
       <OfferCTASection />

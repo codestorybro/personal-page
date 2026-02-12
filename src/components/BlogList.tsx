@@ -13,7 +13,6 @@ import Input from './Input';
 
 // Tag color palette - 20 unique colors
 const tagColors = [
-  { bg: 'bg-indigo-500/20', border: 'border-indigo-500/50', text: 'text-indigo-300', glow: 'bg-indigo-500/40' },
   { bg: 'bg-green-500/20', border: 'border-green-500/50', text: 'text-green-300', glow: 'bg-green-500/40' },
   { bg: 'bg-blue-500/20', border: 'border-blue-500/50', text: 'text-blue-300', glow: 'bg-blue-500/40' },
   { bg: 'bg-purple-500/20', border: 'border-purple-500/50', text: 'text-purple-300', glow: 'bg-purple-500/40' },

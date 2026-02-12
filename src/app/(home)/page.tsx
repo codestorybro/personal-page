@@ -18,7 +18,7 @@ export async function generateMetadata() {
 
   return {
     title: 'CodeStoryBro | Od developera do Engineering Managera',
-    description: 'Przeszedłem drogę od stażysty do managera. Dziś pomagam developerom przejść z ról wykonawczych do zarządzania zespołami. Mentoring 1:1, program grupowy i warsztaty.',
+    description: 'Przeszedłem drogę od stażysty do managera. Dziś pomagam developerom przejść z\u00A0ról wykonawczych do zarządzania zespołami. Mentoring 1:1 i\u00A0warsztaty.',
     keywords: [
       'rozwój świadomego developera',
       'jak zostać engineering managerem',
@@ -26,7 +26,7 @@ export async function generateMetadata() {
       'tech lead rozwój',
       'kompetencje managera IT',
       'leadership w IT',
-      'szkolenia dla senior developerów',
+      'szkolenia dla developerów',
       'mentoring dla programistów',
       'coaching kariera IT',
       'awans na managera IT',
@@ -41,7 +41,7 @@ export async function generateMetadata() {
     },
     openGraph: {
       title: 'CodeStoryBro | Od developera do Engineering Managera',
-      description: 'Przeszedłem drogę od stażysty do managera. Dziś pomagam developerom przejść z ról wykonawczych do zarządzania zespołami. Mentoring, program grupowy i warsztaty.',
+      description: 'Przeszedłem drogę od stażysty do managera. Dziś pomagam developerom przejść z\u00A0ról wykonawczych do zarządzania zespołami. Mentoring i\u00A0warsztaty.',
       url: canonicalUrl,
       siteName: 'CodeStoryBro',
       type: 'website',
@@ -60,7 +60,7 @@ export async function generateMetadata() {
       site: '@codestorybro',
       creator: '@codestorybro',
       title: 'CodeStoryBro | Od developera do Engineering Managera',
-      description: 'Przeszedłem drogę od stażysty do managera. Dziś pomagam developerom przejść z ról wykonawczych do zarządzania zespołami. Mentoring, program grupowy i warsztaty.',
+      description: 'Przeszedłem drogę od stażysty do managera. Dziś pomagam developerom przejść z\u00A0ról wykonawczych do zarządzania zespołami. Mentoring i\u00A0warsztaty.',
       images: [
         {
           url: `${SITE_URL}/assets/img/og-image.png`,

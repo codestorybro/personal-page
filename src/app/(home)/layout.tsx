@@ -11,7 +11,7 @@ export default function Layout(props: {
           <Header />
         </div>
       </header>
-      <div className="flex flex-col items-center p-8 pt-0 font-bodyText text-base text-bodyText lg:pr-0">
+      <div className="flex flex-col items-center p-8 pt-0 font-bodyText text-base text-bodyText">
         <div className="w-full max-w-screen-xl">
           <div className="my-8">{props.children}</div>
         </div>

@@ -88,7 +88,7 @@ export default async function BlogPage() {
   return (
     <main className="min-h-screen py-16 sm:py-24">
       <BlogListJsonLd />
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl">
         {/* Header */}
         <FadeInUp>
           <div className="relative mb-12 w-fit">

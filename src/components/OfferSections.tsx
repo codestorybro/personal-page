@@ -13,14 +13,21 @@ export const OfferHeroSection: FC = () => {
   return (
     <section className="py-8 sm:py-16">
       <FadeInUp>
-        <h1 className="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
-          <span className="mt-2 block bg-gradient-to-r from-blue-500 via-green-400 to-indigo-500 bg-clip-text pb-4 text-transparent">
-            Oferta rozwoju dla developerów
-          </span>
-        </h1>
+        <div className="relative mb-6 w-fit">
+          {/* Glow blur behind the title */}
+          <div
+            className="pointer-events-none absolute -inset-4 bg-indigo-500/40 blur-3xl"
+            aria-hidden="true"
+          />
+          <h1 className="relative text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+            <span className="mt-2 block bg-gradient-to-r from-blue-500 via-green-400 to-indigo-500 bg-clip-text pb-4 text-transparent">
+              Oferta rozwoju dla developerów
+            </span>
+          </h1>
+        </div>
         <p className="mt-6 max-w-3xl text-lg text-gray-400">
-          Wybieram formę współpracy dopasowaną do Twojej sytuacji i celów.
-          Od indywidualnego mentoringu po programy grupowe i warsztaty dla firm.
+          Wybieram formę współpracy dopasowaną do Twojej sytuacji i&nbsp;celów.
+          Od indywidualnego mentoringu po warsztaty dla firm.
         </p>
       </FadeInUp>
     </section>
@@ -34,11 +41,13 @@ export const OfferHeroSection: FC = () => {
 export const MentoringSection: FC = () => {
   const outcomes = [
     'Jasny plan świadomego przejścia do roli managera lub Tech Leada',
-    'Rozwinięte kompetencje komunikacyjne i przywódcze',
+    'Rozwinięte kompetencje komunikacyjne i\u00A0przywódcze',
     'Umiejętność delegowania bez utraty kontroli',
-    'Pewność w prowadzeniu trudnych rozmów',
+    'Pewność w\u00A0prowadzeniu trudnych rozmów',
     'Zdolność wpływania na decyzje bez formalnej władzy',
-    'Balance między technikaliami a zarządzaniem',
+    'Balance między technikaliami a\u00A0zarządzaniem',
+    'Sieć kontaktów z\u00A0podobnymi osobami na podobnym etapie rozwoju',
+    'Certyfikat potwierdzający rozwój kompetencji managerskich',
   ];
 
   const forWhom = [
@@ -65,7 +74,7 @@ export const MentoringSection: FC = () => {
           </h2>
           <p className="mt-4 max-w-3xl text-lg text-gray-300">
             Indywidualna praca nad Twoim rozwojem. Spotykamy się regularnie,
-            analizujemy wyzwania i budujemy kompetencje potrzebne na dalszym etapie kariery.
+            analizujemy wyzwania i&nbsp;budujemy kompetencje potrzebne na dalszym etapie kariery.
           </p>
         </FadeInUp>
 
@@ -136,130 +145,6 @@ export const MentoringSection: FC = () => {
 };
 
 // ============================================================================
-// ACADEMY SECTION (Group Program)
-// ============================================================================
-
-export const AcademySection: FC = () => {
-  const modules = [
-    {
-      title: 'Zmiana mindset',
-      desc: 'Od individual contributora do lidera',
-    },
-    {
-      title: 'Komunikacja',
-      desc: 'Z zespołem, biznesem i stakeholderami',
-    },
-    {
-      title: 'Delegowanie',
-      desc: 'Jak oddawać zadania bez utraty jakości',
-    },
-    {
-      title: 'Feedback',
-      desc: 'Dawanie i przyjmowanie informacji zwrotnej',
-    },
-    {
-      title: 'Trudne rozmowy',
-      desc: 'Konflikty, opór, słaba wydajność',
-    },
-  ];
-
-  const outcomes = [
-    'Gotowość do objęcia roli managera',
-    'Sieć kontaktów z podobnymi osobami',
-    'Praktyczne narzędzia do codziennej pracy',
-    'Certyfikat ukończenia programu',
-  ];
-
-  return (
-    <section id="academy" className="scroll-mt-24 py-16 sm:py-24">
-      <div className="rounded-3xl border border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-transparent p-6 sm:p-8 lg:p-12">
-        <FadeInUp>
-          <div className="flex items-center gap-3">
-            <span className="rounded-full bg-blue-500/20 px-3 py-1 text-sm font-medium text-blue-400">
-              Program grupowy
-            </span>
-          </div>
-          <h2 className="mt-4 text-2xl font-bold text-white sm:text-3xl">
-            CodeStoryBro Academy
-            <span className="mt-1 block text-lg font-normal text-gray-400">
-              Senior to Manager
-            </span>
-          </h2>
-          <p className="mt-4 max-w-3xl text-lg text-gray-300">
-            Intensywny program grupowy dla developerów, którzy chcą przejść
-            do ról managerskich. Teoria + praktyka + społeczność.
-          </p>
-        </FadeInUp>
-
-        <FadeInUp delay={0.1}>
-          <div className="mt-12">
-            <h3 className="text-lg font-semibold text-white">Moduły programu</h3>
-            <StaggerContainer className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" staggerDelay={0.05}>
-              {modules.map(module => (
-                <StaggerItem key={module.title}>
-                  <div className="rounded-xl border border-white/10 bg-white/5 p-4">
-                    <h4 className="font-medium text-white">{module.title}</h4>
-                    <p className="mt-1 text-sm text-gray-400">{module.desc}</p>
-                  </div>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
-          </div>
-        </FadeInUp>
-
-        <div className="mt-12 grid gap-8 lg:grid-cols-2">
-          <FadeInUp delay={0.2}>
-            <div className="rounded-xl border border-white/10 bg-white/5 p-6">
-              <h3 className="text-lg font-semibold text-white">Format</h3>
-              <div className="mt-4 space-y-4">
-                <div>
-                  <span className="text-sm text-gray-500">Czas trwania</span>
-                  <p className="text-white">12 tygodni</p>
-                </div>
-                <div>
-                  <span className="text-sm text-gray-500">Spotkania</span>
-                  <p className="text-white">Live online, 2× w tygodniu po 2h</p>
-                </div>
-                <div>
-                  <span className="text-sm text-gray-500">Wielkość grupy</span>
-                  <p className="text-white">Max 12 osób</p>
-                </div>
-                <div>
-                  <span className="text-sm text-gray-500">Dodatkowe</span>
-                  <p className="text-white">Materiały, zadania, wartościowa społeczność</p>
-                </div>
-              </div>
-            </div>
-          </FadeInUp>
-
-          <FadeInUp delay={0.3}>
-            <div className="rounded-xl border border-white/10 bg-white/5 p-6">
-              <h3 className="text-lg font-semibold text-white">Co zyskasz?</h3>
-              <ul className="mt-4 space-y-3">
-                {outcomes.map(item => (
-                  <li key={item} className="flex items-start gap-3 text-gray-300">
-                    <span className="text-blue-500">✓</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </FadeInUp>
-        </div>
-
-        <FadeInUp delay={0.4}>
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <ButtonLink href="mailto:hello@codestorybro.com?subject=CodeStoryBro Academy">
-              Dołącz do listy oczekujących
-            </ButtonLink>
-          </div>
-        </FadeInUp>
-      </div>
-    </section>
-  );
-};
-
-// ============================================================================
 // CORPORATE WORKSHOPS SECTION
 // ============================================================================
 
@@ -272,24 +157,24 @@ export const CorporateSection: FC = () => {
     },
     {
       title: 'Komunikacja Senior → Manager',
-      desc: 'Sztuka rozmowy z biznesem, stakeholderami i zespołem',
+      desc: 'Sztuka rozmowy z\u00A0biznesem, stakeholderami i\u00A0zespołem',
       duration: '1 dzień',
     },
     {
-      title: 'Feedback w zespole technicznym',
-      desc: 'Jak dawać i przyjmować informację zwrotną skutecznie',
+      title: 'Feedback w\u00A0zespole technicznym',
+      desc: 'Jak dawać i\u00A0przyjmować informację zwrotną skutecznie',
       duration: '4-8h',
     },
     {
       title: 'Delegowanie bez bólu',
-      desc: 'Jak oddawać zadania bez utraty jakości i kontroli',
+      desc: 'Jak oddawać zadania bez utraty jakości i\u00A0kontroli',
       duration: '4-8h',
     },
   ];
 
   const forWhom = [
     'Działy IT potrzebujące rozwijać przyszłych liderów',
-    'Firmy z wewnętrznymi programami talentowymi',
+    'Firmy z\u00A0wewnętrznymi programami talentowymi',
     'Organizacje przygotowujące awanse wewnętrzne',
     'Zespoły przechodzące transformację agile',
   ];
@@ -299,7 +184,7 @@ export const CorporateSection: FC = () => {
       <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-6 sm:p-8 lg:p-12">
         <FadeInUp>
           <div className="flex items-center gap-3">
-            <span className="rounded-full bg-indigo-500/20 px-3 py-1 text-sm font-medium text-indigo-400">
+            <span className="rounded-full bg-blue-500/20 px-3 py-1 text-sm font-medium text-blue-400">
               Dla firm
             </span>
           </div>
@@ -308,7 +193,7 @@ export const CorporateSection: FC = () => {
           </h2>
           <p className="mt-4 max-w-3xl text-lg text-gray-300">
             Dedykowane szkolenia dla zespołów IT. Rozwijam kompetencje managerskie
-            i przywódcze u Waszych developerów i Tech Leadów.
+            i&nbsp;przywódcze u&nbsp;Waszych developerów i&nbsp;Tech Leadów.
           </p>
         </FadeInUp>
 
@@ -369,17 +254,16 @@ export const CorporateSection: FC = () => {
 
 export const SpeakingSection: FC = () => {
   const topics = [
-    'Przejście z seniora do managera - prawdziwe studium przypadku i wnioski',
+    'Przejście z\u00A0seniora do managera - prawdziwe studium przypadku i\u00A0wnioski',
     'Dlaczego senior developer ≠ dobry manager',
     'Leadership bez bullshitu - co naprawdę działa',
-    'Feedback w zespole technicznym',
+    'Feedback w\u00A0zespole technicznym',
     'Delegowanie dla perfekcjonistów',
   ];
 
   const formats = [
     { name: 'Keynote', desc: '30-60 min' },
     { name: 'Panel dyskusyjny', desc: 'Moderacja lub udział' },
-    { name: 'Warsztat', desc: '2-4h hands-on' },
   ];
 
   return (
@@ -395,8 +279,8 @@ export const SpeakingSection: FC = () => {
             Wystąpienia konferencyjne
           </h2>
           <p className="mt-4 max-w-3xl text-lg text-gray-300">
-            Występuję na konferencjach IT, meetupach i wydarzeniach firmowych.
-            Mówię o tym, czego nie uczą na bootcampach, czyli o ludziach, decyzjach i odpowiedzialności.
+            Występuję na konferencjach IT, meetupach i&nbsp;wydarzeniach firmowych.
+            Mówię o&nbsp;tym, czego nie uczą na bootcampach, czyli o&nbsp;ludziach, decyzjach i&nbsp;odpowiedzialności.
           </p>
         </FadeInUp>
 
@@ -455,8 +339,8 @@ export const OfferCTASection: FC = () => {
             Nie wiesz, co wybrać?
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-300">
-            Umów się na bezpłatną rozmowę wstępną. Porozmawiamy o Twojej sytuacji
-            i razem określimy, która forma współpracy będzie dla Ciebie najlepsza.
+            Umów się na bezpłatną rozmowę wstępną. Porozmawiamy o&nbsp;Twojej sytuacji
+            i&nbsp;razem określimy, która forma współpracy będzie dla Ciebie najlepsza.
           </p>
           <div className="mt-8">
             <ButtonLink href="mailto:hello@codestorybro.com?subject=Rozmowa wstępna">

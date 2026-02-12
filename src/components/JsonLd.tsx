@@ -34,13 +34,12 @@ const organizationSchema = {
   '@type': 'Organization',
   '@id': `${SITE_URL}/#organization`,
   'name': 'CodeStoryBro',
-  'alternateName': 'CodeStoryBro Academy',
   'url': SITE_URL,
   'logo': {
     '@type': 'ImageObject',
     'url': `${SITE_URL}/assets/img/logo-main.svg`,
   },
-  'description': 'Mentoring, programy grupowe i warsztaty dla dla przyszłych Engineering Managerów',
+  'description': 'Mentoring i\u00A0warsztaty dla przyszłych Engineering Managerów',
   'founder': {
     '@id': `${SITE_URL}/#person`,
   },
@@ -64,7 +63,7 @@ const websiteSchema = {
   '@id': `${SITE_URL}/#website`,
   'url': SITE_URL,
   'name': 'CodeStoryBro',
-  'description': 'Mentoring, programy grupowe i warsztaty dla dla przyszłych Engineering Managerów',
+  'description': 'Mentoring i\u00A0warsztaty dla przyszłych Engineering Managerów',
   'inLanguage': 'pl-PL',
   'publisher': {
     '@id': `${SITE_URL}/#organization`,
@@ -100,7 +99,7 @@ export const HomeJsonLd: FC = () => {
     '@id': `${SITE_URL}/#webpage`,
     'url': SITE_URL,
     'name': 'CodeStoryBro | Od developera do Engineering Managera',
-    'description': 'Pomagam developerom przejść do ról managerskich. Mentoring 1:1, program grupowy i warsztaty.',
+    'description': 'Pomagam developerom przejść do ról managerskich. Mentoring 1:1 i\u00A0warsztaty.',
     'isPartOf': {
       '@id': `${SITE_URL}/#website`,
     },
@@ -110,40 +109,12 @@ export const HomeJsonLd: FC = () => {
     'inLanguage': 'pl-PL',
   };
 
-  const educationalOrganizationSchema = {
-    '@type': 'EducationalOrganization',
-    '@id': `${SITE_URL}/#school`,
-    'name': 'CodeStoryBro Academy',
-    'description': 'Przestrzeń dla przyszłych i obecnych Engineering Managerów',
-    'url': SITE_URL,
-    'sameAs': [
-      'https://linkedin.com/in/codestorybro',
-    ],
-    'founder': {
-      '@id': `${SITE_URL}/#person`,
-    },
-    'areaServed': {
-      '@type': 'Country',
-      'name': 'Poland',
-    },
-    'knowsAbout': [
-      'Engineering Management',
-      'Leadership w IT',
-      'Rozwój kariery programisty',
-      'Tech Lead',
-      'Delegowanie',
-      'Feedback',
-      'Zarządzanie zespołami technicznymi',
-    ],
-  };
-
   return (
     <JsonLd
       data={[
         websiteSchema,
         webPageSchema,
         organizationSchema,
-        educationalOrganizationSchema,
         personSchema,
       ]}
     />
@@ -158,8 +129,8 @@ export const OfertaJsonLd: FC = () => {
     '@type': 'WebPage',
     '@id': `${ofertaUrl}#webpage`,
     'url': ofertaUrl,
-    'name': 'Oferta | Mentoring i szkolenia dla developerów | CodeStoryBro',
-    'description': 'Mentoring 1:1, program grupowy CodeStoryBro Academy i warsztaty dla firm. Przejdź z roli technicznej do Engineering Managera.',
+    'name': 'Oferta | Mentoring i\u00A0szkolenia dla wschodzących managerów | CodeStoryBro',
+    'description': 'Mentoring 1:1 i\u00A0warsztaty dla firm. Przejdź z\u00A0roli technicznej do Engineering Managera.',
     'isPartOf': {
       '@id': `${SITE_URL}/#website`,
     },
@@ -190,32 +161,11 @@ export const OfertaJsonLd: FC = () => {
     },
   };
 
-  const academyServiceSchema = {
-    '@type': 'Course',
-    '@id': `${ofertaUrl}#academy`,
-    'name': 'CodeStoryBro Academy – Developer to Manager',
-    'description': 'Program grupowy dla developerów przechodzących do ról managerskich.',
-    'provider': {
-      '@id': `${SITE_URL}/#organization`,
-    },
-    'courseMode': 'online',
-    'educationalLevel': 'Professional',
-    'timeRequired': 'P12W',
-    'inLanguage': 'pl-PL',
-    'teaches': [
-      'Engineering Management',
-      'Leadership',
-      'Komunikacja',
-      'Delegowanie',
-      'Feedback',
-    ],
-  };
-
   const workshopServiceSchema = {
     '@type': 'Service',
     '@id': `${ofertaUrl}#warsztaty`,
     'name': 'Warsztaty dla organizacji',
-    'description': 'Dedykowane szkolenia i warsztaty dla zespołów IT. Rozwijam kompetencje managerskie i przywódcze u developerów, oraz Tech Leadów.',
+    'description': 'Dedykowane szkolenia i\u00A0warsztaty dla zespołów IT. Rozwijam kompetencje managerskie i\u00A0przywódcze u\u00A0developerów oraz Tech Leadów.',
     'provider': {
       '@id': `${SITE_URL}/#organization`,
     },
@@ -262,7 +212,6 @@ export const OfertaJsonLd: FC = () => {
         webPageSchema,
         breadcrumbSchema,
         mentoringServiceSchema,
-        academyServiceSchema,
         workshopServiceSchema,
         speakingServiceSchema,
         organizationSchema,

@@ -59,6 +59,7 @@ const Button: FC<ButtonProps> = ({ children, className, disabled, type = 'button
 
 export const ButtonLink: FC<ButtonLinkProps> = ({ children, href, className, target, rel, variant = 'default' }) => {
   const isExternal = href.startsWith('http');
+  const isAnchor = href.startsWith('#');
   const combinedClassName = clsx(baseClassName, variantClassNames[variant], className);
 
   if (isExternal) {
@@ -67,6 +68,31 @@ export const ButtonLink: FC<ButtonLinkProps> = ({ children, href, className, tar
         href={href}
         target={target || '_blank'}
         rel={rel || 'noopener noreferrer'}
+        className={combinedClassName}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        transition={scaleTransition}
+      >
+        <GlowEffect />
+        <span className="relative z-10">{children}</span>
+      </motion.a>
+    );
+  }
+
+  if (isAnchor) {
+    const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+      e.preventDefault();
+      const targetId = href.slice(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    return (
+      <motion.a
+        href={href}
+        onClick={handleClick}
         className={combinedClassName}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}

@@ -13,52 +13,40 @@ import { ButtonLink } from './Button';
 export const HeroSection: FC = () => {
   return (
     <section className="py-8 sm:py-16 lg:py-24">
-      <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-        <div className="flex flex-col justify-center">
-
-          <FadeInLeft delay={0.2}>
-            <h1 className="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+      <div className="flex flex-col items-center text-center">
+        <FadeInUp delay={0.2}>
+          <div className="relative mb-6 w-fit">
+            {/* Glow blur behind the title */}
+            <div
+              className="pointer-events-none absolute -inset-4 bg-indigo-500/40 blur-3xl"
+              aria-hidden="true"
+            />
+            <h1 className="relative text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
               Od Developera
               <span className="mt-2 block bg-gradient-to-r from-blue-500 via-green-400 to-indigo-500 bg-clip-text pb-4 text-transparent">
                 do Engineering Managera
               </span>
             </h1>
-          </FadeInLeft>
-
-          <FadeInUp delay={0.4}>
-            <p className="mt-6 text-lg leading-relaxed text-gray-300">
-              Pomagam świadomym developerom przejść z ról wykonawczych do zarządzania zespołami.
-              Z perspektywy kogoś, kto sam przeszedł całą tę ścieżkę.
-            </p>
-          </FadeInUp>
-
-          <FadeInUp delay={0.6}>
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <ButtonLink href="/oferta">
-                Zobacz ofertę
-              </ButtonLink>
-              <ButtonLink href="#dla-kogo" variant="outline">
-                Dla kogo to jest?
-              </ButtonLink>
-            </div>
-          </FadeInUp>
-        </div>
-
-        <FadeInRight delay={0.3}>
-          <div className="relative">
-            <div className="overflow-hidden rounded-2xl">
-              <Image
-                src="/assets/img/hero/4.webp"
-                alt="Marcin Kołodziej - CodeStoryBro"
-                width={600}
-                height={700}
-                className="size-full object-cover"
-                priority
-              />
-            </div>
-            <div className="pointer-events-none absolute -inset-4 -z-10 rounded-3xl bg-gradient-to-br from-blue-500/20 via-transparent to-green-500/20 blur-2xl" />
           </div>
-        </FadeInRight>
+        </FadeInUp>
+
+        <FadeInUp delay={0.4}>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-300">
+            Pomagam świadomym developerom przejść z&nbsp;ról wykonawczych do zarządzania zespołami.
+            Z&nbsp;perspektywy kogoś, kto sam przeszedł całą tę ścieżkę.
+          </p>
+        </FadeInUp>
+
+        <FadeInUp delay={0.6}>
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+            <ButtonLink href="/oferta">
+              Zobacz ofertę
+            </ButtonLink>
+            <ButtonLink href="#dla-kogo" variant="outline">
+              Dla kogo to jest?
+            </ButtonLink>
+          </div>
+        </FadeInUp>
       </div>
     </section>
   );
@@ -72,19 +60,19 @@ export const DlaKogoSection: FC = () => {
   const targetAudience = [
     {
       title: 'Ambitny developer',
-      description: 'Masz za sobą parę lat doświadczenia i czujesz, że pisanie kodu to już za mało. Szukasz czegoś więcej. Zaczynasz myśleć o wpływie, procesach i ludziach.',
+      description: 'Masz za sobą parę lat doświadczenia i\u00A0czujesz, że pisanie kodu to już za mało. Szukasz czegoś więcej. Zaczynasz myśleć o\u00A0wpływie, procesach i\u00A0ludziach.',
       icon: '🎯',
     },
     {
-      title: 'Tech/Team Lead',
-      description: 'Już prowadzisz technicznie zespół, ale chcesz rozwinąć kompetencje managerskie lub po prostu napotykasz na wyzwania związane z zarządzaniem ludźmi.',
+      title: 'Tech Lead',
+      description: 'Już prowadzisz technicznie zespół, ale chcesz rozwinąć kompetencje managerskie lub po prostu napotykasz na wyzwania związane z\u00A0zarządzaniem ludźmi.',
       icon: '🧭',
     },
   ];
 
   const notFor = [
-    'zorientowania na konkretną technologię - CodeStoryBro jest w pełni framework agnostic',
-    'magicznych hacków na szybki awans - zaufaj mi, nie chcesz być managerem, który awansował bez przygotowania z dnia na dzień',
+    'zorientowania na konkretną technologię - CodeStoryBro jest w\u00A0pełni framework agnostic',
+    'magicznych hacków na szybki awans - zaufaj mi, nie chcesz być managerem, który awansował bez przygotowania z\u00A0dnia na dzień',
   ];
 
   return (
@@ -95,12 +83,12 @@ export const DlaKogoSection: FC = () => {
             Dla kogo jest CodeStoryBro?
           </h2>
           <p className="mt-4 max-w-3xl text-lg text-gray-400">
-            Pracuję z inżynierami na określonym etapie kariery - tymi, którzy są gotowi
-            na przejście z wykonawstwa do przywództwa.
+            Pracuję z&nbsp;inżynierami na określonym etapie kariery - tymi, którzy są gotowi
+            na przejście z&nbsp;wykonawstwa do przywództwa.
           </p>
         </FadeInUp>
 
-        <StaggerContainer className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" staggerDelay={0.1}>
+        <StaggerContainer className="mt-12 grid gap-6 sm:grid-cols-2" staggerDelay={0.1}>
           {targetAudience.map(item => (
             <StaggerItem key={item.title}>
               <motion.div
@@ -140,11 +128,11 @@ export const DlaKogoSection: FC = () => {
 
 export const ProblemSection: FC = () => {
   const problems = [
-    'Jesteś świetny technicznie, ale nikt nie nauczył Cię zarządzać ludźmi.',
-    'Nie wiesz, jak rozmawiać z biznesem - i czujesz, że tracisz na tym wpływ.',
-    'Boisz się, że jako manager stracisz kontakt z technologią.',
+    'Masz świetne kompetencje techniczne, ale nikt nie nauczył Cię zarządzać ludźmi.',
+    'Nie wiesz, jak rozmawiać z\u00A0biznesem - i\u00A0czujesz, że tracisz na tym wpływ.',
+    'Boisz się, że jako manager stracisz kontakt z\u00A0technologią.',
     'Delegowanie wydaje Ci się trudniejsze niż napisanie kodu samemu.',
-    'Bugi w kodzie łatwo naprawić, ale trudne rozmowy z zespołem z jakiegoś powodu odkładasz na później.',
+    'Bugi w\u00A0kodzie łatwo naprawić, ale trudne rozmowy z\u00A0zespołem z\u00A0jakiegoś powodu odkładasz na później.',
     'Chcesz awansować, ale nie wiesz, od czego zacząć.',
   ];
 
@@ -156,7 +144,7 @@ export const ProblemSection: FC = () => {
             Rozpoznajesz to?
           </h2>
           <p className="mt-4 max-w-3xl text-lg text-gray-400">
-            Większość seniorów nie ma problemu z kodem. Challenge zaczyna się,
+            Większość seniorów nie ma problemu z&nbsp;kodem. Challenge zaczyna się,
             gdy trzeba wyjść do ludzi.
           </p>
         </FadeInUp>
@@ -188,19 +176,19 @@ export const TransformationSection: FC = () => {
   const transformations = [
     {
       from: 'Piszesz kod',
-      to: 'Projektujesz rozwiązania i rozwijasz ludzi',
+      to: 'Projektujesz rozwiązania i\u00A0rozwijasz ludzi',
     },
     {
       from: 'Realizujesz zadania',
-      to: 'Ustalasz priorytety i podejmujesz decyzje',
+      to: 'Ustalasz priorytety i\u00A0podejmujesz decyzje',
     },
     {
-      from: 'Pracujesz w zespole',
-      to: 'Budujesz i prowadzisz zespół',
+      from: 'Pracujesz w\u00A0zespole',
+      to: 'Budujesz i\u00A0prowadzisz zespół',
     },
     {
       from: 'Mówisz językiem technologii',
-      to: 'Komunikujesz się z biznesem',
+      to: 'Komunikujesz się z\u00A0biznesem',
     },
     {
       from: 'Odpowiadasz za swój kod',
@@ -216,7 +204,7 @@ export const TransformationSection: FC = () => {
             Co się zmieni?
           </h2>
           <p className="mt-4 max-w-3xl text-lg text-gray-400">
-            W mojej opinii, przejście do roli managera to zmiana mindsetu, a nie zwykły awans.
+            W&nbsp;mojej opinii, przejście do roli managera to zmiana mindsetu, a&nbsp;nie zwykły awans.
             Przeprowadzę Cię przez tę transformację.
           </p>
         </FadeInUp>
@@ -249,20 +237,20 @@ export const TransformationSection: FC = () => {
 
 export const CredibilitySection: FC = () => {
   const timeline = [
-    { role: 'Intern', desc: 'Zaczynałem od podstaw' },
-    { role: 'Junior', desc: 'Uczyłem się na błędach' },
-    { role: 'Mid', desc: 'Brałem odpowiedzialność' },
-    { role: 'Senior', desc: 'Projektowałem rozwiązania' },
-    { role: 'Staff', desc: 'Wpływałem na architekturę' },
-    { role: 'Manager', desc: 'Prowadzę zespoły' },
+    { role: 'Intern', desc: 'Zaczynałem od podstaw', colorClass: 'bg-gray-400/20 text-gray-300' },
+    { role: 'Junior', desc: 'Uczyłem się na błędach', colorClass: 'bg-green-500/20 text-green-400' },
+    { role: 'Mid', desc: 'Brałem odpowiedzialność', colorClass: 'bg-blue-500/20 text-blue-400' },
+    { role: 'Senior', desc: 'Projektowałem rozwiązania', colorClass: 'bg-indigo-500/20 text-indigo-400' },
+    { role: 'Staff', desc: 'Wpływałem na architekturę', colorClass: 'bg-purple-500/20 text-purple-400' },
+    { role: 'Manager', desc: 'Prowadzę zespoły', colorClass: 'bg-red-500/20 text-red-400' },
   ];
 
   const credentials = [
     'Wykładowca na kursach prywatnych oraz uczelni wyższej',
-    'Rekruter techniczny - rozumiem proces z perspektywy firmy i kandydata',
+    'Rekruter techniczny - rozumiem proces z\u00A0perspektywy firmy i\u00A0kandydata',
     'Prelegent na ogólnopolskich konferencjach IT',
-    'Lider budujący i prowadzący zespoły produktowe',
-    'Współpraca z firmami z Europy, USA i Bliskiego Wschodu - od startupów po korporacje',
+    'Lider budujący i\u00A0prowadzący zespoły produktowe',
+    'Współpraca z\u00A0firmami z\u00A0Europy, USA i\u00A0Bliskiego Wschodu - od startupów po korporacje',
   ];
 
   return (
@@ -275,7 +263,7 @@ export const CredibilitySection: FC = () => {
                 Przeszedłem całą ścieżkę
               </h2>
               <p className="mt-4 text-lg text-gray-400">
-                Jestem pragmatykiem. Sporo czytam, ale nie uczę prosto z książek. Mówię z doświadczenia, bo sam przeszedłem każdy etap,
+                Jestem pragmatykiem. Sporo czytam, ale nie uczę prosto z&nbsp;książek. Mówię z&nbsp;doświadczenia, bo sam przeszedłem każdy etap,
                 od interna do managera.
               </p>
             </FadeInLeft>
@@ -287,7 +275,7 @@ export const CredibilitySection: FC = () => {
                     key={item.role}
                     className="flex items-center gap-2"
                   >
-                    <span className="rounded-full bg-gradient-to-r from-blue-500 to-green-500 px-3 py-1 text-sm font-medium text-white">
+                    <span className={`rounded-full border border-white/10 px-3 py-1 text-sm font-medium ${item.colorClass}`}>
                       {item.role}
                     </span>
                     {index < timeline.length - 1 && (
@@ -339,7 +327,7 @@ export const HowItWorksSection: FC = () => {
     {
       number: '01',
       title: 'Diagnoza',
-      description: 'Analizujemy Twoją obecną sytuację, cele i wyzwania. Określamy, gdzie jesteś i dokąd chcesz dojść.',
+      description: 'Analizujemy Twoją obecną sytuację, cele i\u00A0wyzwania. Określamy, gdzie jesteś i\u00A0dokąd chcesz dojść.',
     },
     {
       number: '02',
@@ -353,8 +341,8 @@ export const HowItWorksSection: FC = () => {
     },
     {
       number: '04',
-      title: 'Wdrożenie i wsparcie',
-      description: 'Praktykujesz nowe umiejętności w realnych sytuacjach. Jestem z Tobą na każdym etapie.',
+      title: 'Wdrożenie i\u00A0wsparcie',
+      description: 'Praktykujesz nowe umiejętności w\u00A0realnych sytuacjach. Jestem z\u00A0Tobą na każdym etapie.',
     },
   ];
 
@@ -397,17 +385,17 @@ export const HowItWorksSection: FC = () => {
 export const SocialProofSection: FC = () => {
   const testimonials = [
     {
-      quote: 'Praca z Marcinem znacząco ukształtowała moje podejście do przywództwa i komunikacji. W trudnych sytuacjach zachowuje spokój, jasno myśli i podejmuje zdecydowane decyzje.',
+      quote: 'Praca z\u00A0Marcinem znacząco ukształtowała moje podejście do przywództwa i\u00A0komunikacji. W\u00A0trudnych sytuacjach zachowuje spokój, jasno myśli i\u00A0podejmuje zdecydowane decyzje.',
       author: 'Michał',
       position: 'Tech Lead',
     },
     {
-      quote: 'Marcin łączy rozległą wiedzę techniczną z efektywnym zarządzaniem ludźmi. Tworzy środowisko sprzyjające nauce, współpracy i rozwojowi zespołu.',
+      quote: 'Marcin łączy rozległą wiedzę techniczną z\u00A0efektywnym zarządzaniem ludźmi. Tworzy środowisko sprzyjające nauce, współpracy i\u00A0rozwojowi zespołu.',
       author: 'Kacper',
       position: 'Developer',
     },
     {
-      quote: 'Inspirujący lider, który wnosi przejrzystość, autentyczną troskę i skuteczne podejście do zarządzania.',
+      quote: 'Inspirujący lider, który wnosi przejrzystość, autentyczną troskę i\u00A0skuteczne podejście do zarządzania.',
       author: 'Eugene',
       position: 'Team Lead',
     },
@@ -458,11 +446,11 @@ export const CTASection: FC = () => {
           <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-500/10 via-green-500/10 to-indigo-500/10 p-8 sm:p-12">
             <div className="relative z-10 text-center">
               <h2 className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
-                Gotowy na zmianę?
+                Rozważasz kolejny krok?
               </h2>
               <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-300">
-                Przejście z roli technicznej do managera to jedno z największych wyzwań
-                w karierze inżyniera. Nie musisz robić tego sam.
+                Przejście z&nbsp;roli technicznej do managera to jedno z&nbsp;największych wyzwań
+                w&nbsp;karierze inżyniera. Nie musisz robić tego samodzielnie.
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <ButtonLink href="/oferta">
@@ -488,20 +476,20 @@ export const CTASection: FC = () => {
 export const FAQSection: FC = () => {
   const faqs = [
     {
-      q: 'Czy muszę mieć doświadczenie w zarządzaniu?',
-      a: 'Nie. Pracuję głównie z osobami, które dopiero planują przejście do roli managera lub są na jej początku.',
+      q: 'Czy muszę mieć doświadczenie w\u00A0zarządzaniu?',
+      a: 'Nie. Pracuję głównie z\u00A0osobami, które dopiero planują przejście do roli managera lub są na jej początku.',
     },
     {
-      q: 'Czy technologia, w której pracuję, ma znaczenie?',
-      a: 'Nie. Skupiam się na kompetencjach managerskich i leaderskich, nie na konkretnych stackach technologicznych.',
+      q: 'Czy technologia, w\u00A0której pracuję, ma znaczenie?',
+      a: 'Nie. Skupiam się na kompetencjach managerskich i\u00A0leaderskich, nie na konkretnych stackach technologicznych.',
     },
     {
       q: 'Ile czasu zajmuje taka transformacja?',
-      a: 'Wiele zależy od Twojej sytuacji wyjściowej, celów oraz zaangażowania w proces. Natomaist rozmawiamy tutaj raczej o miesiącach niż tygodniach. To nie sprint, lecz maraton.',
+      a: 'Wiele zależy od Twojej sytuacji wyjściowej, celów oraz zaangażowania w\u00A0proces. Natomaist rozmawiamy tutaj raczej o\u00A0miesiącach niż tygodniach. To nie sprint, lecz maraton.',
     },
     {
-      q: 'Czy to jest dla osób z korporacji czy startupów?',
-      a: 'Dla obu. Wyzwania managera są podobne, różni się kontekst, zasoby i skala. Dostosowuję podejście do Twojej sytuacji.',
+      q: 'Czy to jest dla osób z\u00A0korporacji czy startupów?',
+      a: 'Dla obu. Wyzwania managera są podobne, różni się kontekst, zasoby i\u00A0skala. Dostosowuję podejście do Twojej sytuacji.',
     },
   ];
 
