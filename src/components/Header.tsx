@@ -57,6 +57,22 @@ export const Header: FC = () => {
 
       {/* Desktop navigation */}
       <nav className="hidden items-center gap-2 lg:flex" aria-label="Main navigation">
+        {/* Oferta link */}
+        <MotionLink
+          href="/oferta"
+          className="group relative rounded-lg px-4 py-2 font-medium text-gray-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <span
+            className="pointer-events-none absolute inset-0 rounded-lg bg-green-500 opacity-0 blur-[10px] transition-opacity duration-300 group-hover:opacity-40"
+            aria-hidden="true"
+          />
+          <span className="relative z-10">
+            Oferta
+          </span>
+        </MotionLink>
+
         {/* Blog link */}
         <MotionLink
           href="/blog"
@@ -150,13 +166,25 @@ export const Header: FC = () => {
               transition={{ duration: 0.3, ease: 'easeOut' }}
             >
               <nav className="flex flex-col items-center gap-6 py-8" aria-label="Mobile navigation">
+                {/* Oferta link */}
+                <MotionLink
+                  href="/oferta"
+                  className="rounded-lg px-6 py-3 text-xl text-gray-300 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0 }}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Oferta
+                </MotionLink>
+
                 {/* Blog link */}
                 <MotionLink
                   href="/blog"
                   className="rounded-lg px-6 py-3 text-xl text-gray-300 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0 }}
+                  transition={{ delay: 0.1 }}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Blog
@@ -175,7 +203,7 @@ export const Header: FC = () => {
                     className="flex items-center gap-3 rounded-lg px-6 py-3 text-xl text-gray-300 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: (index + 1) * 0.1 }}
+                    transition={{ delay: (index + 2) * 0.1 }}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <social.icon size={28} weight="regular" />

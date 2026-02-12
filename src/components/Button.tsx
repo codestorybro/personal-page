@@ -21,9 +21,15 @@ type ButtonLinkProps = {
   className?: string;
   target?: string;
   rel?: string;
+  variant?: 'default' | 'outline';
 };
 
-const baseClassName = 'group relative inline-flex cursor-pointer items-center justify-center gap-3 rounded-lg border border-[#333333] px-6 py-3 text-base font-medium text-white hover:border-indigo-400/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black sm:px-8 sm:py-4 sm:text-lg';
+const baseClassName = 'group relative inline-flex cursor-pointer items-center justify-center gap-3 rounded-lg border px-6 py-3 text-base font-medium text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black sm:px-8 sm:py-4 sm:text-lg';
+
+const variantClassNames = {
+  default: 'border-[#333333] hover:border-indigo-400/50',
+  outline: 'border-white/20 bg-transparent hover:border-white/40 hover:bg-white/5',
+};
 
 const scaleTransition = { type: 'tween' as const, duration: 0.3 };
 
@@ -51,8 +57,9 @@ const Button: FC<ButtonProps> = ({ children, className, disabled, type = 'button
   );
 };
 
-export const ButtonLink: FC<ButtonLinkProps> = ({ children, href, className, target, rel }) => {
+export const ButtonLink: FC<ButtonLinkProps> = ({ children, href, className, target, rel, variant = 'default' }) => {
   const isExternal = href.startsWith('http');
+  const combinedClassName = clsx(baseClassName, variantClassNames[variant], className);
 
   if (isExternal) {
     return (
@@ -60,7 +67,7 @@ export const ButtonLink: FC<ButtonLinkProps> = ({ children, href, className, tar
         href={href}
         target={target || '_blank'}
         rel={rel || 'noopener noreferrer'}
-        className={clsx(baseClassName, className)}
+        className={combinedClassName}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         transition={scaleTransition}
@@ -74,7 +81,7 @@ export const ButtonLink: FC<ButtonLinkProps> = ({ children, href, className, tar
   return (
     <MotionLink
       href={href}
-      className={clsx(baseClassName, className)}
+      className={combinedClassName}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
       transition={scaleTransition}
