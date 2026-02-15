@@ -15,7 +15,6 @@ const personSchema = {
     'https://twitter.com/codestorybro',
     'https://linkedin.com/in/codestorybro',
     'https://youtube.com/@codestorybro',
-    'https://instagram.com/codestorybro',
   ],
   'jobTitle': 'Engineering Manager & Leadership Mentor',
   'knowsAbout': [
@@ -47,7 +46,6 @@ const organizationSchema = {
     'https://twitter.com/codestorybro',
     'https://linkedin.com/in/codestorybro',
     'https://youtube.com/@codestorybro',
-    'https://instagram.com/codestorybro',
   ],
   'contactPoint': {
     '@type': 'ContactPoint',
