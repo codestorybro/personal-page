@@ -19,137 +19,138 @@ export const Header: FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <motion.div
-      className="flex w-full items-center justify-between will-change-transform"
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
-      style={{ WebkitTransform: 'translateZ(0)' }}
-    >
-      <MotionLink
-        href="/"
-        className="flex flex-row items-center rounded-lg px-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-        transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+    <>
+      <motion.div
+        className="flex w-full items-center justify-between"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
       >
-        <motion.div
-          className="flex items-center"
-          animate={{ rotate: [0, 5, -5, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <Image
-            draggable={false}
-            width={50}
-            height={68}
-            src="/assets/img/logo-main.svg"
-            alt="profile"
-            priority
-            className="h-6 w-auto sm:h-12"
-          />
-        </motion.div>
-        <span className="ml-2 translate-y-[0.15em] font-logoText text-xl italic leading-none text-white sm:ml-4 sm:text-5xl">
-          CodeStoryBro
-        </span>
-      </MotionLink>
-
-      {/* Desktop navigation */}
-      <nav className="hidden items-center gap-2 lg:flex" aria-label="Main navigation">
-        {/* Oferta link */}
         <MotionLink
-          href="/oferta"
-          className="group relative rounded-lg px-4 py-2 font-medium text-gray-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          href="/"
+          className="flex flex-row items-center rounded-lg px-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          transition={{ type: 'spring', stiffness: 400, damping: 17 }}
         >
-          <span
-            className="pointer-events-none absolute -inset-2 rounded-lg bg-green-500 opacity-0 blur-[10px] transition-opacity duration-300 will-change-transform group-hover:opacity-40"
-            aria-hidden="true"
-            style={{ WebkitTransform: 'translateZ(0)' }}
-          />
-          <span className="relative z-10">
-            Oferta
+          <motion.div
+            className="flex items-center"
+            animate={{ rotate: [0, 5, -5, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            <Image
+              draggable={false}
+              width={50}
+              height={68}
+              src="/assets/img/logo-main.svg"
+              alt="profile"
+              priority
+              className="h-6 w-auto sm:h-12"
+            />
+          </motion.div>
+          <span className="ml-2 translate-y-[0.15em] font-logoText text-xl italic leading-none text-white sm:ml-4 sm:text-5xl">
+            CodeStoryBro
           </span>
         </MotionLink>
 
-        {/* Blog link */}
-        <MotionLink
-          href="/blog"
-          className="group relative mr-4 rounded-lg px-4 py-2 font-medium text-gray-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <span
-            className="pointer-events-none absolute -inset-2 rounded-lg bg-blue-500 opacity-0 blur-[10px] transition-opacity duration-300 will-change-transform group-hover:opacity-40"
-            aria-hidden="true"
-            style={{ WebkitTransform: 'translateZ(0)' }}
-          />
-          <span className="relative z-10">
-            Blog
-          </span>
-        </MotionLink>
-
-        {/* Divider */}
-        <div className="mr-2 h-6 w-px bg-white/20" />
-
-        {/* Social links */}
-        {socialLinks.map(social => (
-          <motion.a
-            key={social.name}
-            href={social.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={social.name}
-            className="group relative rounded-lg p-2 text-gray-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
-            whileHover={{ scale: 1.1 }}
+        {/* Desktop navigation */}
+        <nav className="hidden items-center gap-2 lg:flex" aria-label="Main navigation">
+          {/* Oferta link */}
+          <MotionLink
+            href="/oferta"
+            className="group relative rounded-lg px-4 py-2 font-medium text-gray-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <span
-              className="pointer-events-none absolute -inset-2 rounded-lg bg-indigo-500 opacity-0 blur-[10px] transition-opacity duration-300 will-change-transform group-hover:opacity-60"
+              className="pointer-events-none absolute -inset-2 rounded-lg bg-green-500 opacity-0 blur-[10px] transition-opacity duration-300 will-change-transform group-hover:opacity-40"
               aria-hidden="true"
               style={{ WebkitTransform: 'translateZ(0)' }}
             />
-            <social.icon size={24} weight="regular" className="relative z-10" />
-          </motion.a>
-        ))}
-      </nav>
+            <span className="relative z-10">
+              Oferta
+            </span>
+          </MotionLink>
 
-      {/* Mobile hamburger button */}
-      <motion.button
-        type="button"
-        className="rounded-lg p-2 text-gray-400 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 lg:hidden"
-        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        aria-label={isMobileMenuOpen ? 'Zamknij menu' : 'Otwórz menu'}
-        aria-expanded={isMobileMenuOpen}
-      >
-        <AnimatePresence mode="wait">
-          {isMobileMenuOpen
-            ? (
-                <motion.div
-                  key="close"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <XIcon size={28} weight="bold" />
-                </motion.div>
-              )
-            : (
-                <motion.div
-                  key="menu"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <ListIcon size={28} weight="bold" />
-                </motion.div>
-              )}
-        </AnimatePresence>
-      </motion.button>
+          {/* Blog link */}
+          <MotionLink
+            href="/blog"
+            className="group relative mr-4 rounded-lg px-4 py-2 font-medium text-gray-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <span
+              className="pointer-events-none absolute -inset-2 rounded-lg bg-blue-500 opacity-0 blur-[10px] transition-opacity duration-300 will-change-transform group-hover:opacity-40"
+              aria-hidden="true"
+              style={{ WebkitTransform: 'translateZ(0)' }}
+            />
+            <span className="relative z-10">
+              Blog
+            </span>
+          </MotionLink>
 
-      {/* Mobile menu overlay */}
+          {/* Divider */}
+          <div className="mr-2 h-6 w-px bg-white/20" />
+
+          {/* Social links */}
+          {socialLinks.map(social => (
+            <motion.a
+              key={social.name}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.name}
+              className="group relative rounded-lg p-2 text-gray-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span
+                className="pointer-events-none absolute -inset-2 rounded-lg bg-indigo-500 opacity-0 blur-[10px] transition-opacity duration-300 will-change-transform group-hover:opacity-60"
+                aria-hidden="true"
+                style={{ WebkitTransform: 'translateZ(0)' }}
+              />
+              <social.icon size={24} weight="regular" className="relative z-10" />
+            </motion.a>
+          ))}
+        </nav>
+
+        {/* Mobile hamburger button */}
+        <motion.button
+          type="button"
+          className="rounded-lg p-2 text-gray-400 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 lg:hidden"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label={isMobileMenuOpen ? 'Zamknij menu' : 'Otwórz menu'}
+          aria-expanded={isMobileMenuOpen}
+        >
+          <AnimatePresence mode="wait">
+            {isMobileMenuOpen
+              ? (
+                  <motion.div
+                    key="close"
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <XIcon size={28} weight="bold" />
+                  </motion.div>
+                )
+              : (
+                  <motion.div
+                    key="menu"
+                    initial={{ rotate: 90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: -90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <ListIcon size={28} weight="bold" />
+                  </motion.div>
+                )}
+          </AnimatePresence>
+        </motion.button>
+      </motion.div>
+
+      {/* Mobile menu overlay - outside transformed element to fix Safari fixed positioning */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -216,6 +217,6 @@ export const Header: FC = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.div>
+    </>
   );
 };

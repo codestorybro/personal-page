@@ -41,11 +41,3 @@ body {
     perspective: 1000px;
   }
 }
-
-/* Safari sticky header fix - ensures visibility with Framer Motion */
-@supports (-webkit-touch-callout: none) {
-  header.sticky {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-  }
-}
