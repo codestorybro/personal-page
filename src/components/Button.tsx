@@ -35,8 +35,9 @@ const scaleTransition = { type: 'tween' as const, duration: 0.3 };
 
 const GlowEffect = () => (
   <span
-    className="pointer-events-none absolute inset-0 rounded-lg bg-indigo-500 opacity-0 blur-[20px] transition-opacity duration-300 group-hover:opacity-40"
+    className="pointer-events-none absolute -inset-2 rounded-lg bg-indigo-500 opacity-0 blur-[20px] transition-opacity duration-300 will-change-transform group-hover:opacity-40"
     aria-hidden="true"
+    style={{ WebkitTransform: 'translateZ(0)' }}
   />
 );
 

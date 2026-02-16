@@ -36,8 +36,9 @@ export const WhoIsSection: FC<WhoIsSectionProps> = ({ translations: t }) => {
           <div className="relative mb-12 w-fit">
             {/* Glow blur behind the title */}
             <div
-              className="pointer-events-none absolute -inset-0 bg-gradient-to-r from-blue-600/30 via-indigo-500/30 to-black blur-xl"
+              className="pointer-events-none absolute -inset-4 bg-gradient-to-r from-blue-600/30 via-indigo-500/30 to-black blur-xl will-change-transform"
               aria-hidden="true"
+              style={{ WebkitTransform: 'translateZ(0)' }}
             />
             <h2 className="relative bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 bg-clip-text pb-1 text-3xl font-bold leading-relaxed text-transparent sm:text-4xl lg:text-5xl">
               {t.title}
@@ -127,7 +128,10 @@ export const WhoIsSection: FC<WhoIsSectionProps> = ({ translations: t }) => {
                 />
               </div>
               {/* Decorative glow */}
-              <div className="pointer-events-none absolute -inset-4 -z-10 rounded-3xl bg-gradient-to-br from-blue-500/20 via-transparent to-green-500/20 blur-2xl" />
+              <div
+                className="pointer-events-none absolute -inset-4 -z-10 rounded-3xl bg-gradient-to-br from-blue-500/20 via-transparent to-green-500/20 blur-2xl will-change-transform"
+                style={{ WebkitTransform: 'translateZ(0)' }}
+              />
             </div>
           </FadeInRight>
         </div>

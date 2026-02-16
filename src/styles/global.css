@@ -26,3 +26,26 @@ body {
     font-style: normal;
   }
 }
+
+/* Safari blur fix - prevents clipping of blur effects at element boundaries */
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .blur-xl,
+  .blur-2xl,
+  .blur-3xl,
+  [class*='blur-['] {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+  }
+}
+
+/* Safari sticky header fix - ensures visibility with Framer Motion */
+@supports (-webkit-touch-callout: none) {
+  header.sticky {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}

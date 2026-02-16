@@ -16,8 +16,9 @@ export const OfferHeroSection: FC = () => {
         <div className="relative mb-6 w-fit">
           {/* Glow blur behind the title */}
           <div
-            className="pointer-events-none absolute -inset-4 bg-indigo-500/40 blur-3xl"
+            className="pointer-events-none absolute -inset-4 bg-indigo-500/40 blur-3xl will-change-transform"
             aria-hidden="true"
+            style={{ WebkitTransform: 'translateZ(0)' }}
           />
           <h1 className="relative text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
             <span className="mt-2 block bg-gradient-to-r from-blue-500 via-green-400 to-indigo-500 bg-clip-text pb-4 text-transparent">

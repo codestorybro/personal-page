@@ -54,8 +54,9 @@ export const BlogPostView: FC<BlogPostViewProps> = ({
             transition={{ type: 'tween', duration: 0.3 }}
           >
             <span
-              className="pointer-events-none absolute inset-0 rounded-lg bg-indigo-500 opacity-0 blur-[15px] transition-opacity duration-300 group-hover:opacity-40"
+              className="pointer-events-none absolute -inset-2 rounded-lg bg-indigo-500 opacity-0 blur-[15px] transition-opacity duration-300 will-change-transform group-hover:opacity-40"
               aria-hidden="true"
+              style={{ WebkitTransform: 'translateZ(0)' }}
             />
             <ArrowLeftIcon size={16} className="relative z-10" />
             <span className="relative z-10">{t.back_to_blog}</span>
@@ -83,8 +84,9 @@ export const BlogPostView: FC<BlogPostViewProps> = ({
             {/* Title with glow */}
             <div className="relative mb-6">
               <div
-                className="pointer-events-none absolute -inset-4 bg-gradient-to-r from-indigo-500/20 via-green-500/20 to-blue-500/20 blur-2xl"
+                className="pointer-events-none absolute -inset-4 bg-gradient-to-r from-indigo-500/20 via-green-500/20 to-blue-500/20 blur-2xl will-change-transform"
                 aria-hidden="true"
+                style={{ WebkitTransform: 'translateZ(0)' }}
               />
               <h1 className="relative text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
                 {post.title}
@@ -125,8 +127,9 @@ export const BlogPostView: FC<BlogPostViewProps> = ({
               transition={{ type: 'tween', duration: 0.3 }}
             >
               <div
-                className="pointer-events-none absolute -inset-4 bg-gradient-to-br from-indigo-500/20 to-green-500/20 blur-2xl"
+                className="pointer-events-none absolute -inset-4 bg-gradient-to-br from-indigo-500/20 to-green-500/20 blur-2xl will-change-transform"
                 aria-hidden="true"
+                style={{ WebkitTransform: 'translateZ(0)' }}
               />
               <Image
                 src={`/api/blog-image/${post.id}`}
@@ -166,8 +169,9 @@ export const BlogPostView: FC<BlogPostViewProps> = ({
               transition={{ type: 'tween', duration: 0.3 }}
             >
               <span
-                className="pointer-events-none absolute inset-0 rounded-lg bg-indigo-500 opacity-0 blur-[15px] transition-opacity duration-300 group-hover:opacity-40"
+                className="pointer-events-none absolute -inset-2 rounded-lg bg-indigo-500 opacity-0 blur-[15px] transition-opacity duration-300 will-change-transform group-hover:opacity-40"
                 aria-hidden="true"
+                style={{ WebkitTransform: 'translateZ(0)' }}
               />
               <ArrowLeftIcon size={16} className="relative z-10" />
               <span className="relative z-10">{t.back_to_blog}</span>

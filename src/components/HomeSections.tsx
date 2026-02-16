@@ -18,8 +18,9 @@ export const HeroSection: FC = () => {
           <div className="relative mb-6 w-fit">
             {/* Glow blur behind the title */}
             <div
-              className="pointer-events-none absolute -inset-4 bg-indigo-500/40 blur-3xl"
+              className="pointer-events-none absolute -inset-4 bg-indigo-500/40 blur-3xl will-change-transform"
               aria-hidden="true"
+              style={{ WebkitTransform: 'translateZ(0)' }}
             />
             <h1 className="relative text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
               Od Developera

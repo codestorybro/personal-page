@@ -61,8 +61,9 @@ const BlogPostCard: FC<BlogPostCardProps> = ({ post, translations: t, formatDate
       >
         {/* Glow effect on hover */}
         <div
-          className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-500/10 via-transparent to-green-500/10 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100"
+          className="pointer-events-none absolute -inset-2 rounded-2xl bg-gradient-to-br from-indigo-500/10 via-transparent to-green-500/10 opacity-0 blur-xl transition-opacity duration-300 will-change-transform group-hover:opacity-100"
           aria-hidden="true"
+          style={{ WebkitTransform: 'translateZ(0)' }}
         />
 
         <div className="relative z-10 flex flex-col sm:flex-row">
@@ -113,8 +114,9 @@ const BlogPostCard: FC<BlogPostCardProps> = ({ post, translations: t, formatDate
                     className={`group/tag relative rounded-full border px-3 py-1 text-xs font-medium ${color.bg} ${color.border} ${color.text}`}
                   >
                     <span
-                      className={`pointer-events-none absolute inset-0 rounded-full ${color.glow} opacity-0 blur-md transition-opacity duration-300 group-hover/tag:opacity-60`}
+                      className={`pointer-events-none absolute -inset-1 rounded-full ${color.glow} opacity-0 blur-md transition-opacity duration-300 will-change-transform group-hover/tag:opacity-60`}
                       aria-hidden="true"
+                      style={{ WebkitTransform: 'translateZ(0)' }}
                     />
                     <span className="relative z-10">{tag}</span>
                   </span>
@@ -196,7 +198,10 @@ export const BlogList: FC<BlogListProps> = ({ posts, translations: t }) => {
         <div className="space-y-4">
           {/* Search input */}
           <div className="relative">
-            <div className="pointer-events-none absolute inset-0 rounded-xl bg-gradient-to-r from-indigo-500/20 to-green-500/20 opacity-50 blur-xl" />
+            <div
+              className="pointer-events-none absolute -inset-2 rounded-xl bg-gradient-to-r from-indigo-500/20 to-green-500/20 opacity-50 blur-xl will-change-transform"
+              style={{ WebkitTransform: 'translateZ(0)' }}
+            />
             <div className="relative flex items-center">
               <Input
                 type="text"
@@ -222,8 +227,9 @@ export const BlogList: FC<BlogListProps> = ({ posts, translations: t }) => {
             >
               {selectedTag === null && (
                 <span
-                  className="pointer-events-none absolute inset-0 rounded-full bg-indigo-500/50 blur-md"
+                  className="pointer-events-none absolute -inset-1 rounded-full bg-indigo-500/50 blur-md will-change-transform"
                   aria-hidden="true"
+                  style={{ WebkitTransform: 'translateZ(0)' }}
                 />
               )}
               <span className="relative z-10">{t.all_tags}</span>
@@ -246,8 +252,9 @@ export const BlogList: FC<BlogListProps> = ({ posts, translations: t }) => {
                 >
                   {isSelected && (
                     <span
-                      className={`pointer-events-none absolute inset-0 rounded-full ${color.glow} blur-md`}
+                      className={`pointer-events-none absolute -inset-1 rounded-full ${color.glow} blur-md will-change-transform`}
                       aria-hidden="true"
+                      style={{ WebkitTransform: 'translateZ(0)' }}
                     />
                   )}
                   <span className="relative z-10">{tag}</span>

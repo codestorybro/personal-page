@@ -54,8 +54,9 @@ export const ShareButtons: FC<ShareButtonsProps> = ({ url, title, translations: 
           >
             {/* Glow effect */}
             <span
-              className="pointer-events-none absolute inset-0 rounded-lg bg-indigo-500 opacity-0 blur-[10px] transition-opacity duration-300 group-hover:opacity-40"
+              className="pointer-events-none absolute -inset-2 rounded-lg bg-indigo-500 opacity-0 blur-[10px] transition-opacity duration-300 will-change-transform group-hover:opacity-40"
               aria-hidden="true"
+              style={{ WebkitTransform: 'translateZ(0)' }}
             />
             <link.icon size={22} weight="regular" className="relative z-10" />
           </motion.a>
