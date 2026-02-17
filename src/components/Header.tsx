@@ -57,12 +57,12 @@ export const Header: FC = () => {
           {/* Oferta link */}
           <MotionLink
             href="/oferta"
-            className="group relative rounded-lg px-4 py-2 font-medium text-gray-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+            className="group relative rounded-lg px-2 py-1 font-medium text-gray-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <span
-              className="pointer-events-none absolute -inset-0.5 rounded-lg bg-green-500 opacity-0 blur-[6px] transition-opacity duration-300 group-hover:opacity-40"
+              className="pointer-events-none absolute inset-0 rounded-lg bg-green-500 opacity-0 blur-[10px] transition-opacity duration-300 group-hover:opacity-60"
               aria-hidden="true"
             />
             <span className="relative z-10">
@@ -73,12 +73,12 @@ export const Header: FC = () => {
           {/* Blog link */}
           <MotionLink
             href="/blog"
-            className="group relative mr-4 rounded-lg px-4 py-2 font-medium text-gray-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+            className="group relative rounded-lg px-2 py-1 font-medium text-gray-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <span
-              className="pointer-events-none absolute -inset-0.5 rounded-lg bg-blue-500 opacity-0 blur-[6px] transition-opacity duration-300 group-hover:opacity-40"
+              className="pointer-events-none absolute inset-0 rounded-lg bg-blue-500 opacity-0 blur-[10px] transition-opacity duration-300 group-hover:opacity-60"
               aria-hidden="true"
             />
             <span className="relative z-10">
@@ -97,12 +97,12 @@ export const Header: FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={social.name}
-              className="group relative rounded-lg p-2 text-gray-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+              className="group relative rounded-lg p-1 text-gray-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
               <span
-                className="pointer-events-none absolute -inset-0.5 rounded-lg bg-indigo-500 opacity-0 blur-[6px] transition-opacity duration-300 group-hover:opacity-60"
+                className="pointer-events-none absolute inset-0 rounded-lg bg-indigo-500 opacity-0 blur-[6px] transition-opacity duration-300 group-hover:opacity-60"
                 aria-hidden="true"
               />
               <social.icon size={24} weight="regular" className="relative z-10" />
