@@ -1,6 +1,6 @@
 'use client';
 import type { FC } from 'react';
-import { EnvelopeSimpleIcon, LinkedinLogoIcon, ListIcon, XIcon, XLogoIcon, YoutubeLogoIcon } from '@phosphor-icons/react';
+import { EnvelopeSimpleIcon, LinkedinLogoIcon, ListIcon, XIcon, YoutubeLogoIcon } from '@phosphor-icons/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,7 +9,6 @@ import { useState } from 'react';
 const MotionLink = motion.create(Link);
 
 const socialLinks = [
-  { name: 'X', href: 'https://x.com/codestorybro', icon: XLogoIcon },
   { name: 'LinkedIn', href: 'https://linkedin.com/in/codestorybro/', icon: LinkedinLogoIcon },
   { name: 'YouTube', href: 'https://youtube.com/@codestorybro', icon: YoutubeLogoIcon },
   { name: 'Email', href: 'mailto:hello@codestorybro.com', icon: EnvelopeSimpleIcon },

@@ -12,7 +12,6 @@ const personSchema = {
   'image': `${SITE_URL}/assets/img/marcin.jpg`,
   'description': 'Engineering Manager, mentor i prelegent. Pomagam developerom przejść do ról managerskich.',
   'sameAs': [
-    'https://twitter.com/codestorybro',
     'https://linkedin.com/in/codestorybro',
     'https://youtube.com/@codestorybro',
   ],
@@ -43,7 +42,6 @@ const organizationSchema = {
     '@id': `${SITE_URL}/#person`,
   },
   'sameAs': [
-    'https://twitter.com/codestorybro',
     'https://linkedin.com/in/codestorybro',
     'https://youtube.com/@codestorybro',
   ],
