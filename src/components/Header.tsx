@@ -62,9 +62,8 @@ export const Header: FC = () => {
             whileTap={{ scale: 0.95 }}
           >
             <span
-              className="pointer-events-none absolute -inset-2 rounded-lg bg-green-500 opacity-0 blur-[10px] transition-opacity duration-300 will-change-transform group-hover:opacity-40"
+              className="pointer-events-none absolute -inset-0.5 rounded-lg bg-green-500 opacity-0 blur-[6px] transition-opacity duration-300 group-hover:opacity-40"
               aria-hidden="true"
-              style={{ WebkitTransform: 'translateZ(0)' }}
             />
             <span className="relative z-10">
               Oferta
@@ -79,9 +78,8 @@ export const Header: FC = () => {
             whileTap={{ scale: 0.95 }}
           >
             <span
-              className="pointer-events-none absolute -inset-2 rounded-lg bg-blue-500 opacity-0 blur-[10px] transition-opacity duration-300 will-change-transform group-hover:opacity-40"
+              className="pointer-events-none absolute -inset-0.5 rounded-lg bg-blue-500 opacity-0 blur-[6px] transition-opacity duration-300 group-hover:opacity-40"
               aria-hidden="true"
-              style={{ WebkitTransform: 'translateZ(0)' }}
             />
             <span className="relative z-10">
               Blog
@@ -104,9 +102,8 @@ export const Header: FC = () => {
               whileTap={{ scale: 0.95 }}
             >
               <span
-                className="pointer-events-none absolute -inset-2 rounded-lg bg-indigo-500 opacity-0 blur-[10px] transition-opacity duration-300 will-change-transform group-hover:opacity-60"
+                className="pointer-events-none absolute -inset-0.5 rounded-lg bg-indigo-500 opacity-0 blur-[6px] transition-opacity duration-300 group-hover:opacity-60"
                 aria-hidden="true"
-                style={{ WebkitTransform: 'translateZ(0)' }}
               />
               <social.icon size={24} weight="regular" className="relative z-10" />
             </motion.a>
