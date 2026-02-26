@@ -3,6 +3,7 @@
 import type { BlogPost } from '@/libs/notion';
 
 import type { FC } from 'react';
+import { getTagColor } from '@/libs/tagColors';
 import { ArrowLeftIcon, CalendarIcon, ClockIcon } from '@phosphor-icons/react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -43,7 +44,7 @@ export const BlogPostView: FC<BlogPostViewProps> = ({
 
   return (
     <article className="min-h-screen py-16 sm:py-24">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-[728px]">
         {/* Back button */}
         <FadeInUp>
           <MotionLink
@@ -68,17 +69,22 @@ export const BlogPostView: FC<BlogPostViewProps> = ({
           <header className="mb-12">
             {/* Tags */}
             <div className="mb-4 flex flex-wrap gap-2">
-              {post.tags.map(tag => (
-                <motion.span
-                  key={tag}
-                  className="rounded-full bg-indigo-500/20 px-3 py-1 text-xs font-medium text-indigo-400"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.2 }}
-                >
-                  {tag}
-                </motion.span>
-              ))}
+              {post.tags.map((tag, index) => {
+                const color = getTagColor(index);
+                return (
+                  <span
+                    key={tag}
+                    className={`group/tag relative rounded-full border px-3 py-1 text-xs font-medium ${color.bg} ${color.border} ${color.text}`}
+                  >
+                    <span
+                      className={`pointer-events-none absolute -inset-1 rounded-full ${color.glow} opacity-0 blur-md transition-opacity duration-300 will-change-transform group-hover/tag:opacity-60`}
+                      aria-hidden="true"
+                      style={{ WebkitTransform: 'translateZ(0)' }}
+                    />
+                    <span className="relative z-10">{tag}</span>
+                  </span>
+                );
+              })}
             </div>
 
             {/* Title with glow */}

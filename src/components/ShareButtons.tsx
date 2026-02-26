@@ -22,18 +22,21 @@ export const ShareButtons: FC<ShareButtonsProps> = ({ url, title, translations: 
       href: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
       icon: FacebookLogoIcon,
       color: 'hover:text-blue-500',
+      hoverColor: 'bg-blue-500',
     },
     {
       name: 'X (Twitter)',
       href: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
       icon: XLogoIcon,
       color: 'hover:text-white',
+      hoverColor: 'bg-green-500',
     },
     {
       name: 'LinkedIn',
       href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
       icon: LinkedinLogoIcon,
       color: 'hover:text-blue-400',
+      hoverColor: 'bg-indigo-500',
     },
   ];
 
@@ -54,7 +57,7 @@ export const ShareButtons: FC<ShareButtonsProps> = ({ url, title, translations: 
           >
             {/* Glow effect */}
             <span
-              className="pointer-events-none absolute -inset-2 rounded-lg bg-indigo-500 opacity-0 blur-[10px] transition-opacity duration-300 will-change-transform group-hover:opacity-40"
+              className={`pointer-events-none absolute inset-0 rounded-lg ${link.hoverColor} opacity-0 blur-[10px] transition-opacity duration-300 will-change-transform group-hover:opacity-40`}
               aria-hidden="true"
               style={{ WebkitTransform: 'translateZ(0)' }}
             />

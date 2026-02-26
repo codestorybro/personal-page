@@ -4,7 +4,6 @@ import type {
   RichTextItemResponse,
 } from '@notionhq/client/build/src/api-endpoints';
 import { Client } from '@notionhq/client';
-import { unstable_cache } from 'next/cache';
 import { createHighlighter, type Highlighter } from 'shiki';
 
 // Initialize Notion client
@@ -13,9 +12,6 @@ const notion = new Client({
 });
 
 const databaseId = process.env.NOTION_DATABASE_ID || '';
-
-// Cache revalidation time in seconds (5 minutes)
-const CACHE_REVALIDATE = 300;
 
 // Cached shiki highlighter instance
 let highlighterPromise: Promise<Highlighter> | null = null;
@@ -157,7 +153,7 @@ function pageToPost(page: PageObjectResponse): BlogPost {
 }
 
 // Internal function to fetch blog posts from Notion
-async function fetchBlogPosts(): Promise<BlogPost[]> {
+export async function getBlogPosts(): Promise<BlogPost[]> {
   if (!databaseId) {
     console.warn('NOTION_DATABASE_ID is not set');
     return [];
@@ -195,15 +191,8 @@ async function fetchBlogPosts(): Promise<BlogPost[]> {
   }
 }
 
-// Cached version - fetch all published blog posts
-export const getBlogPosts = unstable_cache(
-  fetchBlogPosts,
-  ['blog-posts'],
-  { revalidate: CACHE_REVALIDATE },
-);
-
 // Internal function to fetch a single blog post by slug
-async function fetchBlogPostBySlug(slug: string): Promise<BlogPost | null> {
+export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
   if (!databaseId) {
     console.warn('NOTION_DATABASE_ID is not set');
     return null;
@@ -242,13 +231,6 @@ async function fetchBlogPostBySlug(slug: string): Promise<BlogPost | null> {
     return null;
   }
 }
-
-// Cached version - fetch a single blog post by slug
-export const getBlogPostBySlug = unstable_cache(
-  fetchBlogPostBySlug,
-  ['blog-post'],
-  { revalidate: CACHE_REVALIDATE },
-);
 
 // Get all unique tags from posts
 export async function getAllTags(): Promise<string[]> {
@@ -412,7 +394,7 @@ async function renderBlocksArray(blocks: BlockObjectResponse[], depth: number = 
 }
 
 // Internal function to render blocks to HTML
-async function fetchBlocksAsHtml(pageId: string): Promise<string> {
+export async function renderBlocksToHtml(pageId: string): Promise<string> {
   try {
     const blocks = await notion.blocks.children.list({
       block_id: pageId,
@@ -425,13 +407,6 @@ async function fetchBlocksAsHtml(pageId: string): Promise<string> {
     return '';
   }
 }
-
-// Cached version - render blocks to HTML
-export const renderBlocksToHtml = unstable_cache(
-  fetchBlocksAsHtml,
-  ['blog-content'],
-  { revalidate: CACHE_REVALIDATE },
-);
 
 // Render rich text with formatting
 function renderRichText(richText: RichTextItemResponse[]): string {
