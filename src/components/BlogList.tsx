@@ -23,6 +23,8 @@ type BlogPostCardProps = {
 };
 
 const BlogPostCard: FC<BlogPostCardProps> = ({ post, translations: t, formatDate, tagColorMap }) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <Link href={`/blog/${post.slug}`} className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black">
       <motion.article
@@ -43,13 +45,17 @@ const BlogPostCard: FC<BlogPostCardProps> = ({ post, translations: t, formatDate
           {/* Cover image */}
           {post.coverImage && (
             <div className="relative h-48 w-full shrink-0 overflow-hidden sm:h-auto sm:w-48 md:w-56">
+              {!imageLoaded && (
+                <div className="absolute inset-0 animate-pulse bg-white/10" />
+              )}
               <Image
                 src={`/api/blog-image/${post.id}`}
                 alt={post.title}
                 fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                className={`object-cover transition-all duration-300 group-hover:scale-105 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                 sizes="(max-width: 640px) 100vw, 224px"
                 unoptimized
+                onLoad={() => setImageLoaded(true)}
               />
               <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/50 sm:bg-gradient-to-l" />
             </div>
