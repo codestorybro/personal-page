@@ -6,6 +6,8 @@ import { BlogList } from '@/components/BlogList';
 import { BlogListJsonLd } from '@/components/JsonLd';
 import { getBlogPosts } from '@/libs/notion';
 
+export const dynamic = 'force-dynamic';
+
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://codestorybro.com';
 
 export async function generateMetadata(): Promise<Metadata> {

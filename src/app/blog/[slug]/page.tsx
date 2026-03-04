@@ -2,9 +2,11 @@ import type { Metadata } from 'next';
 
 import { BlogPostView } from '@/components/BlogPostView';
 import { BlogArticleJsonLd } from '@/components/JsonLd';
-import { getBlogPostBySlug, getBlogPosts, renderBlocksToHtml } from '@/libs/notion';
+import { getBlogPostBySlug, renderBlocksToHtml } from '@/libs/notion';
 
 import { notFound } from 'next/navigation';
+
+export const dynamic = 'force-dynamic';
 
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
@@ -81,14 +83,6 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       },
     },
   };
-}
-
-export async function generateStaticParams() {
-  const posts = await getBlogPosts();
-
-  return posts.map(post => ({
-    slug: post.slug,
-  }));
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
