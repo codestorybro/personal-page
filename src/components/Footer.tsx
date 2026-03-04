@@ -3,12 +3,19 @@ import type { FC } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
+import SubscribeForm from './SubscribeForm';
+
 const MotionLink = motion.create(Link);
 
 const Footer: FC = () => {
   return (
-    <footer className="mx-4 mt-4 border-t-2 border-t-zinc-800 pb-4">
-      <div className="mx-auto flex w-full max-w-screen-xl flex-col items-center gap-4 p-4 text-center sm:flex-row sm:justify-between sm:text-left">
+    <footer id="newsletter" className="mt-4 border-t-2 border-t-zinc-800 pb-4">
+      {/* Newsletter section */}
+      <div className="mx-auto max-w-6xl px-8 pb-6 pt-10">
+        <SubscribeForm />
+      </div>
+
+      <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-4 px-8 py-4 text-center sm:flex-row sm:justify-between sm:text-left">
         <span className="text-sm text-gray-500 dark:text-gray-400">
           ©
           {new Date().getFullYear()}

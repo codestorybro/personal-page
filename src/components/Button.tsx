@@ -44,7 +44,7 @@ const GlowEffect = () => (
 const Button: FC<ButtonProps> = ({ children, className, disabled, type = 'button', onClick }) => {
   return (
     <motion.button
-      className={clsx(baseClassName, className)}
+      className={clsx(baseClassName, variantClassNames.default, className)}
       type={type}
       disabled={disabled}
       onClick={onClick}
