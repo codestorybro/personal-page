@@ -4,8 +4,8 @@ import type { FC, ReactNode } from 'react';
 import { motion } from 'framer-motion';
 
 type Props = {
-  title: string;
-  subtitle: string;
+  title?: string;
+  subtitle?: string;
   children: ReactNode;
 };
 
