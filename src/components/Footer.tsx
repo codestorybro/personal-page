@@ -70,7 +70,7 @@ const Footer: FC = () => {
               className="pointer-events-none absolute inset-0 rounded-lg bg-yellow-500 opacity-0 blur-[10px] transition-opacity duration-300 group-hover:opacity-60"
               aria-hidden="true"
             />
-            <span className="relative z-10">Skontaktuj się</span>
+            <span className="relative z-10">hello@codestorybro.com</span>
           </MotionLink>
         </nav>
       </div>

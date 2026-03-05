@@ -1,6 +1,6 @@
 'use client';
 import type { FC } from 'react';
-import { LinkedinLogoIcon, ListIcon, XIcon, YoutubeLogoIcon } from '@phosphor-icons/react';
+import { EnvelopeSimpleIcon, LinkedinLogoIcon, ListIcon, XIcon, YoutubeLogoIcon } from '@phosphor-icons/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,8 +9,8 @@ import { useState } from 'react';
 const MotionLink = motion.create(Link);
 
 const socialLinks = [
-  { name: 'LinkedIn', href: 'https://linkedin.com/in/codestorybro/', icon: LinkedinLogoIcon, hoverTextColor: 'hover:text-blue-100', hoverBgColor: 'bg-blue-500' },
   { name: 'YouTube', href: 'https://youtube.com/@codestorybro', icon: YoutubeLogoIcon, hoverTextColor: 'hover:text-red-100', hoverBgColor: 'bg-red-500' },
+  { name: 'LinkedIn', href: 'https://linkedin.com/in/codestorybro/', icon: LinkedinLogoIcon, hoverTextColor: 'hover:text-blue-100', hoverBgColor: 'bg-blue-500' },
 ];
 
 export const Header: FC = () => {
@@ -107,6 +107,24 @@ export const Header: FC = () => {
               <social.icon size={24} weight="regular" className="relative z-10" />
             </motion.a>
           ))}
+
+          {/* Divider */}
+          <div className="ml-2 h-6 w-px bg-white/20" />
+
+          {/* Contact CTA */}
+          <motion.a
+            href="mailto:hello@codestorybro.com"
+            className="group relative ml-2 inline-flex items-center gap-2 rounded-lg border border-[#333333] px-3 py-1.5 text-sm font-medium text-gray-400 transition-colors hover:border-indigo-400/50 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <span
+              className="pointer-events-none absolute -inset-1 rounded-lg bg-indigo-500 opacity-0 blur-[10px] transition-opacity duration-300 group-hover:opacity-40"
+              aria-hidden="true"
+            />
+            <EnvelopeSimpleIcon size={16} className="relative z-10" />
+            <span className="relative z-10">hello@codestorybro.com</span>
+          </motion.a>
         </nav>
 
         {/* Mobile hamburger button */}
@@ -186,6 +204,22 @@ export const Header: FC = () => {
                 >
                   Blog
                 </MotionLink>
+
+                {/* Divider */}
+                <div className="h-px w-32 bg-white/20" />
+
+                {/* Contact CTA */}
+                <motion.a
+                  href="mailto:hello@codestorybro.com"
+                  className="flex items-center gap-3 rounded-lg border border-[#333333] px-6 py-3 text-xl text-gray-300 transition-colors hover:border-indigo-400/50 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.2 }}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <EnvelopeSimpleIcon size={28} weight="regular" />
+                  <span>Napisz do mnie</span>
+                </motion.a>
 
                 {/* Divider */}
                 <div className="h-px w-32 bg-white/20" />
