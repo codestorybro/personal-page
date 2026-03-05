@@ -21,22 +21,22 @@ export const ShareButtons: FC<ShareButtonsProps> = ({ url, title, translations: 
       name: 'Facebook',
       href: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
       icon: FacebookLogoIcon,
-      color: 'hover:text-blue-500',
+      color: 'hover:text-blue-100',
       hoverColor: 'bg-blue-500',
     },
     {
       name: 'X (Twitter)',
       href: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
       icon: XLogoIcon,
-      color: 'hover:text-white',
+      color: 'hover:text-green-100',
       hoverColor: 'bg-green-500',
     },
     {
       name: 'LinkedIn',
       href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
       icon: LinkedinLogoIcon,
-      color: 'hover:text-blue-400',
-      hoverColor: 'bg-indigo-500',
+      color: 'hover:text-blue-100',
+      hoverColor: 'bg-blue-500',
     },
   ];
 

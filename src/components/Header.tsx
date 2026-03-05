@@ -1,6 +1,6 @@
 'use client';
 import type { FC } from 'react';
-import { EnvelopeSimpleIcon, LinkedinLogoIcon, ListIcon, XIcon, YoutubeLogoIcon } from '@phosphor-icons/react';
+import { LinkedinLogoIcon, ListIcon, XIcon, YoutubeLogoIcon } from '@phosphor-icons/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,9 +9,8 @@ import { useState } from 'react';
 const MotionLink = motion.create(Link);
 
 const socialLinks = [
-  { name: 'LinkedIn', href: 'https://linkedin.com/in/codestorybro/', icon: LinkedinLogoIcon },
-  { name: 'YouTube', href: 'https://youtube.com/@codestorybro', icon: YoutubeLogoIcon },
-  { name: 'Email', href: 'mailto:hello@codestorybro.com', icon: EnvelopeSimpleIcon },
+  { name: 'LinkedIn', href: 'https://linkedin.com/in/codestorybro/', icon: LinkedinLogoIcon, hoverTextColor: 'hover:text-blue-100', hoverBgColor: 'bg-blue-500' },
+  { name: 'YouTube', href: 'https://youtube.com/@codestorybro', icon: YoutubeLogoIcon, hoverTextColor: 'hover:text-red-100', hoverBgColor: 'bg-red-500' },
 ];
 
 export const Header: FC = () => {
@@ -97,12 +96,12 @@ export const Header: FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={social.name}
-              className="group relative rounded-lg p-1 text-gray-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+              className={`group relative rounded-lg p-1 text-gray-400 transition-colors ${social.hoverTextColor} focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500`}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
               <span
-                className="pointer-events-none absolute inset-0 rounded-lg bg-indigo-500 opacity-0 blur-[6px] transition-opacity duration-300 group-hover:opacity-60"
+                className={`pointer-events-none absolute inset-0 rounded-lg ${social.hoverBgColor} opacity-0 blur-[6px] transition-opacity duration-300 group-hover:opacity-60`}
                 aria-hidden="true"
               />
               <social.icon size={24} weight="regular" className="relative z-10" />

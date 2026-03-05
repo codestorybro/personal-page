@@ -38,7 +38,7 @@ const SubscriptionConfirmed: FC = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4, duration: 0.3 }}
       >
-        <p className="text-sm text-green-400">Dziękujemy za zapisanie się do newslettera ✓</p>
+        <p className="text-center text-sm text-green-400">Dziękuję za zapisanie się do newslettera</p>
       </motion.div>
     </motion.div>
   );
