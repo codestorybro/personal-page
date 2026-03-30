@@ -291,10 +291,10 @@ export const CTASection: FC = () => {
           <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-red-500/10 via-amber-500/10 to-orange-500/10 p-8 sm:p-12">
             <div className="relative z-10 text-center">
               <h2 className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
-                Mało kto o tym mówi.
+                Mało kto o&nbsp;tym mówi.
               </h2>
               <p className="mx-auto mt-2 text-xl font-medium text-amber-400 sm:text-2xl">
-                A powinien.
+                A&nbsp;powinien.
               </p>
               <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-300">
                 O&nbsp;rzeczach, o&nbsp;których w&nbsp;branży mówi się szeptem albo wcale.
