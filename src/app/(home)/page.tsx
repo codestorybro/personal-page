@@ -13,8 +13,8 @@ export async function generateMetadata() {
   const canonicalUrl = SITE_URL;
 
   return {
-    title: 'CodeStoryBro | Mówię głośno to, co połowa branży myśli po cichu',
-    description: 'Wypalenie, utrata sensu, fake sukcesy na LinkedIn. Mówię otwarcie o\u00A0tym, co naprawdę dzieje się w\u00A0IT. Dla developerów i\u00A0managerów, którzy czują, że coś się popsuło.',
+    title: 'CodeStoryBro | Mówię głośno o IT to, co większość branży myśli po cichu',
+    description: 'Przestań czuć się jak code monkey. Odzyskaj sens, energię i\u00A0kierunek w\u00A0świecie pełnym korpo-ściemy, przebodźcowania pseudo-sukcesami i\u00A0AI.',
     keywords: [
       'wypalenie w IT',
       'sens pracy programisty',
@@ -34,8 +34,8 @@ export async function generateMetadata() {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: 'CodeStoryBro | Mówię głośno to, co połowa branży myśli po cichu',
-      description: 'Wypalenie, utrata sensu, fake sukcesy na LinkedIn. Mówię otwarcie o\u00A0tym, co naprawdę dzieje się w\u00A0IT.',
+      title: 'CodeStoryBro | Mówię głośno o IT to, co większość branży myśli po cichu',
+      description: 'Przestań czuć się jak code monkey. Odzyskaj sens, energię i\u00A0kierunek w\u00A0świecie pełnym korpo-ściemy, przebodźcowania pseudo-sukcesami i\u00A0AI.',
       url: canonicalUrl,
       siteName: 'CodeStoryBro',
       type: 'website',
@@ -45,7 +45,7 @@ export async function generateMetadata() {
           url: `${SITE_URL}/assets/img/og-image.png`,
           width: 1200,
           height: 630,
-          alt: 'CodeStoryBro | Mówię głośno to, co połowa branży myśli po cichu',
+          alt: 'CodeStoryBro | Mówię głośno o IT to, co większość branży myśli po cichu',
         },
       ],
     },
@@ -53,14 +53,14 @@ export async function generateMetadata() {
       card: 'summary_large_image',
       site: '@codestorybro',
       creator: '@codestorybro',
-      title: 'CodeStoryBro | Mówię głośno to, co połowa branży myśli po cichu',
-      description: 'Wypalenie, utrata sensu, fake sukcesy na LinkedIn. Mówię otwarcie o\u00A0tym, co naprawdę dzieje się w\u00A0IT.',
+      title: 'CodeStoryBro | Mówię głośno o IT to, co większość branży myśli po cichu',
+      description: 'Przestań czuć się jak code monkey. Odzyskaj sens, energię i\u00A0kierunek w\u00A0świecie pełnym korpo-ściemy, przebodźcowania pseudo-sukcesami i\u00A0AI.',
       images: [
         {
           url: `${SITE_URL}/assets/img/og-image.png`,
           width: 1200,
           height: 630,
-          alt: 'CodeStoryBro | Mówię głośno to, co połowa branży myśli po cichu',
+          alt: 'CodeStoryBro | Mówię głośno o IT to, co większość branży myśli po cichu',
         },
       ],
     },

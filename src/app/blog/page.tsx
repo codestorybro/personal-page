@@ -14,15 +14,17 @@ export async function generateMetadata(): Promise<Metadata> {
   const canonicalUrl = `${SITE_URL}/blog`;
 
   return {
-    title: 'Blog | CodeStoryBro',
-    description: 'O inżynierii i zespołach z perspektywy praktyka. Decyzje, błędy i lekcje z perspektywy managera.',
+    title: 'Blog | Bez filtra o IT, wypaleniu i tym, co naprawdę ma znaczenie',
+    description: 'Szczere teksty o branży IT. Wypalenie, utrata sensu, fake\'owy LinkedIn pełen pseudo-sukcesów, kariera bez autopilota.',
     keywords: [
-      'blog',
-      'programowanie',
-      'software development',
-      'inżynieria oprogramowania',
-      'zarządzanie zespołem',
-      'CodeStoryBro',
+      'blog IT',
+      'wypalenie programisty',
+      'sens pracy w IT',
+      'kariera programisty',
+      'prawda o branży IT',
+      'burnout developer',
+      'kultura pracy IT',
+      'CodeStoryBro blog',
     ],
     authors: [{ name: 'Marcin Kołodziej', url: SITE_URL }],
     creator: 'Marcin Kołodziej',
@@ -31,8 +33,8 @@ export async function generateMetadata(): Promise<Metadata> {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: 'Blog | CodeStoryBro',
-      description: 'O inżynierii i zespołach z perspektywy praktyka. Decyzje, błędy i lekcje z perspektywy managera.',
+      title: 'Blog | Bez filtra o IT, wypaleniu i tym, co naprawdę ma znaczenie',
+      description: 'Szczere teksty o branży IT. Wypalenie, utrata sensu, fake\'owy LinkedIn pełen pseudo-sukcesów, kariera bez autopilota.',
       type: 'website',
       url: canonicalUrl,
       siteName: 'CodeStoryBro',
@@ -48,8 +50,8 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Blog | CodeStoryBro',
-      description: 'O inżynierii i zespołach z perspektywy praktyka. Decyzje, błędy i lekcje z perspektywy managera.',
+      title: 'Blog | Bez filtra o IT, wypaleniu i tym, co naprawdę ma znaczenie',
+      description: 'Szczere teksty o branży IT. Wypalenie, utrata sensu, fake\'owy LinkedIn pełen pseudo-sukcesów, kariera bez autopilota.',
       images: [
         {
           url: `${SITE_URL}/assets/img/og-image.png`,

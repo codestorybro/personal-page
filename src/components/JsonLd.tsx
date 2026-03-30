@@ -10,19 +10,19 @@ const personSchema = {
   'alternateName': 'CodeStoryBro',
   'url': SITE_URL,
   'image': `${SITE_URL}/assets/img/marcin.jpg`,
-  'description': 'Mówię głośno to, co połowa branży IT myśli po cichu. O wypaleniu, utracie sensu i fake\'owych sukcesach.',
+  'description': 'Mówię głośno to, co połowa branży IT myśli po cichu. O wypaleniu, utracie sensu i fake\'owych pseudo-sukcesach.',
   'sameAs': [
     'https://linkedin.com/in/codestorybro',
     'https://youtube.com/@codestorybro',
   ],
   'jobTitle': 'Keynote Speaker & Creator',
   'knowsAbout': [
-    'Wypalenie w IT',
-    'Sens pracy w tech',
+    'Wypalenie w IT',
+    'Sens pracy w tech',
     'Keynote speaking',
-    'Personal branding w IT',
+    'Personal branding w IT',
     'Wartość programisty',
-    'Kultura pracy w IT',
+    'Kultura pracy w IT',
   ],
 };
 
@@ -93,8 +93,8 @@ export const HomeJsonLd: FC = () => {
     '@type': 'WebPage',
     '@id': `${SITE_URL}/#webpage`,
     'url': SITE_URL,
-    'name': 'CodeStoryBro | Mówię głośno to, co połowa branży myśli po cichu',
-    'description': 'Wypalenie, utrata sensu, fake sukcesy na LinkedIn. Mówię otwarcie o\u00A0tym, co naprawdę dzieje się w\u00A0IT.',
+    'name': 'CodeStoryBro | Mówię głośno o IT to, co większość branży myśli po cichu',
+    'description': 'Przestań czuć się jak code monkey. Odzyskaj sens, energię i\u00A0kierunek w\u00A0świecie pełnym korpo-ściemy, przebodźcowania pseudo-sukcesami i\u00A0AI.',
     'isPartOf': {
       '@id': `${SITE_URL}/#website`,
     },
@@ -116,106 +116,6 @@ export const HomeJsonLd: FC = () => {
   );
 };
 
-// Oferta page JSON-LD
-export const OfertaJsonLd: FC = () => {
-  const ofertaUrl = `${SITE_URL}/oferta`;
-
-  const webPageSchema = {
-    '@type': 'WebPage',
-    '@id': `${ofertaUrl}#webpage`,
-    'url': ofertaUrl,
-    'name': 'Oferta | Mentoring i\u00A0szkolenia dla wschodzących managerów | CodeStoryBro',
-    'description': 'Mentoring 1:1 i\u00A0warsztaty dla firm. Przejdź z\u00A0roli technicznej do Engineering Managera.',
-    'isPartOf': {
-      '@id': `${SITE_URL}/#website`,
-    },
-    'inLanguage': 'pl-PL',
-  };
-
-  const mentoringServiceSchema = {
-    '@type': 'Service',
-    '@id': `${ofertaUrl}#mentoring`,
-    'name': 'Mentoring 1:1 dla developerów oraz obecnych managerów',
-    'description': 'Indywidualna praca nad rozwojem kompetencji managerskich. Regularne spotkania, analiza wyzwań i budowanie umiejętności przywódczych.',
-    'provider': {
-      '@id': `${SITE_URL}/#organization`,
-    },
-    'serviceType': 'Mentoring',
-    'areaServed': {
-      '@type': 'Country',
-      'name': 'Poland',
-    },
-    'audience': {
-      '@type': 'Audience',
-      'audienceType': 'Developers, Tech Leads, Engineering Managers',
-    },
-    'offers': {
-      '@type': 'Offer',
-      'availability': 'https://schema.org/InStock',
-      'priceCurrency': 'PLN',
-    },
-  };
-
-  const workshopServiceSchema = {
-    '@type': 'Service',
-    '@id': `${ofertaUrl}#warsztaty`,
-    'name': 'Warsztaty dla organizacji',
-    'description': 'Dedykowane szkolenia i\u00A0warsztaty dla zespołów IT. Rozwijam kompetencje managerskie i\u00A0przywódcze u\u00A0developerów oraz Tech Leadów.',
-    'provider': {
-      '@id': `${SITE_URL}/#organization`,
-    },
-    'serviceType': 'Corporate Training',
-    'areaServed': {
-      '@type': 'Country',
-      'name': 'Poland',
-    },
-  };
-
-  const speakingServiceSchema = {
-    '@type': 'Service',
-    '@id': `${ofertaUrl}#speaking`,
-    'name': 'Wystąpienia konferencyjne',
-    'description': 'Prezentacje, keynote\'y i warsztaty na konferencjach IT, meetupach i wydarzeniach firmowych.',
-    'provider': {
-      '@id': `${SITE_URL}/#person`,
-    },
-    'serviceType': 'Speaking',
-  };
-
-  const breadcrumbSchema = {
-    '@type': 'BreadcrumbList',
-    'itemListElement': [
-      {
-        '@type': 'ListItem',
-        'position': 1,
-        'name': 'Strona główna',
-        'item': SITE_URL,
-      },
-      {
-        '@type': 'ListItem',
-        'position': 2,
-        'name': 'Oferta',
-        'item': ofertaUrl,
-      },
-    ],
-  };
-
-  return (
-    <JsonLd
-      data={[
-        websiteSchema,
-        webPageSchema,
-        breadcrumbSchema,
-        mentoringServiceSchema,
-        workshopServiceSchema,
-        speakingServiceSchema,
-        organizationSchema,
-        personSchema,
-      ]}
-    />
-  );
-};
-
 // Blog list page JSON-LD
 export const BlogListJsonLd: FC = () => {
   const blogUrl = `${SITE_URL}/blog`;
@@ -227,7 +127,7 @@ export const BlogListJsonLd: FC = () => {
           '@type': 'CollectionPage',
           '@id': `${blogUrl}#collection`,
           'name': 'Blog – CodeStoryBro',
-          'description': 'Myśli, spostrzeżenia i doświadczenia z mojej podróży',
+          'description': 'Bez filtra o IT, wypaleniu i tym, co naprawdę ma znaczenie. Surowe, szczere teksty. Zero korpo-bełkotu.',
           'url': blogUrl,
           'inLanguage': 'pl-PL',
           'isPartOf': {
@@ -236,7 +136,7 @@ export const BlogListJsonLd: FC = () => {
           'mainEntity': {
             '@type': 'Blog',
             'name': 'CodeStoryBro Blog',
-            'description': 'Artykuły o inżynierii oprogramowania, zarządzaniu zespołami i budowaniu produktów',
+            'description': 'Surowe teksty o branży IT — wypalenie, utrata sensu, kariera bez autopilota, fake\'owy LinkedIn pełen pseudo-sukcesów i AI jako katalizator zmiany.',
           },
         },
         websiteSchema,

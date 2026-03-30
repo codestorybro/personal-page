@@ -5,10 +5,14 @@ export const dynamic = 'force-dynamic';
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-    },
+    rules: [
+      {
+        userAgent: '*',
+        allow: '/',
+        disallow: ['/api/', '/check'],
+      },
+    ],
     sitemap: `${getBaseUrl()}/sitemap.xml`,
+    host: getBaseUrl(),
   };
 }

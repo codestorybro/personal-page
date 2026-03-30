@@ -14,6 +14,24 @@ const rushDriver = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://codestorybro.com'),
+  title: {
+    default: 'CodeStoryBro | Mówię głośno o IT to, co większość branży myśli po cichu',
+    template: '%s | CodeStoryBro',
+  },
+  description: 'Przestań czuć się jak code monkey. Odzyskaj sens, energię i\u00A0kierunek w\u00A0świecie pełnym korpo-ściemy, przebodźcowania pseudo-sukcesami i\u00A0AI.',
+  authors: [{ name: 'Marcin Kołodziej', url: 'https://codestorybro.com' }],
+  creator: 'Marcin Kołodziej',
+  publisher: 'CodeStoryBro',
+  openGraph: {
+    type: 'website',
+    locale: 'pl_PL',
+    siteName: 'CodeStoryBro',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@codestorybro',
+    creator: '@codestorybro',
+  },
   icons: [
     {
       rel: 'apple-touch-icon',
