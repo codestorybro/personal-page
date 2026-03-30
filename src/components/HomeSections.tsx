@@ -297,11 +297,8 @@ export const CTASection: FC = () => {
                 To jest rozmowa, której nikt inny nie prowadzi.
               </p>
               <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-300">
-                Jeśli czujesz, że to o&nbsp;Tobie - dołącz na LinkedIn. Publikuję regularnie. Bez filtra.
-                Piszę to co myślę.
-              </p>
-              <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-300">
                 O&nbsp;rzeczach, o&nbsp;których w&nbsp;branży mówi się szeptem albo wcale.
+                Jeśli czujesz, że to o&nbsp;Tobie - dołącz na LinkedIn. Publikuję regularnie i&nbsp;piszę to co myślę.
               </p>
               <p className="mx-auto mt-4 max-w-2xl text-lg font-semibold text-white">
                 Nie musisz się ze mną zgadzać. Musisz zacząć myśleć.

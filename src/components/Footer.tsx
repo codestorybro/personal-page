@@ -37,18 +37,6 @@ const Footer: FC = () => {
         </span>
         <nav className="flex items-center gap-4" aria-label="Footer navigation">
           <MotionLink
-            href="/check"
-            className="group relative rounded-lg px-2 py-1 text-sm text-gray-400 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span
-              className="pointer-events-none absolute inset-0 rounded-lg bg-blue-500 opacity-0 blur-[10px] transition-opacity duration-300 group-hover:opacity-60"
-              aria-hidden="true"
-            />
-            <span className="relative z-10">Sprawdź certyfikat</span>
-          </MotionLink>
-          <MotionLink
             href="mailto:hello@codestorybro.com"
             className="group relative rounded-lg px-2 py-1 text-sm text-gray-400 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
             whileHover={{ scale: 1.1 }}
