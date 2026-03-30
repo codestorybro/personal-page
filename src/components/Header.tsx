@@ -61,7 +61,7 @@ export const Header: FC = () => {
             whileTap={{ scale: 0.95 }}
           >
             <span
-              className="pointer-events-none absolute inset-0 rounded-lg bg-blue-500 opacity-0 blur-[10px] transition-opacity duration-300 group-hover:opacity-60"
+              className="pointer-events-none absolute inset-0 rounded-lg bg-green-500 opacity-0 blur-[10px] transition-opacity duration-300 group-hover:opacity-60"
               aria-hidden="true"
             />
             <span className="relative z-10">
@@ -103,7 +103,7 @@ export const Header: FC = () => {
             whileTap={{ scale: 0.95 }}
           >
             <span
-              className="pointer-events-none absolute -inset-1 rounded-lg bg-indigo-500 opacity-0 blur-[10px] transition-opacity duration-300 group-hover:opacity-40"
+              className="pointer-events-none absolute -inset-1 rounded-lg bg-yellow-500 opacity-0 blur-[10px] transition-opacity duration-300 group-hover:opacity-40"
               aria-hidden="true"
             />
             <EnvelopeSimpleIcon size={16} className="relative z-10" />

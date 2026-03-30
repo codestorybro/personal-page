@@ -18,6 +18,7 @@ type ButtonProps = {
 type ButtonLinkProps = {
   children: React.ReactNode;
   href: string;
+  glowClassName?: string;
   className?: string;
   target?: string;
   rel?: string;
@@ -33,32 +34,35 @@ const variantClassNames = {
 
 const scaleTransition = { type: 'tween' as const, duration: 0.3 };
 
-const GlowEffect = () => (
+const GlowEffect: FC<{ glowClassName?: string }> = ({ glowClassName }) => (
   <span
-    className="pointer-events-none absolute -inset-2 rounded-lg bg-indigo-500 opacity-0 blur-[20px] transition-opacity duration-300 will-change-transform group-hover:opacity-40"
+    className={clsx(
+      'pointer-events-none absolute -inset-2 rounded-lg opacity-0 blur-[20px] transition-opacity duration-300 will-change-transform group-hover:opacity-40',
+      glowClassName || 'bg-indigo-500',
+    )}
     aria-hidden="true"
     style={{ WebkitTransform: 'translateZ(0)' }}
   />
 );
 
-const Button: FC<ButtonProps> = ({ children, className, disabled, type = 'button', onClick }) => {
+const Button: FC<ButtonProps & { glowClassName?: string }> = ({ children, glowClassName, className, disabled, type = 'button', onClick }) => {
   return (
     <motion.button
       className={clsx(baseClassName, variantClassNames.default, className)}
       type={type}
       disabled={disabled}
       onClick={onClick}
-      whileHover={{ scale: 1.1 }}
+      whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       transition={scaleTransition}
     >
-      <GlowEffect />
+      <GlowEffect glowClassName={glowClassName} />
       <span className="relative z-10">{children}</span>
     </motion.button>
   );
 };
 
-export const ButtonLink: FC<ButtonLinkProps> = ({ children, href, className, target, rel, variant = 'default' }) => {
+export const ButtonLink: FC<ButtonLinkProps> = ({ children, href, glowClassName, className, target, rel, variant = 'default' }) => {
   const isExternal = href.startsWith('http');
   const isAnchor = href.startsWith('#');
   const combinedClassName = clsx(baseClassName, variantClassNames[variant], className);
@@ -70,11 +74,11 @@ export const ButtonLink: FC<ButtonLinkProps> = ({ children, href, className, tar
         target={target || '_blank'}
         rel={rel || 'noopener noreferrer'}
         className={combinedClassName}
-        whileHover={{ scale: 1.1 }}
+        whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         transition={scaleTransition}
       >
-        <GlowEffect />
+        <GlowEffect glowClassName={glowClassName} />
         <span className="relative z-10">{children}</span>
       </motion.a>
     );
@@ -95,11 +99,11 @@ export const ButtonLink: FC<ButtonLinkProps> = ({ children, href, className, tar
         href={href}
         onClick={handleClick}
         className={combinedClassName}
-        whileHover={{ scale: 1.1 }}
+        whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         transition={scaleTransition}
       >
-        <GlowEffect />
+        <GlowEffect glowClassName={glowClassName} />
         <span className="relative z-10">{children}</span>
       </motion.a>
     );
@@ -109,11 +113,11 @@ export const ButtonLink: FC<ButtonLinkProps> = ({ children, href, className, tar
     <MotionLink
       href={href}
       className={combinedClassName}
-      whileHover={{ scale: 1.1 }}
+      whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       transition={scaleTransition}
     >
-      <GlowEffect />
+      <GlowEffect glowClassName={glowClassName} />
       <span className="relative z-10">{children}</span>
     </MotionLink>
   );

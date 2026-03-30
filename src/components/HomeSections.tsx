@@ -41,12 +41,15 @@ export const HeroSection: FC = () => {
 
         <FadeInUp delay={0.6}>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
-            <ButtonLink href="https://linkedin.com/in/codestorybro">
+            <ButtonLink href="https://linkedin.com/in/codestorybro" glowClassName="bg-blue-500">
               Dołącz do mnie na LinkedIn →
             </ButtonLink>
-            <span className="text-sm text-gray-500">
+            <ButtonLink href="https://youtube.com/@codestorybro" glowClassName="bg-red-500" variant="outline">
+              YouTube się kroi, ale bądź na bieżąco →
+            </ButtonLink>
+            {/* <span className="text-sm text-gray-500">
               YouTube? Się kroi. Bądź na bieżąco.
-            </span>
+            </span> */}
           </div>
         </FadeInUp>
       </div>
@@ -200,11 +203,11 @@ export const SpeakerSection: FC = () => {
   const testimonials = [
     {
       quote: 'Najlepsza prelekcja na całej konferencji. Nareszcie ktoś mówi o\u00A0tym, o\u00A0czym wszyscy myślimy.',
-      author: 'Paweł',
+      author: 'Maciek',
       event: 'Boiling Frogs 2026',
     },
     {
-      quote: 'Marcin nie prezentuje. Marcin uderza. Sala była cicho, co na konferencji IT graniczy z\u00A0cudem.',
+      quote: 'Marcin nie prezentuje tylko uderza. Sala pełna, a\u00A0była cicho, co na konferencji IT graniczy z\u00A0cudem.',
       author: 'Monika',
       event: 'Boiling Frogs 2026',
     },
@@ -262,8 +265,6 @@ export const SpeakerSection: FC = () => {
                   {t.quote}
                 </p>
                 <p className="mt-4 text-sm text-gray-500">
-                  —
-                  {' '}
                   {t.author}
                   ,
                   {' '}
@@ -296,17 +297,20 @@ export const CTASection: FC = () => {
                 To jest rozmowa, której nikt inny nie prowadzi.
               </p>
               <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-300">
-                Jeśli czujesz, że to o&nbsp;Tobie - dołącz na LinkedInie. Publikuję regularnie. Bez filtra.
-                Piszę to co myślę. O&nbsp;rzeczach, o&nbsp;których w&nbsp;branży mówi się szeptem albo wcale.
+                Jeśli czujesz, że to o&nbsp;Tobie - dołącz na LinkedIn. Publikuję regularnie. Bez filtra.
+                Piszę to co myślę.
+              </p>
+              <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-300">
+                O&nbsp;rzeczach, o&nbsp;których w&nbsp;branży mówi się szeptem albo wcale.
               </p>
               <p className="mx-auto mt-4 max-w-2xl text-lg font-semibold text-white">
                 Nie musisz się ze mną zgadzać. Musisz zacząć myśleć.
               </p>
               <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <ButtonLink href="https://linkedin.com/in/codestorybro">
+                <ButtonLink href="https://linkedin.com/in/codestorybro" glowClassName="bg-blue-500">
                   Obserwuj mnie na LinkedIn →
                 </ButtonLink>
-                <ButtonLink href="mailto:hello@codestorybro.com" variant="outline">
+                <ButtonLink href="mailto:hello@codestorybro.com" glowClassName="bg-yellow-500">
                   Szukasz prelegenta? Napisz →
                 </ButtonLink>
               </div>
