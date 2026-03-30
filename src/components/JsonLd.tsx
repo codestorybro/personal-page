@@ -10,20 +10,19 @@ const personSchema = {
   'alternateName': 'CodeStoryBro',
   'url': SITE_URL,
   'image': `${SITE_URL}/assets/img/marcin.jpg`,
-  'description': 'Engineering Manager, mentor i prelegent. Pomagam developerom przejść do ról managerskich.',
+  'description': 'Mówię głośno to, co połowa branży IT myśli po cichu. O wypaleniu, utracie sensu i fake\'owych sukcesach.',
   'sameAs': [
     'https://linkedin.com/in/codestorybro',
     'https://youtube.com/@codestorybro',
   ],
-  'jobTitle': 'Engineering Manager & Leadership Mentor',
+  'jobTitle': 'Keynote Speaker & Creator',
   'knowsAbout': [
-    'Engineering Management',
-    'Leadership w IT',
-    'Rozwój kariery programisty',
-    'Tech Lead',
-    'Delegowanie',
-    'Feedback',
-    'Zarządzanie zespołami technicznymi',
+    'Wypalenie w IT',
+    'Sens pracy w tech',
+    'Keynote speaking',
+    'Personal branding w IT',
+    'Wartość programisty',
+    'Kultura pracy w IT',
   ],
 };
 
@@ -37,7 +36,7 @@ const organizationSchema = {
     '@type': 'ImageObject',
     'url': `${SITE_URL}/assets/img/logo-main.svg`,
   },
-  'description': 'Mentoring i\u00A0warsztaty dla przyszłych Engineering Managerów',
+  'description': 'Mówię głośno to, co połowa branży IT myśli po cichu.',
   'founder': {
     '@id': `${SITE_URL}/#person`,
   },
@@ -59,7 +58,7 @@ const websiteSchema = {
   '@id': `${SITE_URL}/#website`,
   'url': SITE_URL,
   'name': 'CodeStoryBro',
-  'description': 'Mentoring i\u00A0warsztaty dla przyszłych Engineering Managerów',
+  'description': 'Mówię głośno to, co połowa branży IT myśli po cichu.',
   'inLanguage': 'pl-PL',
   'publisher': {
     '@id': `${SITE_URL}/#organization`,
@@ -94,8 +93,8 @@ export const HomeJsonLd: FC = () => {
     '@type': 'WebPage',
     '@id': `${SITE_URL}/#webpage`,
     'url': SITE_URL,
-    'name': 'CodeStoryBro | Od developera do Engineering Managera',
-    'description': 'Pomagam developerom przejść do ról managerskich. Mentoring 1:1 i\u00A0warsztaty.',
+    'name': 'CodeStoryBro | Mówię głośno to, co połowa branży myśli po cichu',
+    'description': 'Wypalenie, utrata sensu, fake sukcesy na LinkedIn. Mówię otwarcie o\u00A0tym, co naprawdę dzieje się w\u00A0IT.',
     'isPartOf': {
       '@id': `${SITE_URL}/#website`,
     },

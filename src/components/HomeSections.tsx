@@ -2,8 +2,7 @@
 
 import type { FC } from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
-import { FadeInLeft, FadeInRight, FadeInUp, StaggerContainer, StaggerItem } from './AnimatedElements';
+import { FadeInUp, StaggerContainer, StaggerItem } from './AnimatedElements';
 import { ButtonLink } from './Button';
 
 // ============================================================================
@@ -12,20 +11,19 @@ import { ButtonLink } from './Button';
 
 export const HeroSection: FC = () => {
   return (
-    <section className="py-8 sm:py-16 lg:py-24">
+    <section className="py-12 sm:py-20 lg:py-32">
       <div className="flex flex-col items-center text-center">
         <FadeInUp delay={0.2}>
           <div className="relative mb-6 w-fit">
-            {/* Glow blur behind the title */}
             <div
               className="pointer-events-none absolute -inset-4 bg-indigo-500/40 blur-3xl will-change-transform"
               aria-hidden="true"
               style={{ WebkitTransform: 'translateZ(0)' }}
             />
-            <h1 className="relative text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
-              Od Developera
-              <span className="mt-2 block bg-gradient-to-r from-blue-500 via-green-400 to-indigo-500 bg-clip-text pb-4 text-transparent">
-                do Engineering Managera
+            <h1 className="relative text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-6xl">
+              Mówię głośno to, co
+              <span className="mt-2 block bg-gradient-to-r from-red-500 via-amber-400 to-orange-500 bg-clip-text pb-4 text-transparent">
+                połowa branży myśli po&nbsp;cichu.
               </span>
             </h1>
           </div>
@@ -33,89 +31,22 @@ export const HeroSection: FC = () => {
 
         <FadeInUp delay={0.4}>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-300">
-            Pomagam świadomym developerom przejść z&nbsp;ról wykonawczych do zarządzania zespołami.
-            Z&nbsp;perspektywy kogoś, kto sam przeszedł całą tę ścieżkę.
+            Wypalenie. Puste sprinty. Utrata sensu. Fake&apos;owe sukcesy na&nbsp;LinkedInie.
+            Jeśli czujesz, że coś w&nbsp;IT śmierdzi to nie jesteś sam.
+          </p>
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-gray-400">
+            Jestem Marcin. I&nbsp;mówię o&nbsp;tym otwarcie, bo ktoś w&nbsp;końcu musi.
           </p>
         </FadeInUp>
 
         <FadeInUp delay={0.6}>
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <ButtonLink href="/oferta">
-              Zobacz ofertę
+          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
+            <ButtonLink href="https://linkedin.com/in/codestorybro">
+              Dołącz do mnie na LinkedIn →
             </ButtonLink>
-            <ButtonLink href="#dla-kogo" variant="outline">
-              Dla kogo to jest?
-            </ButtonLink>
-          </div>
-        </FadeInUp>
-      </div>
-    </section>
-  );
-};
-
-// ============================================================================
-// DLA KOGO SECTION (Who It's For)
-// ============================================================================
-
-export const DlaKogoSection: FC = () => {
-  const targetAudience = [
-    {
-      title: 'Ambitny developer',
-      description: 'Masz za sobą parę lat doświadczenia i\u00A0czujesz, że pisanie kodu to już za mało. Szukasz czegoś więcej. Zaczynasz myśleć o\u00A0wpływie, procesach i\u00A0ludziach.',
-      icon: '🎯',
-    },
-    {
-      title: 'Tech Lead',
-      description: 'Już prowadzisz technicznie zespół, ale chcesz rozwinąć kompetencje managerskie lub po prostu napotykasz na wyzwania związane z\u00A0zarządzaniem ludźmi.',
-      icon: '🧭',
-    },
-  ];
-
-  const notFor = [
-    'zorientowania na konkretną technologię - CodeStoryBro jest w\u00A0pełni framework agnostic',
-    'magicznych hacków na szybki awans - zaufaj mi, nie chcesz być managerem, który awansował bez przygotowania z\u00A0dnia na dzień',
-  ];
-
-  return (
-    <section id="dla-kogo" className="scroll-mt-24 py-16 sm:py-24">
-      <div className="mx-auto max-w-6xl">
-        <FadeInUp>
-          <h2 className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
-            Dla kogo jest CodeStoryBro?
-          </h2>
-          <p className="mt-4 max-w-3xl text-lg text-gray-400">
-            Pracuję z&nbsp;inżynierami na określonym etapie kariery - tymi, którzy są gotowi
-            na przejście z&nbsp;wykonawstwa do przywództwa.
-          </p>
-        </FadeInUp>
-
-        <StaggerContainer className="mt-12 grid gap-6 sm:grid-cols-2" staggerDelay={0.1}>
-          {targetAudience.map(item => (
-            <StaggerItem key={item.title}>
-              <motion.div
-                className="h-full rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
-                whileHover={{ y: -5, borderColor: 'rgba(34, 197, 94, 0.3)' }}
-                transition={{ duration: 0.2 }}
-              >
-                <span className="text-4xl">{item.icon}</span>
-                <h3 className="mt-4 text-xl font-semibold text-white">{item.title}</h3>
-                <p className="mt-2 text-gray-400">{item.description}</p>
-              </motion.div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-
-        <FadeInUp delay={0.4}>
-          <div className="mt-12 rounded-2xl border border-red-500/20 bg-red-500/5 p-6">
-            <h3 className="text-lg font-semibold text-red-400">Czego tu nie znajdziesz?</h3>
-            <ul className="mt-4 space-y-2">
-              {notFor.map(item => (
-                <li key={item} className="flex items-center gap-3 text-gray-400">
-                  <span className="text-red-400">✕</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
+            <span className="text-sm text-gray-500">
+              YouTube? Się kroi. Bądź na bieżąco.
+            </span>
           </div>
         </FadeInUp>
       </div>
@@ -128,42 +59,58 @@ export const DlaKogoSection: FC = () => {
 // ============================================================================
 
 export const ProblemSection: FC = () => {
-  const problems = [
-    'Masz świetne kompetencje techniczne, ale nikt nie nauczył Cię zarządzać ludźmi.',
-    'Nie wiesz, jak rozmawiać z\u00A0biznesem - i\u00A0czujesz, że tracisz na tym wpływ.',
-    'Boisz się, że jako manager stracisz kontakt z\u00A0technologią.',
-    'Delegowanie wydaje Ci się trudniejsze niż napisanie kodu samemu.',
-    'Bugi w\u00A0kodzie łatwo naprawić, ale trudne rozmowy z\u00A0zespołem z\u00A0jakiegoś powodu odkładasz na później.',
-    'Chcesz awansować, ale nie wiesz, od czego zacząć.',
-  ];
-
   return (
     <section className="py-16 sm:py-24">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-4xl">
         <FadeInUp>
           <h2 className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
-            Rozpoznajesz to?
+            Budzik. Stand-up. Jira. Commit. Powtórz.
           </h2>
-          <p className="mt-4 max-w-3xl text-lg text-gray-400">
-            Większość seniorów nie ma problemu z&nbsp;kodem. Challenge zaczyna się,
-            gdy trzeba wyjść do ludzi.
-          </p>
         </FadeInUp>
 
-        <StaggerContainer className="mt-12 grid gap-4 sm:grid-cols-2" staggerDelay={0.08}>
-          {problems.map(problem => (
-            <StaggerItem key={problem}>
-              <motion.div
-                className="flex items-start gap-4 rounded-xl border border-white/5 bg-white/[0.02] p-4"
-                whileHover={{ x: 5, backgroundColor: 'rgba(255, 255, 255, 0.05)' }}
-                transition={{ duration: 0.2 }}
-              >
-                <span className="text-amber-500">→</span>
-                <p className="text-gray-300">{problem}</p>
-              </motion.div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+        <div className="mt-10 space-y-6">
+          <FadeInUp delay={0.1}>
+            <p className="text-lg leading-relaxed text-gray-300">
+              Kiedyś programowanie dawało Ci kopa. Rozwiązywałeś problemy, budowałeś rzeczy, które miały sens. A&nbsp;teraz?
+            </p>
+          </FadeInUp>
+
+          <FadeInUp delay={0.2}>
+            <p className="text-lg leading-relaxed text-gray-300">
+              Teraz przesuwasz tickety. Gonisz velocity. Siedzisz na spotkaniach, które mogły być mailem.
+              I&nbsp;gdzieś w&nbsp;środku czujesz pustkę, na którą brakuje Ci słów.
+            </p>
+          </FadeInUp>
+
+          <FadeInUp delay={0.3}>
+            <p className="text-xl font-semibold text-white">
+              Nie jesteś sam. To nie jest Twój problem. To jest problem całej branży.
+            </p>
+          </FadeInUp>
+
+          <FadeInUp delay={0.4}>
+            <div className="my-8 border-l-2 border-amber-500/50 pl-6">
+              <p className="text-lg leading-relaxed text-gray-300">
+                A&nbsp;potem przyszło AI. I&nbsp;wielu ludzi wpadło w&nbsp;panikę: &bdquo;Zastąpią nas! Koniec programistów!&rdquo;
+              </p>
+              <p className="mt-4 text-lg leading-relaxed text-gray-300">
+                Prawda? AI niczego nie zepsuło. AI było katalizatorem zmiany.
+              </p>
+              <p className="mt-4 text-lg leading-relaxed text-gray-300">
+                Pokazało, że liczenie linijek kodu nigdy nie było wartością. Że bezmyślne dowożenie sprintów nigdy nie było tym,
+                o&nbsp;co naprawdę chodzi. Że jeśli Twoja praca sprowadza się do tego, co wkrótce zrobi maszyna to
+                {' '}
+                <span className="font-semibold text-white">problem istniał na długo przed ChatGPT.</span>
+              </p>
+            </div>
+          </FadeInUp>
+
+          <FadeInUp delay={0.6}>
+            <p className="text-xl font-bold text-amber-400">
+              Masz dość? Ja też.
+            </p>
+          </FadeInUp>
+        </div>
       </div>
     </section>
   );
@@ -174,258 +121,154 @@ export const ProblemSection: FC = () => {
 // ============================================================================
 
 export const TransformationSection: FC = () => {
-  const transformations = [
+  const shifts = [
     {
-      from: 'Piszesz kod',
-      to: 'Projektujesz rozwiązania i\u00A0rozwijasz ludzi',
+      from: 'Jestem klepaczem kodu',
+      to: 'zrozumienie, że Twoja wartość to sposób myślenia, nie ilość commitów',
     },
     {
-      from: 'Realizujesz zadania',
-      to: 'Ustalasz priorytety i\u00A0podejmujesz decyzje',
+      from: 'Nie wiem, po co to robię',
+      to: 'jasność, czego tak naprawdę szukasz — w\u00A0pracy i\u00A0poza nią',
     },
     {
-      from: 'Pracujesz w\u00A0zespole',
-      to: 'Budujesz i\u00A0prowadzisz zespół',
+      from: 'Muszę być na bieżąco z\u00A0każdą technologią',
+      to: 'spokój, że Twoja głowa jest ważniejsza niż Twój stack',
     },
     {
-      from: 'Mówisz językiem technologii',
-      to: 'Komunikujesz się z\u00A0biznesem',
+      from: 'Boję się, że AI mnie zastąpi',
+      to: 'przekonanie, że maszyna nie zastąpi kogoś, kto myśli, pyta i\u00A0kwestionuje',
     },
     {
-      from: 'Odpowiadasz za swój kod',
-      to: 'Odpowiadasz za rezultaty zespołu',
+      from: 'Nie mam głosu w\u00A0tej branży',
+      to: 'odwaga, żeby publicznie mówić to, co myślisz',
     },
   ];
 
   return (
     <section className="py-16 sm:py-24">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-4xl">
         <FadeInUp>
           <h2 className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
-            Co się zmieni?
+            Przestajesz być code monkey.
+            <span className="mt-2 block text-green-400">Zaczynasz rozumieć swoją realną wartość.</span>
           </h2>
-          <p className="mt-4 max-w-3xl text-lg text-gray-400">
-            W&nbsp;mojej opinii, przejście do roli managera to zmiana mindsetu, a&nbsp;nie zwykły awans.
-            Przeprowadzę Cię przez tę transformację.
+        </FadeInUp>
+
+        <FadeInUp delay={0.15}>
+          <p className="mt-6 text-lg text-gray-400">
+            Nie sprzedaję Ci frameworka na życie. Nie mam 5-krokowego planu na sukces. I&nbsp;na pewno nie powiem Ci, żebyś po prostu się przebranżowił.
+          </p>
+          <p className="mt-4 text-lg font-medium text-white">
+            To, co dostajesz, to zmiana perspektywy:
           </p>
         </FadeInUp>
 
-        <div className="mt-12 space-y-4">
-          {transformations.map((t, index) => (
-            <FadeInUp key={t.from} delay={index * 0.1}>
+        <div className="mt-10 space-y-4">
+          {shifts.map((s, index) => (
+            <FadeInUp key={s.from} delay={0.2 + index * 0.1}>
               <div className="grid items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-4 sm:grid-cols-[1fr,auto,1fr] sm:gap-8 sm:p-6">
                 <div className="text-gray-400">
-                  <span className="text-xs uppercase tracking-wider text-gray-500">Teraz</span>
-                  <p className="mt-1">{t.from}</p>
+                  <span className="text-xs uppercase tracking-wider text-red-400/70">Teraz</span>
+                  <p className="mt-1">{s.from}</p>
                 </div>
                 <div className="hidden text-2xl text-green-500 sm:block">→</div>
                 <div className="border-t border-white/10 pt-4 text-white sm:border-0 sm:pt-0">
-                  <span className="text-xs uppercase tracking-wider text-green-500">Po programie</span>
-                  <p className="mt-1 font-medium">{t.to}</p>
+                  <span className="text-xs uppercase tracking-wider text-green-500">Zmiana</span>
+                  <p className="mt-1 font-medium">{s.to}</p>
                 </div>
               </div>
             </FadeInUp>
           ))}
         </div>
-      </div>
-    </section>
-  );
-};
 
-// ============================================================================
-// CREDIBILITY SECTION
-// ============================================================================
-
-export const CredibilitySection: FC = () => {
-  const timeline = [
-    { role: 'Intern', desc: 'Zaczynałem od podstaw', colorClass: 'bg-gray-400/20 text-gray-300' },
-    { role: 'Junior', desc: 'Uczyłem się na błędach', colorClass: 'bg-green-500/20 text-green-400' },
-    { role: 'Mid', desc: 'Brałem odpowiedzialność', colorClass: 'bg-blue-500/20 text-blue-400' },
-    { role: 'Senior', desc: 'Projektowałem rozwiązania', colorClass: 'bg-indigo-500/20 text-indigo-400' },
-    { role: 'Staff', desc: 'Wpływałem na architekturę', colorClass: 'bg-purple-500/20 text-purple-400' },
-    { role: 'Manager', desc: 'Prowadzę zespoły', colorClass: 'bg-red-500/20 text-red-400' },
-  ];
-
-  const credentials = [
-    'Wykładowca na kursach prywatnych oraz uczelni wyższej',
-    'Rekruter techniczny - rozumiem proces z\u00A0perspektywy firmy i\u00A0kandydata',
-    'Prelegent na ogólnopolskich konferencjach IT',
-    'Lider budujący i\u00A0prowadzący zespoły produktowe',
-    'Współpraca z\u00A0firmami z\u00A0Europy, USA i\u00A0Bliskiego Wschodu - od startupów po korporacje',
-  ];
-
-  return (
-    <section className="py-16 sm:py-24">
-      <div className="mx-auto max-w-6xl">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <div>
-            <FadeInLeft>
-              <h2 className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
-                Przeszedłem całą ścieżkę
-              </h2>
-              <p className="mt-4 text-lg text-gray-400">
-                Jestem pragmatykiem. Sporo czytam, ale nie uczę prosto z&nbsp;książek. Mówię z&nbsp;doświadczenia, bo sam przeszedłem każdy etap,
-                od interna do managera.
-              </p>
-            </FadeInLeft>
-
-            <FadeInUp delay={0.2}>
-              <div className="mt-8 flex flex-wrap gap-2">
-                {timeline.map((item, index) => (
-                  <div
-                    key={item.role}
-                    className="flex items-center gap-2"
-                  >
-                    <span className={`rounded-full border border-white/10 px-3 py-1 text-sm font-medium ${item.colorClass}`}>
-                      {item.role}
-                    </span>
-                    {index < timeline.length - 1 && (
-                      <span className="text-gray-600">→</span>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </FadeInUp>
-
-            <FadeInUp delay={0.4}>
-              <ul className="mt-8 space-y-3">
-                {credentials.map(cred => (
-                  <li key={cred} className="flex items-start gap-3 text-gray-300">
-                    <span className="text-green-500">✓</span>
-                    {cred}
-                  </li>
-                ))}
-              </ul>
-            </FadeInUp>
-          </div>
-
-          <FadeInRight delay={0.3}>
-            <div className="relative">
-              <div className="overflow-hidden rounded-2xl">
-                <Image
-                  src="/assets/img/about/about.webp"
-                  alt="Marcin Kołodziej"
-                  width={500}
-                  height={600}
-                  className="size-full object-cover"
-                />
-              </div>
-              <div className="pointer-events-none absolute -inset-4 -z-10 rounded-3xl bg-gradient-to-br from-blue-500/10 via-transparent to-green-500/10 blur-2xl" />
-            </div>
-          </FadeInRight>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// ============================================================================
-// HOW IT WORKS SECTION
-// ============================================================================
-
-export const HowItWorksSection: FC = () => {
-  const steps = [
-    {
-      number: '01',
-      title: 'Diagnoza',
-      description: 'Analizujemy Twoją obecną sytuację, cele i\u00A0wyzwania. Określamy, gdzie jesteś i\u00A0dokąd chcesz dojść.',
-    },
-    {
-      number: '02',
-      title: 'Plan rozwoju',
-      description: 'Tworzymy spersonalizowany plan działania - konkretne kroki, które przybliżą Cię do roli managera.',
-    },
-    {
-      number: '03',
-      title: 'Praca nad kompetencjami',
-      description: 'Rozwijamy kluczowe umiejętności: komunikację, delegowanie, feedback, podejmowanie decyzji.',
-    },
-    {
-      number: '04',
-      title: 'Wdrożenie i\u00A0wsparcie',
-      description: 'Praktykujesz nowe umiejętności w\u00A0realnych sytuacjach. Jestem z\u00A0Tobą na każdym etapie.',
-    },
-  ];
-
-  return (
-    <section className="py-16 sm:py-24">
-      <div className="mx-auto max-w-6xl">
-        <FadeInUp>
-          <h2 className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
-            Jak to działa?
-          </h2>
-          <p className="mt-4 max-w-3xl text-lg text-gray-400">
-            Cały proces oparty jest na praktyce. Każdy krok przybliża Cię do celu.
+        <FadeInUp delay={0.8}>
+          <p className="mt-10 text-lg text-gray-400">
+            Zmiana firmy nie jest rozwiązaniem. Chodzi o&nbsp;to, żebyś przestał żyć na autopilocie
+            i&nbsp;zaczął świadomie decydować, kim chcesz być w&nbsp;tech.
           </p>
         </FadeInUp>
-
-        <StaggerContainer className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" staggerDelay={0.1}>
-          {steps.map(step => (
-            <StaggerItem key={step.number}>
-              <motion.div
-                className="h-full rounded-2xl border border-white/10 bg-white/5 p-6"
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.2 }}
-              >
-                <span className="text-3xl font-bold text-green-500">{step.number}</span>
-                <h3 className="mt-4 text-xl font-semibold text-white">{step.title}</h3>
-                <p className="mt-2 text-sm text-gray-400">{step.description}</p>
-              </motion.div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
       </div>
     </section>
   );
 };
 
 // ============================================================================
-// SOCIAL PROOF SECTION
+// SPEAKER SECTION
 // ============================================================================
 
-export const SocialProofSection: FC = () => {
+export const SpeakerSection: FC = () => {
   const testimonials = [
     {
-      quote: 'Praca z\u00A0Marcinem znacząco ukształtowała moje podejście do przywództwa i\u00A0komunikacji. W\u00A0trudnych sytuacjach zachowuje spokój, jasno myśli i\u00A0podejmuje zdecydowane decyzje.',
-      author: 'Michał',
-      position: 'Tech Lead',
+      quote: 'Najlepsza prelekcja na całej konferencji. Nareszcie ktoś mówi o\u00A0tym, o\u00A0czym wszyscy myślimy.',
+      author: 'Paweł',
+      event: 'Boiling Frogs 2026',
     },
     {
-      quote: 'Marcin łączy rozległą wiedzę techniczną z\u00A0efektywnym zarządzaniem ludźmi. Tworzy środowisko sprzyjające nauce, współpracy i\u00A0rozwojowi zespołu.',
-      author: 'Kacper',
-      position: 'Developer',
-    },
-    {
-      quote: 'Inspirujący lider, który wnosi przejrzystość, autentyczną troskę i\u00A0skuteczne podejście do zarządzania.',
-      author: 'Eugene',
-      position: 'Team Lead',
+      quote: 'Marcin nie prezentuje. Marcin uderza. Sala była cicho, co na konferencji IT graniczy z\u00A0cudem.',
+      author: 'Monika',
+      event: 'Boiling Frogs 2026',
     },
   ];
 
   return (
     <section className="py-16 sm:py-24">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-4xl">
         <FadeInUp>
           <h2 className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
-            Co mówią inni?
+            Nie czytam slajdów.
+            <span className="mt-2 block bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">Przynoszę ogień.</span>
           </h2>
         </FadeInUp>
 
-        <StaggerContainer className="mt-12 grid gap-6 lg:grid-cols-3" staggerDelay={0.15}>
-          {testimonials.map(t => (
-            <StaggerItem key={t.author}>
+        <div className="mt-10 space-y-6">
+          <FadeInUp delay={0.1}>
+            <p className="text-lg leading-relaxed text-gray-300">
+              Konferencje IT mają problem. Kolejny talk o&nbsp;mikroserwisach. Kolejna prezentacja niemal czytana z&nbsp;ekranu, w dodatku monotonnym głosem.
+              Kolejna sala wyciągająca telefony po trzecim slajdzie.
+            </p>
+          </FadeInUp>
+
+          <FadeInUp delay={0.2}>
+            <p className="text-xl font-semibold text-white">
+              Moje prelekcje to coś innego.
+            </p>
+          </FadeInUp>
+
+          <FadeInUp delay={0.3}>
+            <p className="text-lg leading-relaxed text-gray-300">
+              Wchodzę na scenę, żeby ludzie poczuli. Żeby pokiwali głową i&nbsp;pomyśleli:
+              &bdquo;Też to czuję, ktoś wreszcie to powiedział.&rdquo; Żeby wyszli z&nbsp;sali z&nbsp;czymś więcej niż kolejne zdjęcie na LinkedIn.
+            </p>
+          </FadeInUp>
+
+          <FadeInUp delay={0.4}>
+            <p className="text-lg leading-relaxed text-gray-300">
+              Mówię o&nbsp;wypaleniu. O&nbsp;utracie sensu. O&nbsp;tym, że branża tech sprzedaje iluzję,
+              a&nbsp;Ty masz prawo to kwestionować. Surowo, energicznie i&nbsp;bez owijania w&nbsp;bawełnę.
+            </p>
+          </FadeInUp>
+        </div>
+
+        <StaggerContainer className="mt-12 grid gap-6 sm:grid-cols-2" staggerDelay={0.15}>
+          {testimonials.map((t, i) => (
+            <StaggerItem key={`${t.author}-${i}`}>
               <motion.div
-                className="h-full rounded-2xl border border-white/10 bg-white/5 p-6"
-                whileHover={{ borderColor: 'rgba(34, 197, 94, 0.3)' }}
+                className="h-full rounded-2xl border border-orange-500/20 bg-orange-500/5 p-6"
+                whileHover={{ borderColor: 'rgba(249, 115, 22, 0.4)' }}
                 transition={{ duration: 0.2 }}
               >
-                <p className="italic text-gray-300">
+                <span className="text-2xl">🔥</span>
+                <p className="mt-3 italic text-gray-300">
                   {t.quote}
                 </p>
-                <div className="mt-6 border-t border-white/10 pt-4">
-                  <p className="font-medium text-white">{t.author}</p>
-                  <p className="text-sm text-gray-500">{t.position}</p>
-                </div>
+                <p className="mt-4 text-sm text-gray-500">
+                  —
+                  {' '}
+                  {t.author}
+                  ,
+                  {' '}
+                  {t.event}
+                </p>
               </motion.div>
             </StaggerItem>
           ))}
@@ -436,7 +279,7 @@ export const SocialProofSection: FC = () => {
 };
 
 // ============================================================================
-// CTA SECTION
+// FINAL CTA SECTION
 // ============================================================================
 
 export const CTASection: FC = () => {
@@ -444,79 +287,33 @@ export const CTASection: FC = () => {
     <section className="py-16 sm:py-24">
       <div className="mx-auto max-w-4xl">
         <FadeInUp>
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-500/10 via-green-500/10 to-indigo-500/10 p-8 sm:p-12">
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-red-500/10 via-amber-500/10 to-orange-500/10 p-8 sm:p-12">
             <div className="relative z-10 text-center">
               <h2 className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
-                Rozważasz kolejny krok?
+                To nie jest ruch.
               </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-300">
-                Przejście z&nbsp;roli technicznej do managera to jedno z&nbsp;największych wyzwań
-                w&nbsp;karierze inżyniera. Nie musisz robić tego samodzielnie.
+              <p className="mx-auto mt-2 text-xl font-medium text-amber-400 sm:text-2xl">
+                To jest rozmowa, której nikt inny nie prowadzi.
               </p>
-              <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <ButtonLink href="/oferta">
-                  Zobacz ofertę
+              <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-300">
+                Jeśli czujesz, że to o&nbsp;Tobie - dołącz na LinkedInie. Publikuję regularnie. Bez filtra.
+                Piszę to co myślę. O&nbsp;rzeczach, o&nbsp;których w&nbsp;branży mówi się szeptem albo wcale.
+              </p>
+              <p className="mx-auto mt-4 max-w-2xl text-lg font-semibold text-white">
+                Nie musisz się ze mną zgadzać. Musisz zacząć myśleć.
+              </p>
+              <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                <ButtonLink href="https://linkedin.com/in/codestorybro">
+                  Obserwuj mnie na LinkedIn →
                 </ButtonLink>
                 <ButtonLink href="mailto:hello@codestorybro.com" variant="outline">
-                  Napisz do mnie
+                  Szukasz prelegenta? Napisz →
                 </ButtonLink>
               </div>
             </div>
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-green-500/5" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-red-500/5 via-transparent to-orange-500/5" />
           </div>
         </FadeInUp>
-      </div>
-    </section>
-  );
-};
-
-// ============================================================================
-// FAQ SECTION (New version)
-// ============================================================================
-
-export const FAQSection: FC = () => {
-  const faqs = [
-    {
-      q: 'Czy muszę mieć doświadczenie w\u00A0zarządzaniu?',
-      a: 'Nie. Pracuję głównie z\u00A0osobami, które dopiero planują przejście do roli managera lub są na jej początku.',
-    },
-    {
-      q: 'Czy technologia, w\u00A0której pracuję, ma znaczenie?',
-      a: 'Nie. Skupiam się na kompetencjach managerskich i\u00A0leaderskich, nie na konkretnych stackach technologicznych.',
-    },
-    {
-      q: 'Ile czasu zajmuje taka transformacja?',
-      a: 'Wiele zależy od Twojej sytuacji wyjściowej, celów oraz zaangażowania w\u00A0proces. Natomaist rozmawiamy tutaj raczej o\u00A0miesiącach niż tygodniach. To nie sprint, lecz maraton.',
-    },
-    {
-      q: 'Czy to jest dla osób z\u00A0korporacji czy startupów?',
-      a: 'Dla obu. Wyzwania managera są podobne, różni się kontekst, zasoby i\u00A0skala. Dostosowuję podejście do Twojej sytuacji.',
-    },
-  ];
-
-  return (
-    <section className="py-16 sm:py-24">
-      <div className="mx-auto max-w-4xl">
-        <FadeInUp>
-          <h2 className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
-            Często zadawane pytania
-          </h2>
-        </FadeInUp>
-
-        <StaggerContainer className="mt-12 space-y-4" staggerDelay={0.1}>
-          {faqs.map(faq => (
-            <StaggerItem key={faq.q}>
-              <motion.div
-                className="rounded-xl border border-white/10 bg-white/5 p-6"
-                whileHover={{ borderColor: 'rgba(255, 255, 255, 0.2)' }}
-                transition={{ duration: 0.2 }}
-              >
-                <h3 className="text-lg font-semibold text-white">{faq.q}</h3>
-                <p className="mt-2 text-gray-400">{faq.a}</p>
-              </motion.div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
       </div>
     </section>
   );
