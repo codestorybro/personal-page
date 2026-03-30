@@ -291,17 +291,17 @@ export const CTASection: FC = () => {
           <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-red-500/10 via-amber-500/10 to-orange-500/10 p-8 sm:p-12">
             <div className="relative z-10 text-center">
               <h2 className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
-                To nie jest ruch.
+                Mało kto o tym mówi.
               </h2>
               <p className="mx-auto mt-2 text-xl font-medium text-amber-400 sm:text-2xl">
-                To jest rozmowa, której nikt inny nie prowadzi.
+                A powinien.
               </p>
               <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-300">
                 O&nbsp;rzeczach, o&nbsp;których w&nbsp;branży mówi się szeptem albo wcale.
                 Jeśli czujesz, że to o&nbsp;Tobie - dołącz na LinkedIn. Publikuję regularnie i&nbsp;piszę to co myślę.
               </p>
               <p className="mx-auto mt-4 max-w-2xl text-lg font-semibold text-white">
-                Nie musisz się ze mną zgadzać. Musisz zacząć myśleć.
+                Nie musisz się ze mną zgadzać, ale jeżeli skłoniłem Cię do myślenia - to już coś.
               </p>
               <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <ButtonLink href="https://linkedin.com/in/codestorybro" glowClassName="bg-blue-500">
