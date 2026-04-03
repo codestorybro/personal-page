@@ -16,7 +16,7 @@ const Footer: FC = () => {
     <footer id="newsletter" className="mt-4 border-t-2 border-t-zinc-800 pb-4">
       {/* Newsletter section */}
       {!hideNewsletter && (
-        <div className="mx-auto max-w-6xl px-8 pb-6 pt-10">
+        <div className="mx-auto max-w-6xl px-8 pt-10">
           <SubscribeForm />
         </div>
       )}

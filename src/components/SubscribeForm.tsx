@@ -54,7 +54,7 @@ const SubscribeForm: FC = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="relative isolate overflow-hidden">
       <div className="mx-auto max-w-7xl">
-        <div className="max-w-xl lg:max-w-lg">
+        <div className="max-w-xl pb-8 lg:max-w-lg">
           <p className="mt-4 text-lg text-gray-300">Bądź na bieżąco i zapisz się do newslettera!</p>
           <div className="mx-1 mb-1 mt-6 flex max-w-md items-center gap-x-4">
             <Input

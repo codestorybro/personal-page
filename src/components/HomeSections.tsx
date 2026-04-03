@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 import { FadeInUp, StaggerContainer, StaggerItem } from './AnimatedElements';
 import { ButtonLink } from './Button';
 
+export { BlogBridge } from './BlogBridge';
+
 // ============================================================================
 // HERO SECTION
 // ============================================================================
@@ -67,7 +69,7 @@ export const ProblemSection: FC = () => {
       <div className="mx-auto max-w-4xl">
         <FadeInUp>
           <h2 className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
-            Budzik. Stand-up. Jira. Commit. Powtórz.
+            Budzik. Stand-up. Jira. Commit. Powtórz?
           </h2>
         </FadeInUp>
 

@@ -1,4 +1,5 @@
 import {
+  BlogBridge,
   CTASection,
   HeroSection,
   ProblemSection,
@@ -86,6 +87,7 @@ export default function Index() {
       <ProblemSection />
       <TransformationSection />
       <SpeakerSection />
+      <BlogBridge />
       <CTASection />
     </>
   );
