@@ -215,6 +215,30 @@
 
     </nav>
 
+    <!-- Newsletter -->
+    <section class="w-full glass rounded-2xl px-5 py-5 border border-white/10">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-accent/10 text-accent shrink-0">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+          </svg>
+        </span>
+        <div class="leading-tight">
+          <span class="font-semibold text-sm">Newsletter</span>
+          <p class="text-xs text-gray-400">Bądź na bieżąco</p>
+        </div>
+      </div>
+      <form id="newsletter-form" class="flex gap-2" onsubmit="handleSubscribe(event)">
+        <input type="email" id="newsletter-email" required placeholder="Twój e-mail"
+          class="flex-1 rounded-xl bg-white/5 border border-white/10 px-4 py-2.5 text-sm text-white placeholder-gray-500 outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors" />
+        <button type="submit" id="newsletter-btn"
+          class="rounded-xl bg-accent/20 border border-accent/30 px-4 py-2.5 text-sm font-semibold text-accent hover:bg-accent/30 transition-colors shrink-0 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
+          Zapisz się
+        </button>
+      </form>
+      <p id="newsletter-msg" class="mt-2 text-xs hidden"></p>
+    </section>
+
     <!-- Social Icons -->
     <div class="flex items-center gap-5 pt-2">
 
@@ -266,6 +290,41 @@
     function toggleExpand() {
       document.getElementById('expand-panel').classList.toggle('open');
       document.getElementById('expand-chevron').classList.toggle('open');
+    }
+
+    async function handleSubscribe(e) {
+      e.preventDefault();
+      var email = document.getElementById('newsletter-email').value;
+      var btn = document.getElementById('newsletter-btn');
+      var msg = document.getElementById('newsletter-msg');
+
+      btn.disabled = true;
+      btn.textContent = 'Wysyłam...';
+      msg.classList.add('hidden');
+
+      try {
+        var res = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email }),
+        });
+        var data = await res.json();
+
+        if (data.error) {
+          msg.textContent = 'Coś poszło nie tak. Spróbuj ponownie.';
+          msg.className = 'mt-2 text-xs text-red-400';
+        } else {
+          msg.textContent = 'Sprawdź swoją skrzynkę e-mail, aby potwierdzić subskrypcję!';
+          msg.className = 'mt-2 text-xs text-green-400';
+          document.getElementById('newsletter-email').value = '';
+        }
+      } catch (_) {
+        msg.textContent = 'Błąd połączenia. Spróbuj ponownie.';
+        msg.className = 'mt-2 text-xs text-red-400';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Zapisz się';
+      }
     }
   </script>
 
