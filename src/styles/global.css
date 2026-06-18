@@ -56,9 +56,11 @@ body {
   white-space: nowrap;
   transform: translateY(0.08em);
   text-shadow:
-    -0.028em -0.008em rgb(26 211 217 / 24%),
-    0.028em 0.008em rgb(209 13 116 / 20%),
-    0 0 0.5rem rgb(248 248 248 / 14%);
+    -0.042em -0.01em rgb(26 211 217 / 36%),
+    0.042em 0.01em rgb(209 13 116 / 32%),
+    -0.015em 0 rgb(26 211 217 / 18%),
+    0.015em 0 rgb(209 13 116 / 16%),
+    0 0 0.5rem rgb(248 248 248 / 16%);
 }
 
 .glitch-logo::before,
@@ -77,17 +79,17 @@ body {
 
 .glitch-logo::before {
   color: #1ad3d9;
-  clip-path: inset(8% 0 64% 0);
-  opacity: 0.18;
-  transform: translate(-0.035em, -0.008em);
+  clip-path: inset(6% 0 57% 0);
+  opacity: 0.3;
+  transform: translate(-0.052em, -0.012em);
   animation: codestorybro-glitch-cyan 7s steps(1, end) infinite;
 }
 
 .glitch-logo::after {
   color: #d10d74;
-  clip-path: inset(62% 0 8% 0);
-  opacity: 0.15;
-  transform: translate(0.035em, 0.008em);
+  clip-path: inset(55% 0 6% 0);
+  opacity: 0.26;
+  transform: translate(0.052em, 0.012em);
   animation: codestorybro-glitch-magenta 7s steps(1, end) infinite;
 }
 
@@ -98,9 +100,9 @@ body {
   94%,
   97%,
   100% {
-    clip-path: inset(8% 0 64% 0);
-    opacity: 0.18;
-    transform: translate(-0.035em, -0.008em);
+    clip-path: inset(6% 0 57% 0);
+    opacity: 0.3;
+    transform: translate(-0.052em, -0.012em);
   }
 
   89% {
@@ -141,9 +143,9 @@ body {
   94%,
   97%,
   100% {
-    clip-path: inset(62% 0 8% 0);
-    opacity: 0.15;
-    transform: translate(0.035em, 0.008em);
+    clip-path: inset(55% 0 6% 0);
+    opacity: 0.26;
+    transform: translate(0.052em, 0.012em);
   }
 
   89% {
@@ -180,9 +182,11 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .glitch-logo {
     text-shadow:
-      -0.028em -0.008em rgb(26 211 217 / 24%),
-      0.028em 0.008em rgb(209 13 116 / 20%),
-      0 0 0.5rem rgb(248 248 248 / 14%);
+      -0.042em -0.01em rgb(26 211 217 / 36%),
+      0.042em 0.01em rgb(209 13 116 / 32%),
+      -0.015em 0 rgb(26 211 217 / 18%),
+      0.015em 0 rgb(209 13 116 / 16%),
+      0 0 0.5rem rgb(248 248 248 / 16%);
   }
 
   .glitch-logo::before,

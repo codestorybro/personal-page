@@ -292,12 +292,12 @@ export const SpeakerSection: FC = () => {
     {
       quote: 'Najlepsza prelekcja na całej konferencji. Nareszcie ktoś mówi o\u00A0tym, o\u00A0czym wszyscy myślimy.',
       author: 'Maciek',
-      event: 'Boiling Frogs 2026',
+      event: 'Boiling Frogs Conference',
     },
     {
       quote: 'Marcin nie prezentuje tylko uderza. Sala pełna, a\u00A0była cicho, co na konferencji IT graniczy z\u00A0cudem.',
       author: 'Monika',
-      event: '4Developers Warsaw 2026',
+      event: '4Developers Warsaw',
     },
   ];
 
