@@ -1,6 +1,8 @@
 'use client';
 import type { FC } from 'react';
-import { EnvelopeSimpleIcon, LinkedinLogoIcon, ListIcon, XIcon, YoutubeLogoIcon } from '@phosphor-icons/react';
+import { useCopyEmail } from '@/hooks/useCopyEmail';
+import { AppConfig } from '@/utils/AppConfig';
+import { EnvelopeSimpleIcon, LinkedinLogoIcon, ListIcon, ThreadsLogoIcon, XIcon, YoutubeLogoIcon } from '@phosphor-icons/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,12 +11,14 @@ import { useState } from 'react';
 const MotionLink = motion.create(Link);
 
 const socialLinks = [
-  { name: 'YouTube', label: 'CodeStoryBro na YouTube', href: 'https://youtube.com/@codestorybro', icon: YoutubeLogoIcon, hoverTextColor: 'hover:text-red-100', hoverBgColor: 'bg-red-500' },
-  { name: 'LinkedIn', label: 'Marcin Kołodziej na LinkedIn', href: 'https://linkedin.com/in/codestorybro/', icon: LinkedinLogoIcon, hoverTextColor: 'hover:text-blue-100', hoverBgColor: 'bg-blue-500' },
+  { name: 'YouTube', label: 'CodeStoryBro na YouTube', href: AppConfig.social.youtube, icon: YoutubeLogoIcon, hoverTextColor: 'hover:text-red-100', hoverBgColor: 'bg-red-500' },
+  { name: 'LinkedIn', label: 'Marcin Kołodziej na LinkedIn', href: AppConfig.social.linkedin, icon: LinkedinLogoIcon, hoverTextColor: 'hover:text-blue-100', hoverBgColor: 'bg-blue-500' },
+  { name: 'Threads', label: 'CodeStoryBro na Threads', href: AppConfig.social.threads, icon: ThreadsLogoIcon, hoverTextColor: 'hover:text-white', hoverBgColor: 'bg-zinc-300' },
 ];
 
 export const Header: FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const copyEmail = useCopyEmail();
 
   return (
     <>
@@ -53,22 +57,6 @@ export const Header: FC = () => {
 
         {/* Desktop navigation */}
         <nav className="hidden items-center gap-2 lg:flex" aria-label="Główna nawigacja">
-          <MotionLink
-            href="/#serie"
-            className="group relative rounded-lg px-2 py-1 font-medium text-gray-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span
-              className="pointer-events-none absolute inset-0 rounded-lg bg-indigo-500 opacity-0 blur-[10px] transition-opacity duration-300 group-hover:opacity-60"
-              aria-hidden="true"
-            />
-            <span className="relative z-10">Start tutaj</span>
-          </MotionLink>
-
-          {/* Divider */}
-          <div className="mr-2 h-6 w-px bg-white/20" />
-
           {/* Social links */}
           {socialLinks.map(social => (
             <motion.a
@@ -93,9 +81,12 @@ export const Header: FC = () => {
           <div className="ml-2 h-6 w-px bg-white/20" />
 
           {/* Contact CTA */}
-          <motion.a
-            href="mailto:hello@codestorybro.com?subject=Zaproszenie%20na%20wyst%C4%85pienie"
-            aria-label="Napisz w sprawie prelekcji lub współpracy"
+          <motion.button
+            type="button"
+            onClick={() => {
+              void copyEmail();
+            }}
+            aria-label={`Skopiuj adres email ${AppConfig.author.email}`}
             className="group relative ml-2 inline-flex items-center gap-2 rounded-lg border border-[#333333] px-3 py-1.5 text-sm font-medium text-gray-400 transition-colors hover:border-indigo-400/50 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -106,7 +97,7 @@ export const Header: FC = () => {
             />
             <EnvelopeSimpleIcon size={16} className="relative z-10" />
             <span className="relative z-10">Zaproś mnie</span>
-          </motion.a>
+          </motion.button>
         </nav>
 
         {/* Mobile hamburger button */}
@@ -163,32 +154,22 @@ export const Header: FC = () => {
               transition={{ duration: 0.3, ease: 'easeOut' }}
             >
               <nav className="flex flex-col items-center gap-6 py-8" aria-label="Nawigacja mobilna">
-                <MotionLink
-                  href="/#serie"
-                  className="rounded-lg px-6 py-3 text-xl text-gray-300 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0 }}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Start tutaj
-                </MotionLink>
-
-                {/* Divider */}
-                <div className="h-px w-32 bg-white/20" />
-
                 {/* Contact CTA */}
-                <motion.a
-                  href="mailto:hello@codestorybro.com?subject=Zaproszenie%20na%20wyst%C4%85pienie"
+                <motion.button
+                  type="button"
+                  aria-label={`Skopiuj adres email ${AppConfig.author.email}`}
                   className="flex items-center gap-3 rounded-lg border border-[#333333] px-6 py-3 text-xl text-gray-300 transition-colors hover:border-indigo-400/50 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 }}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  transition={{ delay: 0 }}
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    void copyEmail();
+                  }}
                 >
                   <EnvelopeSimpleIcon size={28} weight="regular" />
-                  <span>Zaproś mnie na wystąpienie</span>
-                </motion.a>
+                  <span>Zaproś mnie</span>
+                </motion.button>
 
                 {/* Divider */}
                 <div className="h-px w-32 bg-white/20" />
@@ -204,7 +185,7 @@ export const Header: FC = () => {
                     className="flex items-center gap-3 rounded-lg px-6 py-3 text-xl text-gray-300 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: (index + 2) * 0.1 }}
+                    transition={{ delay: (index + 1) * 0.1 }}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <social.icon size={28} weight="regular" />

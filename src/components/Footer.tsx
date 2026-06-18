@@ -1,21 +1,27 @@
 'use client';
 
 import type { FC } from 'react';
+import { useCopyEmail } from '@/hooks/useCopyEmail';
+import { AppConfig } from '@/utils/AppConfig';
 import { motion } from 'framer-motion';
+import { BrandSlogan } from './BrandSlogan';
 
 const socialLinks = [
-  { name: 'YouTube', href: 'https://youtube.com/@codestorybro' },
-  { name: 'LinkedIn', href: 'https://linkedin.com/in/codestorybro/' },
-  { name: 'TikTok', href: 'https://www.tiktok.com/@codestorybro' },
-  { name: 'Instagram', href: 'https://www.instagram.com/codestorybro/' },
+  { name: 'YouTube', href: AppConfig.social.youtube },
+  { name: 'LinkedIn', href: AppConfig.social.linkedin },
+  { name: 'Threads', href: AppConfig.social.threads },
+  { name: 'TikTok', href: AppConfig.social.tiktok },
+  { name: 'Instagram', href: AppConfig.social.instagram },
 ];
 
 const Footer: FC = () => {
+  const copyEmail = useCopyEmail();
+
   return (
     <footer className="mt-4 border-t-2 border-t-zinc-800">
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-4 p-8 text-center">
         <p className="text-sm font-semibold tracking-[0.2em] text-gray-300">
-          LEAD • THINK • GROW
+          <BrandSlogan />
         </p>
         <p className="text-sm text-gray-500">
           Najtrudniejsze w&nbsp;IT rzadko jest techniczne.
@@ -35,14 +41,17 @@ const Footer: FC = () => {
               {link.name}
             </motion.a>
           ))}
-          <motion.a
-            href="mailto:hello@codestorybro.com"
-            aria-label="Kontakt z Marcinem Kołodziejem"
+          <motion.button
+            type="button"
+            onClick={() => {
+              void copyEmail();
+            }}
+            aria-label={`Skopiuj adres email ${AppConfig.author.email}`}
             className="text-sm text-gray-400 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
             whileHover={{ y: -1 }}
           >
-            Kontakt
-          </motion.a>
+            {AppConfig.author.email}
+          </motion.button>
         </nav>
 
         <p className="text-xs text-gray-600">

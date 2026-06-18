@@ -1,9 +1,12 @@
 'use client';
 
 import type { FC } from 'react';
+import { useCopyEmail } from '@/hooks/useCopyEmail';
+import { AppConfig } from '@/utils/AppConfig';
 import { motion } from 'framer-motion';
 import { FadeInUp, StaggerContainer, StaggerItem } from './AnimatedElements';
-import { ButtonLink } from './Button';
+import { BrandSlogan } from './BrandSlogan';
+import Button, { ButtonLink } from './Button';
 
 export { ThreadsBridge } from './ThreadsBridge';
 
@@ -17,7 +20,7 @@ export const HeroSection: FC = () => {
       <div className="flex flex-col items-center text-center">
         <FadeInUp delay={0.1}>
           <p className="mb-5 text-sm font-semibold tracking-[0.3em] text-amber-400 sm:text-base">
-            LEAD • THINK • GROW
+            <BrandSlogan />
           </p>
         </FadeInUp>
 
@@ -50,13 +53,13 @@ export const HeroSection: FC = () => {
 
         <FadeInUp delay={0.5}>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center">
-            <ButtonLink href="https://youtube.com/@codestorybro" glowClassName="bg-red-500">
-              Zobacz moje materiały →
+            <ButtonLink href={AppConfig.social.youtube} glowClassName="bg-red-500">
+              Oglądaj na YouTube →
             </ButtonLink>
-            <ButtonLink href="mailto:hello@codestorybro.com?subject=Zaproszenie%20na%20wyst%C4%85pienie" glowClassName="bg-yellow-500" variant="outline">
-              Zaproś mnie na wystąpienie →
+            <ButtonLink href={AppConfig.social.threads} glowClassName="bg-zinc-300" variant="outline">
+              Wejdź w dyskusję na Threads →
             </ButtonLink>
-            <ButtonLink href="https://linkedin.com/in/codestorybro" glowClassName="bg-blue-500" variant="outline">
+            <ButtonLink href={AppConfig.social.linkedin} glowClassName="bg-blue-500" variant="outline">
               Obserwuj na LinkedIn →
             </ButtonLink>
           </div>
@@ -287,6 +290,8 @@ export const SeriesSection: FC = () => {
 // ============================================================================
 
 export const SpeakerSection: FC = () => {
+  const copyEmail = useCopyEmail();
+
   const testimonials = [
     {
       quote: 'Najlepsza prelekcja na całej konferencji. Nareszcie ktoś mówi o\u00A0tym, o\u00A0czym wszyscy myślimy.',
@@ -296,7 +301,7 @@ export const SpeakerSection: FC = () => {
     {
       quote: 'Marcin nie prezentuje tylko uderza. Sala pełna, a\u00A0była cicho, co na konferencji IT graniczy z\u00A0cudem.',
       author: 'Monika',
-      event: 'Boiling Frogs 2026',
+      event: '4Developers Warsaw 2026',
     },
   ];
 
@@ -335,9 +340,15 @@ export const SpeakerSection: FC = () => {
 
           <FadeInUp delay={0.4}>
             <div className="pt-2">
-              <ButtonLink href="mailto:hello@codestorybro.com?subject=Zaproszenie%20na%20wyst%C4%85pienie" glowClassName="bg-orange-500">
+              <Button
+                onClick={() => {
+                  void copyEmail();
+                }}
+                ariaLabel={`Skopiuj adres email ${AppConfig.author.email}`}
+                glowClassName="bg-orange-500"
+              >
                 Zaproś mnie na konferencję lub event →
-              </ButtonLink>
+              </Button>
             </div>
           </FadeInUp>
         </div>
@@ -350,7 +361,6 @@ export const SpeakerSection: FC = () => {
                 whileHover={{ borderColor: 'rgba(249, 115, 22, 0.4)' }}
                 transition={{ duration: 0.2 }}
               >
-                <span className="text-2xl" aria-hidden="true">🔥</span>
                 <p className="mt-3 italic text-gray-300">
                   {testimonial.quote}
                 </p>
@@ -393,12 +403,15 @@ export const CTASection: FC = () => {
               <p className="mx-auto mt-4 max-w-2xl text-lg font-semibold text-white">
                 Bez korporacyjnej waty. Z&nbsp;odpowiedzialnością za słowa i&nbsp;decyzje.
               </p>
-              <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <ButtonLink href="https://linkedin.com/in/codestorybro" glowClassName="bg-blue-500">
+              <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
+                <ButtonLink href={AppConfig.social.linkedin} glowClassName="bg-blue-500">
                   Obserwuj na LinkedIn →
                 </ButtonLink>
-                <ButtonLink href="https://youtube.com/@codestorybro" glowClassName="bg-red-500" variant="outline">
+                <ButtonLink href={AppConfig.social.youtube} glowClassName="bg-red-500" variant="outline">
                   Zobacz YouTube →
+                </ButtonLink>
+                <ButtonLink href={AppConfig.social.threads} glowClassName="bg-zinc-300" variant="outline">
+                  Wejdź w dyskusję na Threads →
                 </ButtonLink>
               </div>
             </div>

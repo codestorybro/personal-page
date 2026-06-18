@@ -112,7 +112,13 @@
 
       <div>
         <h1 class="text-2xl font-bold tracking-tight">CodeStoryBro</h1>
-        <p class="mt-1 text-xs font-semibold tracking-[0.22em] text-accent">LEAD • THINK • GROW</p>
+        <p class="mt-1 text-xs font-semibold tracking-[0.22em]">
+          <span style="color: #1ad3d9">LEAD</span>
+          <span class="text-gray-500"> • </span>
+          <span style="color: #f8f8f8">THINK</span>
+          <span class="text-gray-500"> • </span>
+          <span style="color: #d10d74">GROW</span>
+        </p>
         <p class="mt-2 text-sm text-gray-300 leading-relaxed">Najtrudniejsze w IT rzadko jest techniczne</p>
         <p class="mt-1 text-sm text-gray-400 leading-relaxed">Marcin Kołodziej · Engineering Manager · Speaker</p>
       </div>
@@ -131,7 +137,7 @@
           </svg>
         </span>
         <span class="flex flex-col leading-tight">
-          <span class="font-semibold text-sm">🔴 Start tutaj na YouTube</span>
+          <span class="font-semibold text-sm">🔴 Oglądaj na YouTube</span>
           <span class="text-xs text-gray-400">Leadership, trudne rozmowy i praca managera IT</span>
         </span>
         <svg class="w-4 h-4 ml-auto text-gray-500 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -139,9 +145,10 @@
         </svg>
       </a>
 
-      <!-- Wystąpienia i współpraca → mailto -->
-      <a href="mailto:hello@codestorybro.com?subject=Wsp%C3%B3%C5%82praca%20%2F%20Konferencja"
-         class="link-btn glass rounded-2xl px-5 py-4 flex items-center gap-4 border border-white/10 text-white no-underline">
+      <!-- Wystąpienia i współpraca -->
+      <button type="button" id="copy-email"
+         aria-label="Skopiuj adres email hello@codestorybro.com"
+         class="link-btn glass w-full rounded-2xl px-5 py-4 flex items-center gap-4 border border-white/10 text-left text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-accent">
         <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-accent/10 text-accent shrink-0">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z" />
@@ -149,12 +156,12 @@
         </span>
         <span class="flex flex-col leading-tight">
           <span class="font-semibold text-sm">Wystąpienia i współpraca</span>
-          <span class="text-xs text-gray-400">Konferencja, meetup lub event firmowy</span>
+          <span id="copy-email-status" class="text-xs text-gray-400" aria-live="polite">hello@codestorybro.com</span>
         </span>
         <svg class="w-4 h-4 ml-auto text-gray-500 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
         </svg>
-      </a>
+      </button>
 
     </nav>
 
@@ -189,15 +196,12 @@
         </svg>
       </a>
 
-      <!-- TODO: Replace this placeholder with the confirmed Threads profile URL. -->
-      <span
-        aria-label="Threads — link do uzupełnienia"
-        aria-disabled="true"
-        title="TODO: uzupełnij URL profilu Threads"
-        class="cursor-not-allowed text-xs font-medium text-gray-500"
-      >
-        Threads
-      </span>
+      <!-- Threads -->
+      <a href="https://www.threads.com/@codestorybro" target="_blank" rel="noopener noreferrer" aria-label="CodeStoryBro na Threads" class="social-icon text-gray-400">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true">
+          <path d="M186.42,123.65a63.81,63.81,0,0,0-11.13-6.72c-4-29.89-24-39.31-33.1-42.07-19.78-6-42.51,1.19-52.85,16.7a8,8,0,0,0,13.32,8.88c6.37-9.56,22-14.16,34.89-10.27,9.95,3,16.82,10.3,20.15,21a81.05,81.05,0,0,0-15.29-1.43c-13.92,0-26.95,3.59-36.67,10.1C94.3,127.57,88,139,88,152c0,20.58,15.86,35.52,37.71,35.52a48,48,0,0,0,34.35-14.81c6.44-6.7,14-18.36,15.61-37.1.38.26.74.53,1.1.8C186.88,144.05,192,154.68,192,168c0,19.36-20.34,48-64,48-26.73,0-45.48-8.65-57.34-26.44C60.93,175,56,154.26,56,128s4.93-47,14.66-61.56C82.52,48.65,101.27,40,128,40c32.93,0,54,13.25,64.53,40.52a8,8,0,1,0,14.93-5.75C194.68,41.56,167.2,24,128,24,96,24,72.19,35.29,57.34,57.56,45.83,74.83,40,98.52,40,128s5.83,53.17,17.34,70.44C72.19,220.71,96,232,128,232c30.07,0,48.9-11.48,59.4-21.1C200.3,199.08,208,183,208,168,208,149.66,200.54,134.32,186.42,123.65Zm-37.89,38a31.94,31.94,0,0,1-22.82,9.9c-10.81,0-21.71-6-21.71-19.52,0-12.63,12-26.21,38.41-26.21A63.88,63.88,0,0,1,160,128.24C160,142.32,156,153.86,148.53,161.62Z"/>
+        </svg>
+      </a>
 
     </div>
 
@@ -207,6 +211,23 @@
     </footer>
 
   </main>
+
+  <script>
+    const copyEmailButton = document.getElementById('copy-email');
+    const copyEmailStatus = document.getElementById('copy-email-status');
+
+    copyEmailButton.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText('hello@codestorybro.com');
+        copyEmailStatus.textContent = 'Skopiowano adres email';
+        window.setTimeout(() => {
+          copyEmailStatus.textContent = 'hello@codestorybro.com';
+        }, 2500);
+      } catch {
+        copyEmailStatus.textContent = 'Skopiuj ręcznie: hello@codestorybro.com';
+      }
+    });
+  </script>
 
 </body>
 </html>

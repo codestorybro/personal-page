@@ -9,10 +9,12 @@ const MotionLink = motion.create(Link);
 
 type ButtonProps = {
   children: React.ReactNode;
+  ariaLabel?: string;
   className?: string;
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
   onClick?: () => void;
+  variant?: 'default' | 'outline';
 };
 
 type ButtonLinkProps = {
@@ -45,10 +47,20 @@ const GlowEffect: FC<{ glowClassName?: string }> = ({ glowClassName }) => (
   />
 );
 
-const Button: FC<ButtonProps & { glowClassName?: string }> = ({ children, glowClassName, className, disabled, type = 'button', onClick }) => {
+const Button: FC<ButtonProps & { glowClassName?: string }> = ({
+  ariaLabel,
+  children,
+  glowClassName,
+  className,
+  disabled,
+  type = 'button',
+  onClick,
+  variant = 'default',
+}) => {
   return (
     <motion.button
-      className={clsx(baseClassName, variantClassNames.default, className)}
+      aria-label={ariaLabel}
+      className={clsx(baseClassName, variantClassNames[variant], className)}
       type={type}
       disabled={disabled}
       onClick={onClick}
