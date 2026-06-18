@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
+import { GlitchLogo } from './GlitchLogo';
 
 const MotionLink = motion.create(Link);
 
@@ -30,6 +31,7 @@ export const Header: FC = () => {
       >
         <MotionLink
           href="/"
+          aria-label="CodeStoryBro — strona główna"
           className="flex flex-row items-center rounded-lg px-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
@@ -45,14 +47,12 @@ export const Header: FC = () => {
               width={50}
               height={68}
               src="/assets/img/logo-main.svg"
-              alt="Logo CodeStoryBro"
+              alt=""
               priority
               className="h-6 w-auto sm:h-12"
             />
           </motion.div>
-          <span className="ml-2 translate-y-[0.15em] font-logoText text-xl italic leading-none text-white sm:ml-4 sm:text-5xl">
-            CodeStoryBro
-          </span>
+          <GlitchLogo className="ml-2 sm:ml-4" />
         </MotionLink>
 
         {/* Desktop navigation */}
