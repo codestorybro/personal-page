@@ -1,32 +1,46 @@
 import {
-  BlogBridge,
   CTASection,
   HeroSection,
+  LeadershipSection,
   ProblemSection,
+  SeriesSection,
   SpeakerSection,
-  TransformationSection,
+  ThreadsBridge,
 } from '@/components/HomeSections';
 import { HomeJsonLd } from '@/components/JsonLd';
+import { AppConfig } from '@/utils/AppConfig';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://codestorybro.com';
+const SITE_URL = AppConfig.url;
 
 export async function generateMetadata() {
   const canonicalUrl = SITE_URL;
 
   return {
-    title: 'CodeStoryBro | Mówię głośno o IT to, co większość branży myśli po cichu',
-    description: 'Przestań czuć się jak code monkey. Odzyskaj sens, energię i\u00A0kierunek w\u00A0świecie pełnym korpo-ściemy, przebodźcowania pseudo-sukcesami i\u00A0AI.',
+    title: {
+      absolute: AppConfig.title,
+    },
+    description: AppConfig.description,
     keywords: [
-      'wypalenie w IT',
-      'sens pracy programisty',
-      'burnout developer',
+      'manager IT',
+      'Engineering Manager',
+      'leadership w IT',
+      'zarządzanie zespołem IT',
+      'zarządzanie ludźmi w IT',
+      'manager w IT',
+      'świeży manager',
+      'początkujący manager',
+      'tech lead',
+      'awans na managera',
+      'trudne rozmowy w pracy',
+      'feedback w IT',
+      'kariera w IT',
+      'przywództwo w IT',
+      'kultura pracy w IT',
+      'odpowiedzialność managera',
+      'rozwój managera',
       'prelegent IT Polska',
-      'keynote speaker IT',
-      'kryzys sensu w tech',
       'CodeStoryBro',
       'Marcin Kołodziej',
-      'głos branży IT',
-      'wartość programisty',
     ],
     authors: [{ name: 'Marcin Kołodziej', url: SITE_URL }],
     creator: 'Marcin Kołodziej',
@@ -35,18 +49,18 @@ export async function generateMetadata() {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: 'CodeStoryBro | Mówię głośno o IT to, co większość branży myśli po cichu',
-      description: 'Przestań czuć się jak code monkey. Odzyskaj sens, energię i\u00A0kierunek w\u00A0świecie pełnym korpo-ściemy, przebodźcowania pseudo-sukcesami i\u00A0AI.',
+      title: AppConfig.title,
+      description: AppConfig.description,
       url: canonicalUrl,
       siteName: 'CodeStoryBro',
       type: 'website',
-      locale: 'pl_PL',
+      locale: AppConfig.locale,
       images: [
         {
           url: `${SITE_URL}/assets/img/og-image.png`,
-          width: 1200,
-          height: 630,
-          alt: 'CodeStoryBro | Mówię głośno o IT to, co większość branży myśli po cichu',
+          width: 1536,
+          height: 1024,
+          alt: 'CodeStoryBro – najtrudniejsze w IT rzadko jest techniczne',
         },
       ],
     },
@@ -54,14 +68,14 @@ export async function generateMetadata() {
       card: 'summary_large_image',
       site: '@codestorybro',
       creator: '@codestorybro',
-      title: 'CodeStoryBro | Mówię głośno o IT to, co większość branży myśli po cichu',
-      description: 'Przestań czuć się jak code monkey. Odzyskaj sens, energię i\u00A0kierunek w\u00A0świecie pełnym korpo-ściemy, przebodźcowania pseudo-sukcesami i\u00A0AI.',
+      title: AppConfig.title,
+      description: AppConfig.description,
       images: [
         {
           url: `${SITE_URL}/assets/img/og-image.png`,
-          width: 1200,
-          height: 630,
-          alt: 'CodeStoryBro | Mówię głośno o IT to, co większość branży myśli po cichu',
+          width: 1536,
+          height: 1024,
+          alt: 'CodeStoryBro – najtrudniejsze w IT rzadko jest techniczne',
         },
       ],
     },
@@ -85,9 +99,10 @@ export default function Index() {
       <HomeJsonLd />
       <HeroSection />
       <ProblemSection />
-      <TransformationSection />
+      <LeadershipSection />
+      <SeriesSection />
       <SpeakerSection />
-      <BlogBridge />
+      <ThreadsBridge />
       <CTASection />
     </>
   );

@@ -96,7 +96,7 @@ function pageToPost(page: PageObjectResponse): BlogPost {
   const titleProp = properties['Title'] || properties['Name'] || properties['Tytuł'];
   const title = titleProp?.type === 'title'
     ? extractPlainText(titleProp.title)
-    : 'Untitled';
+    : 'Bez tytułu';
 
   // Extract slug
   const slugProp = properties['Slug'];
@@ -339,7 +339,10 @@ async function renderBlock(blockObj: BlockObjectResponse, depth: number = 0): Pr
         src = blockObj.image.file.url;
       }
       const caption = blockObj.image.caption ? extractPlainText(blockObj.image.caption) : '';
-      html += `<figure class="my-6"><img src="${src}" alt="${caption}" class="rounded-lg w-full" />${caption ? `<figcaption class="text-center text-sm text-gray-500 mt-2">${caption}</figcaption>` : ''}</figure>`;
+      const safeSrc = escapeHtml(src);
+      const safeCaption = escapeHtml(caption);
+      const imageAlt = safeCaption || 'Ilustracja do artykułu CodeStoryBro';
+      html += `<figure class="my-6"><img src="${safeSrc}" alt="${imageAlt}" class="rounded-lg w-full" />${safeCaption ? `<figcaption class="text-center text-sm text-gray-500 mt-2">${safeCaption}</figcaption>` : ''}</figure>`;
       break;
     }
     default:

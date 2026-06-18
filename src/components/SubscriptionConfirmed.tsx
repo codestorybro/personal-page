@@ -27,9 +27,9 @@ const SubscriptionConfirmed: FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.3 }}
       >
-        <p className="text-xl font-bold text-white">Subskrypcja potwierdzona!</p>
+        <p className="text-xl font-bold text-white">Jesteś na liście.</p>
         <p className="text-gray-400">
-          Bum! Twój email został oficjalnie potwierdzony i znajdujesz się na liście.
+          Twój adres e-mail został potwierdzony. Kolejne materiały o&nbsp;leadershipie i&nbsp;ludzkiej stronie IT trafią prosto do Ciebie.
         </p>
       </motion.div>
       <motion.div
@@ -38,7 +38,7 @@ const SubscriptionConfirmed: FC = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4, duration: 0.3 }}
       >
-        <p className="text-center text-sm text-green-400">Dziękuję za zapisanie się do newslettera</p>
+        <p className="text-center text-sm text-green-400">Dzięki, że jesteś z CodeStoryBro.</p>
       </motion.div>
     </motion.div>
   );

@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { FadeInUp, StaggerContainer, StaggerItem } from './AnimatedElements';
 import { ButtonLink } from './Button';
 
-export { BlogBridge } from './BlogBridge';
+export { ThreadsBridge } from './ThreadsBridge';
 
 // ============================================================================
 // HERO SECTION
@@ -15,6 +15,12 @@ export const HeroSection: FC = () => {
   return (
     <section className="py-12 sm:py-20 lg:py-32">
       <div className="flex flex-col items-center text-center">
+        <FadeInUp delay={0.1}>
+          <p className="mb-5 text-sm font-semibold tracking-[0.3em] text-amber-400 sm:text-base">
+            LEAD • THINK • GROW
+          </p>
+        </FadeInUp>
+
         <FadeInUp delay={0.2}>
           <div className="relative mb-6 w-fit">
             <div
@@ -23,35 +29,36 @@ export const HeroSection: FC = () => {
               style={{ WebkitTransform: 'translateZ(0)' }}
             />
             <h1 className="relative text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-6xl">
-              Mówię głośno to, co
+              Najtrudniejsze w&nbsp;IT
               <span className="mt-2 block bg-gradient-to-r from-red-500 via-amber-400 to-orange-500 bg-clip-text pb-4 text-transparent">
-                połowa branży myśli po&nbsp;cichu.
+                rzadko jest techniczne.
               </span>
             </h1>
           </div>
         </FadeInUp>
 
-        <FadeInUp delay={0.4}>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-300">
-            Wypalenie. Puste sprinty. Utrata sensu. Fake&apos;owe sukcesy na&nbsp;LinkedInie.
-            Jeśli czujesz, że coś w&nbsp;IT śmierdzi to nie jesteś sam.
+        <FadeInUp delay={0.35}>
+          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-gray-300">
+            Nazywam się Marcin Kołodziej. Jako Engineering Manager mówię o&nbsp;tym, czego świeżych managerów,
+            tech leadów i&nbsp;ambitnych ludzi z&nbsp;IT nikt nie uczy wystarczająco wcześnie:
+            odpowiedzialności, trudnych rozmowach i&nbsp;prowadzeniu ludzi.
           </p>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-gray-400">
-            Jestem Marcin. I&nbsp;mówię o&nbsp;tym otwarcie, bo ktoś w&nbsp;końcu musi.
+          <p className="mt-4 max-w-2xl text-lg font-medium leading-relaxed text-white">
+            IT to nie tylko kod. To ludzie, decyzje i&nbsp;odpowiedzialność.
           </p>
         </FadeInUp>
 
-        <FadeInUp delay={0.6}>
-          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
-            <ButtonLink href="https://linkedin.com/in/codestorybro" glowClassName="bg-blue-500">
-              Dołącz do mnie na LinkedIn →
+        <FadeInUp delay={0.5}>
+          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center">
+            <ButtonLink href="https://youtube.com/@codestorybro" glowClassName="bg-red-500">
+              Zobacz moje materiały →
             </ButtonLink>
-            <ButtonLink href="https://youtube.com/@codestorybro" glowClassName="bg-red-500" variant="outline">
-              YouTube się kroi, ale bądź na bieżąco →
+            <ButtonLink href="mailto:hello@codestorybro.com?subject=Zaproszenie%20na%20wyst%C4%85pienie" glowClassName="bg-yellow-500" variant="outline">
+              Zaproś mnie na wystąpienie →
             </ButtonLink>
-            {/* <span className="text-sm text-gray-500">
-              YouTube? Się kroi. Bądź na bieżąco.
-            </span> */}
+            <ButtonLink href="https://linkedin.com/in/codestorybro" glowClassName="bg-blue-500" variant="outline">
+              Obserwuj na LinkedIn →
+            </ButtonLink>
           </div>
         </FadeInUp>
       </div>
@@ -69,50 +76,51 @@ export const ProblemSection: FC = () => {
       <div className="mx-auto max-w-4xl">
         <FadeInUp>
           <h2 className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
-            Budzik. Stand-up. Jira. Commit. Powtórz?
+            Zespół może dowozić i&nbsp;jednocześnie się rozpadać.
           </h2>
         </FadeInUp>
 
         <div className="mt-10 space-y-6">
           <FadeInUp delay={0.1}>
             <p className="text-lg leading-relaxed text-gray-300">
-              Kiedyś programowanie dawało Ci kopa. Rozwiązywałeś problemy, budowałeś rzeczy, które miały sens. A&nbsp;teraz?
+              Statusy są zielone. Sprint zamknięty. A&nbsp;jednak ludzie milkną, napięcie rośnie,
+              a&nbsp;najważniejsze problemy nie trafiają ani na daily, ani do raportu.
             </p>
           </FadeInUp>
 
           <FadeInUp delay={0.2}>
             <p className="text-lg leading-relaxed text-gray-300">
-              Teraz przesuwasz tickety. Gonisz velocity. Siedzisz na spotkaniach, które mogły być mailem.
-              I&nbsp;gdzieś w&nbsp;środku czujesz pustkę, na którą brakuje Ci słów.
+              Świeży manager często próbuje dalej być najlepszym devem. Bierze za dużo na siebie,
+              odkłada feedback i&nbsp;liczy, że trudna sytuacja rozwiąże się sama. Nie rozwiąże.
             </p>
           </FadeInUp>
 
           <FadeInUp delay={0.3}>
             <p className="text-xl font-semibold text-white">
-              Nie jesteś sam. To nie jest Twój problem. To jest problem całej branży.
+              Prowadzenie ludzi zaczyna się tam, gdzie kończy się kod.
             </p>
           </FadeInUp>
 
           <FadeInUp delay={0.4}>
             <div className="my-8 border-l-2 border-amber-500/50 pl-6">
-              <p className="text-lg leading-relaxed text-gray-300">
-                A&nbsp;potem przyszło AI. I&nbsp;wielu ludzi wpadło w&nbsp;panikę: &bdquo;Zastąpią nas! Koniec programistów!&rdquo;
+              <p className="text-xl font-semibold text-amber-400">
+                Trudne rozmowy nie znikają. One tylko drożeją.
               </p>
               <p className="mt-4 text-lg leading-relaxed text-gray-300">
-                Prawda? AI niczego nie zepsuło. AI było katalizatorem zmiany.
+                Feedback przekazany miesiąc za późno kosztuje zaufanie. Konflikt ignorowany przez kwartał
+                kosztuje energię całego zespołu. Awans potraktowany jak nagroda zamiast zmiany odpowiedzialności
+                szybko wystawia rachunek.
               </p>
               <p className="mt-4 text-lg leading-relaxed text-gray-300">
-                Pokazało, że liczenie linijek kodu nigdy nie było wartością. Że bezmyślne dowożenie sprintów nigdy nie było tym,
-                o&nbsp;co naprawdę chodzi. Że jeśli Twoja praca sprowadza się do tego, co wkrótce zrobi maszyna to
-                {' '}
-                <span className="font-semibold text-white">problem istniał na długo przed ChatGPT.</span>
+                Brak problemów nie zawsze oznacza zdrowy zespół. Czasem oznacza tylko,
+                że ludzie przestali wierzyć, że warto o&nbsp;nich mówić.
               </p>
             </div>
           </FadeInUp>
 
-          <FadeInUp delay={0.6}>
-            <p className="text-xl font-bold text-amber-400">
-              Masz dość? Ja też.
+          <FadeInUp delay={0.55}>
+            <p className="text-xl font-bold text-white">
+              Dobry manager widzi więcej niż delivery.
             </p>
           </FadeInUp>
         </div>
@@ -122,30 +130,30 @@ export const ProblemSection: FC = () => {
 };
 
 // ============================================================================
-// TRANSFORMATION SECTION
+// LEADERSHIP SECTION
 // ============================================================================
 
-export const TransformationSection: FC = () => {
+export const LeadershipSection: FC = () => {
   const shifts = [
     {
-      from: 'Jestem klepaczem kodu',
-      to: 'zrozumienie, że Twoja wartość to sposób myślenia, nie ilość commitów',
+      from: 'Muszę mieć odpowiedź na wszystko',
+      to: 'zadajesz lepsze pytania i\u00A0nie udajesz nieomylnego',
     },
     {
-      from: 'Nie wiem, po co to robię',
-      to: 'jasność, czego tak naprawdę szukasz — w\u00A0pracy i\u00A0poza nią',
+      from: 'Chcę, żeby wszyscy mnie lubili',
+      to: 'budujesz zaufanie przez jasność, uczciwość i\u00A0konsekwencję',
     },
     {
-      from: 'Muszę być na bieżąco z\u00A0każdą technologią',
-      to: 'spokój, że Twoja głowa jest ważniejsza niż Twój stack',
+      from: 'Zespół dowozi, więc jest dobrze',
+      to: 'patrzysz także na energię, napięcia, rozwój i\u00A0współpracę',
     },
     {
-      from: 'Boję się, że AI mnie zastąpi',
-      to: 'przekonanie, że maszyna nie zastąpi kogoś, kto myśli, pyta i\u00A0kwestionuje',
+      from: 'Jeszcze poczekam z\u00A0feedbackiem',
+      to: 'rozmawiasz wcześnie, konkretnie i\u00A0z\u00A0szacunkiem',
     },
     {
-      from: 'Nie mam głosu w\u00A0tej branży',
-      to: 'odwaga, żeby publicznie mówić to, co myślisz',
+      from: 'Sam zrobię to szybciej',
+      to: 'oddajesz odpowiedzialność i\u00A0pomagasz ludziom rosnąć',
     },
   ];
 
@@ -154,43 +162,120 @@ export const TransformationSection: FC = () => {
       <div className="mx-auto max-w-4xl">
         <FadeInUp>
           <h2 className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
-            Przestajesz być code monkey.
-            <span className="mt-2 block text-green-400">Zaczynasz rozumieć swoją realną wartość.</span>
+            Awans to nie nagroda.
+            <span className="mt-2 block text-green-400">To zmiana odpowiedzialności.</span>
           </h2>
         </FadeInUp>
 
         <FadeInUp delay={0.15}>
-          <p className="mt-6 text-lg text-gray-400">
-            Nie sprzedaję Ci frameworka na życie. Nie mam 5-krokowego planu na sukces. I&nbsp;na pewno nie powiem Ci, żebyś po prostu się przebranżowił.
+          <p className="mt-6 text-lg text-gray-300">
+            To, co zrobiło z&nbsp;Ciebie dobrego developera, nie wystarczy, żeby dobrze prowadzić ludzi.
+            Rola managera wymaga nowego sposobu patrzenia na zespół, komunikację i&nbsp;własne ego.
           </p>
           <p className="mt-4 text-lg font-medium text-white">
-            To, co dostajesz, to zmiana perspektywy:
+            Tutaj pracujemy nad zmianami, które naprawdę robią różnicę:
           </p>
         </FadeInUp>
 
         <div className="mt-10 space-y-4">
-          {shifts.map((s, index) => (
-            <FadeInUp key={s.from} delay={0.2 + index * 0.1}>
+          {shifts.map((shift, index) => (
+            <FadeInUp key={shift.from} delay={0.2 + index * 0.08}>
               <div className="grid items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-4 sm:grid-cols-[1fr,auto,1fr] sm:gap-8 sm:p-6">
                 <div className="text-gray-400">
-                  <span className="text-xs uppercase tracking-wider text-red-400/70">Teraz</span>
-                  <p className="mt-1">{s.from}</p>
+                  <span className="text-xs uppercase tracking-wider text-red-400/70">Pułapka</span>
+                  <p className="mt-1">{shift.from}</p>
                 </div>
                 <div className="hidden text-2xl text-green-500 sm:block">→</div>
                 <div className="border-t border-white/10 pt-4 text-white sm:border-0 sm:pt-0">
-                  <span className="text-xs uppercase tracking-wider text-green-500">Zmiana</span>
-                  <p className="mt-1 font-medium">{s.to}</p>
+                  <span className="text-xs uppercase tracking-wider text-green-500">Dojrzały ruch</span>
+                  <p className="mt-1 font-medium">{shift.to}</p>
                 </div>
               </div>
             </FadeInUp>
           ))}
         </div>
 
-        <FadeInUp delay={0.8}>
+        <FadeInUp delay={0.75}>
           <p className="mt-10 text-lg text-gray-400">
-            Zmiana firmy nie jest rozwiązaniem. Chodzi o&nbsp;to, żebyś przestał żyć na autopilocie
-            i&nbsp;zaczął świadomie decydować, kim chcesz być w&nbsp;tech.
+            Bez coachingowych sloganów. Z&nbsp;konkretem z&nbsp;pracy z&nbsp;ludźmi,
+            błędami, które bolą, i&nbsp;decyzjami, których nie da się delegować do procedury.
           </p>
+        </FadeInUp>
+      </div>
+    </section>
+  );
+};
+
+// ============================================================================
+// CONTENT SERIES SECTION
+// ============================================================================
+
+export const SeriesSection: FC = () => {
+  const series = [
+    {
+      title: 'Błędy świeżego managera',
+      description: 'O pułapkach po awansie: kontroli, potrzebie bycia lubianym i\u00A0unikaniu odpowiedzialności.',
+    },
+    {
+      title: 'Jak manager widzi…',
+      description: 'Daily, konflikty, seniorów, hybrydę i\u00A0cichy zespół z\u00A0perspektywy osoby odpowiedzialnej za całość.',
+    },
+    {
+      title: 'Trudne rozmowy',
+      description: 'Feedback, brak wyników, napięcia, awanse i\u00A0pieniądze — bez magicznych skryptów i\u00A0unikania sedna.',
+    },
+    {
+      title: 'Branża od środka',
+      description: 'Mechanizmy IT, których nie widać w\u00A0statusach: polityka, presja, delivery i\u00A0kultura pracy.',
+    },
+    {
+      title: 'Manager też człowiek',
+      description: 'Presja, samotność, zmęczenie decyzjami i\u00A0emocje po drugiej stronie managerskiej roli.',
+    },
+    {
+      title: 'Start tutaj',
+      description: 'Najważniejsze materiały dla tych, którzy prowadzą ludzi albo właśnie zastanawiają się nad awansem.',
+    },
+  ];
+
+  return (
+    <section id="serie" className="scroll-mt-24 py-16 sm:py-24">
+      <div className="mx-auto max-w-5xl">
+        <FadeInUp>
+          <h2 className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
+            Tematy, których nie uczą Cię po awansie.
+          </h2>
+          <p className="mt-5 max-w-3xl text-lg leading-relaxed text-gray-400">
+            Serie CodeStoryBro pomagają lepiej rozumieć pracę managera IT, prowadzenie zespołu
+            i&nbsp;rozmowy, od których zależy więcej niż od kolejnego procesu.
+          </p>
+        </FadeInUp>
+
+        <StaggerContainer className="mt-10 grid gap-5 md:grid-cols-2" staggerDelay={0.08}>
+          {series.map((item, index) => (
+            <StaggerItem key={item.title}>
+              <motion.article
+                className="h-full rounded-2xl border border-white/10 bg-white/5 p-6"
+                whileHover={{ y: -3, borderColor: 'rgba(129, 140, 248, 0.4)' }}
+                transition={{ duration: 0.2 }}
+              >
+                <p className="text-sm font-semibold text-indigo-400">
+                  0
+                  {index + 1}
+                </p>
+                <h3 className="mt-3 text-xl font-bold text-white">{item.title}</h3>
+                <p className="mt-3 leading-relaxed text-gray-400">{item.description}</p>
+              </motion.article>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+
+        <FadeInUp delay={0.3}>
+          <div className="mt-10">
+            <ButtonLink href="https://youtube.com/@codestorybro" glowClassName="bg-red-500">
+              Zacznij tutaj na YouTube →
+            </ButtonLink>
+          </div>
         </FadeInUp>
       </div>
     </section>
@@ -216,61 +301,64 @@ export const SpeakerSection: FC = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-24">
+    <section id="wystapienia" className="scroll-mt-24 py-16 sm:py-24">
       <div className="mx-auto max-w-4xl">
         <FadeInUp>
           <h2 className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
-            Nie czytam slajdów.
-            <span className="mt-2 block bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">Przynoszę ogień.</span>
+            Tematy, które ludzie z&nbsp;IT czują,
+            <span className="mt-2 block bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text pb-1 text-transparent">
+              ale rzadko nazywają publicznie.
+            </span>
           </h2>
         </FadeInUp>
 
         <div className="mt-10 space-y-6">
           <FadeInUp delay={0.1}>
             <p className="text-lg leading-relaxed text-gray-300">
-              Konferencje IT mają problem. Kolejny talk o&nbsp;mikroserwisach. Kolejna prezentacja niemal czytana z&nbsp;ekranu, w dodatku monotonnym głosem.
-              Kolejna sala wyciągająca telefony po trzecim slajdzie.
+              Występuję na konferencjach, meetupach i&nbsp;eventach firmowych. Mówię o&nbsp;leadershipie w&nbsp;IT,
+              odpowiedzialności managera, trudnych rozmowach i&nbsp;ludzkiej stronie zespołów technologicznych.
             </p>
           </FadeInUp>
 
           <FadeInUp delay={0.2}>
             <p className="text-xl font-semibold text-white">
-              Moje prelekcje to coś innego.
+              Zero czytania slajdów. Zero keynote&apos;u zbudowanego z&nbsp;buzzwordów.
             </p>
           </FadeInUp>
 
           <FadeInUp delay={0.3}>
             <p className="text-lg leading-relaxed text-gray-300">
-              Wchodzę na scenę, żeby ludzie poczuli. Żeby pokiwali głową i&nbsp;pomyśleli:
-              &bdquo;Też to czuję, ktoś wreszcie to powiedział.&rdquo; Żeby wyszli z&nbsp;sali z&nbsp;czymś więcej niż kolejne zdjęcie na LinkedIn.
+              Są konkrety z&nbsp;pracy z&nbsp;zespołami, żywa energia i&nbsp;historie, w&nbsp;których ludzie rozpoznają
+              własne daily, konflikty i&nbsp;rozmowy odkładane o&nbsp;tydzień za długo.
             </p>
           </FadeInUp>
 
           <FadeInUp delay={0.4}>
-            <p className="text-lg leading-relaxed text-gray-300">
-              Mówię o&nbsp;wypaleniu. O&nbsp;utracie sensu. O&nbsp;tym, że branża tech sprzedaje iluzję,
-              a&nbsp;Ty masz prawo to kwestionować. Surowo, energicznie i&nbsp;bez owijania w&nbsp;bawełnę.
-            </p>
+            <div className="pt-2">
+              <ButtonLink href="mailto:hello@codestorybro.com?subject=Zaproszenie%20na%20wyst%C4%85pienie" glowClassName="bg-orange-500">
+                Zaproś mnie na konferencję lub event →
+              </ButtonLink>
+            </div>
           </FadeInUp>
         </div>
 
         <StaggerContainer className="mt-12 grid gap-6 sm:grid-cols-2" staggerDelay={0.15}>
-          {testimonials.map((t, i) => (
-            <StaggerItem key={`${t.author}-${i}`}>
+          {testimonials.map(testimonial => (
+            <StaggerItem key={`${testimonial.author}-${testimonial.event}`}>
               <motion.div
                 className="h-full rounded-2xl border border-orange-500/20 bg-orange-500/5 p-6"
                 whileHover={{ borderColor: 'rgba(249, 115, 22, 0.4)' }}
                 transition={{ duration: 0.2 }}
               >
-                <span className="text-2xl">🔥</span>
+                <span className="text-2xl" aria-hidden="true">🔥</span>
                 <p className="mt-3 italic text-gray-300">
-                  {t.quote}
+                  {testimonial.quote}
                 </p>
                 <p className="mt-4 text-sm text-gray-500">
-                  {t.author}
+                  {testimonial.author}
                   ,
                   {' '}
-                  {t.event}
+                  {testimonial.event}
                 </p>
               </motion.div>
             </StaggerItem>
@@ -293,24 +381,24 @@ export const CTASection: FC = () => {
           <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-red-500/10 via-amber-500/10 to-orange-500/10 p-8 sm:p-12">
             <div className="relative z-10 text-center">
               <h2 className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
-                Mało kto o&nbsp;tym mówi.
+                Prowadź ludzi świadomie.
               </h2>
               <p className="mx-auto mt-2 text-xl font-medium text-amber-400 sm:text-2xl">
-                A&nbsp;powinien.
+                Nie tylko dowoź taski.
               </p>
               <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-300">
-                O&nbsp;rzeczach, o&nbsp;których w&nbsp;branży mówi się szeptem albo wcale.
-                Jeśli czujesz, że to o&nbsp;Tobie - dołącz na LinkedIn. Publikuję regularnie i&nbsp;piszę to co myślę.
+                Jeśli jesteś managerem IT, tech leadem albo stoisz przed awansem,
+                zostań na dłużej. Rozmawiamy tu o&nbsp;tym, co naprawdę dzieje się między ludźmi, decyzjami i&nbsp;delivery.
               </p>
               <p className="mx-auto mt-4 max-w-2xl text-lg font-semibold text-white">
-                Nie musisz się ze mną zgadzać, ale jeżeli skłoniłem Cię do myślenia - to już coś.
+                Bez korporacyjnej waty. Z&nbsp;odpowiedzialnością za słowa i&nbsp;decyzje.
               </p>
               <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <ButtonLink href="https://linkedin.com/in/codestorybro" glowClassName="bg-blue-500">
-                  Obserwuj mnie na LinkedIn →
+                  Obserwuj na LinkedIn →
                 </ButtonLink>
-                <ButtonLink href="mailto:hello@codestorybro.com" glowClassName="bg-yellow-500">
-                  Szukasz prelegenta? Napisz →
+                <ButtonLink href="https://youtube.com/@codestorybro" glowClassName="bg-red-500" variant="outline">
+                  Zobacz YouTube →
                 </ButtonLink>
               </div>
             </div>

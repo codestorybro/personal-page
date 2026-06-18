@@ -63,7 +63,8 @@ const Button: FC<ButtonProps & { glowClassName?: string }> = ({ children, glowCl
 };
 
 export const ButtonLink: FC<ButtonLinkProps> = ({ children, href, glowClassName, className, target, rel, variant = 'default' }) => {
-  const isExternal = href.startsWith('http');
+  const isExternal = href.startsWith('http') || href.startsWith('mailto:');
+  const opensNewTab = href.startsWith('http');
   const isAnchor = href.startsWith('#');
   const combinedClassName = clsx(baseClassName, variantClassNames[variant], className);
 
@@ -71,8 +72,8 @@ export const ButtonLink: FC<ButtonLinkProps> = ({ children, href, glowClassName,
     return (
       <motion.a
         href={href}
-        target={target || '_blank'}
-        rel={rel || 'noopener noreferrer'}
+        target={target || (opensNewTab ? '_blank' : undefined)}
+        rel={rel || (opensNewTab ? 'noopener noreferrer' : undefined)}
         className={combinedClassName}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}

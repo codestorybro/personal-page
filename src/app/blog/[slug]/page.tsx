@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { BlogPostView } from '@/components/BlogPostView';
 import { BlogArticleJsonLd } from '@/components/JsonLd';
 import { getBlogPostBySlug, renderBlocksToHtml } from '@/libs/notion';
+import { AppConfig } from '@/utils/AppConfig';
 
 import { notFound } from 'next/navigation';
 
@@ -15,21 +16,25 @@ type BlogPostPageProps = {
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = await getBlogPostBySlug(slug);
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://codestorybro.com';
+  const siteUrl = AppConfig.url;
   const postUrl = `${siteUrl}/blog/${slug}`;
 
   if (!post) {
     return {
-      title: 'Post not found | CodeStoryBro',
+      title: 'Nie znaleziono artykułu',
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
   const ogImage = post.coverImage || `${siteUrl}/assets/img/og-default.png`;
 
   return {
-    title: `${post.title} | CodeStoryBro`,
+    title: post.title,
     description: post.description,
-    keywords: [...post.tags, 'CodeStoryBro', 'programowanie', 'software development', 'blog'],
+    keywords: [...post.tags, 'CodeStoryBro', 'blog IT', 'kariera w IT'],
     authors: [{ name: 'Marcin Kołodziej', url: siteUrl }],
     creator: 'Marcin Kołodziej',
     publisher: 'CodeStoryBro',
@@ -54,7 +59,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
           alt: post.title,
         },
       ],
-      locale: 'pl',
+      locale: AppConfig.locale,
     },
     twitter: {
       card: 'summary_large_image',
@@ -98,12 +103,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   const translations = {
     back_to_blog: 'Wróć do bloga',
-    share: 'Udostępnij:',
+    share: 'Udostępnij',
     min_read: 'min czytania',
     published_on: 'Opublikowano',
   };
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://codestorybro.com';
+  const siteUrl = AppConfig.url;
 
   return (
     <>

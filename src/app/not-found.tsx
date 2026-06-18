@@ -7,9 +7,9 @@ const MotionLink = motion.create(Link);
 
 const t = {
   title: '404',
-  heading: 'Ups! Zjechałeś z trasy',
-  description: 'Ta strona nie istnieje, ale to dobry moment, żeby wrócić na właściwe tory.',
-  back_home: 'Wróć na stronę główną',
+  heading: 'Tu nie ma tej strony.',
+  description: 'Link mógł się zdezaktualizować. Wróć do materiałów o leadershipie, zespołach i karierze w IT.',
+  back_home: 'Wróć do CodeStoryBro',
 };
 
 export default function NotFound() {

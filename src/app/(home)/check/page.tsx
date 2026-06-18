@@ -3,15 +3,16 @@ import type { Metadata } from 'next';
 import CertificateForm from '@/components/CertificateForm';
 import CertValidate from '@/components/CertValidate';
 import { CheckPageWrapper } from '@/components/CheckPageWrapper';
+import { AppConfig } from '@/utils/AppConfig';
 import { Suspense } from 'react';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://codestorybro.com';
+const SITE_URL = AppConfig.url;
 
 export async function generateMetadata(): Promise<Metadata> {
   const canonicalUrl = `${SITE_URL}/check`;
 
   return {
-    title: 'Weryfikacja certyfikatu | CodeStoryBro',
+    title: 'Weryfikacja certyfikatu',
     description: 'Zweryfikuj autentyczność certyfikatu CodeStoryBro. Wprowadź ID certyfikatu, aby sprawdzić jego ważność.',
     alternates: {
       canonical: canonicalUrl,
@@ -22,7 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: 'website',
       url: canonicalUrl,
       siteName: 'CodeStoryBro',
-      locale: 'pl',
+      locale: AppConfig.locale,
       images: [
         {
           url: `${SITE_URL}/assets/img/og-image.png`,
@@ -39,6 +40,10 @@ export async function generateMetadata(): Promise<Metadata> {
       images: [`${SITE_URL}/assets/img/og-image.png`],
       creator: '@codestorybro',
       site: '@codestorybro',
+    },
+    robots: {
+      index: false,
+      follow: true,
     },
   };
 }

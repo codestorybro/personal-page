@@ -1,20 +1,18 @@
 'use client';
 
 import type { FC } from 'react';
-import { FacebookLogoIcon, LinkedinLogoIcon, XLogoIcon } from '@phosphor-icons/react';
+import { FacebookLogoIcon, LinkedinLogoIcon } from '@phosphor-icons/react';
 import { motion } from 'framer-motion';
 
 type ShareButtonsProps = {
   url: string;
-  title: string;
   translations: {
     share: string;
   };
 };
 
-export const ShareButtons: FC<ShareButtonsProps> = ({ url, title, translations: t }) => {
+export const ShareButtons: FC<ShareButtonsProps> = ({ url, translations: t }) => {
   const encodedUrl = encodeURIComponent(url);
-  const encodedTitle = encodeURIComponent(title);
 
   const shareLinks = [
     {
@@ -23,13 +21,6 @@ export const ShareButtons: FC<ShareButtonsProps> = ({ url, title, translations: 
       icon: FacebookLogoIcon,
       color: 'hover:text-blue-100',
       hoverColor: 'bg-blue-500',
-    },
-    {
-      name: 'X (Twitter)',
-      href: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
-      icon: XLogoIcon,
-      color: 'hover:text-green-100',
-      hoverColor: 'bg-green-500',
     },
     {
       name: 'LinkedIn',
@@ -50,7 +41,7 @@ export const ShareButtons: FC<ShareButtonsProps> = ({ url, title, translations: 
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`Share on ${link.name}`}
+            aria-label={`Udostępnij na ${link.name}`}
             className={`group relative rounded-lg p-2 text-gray-400 transition-colors ${link.color} focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500`}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}

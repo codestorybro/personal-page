@@ -2,14 +2,15 @@ import type { Metadata } from 'next';
 
 import { CheckPageWrapper } from '@/components/CheckPageWrapper';
 import SubscriptionConfirmed from '@/components/SubscriptionConfirmed';
+import { AppConfig } from '@/utils/AppConfig';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://codestorybro.com';
+const SITE_URL = AppConfig.url;
 
 export async function generateMetadata(): Promise<Metadata> {
   const canonicalUrl = `${SITE_URL}/potwierdzenie-subskrypcji`;
 
   return {
-    title: 'Subskrypcja potwierdzona | CodeStoryBro',
+    title: 'Subskrypcja potwierdzona',
     description: 'Twoja subskrypcja newslettera CodeStoryBro została potwierdzona.',
     alternates: {
       canonical: canonicalUrl,
@@ -20,7 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: 'website',
       url: canonicalUrl,
       siteName: 'CodeStoryBro',
-      locale: 'pl',
+      locale: AppConfig.locale,
       images: [
         {
           url: `${SITE_URL}/assets/img/og-image.png`,
@@ -37,6 +38,10 @@ export async function generateMetadata(): Promise<Metadata> {
       images: [`${SITE_URL}/assets/img/og-image.png`],
       creator: '@codestorybro',
       site: '@codestorybro',
+    },
+    robots: {
+      index: false,
+      follow: true,
     },
   };
 }

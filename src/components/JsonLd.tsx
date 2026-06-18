@@ -1,72 +1,64 @@
 import type { FC } from 'react';
+import { AppConfig } from '@/utils/AppConfig';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://codestorybro.com';
+const SITE_URL = AppConfig.url;
+const sameAs = Object.values(AppConfig.social).filter(
+  (url: unknown): url is string => typeof url === 'string' && url.length > 0,
+);
 
-// Base Person schema used across the site
 const personSchema = {
   '@type': 'Person',
   '@id': `${SITE_URL}/#person`,
-  'name': 'Marcin Kołodziej',
-  'alternateName': 'CodeStoryBro',
+  'name': AppConfig.author.name,
+  'alternateName': AppConfig.name,
   'url': SITE_URL,
-  'image': `${SITE_URL}/assets/img/marcin.jpg`,
-  'description': 'Mówię głośno to, co połowa branży IT myśli po cichu. O wypaleniu, utracie sensu i fake\'owych pseudo-sukcesach.',
-  'sameAs': [
-    'https://linkedin.com/in/codestorybro',
-    'https://youtube.com/@codestorybro',
-  ],
-  'jobTitle': 'Keynote Speaker & Creator',
+  'image': `${SITE_URL}/assets/img/about/about.webp`,
+  'description': 'Engineering Manager i twórca CodeStoryBro. Mówi o leadershipie w IT, zarządzaniu zespołami, trudnych rozmowach, feedbacku i odpowiedzialności po awansie.',
+  'sameAs': sameAs,
+  'jobTitle': AppConfig.author.jobTitle,
   'knowsAbout': [
-    'Wypalenie w IT',
-    'Sens pracy w tech',
-    'Keynote speaking',
-    'Personal branding w IT',
-    'Wartość programisty',
-    'Kultura pracy w IT',
+    'Leadership w IT',
+    'Engineering Management',
+    'Zarządzanie zespołem IT',
+    'Trudne rozmowy w pracy',
+    'Feedback w IT',
+    'Rozwój managera',
+    'Kultura pracy w IT',
+    'Kariera w IT',
   ],
 };
 
-// Organization schema
 const organizationSchema = {
   '@type': 'Organization',
   '@id': `${SITE_URL}/#organization`,
-  'name': 'CodeStoryBro',
+  'name': AppConfig.name,
   'url': SITE_URL,
   'logo': {
     '@type': 'ImageObject',
     'url': `${SITE_URL}/assets/img/logo-main.svg`,
   },
-  'description': 'Mówię głośno to, co połowa branży IT myśli po cichu.',
+  'description': AppConfig.description,
   'founder': {
     '@id': `${SITE_URL}/#person`,
   },
-  'sameAs': [
-    'https://linkedin.com/in/codestorybro',
-    'https://youtube.com/@codestorybro',
-  ],
+  'sameAs': sameAs,
   'contactPoint': {
     '@type': 'ContactPoint',
-    'email': 'hello@codestorybro.com',
-    'contactType': 'customer service',
+    'email': AppConfig.author.email,
+    'contactType': 'business inquiries',
     'availableLanguage': 'Polish',
   },
 };
 
-// Base Website schema
 const websiteSchema = {
   '@type': 'WebSite',
   '@id': `${SITE_URL}/#website`,
   'url': SITE_URL,
-  'name': 'CodeStoryBro',
-  'description': 'Mówię głośno to, co połowa branży IT myśli po cichu.',
+  'name': AppConfig.name,
+  'description': AppConfig.description,
   'inLanguage': 'pl-PL',
   'publisher': {
     '@id': `${SITE_URL}/#organization`,
-  },
-  'potentialAction': {
-    '@type': 'SearchAction',
-    'target': `${SITE_URL}/blog?q={search_term_string}`,
-    'query-input': 'required name=search_term_string',
   },
 };
 
@@ -87,19 +79,21 @@ const JsonLd: FC<JsonLdProps> = ({ data }) => {
   );
 };
 
-// Home page JSON-LD
 export const HomeJsonLd: FC = () => {
   const webPageSchema = {
     '@type': 'WebPage',
     '@id': `${SITE_URL}/#webpage`,
     'url': SITE_URL,
-    'name': 'CodeStoryBro | Mówię głośno o IT to, co większość branży myśli po cichu',
-    'description': 'Przestań czuć się jak code monkey. Odzyskaj sens, energię i\u00A0kierunek w\u00A0świecie pełnym korpo-ściemy, przebodźcowania pseudo-sukcesami i\u00A0AI.',
+    'name': AppConfig.title,
+    'description': AppConfig.description,
     'isPartOf': {
       '@id': `${SITE_URL}/#website`,
     },
     'about': {
-      '@id': `${SITE_URL}/#organization`,
+      '@id': `${SITE_URL}/#person`,
+    },
+    'mainEntity': {
+      '@id': `${SITE_URL}/#person`,
     },
     'inLanguage': 'pl-PL',
   };
@@ -116,7 +110,6 @@ export const HomeJsonLd: FC = () => {
   );
 };
 
-// Blog list page JSON-LD
 export const BlogListJsonLd: FC = () => {
   const blogUrl = `${SITE_URL}/blog`;
 
@@ -126,8 +119,8 @@ export const BlogListJsonLd: FC = () => {
         {
           '@type': 'CollectionPage',
           '@id': `${blogUrl}#collection`,
-          'name': 'Blog – CodeStoryBro',
-          'description': 'Bez filtra o IT, wypaleniu i tym, co naprawdę ma znaczenie. Surowe, szczere teksty. Zero korpo-bełkotu.',
+          'name': 'Blog o leadershipie i zarządzaniu w IT – CodeStoryBro',
+          'description': 'Dłuższe teksty o leadershipie, zarządzaniu zespołem IT, trudnych rozmowach, feedbacku, kulturze pracy i rozwoju kariery w technologii.',
           'url': blogUrl,
           'inLanguage': 'pl-PL',
           'isPartOf': {
@@ -135,18 +128,21 @@ export const BlogListJsonLd: FC = () => {
           },
           'mainEntity': {
             '@type': 'Blog',
-            'name': 'CodeStoryBro Blog',
-            'description': 'Surowe teksty o branży IT — wypalenie, utrata sensu, kariera bez autopilota, fake\'owy LinkedIn pełen pseudo-sukcesów i AI jako katalizator zmiany.',
+            'name': 'Blog CodeStoryBro',
+            'description': 'Konkretne teksty o pracy managera IT, prowadzeniu ludzi, odpowiedzialności, karierze i ludzkiej stronie technologii.',
+            'publisher': {
+              '@id': `${SITE_URL}/#organization`,
+            },
           },
         },
         websiteSchema,
+        organizationSchema,
         personSchema,
       ]}
     />
   );
 };
 
-// Blog article JSON-LD
 type BlogArticleJsonLdProps = {
   title: string;
   description: string;
@@ -180,8 +176,6 @@ export const BlogArticleJsonLd: FC<BlogArticleJsonLdProps> = ({
           'image': {
             '@type': 'ImageObject',
             'url': ogImage,
-            'width': 1200,
-            'height': 630,
           },
           'datePublished': publishedAt,
           'dateModified': modifiedAt || publishedAt,
@@ -189,14 +183,14 @@ export const BlogArticleJsonLd: FC<BlogArticleJsonLdProps> = ({
             '@id': `${SITE_URL}/#person`,
           },
           'publisher': {
-            '@id': `${SITE_URL}/#person`,
+            '@id': `${SITE_URL}/#organization`,
           },
           'mainEntityOfPage': {
             '@type': 'WebPage',
             '@id': articleUrl,
           },
           'keywords': tags.join(', '),
-          'articleSection': tags[0] || 'Blog',
+          'articleSection': tags[0] || 'Leadership w IT',
           'inLanguage': 'pl-PL',
           'isPartOf': {
             '@id': `${SITE_URL}/#website`,
@@ -226,6 +220,7 @@ export const BlogArticleJsonLd: FC<BlogArticleJsonLdProps> = ({
           ],
         },
         websiteSchema,
+        organizationSchema,
         personSchema,
       ]}
     />

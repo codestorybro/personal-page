@@ -121,7 +121,7 @@ export const WhoIsSection: FC<WhoIsSectionProps> = ({ translations: t }) => {
               <div className="overflow-hidden rounded-2xl">
                 <Image
                   src="/assets/img/about/about.webp"
-                  alt="CodeStoryBro"
+                  alt="Marcin Kołodziej, Engineering Manager i twórca CodeStoryBro"
                   width={600}
                   height={800}
                   className="size-full object-cover"

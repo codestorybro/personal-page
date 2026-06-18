@@ -1,54 +1,56 @@
 'use client';
+
 import type { FC } from 'react';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 
-import SubscribeForm from './SubscribeForm';
-
-const MotionLink = motion.create(Link);
+const socialLinks = [
+  { name: 'YouTube', href: 'https://youtube.com/@codestorybro' },
+  { name: 'LinkedIn', href: 'https://linkedin.com/in/codestorybro/' },
+  { name: 'TikTok', href: 'https://www.tiktok.com/@codestorybro' },
+  { name: 'Instagram', href: 'https://www.instagram.com/codestorybro/' },
+];
 
 const Footer: FC = () => {
-  const pathname = usePathname();
-  const hideNewsletter = pathname === '/potwierdzenie-subskrypcji';
-
   return (
-    <footer id="newsletter" className="mt-4 border-t-2 border-t-zinc-800 pb-4">
-      {/* Newsletter section */}
-      {!hideNewsletter && (
-        <div className="mx-auto max-w-6xl px-8 pt-10">
-          <SubscribeForm />
-        </div>
-      )}
+    <footer className="mt-4 border-t-2 border-t-zinc-800">
+      <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-4 p-8 text-center">
+        <p className="text-sm font-semibold tracking-[0.2em] text-gray-300">
+          LEAD • THINK • GROW
+        </p>
+        <p className="text-sm text-gray-500">
+          Najtrudniejsze w&nbsp;IT rzadko jest techniczne.
+        </p>
 
-      <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-4 px-8 py-4 text-center sm:flex-row sm:justify-between sm:text-left">
-        <span className="text-sm text-gray-500 dark:text-gray-400">
+        <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2" aria-label="Social media i kontakt CodeStoryBro">
+          {socialLinks.map(link => (
+            <motion.a
+              key={link.name}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`CodeStoryBro na ${link.name}`}
+              className="text-sm text-gray-400 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+              whileHover={{ y: -1 }}
+            >
+              {link.name}
+            </motion.a>
+          ))}
+          <motion.a
+            href="mailto:hello@codestorybro.com"
+            aria-label="Kontakt z Marcinem Kołodziejem"
+            className="text-sm text-gray-400 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+            whileHover={{ y: -1 }}
+          >
+            Kontakt
+          </motion.a>
+        </nav>
+
+        <p className="text-xs text-gray-600">
           ©
           {new Date().getFullYear()}
           {' '}
-          Wszelkie prawa zastrzeżone
-          {' '}
-          <span
-            style={{ lineHeight: '49px' }}
-            className="inline-block font-logoText text-2xl leading-3"
-          >
-            CodeStoryBro
-          </span>
-        </span>
-        <nav className="flex items-center gap-4" aria-label="Footer navigation">
-          <MotionLink
-            href="mailto:hello@codestorybro.com"
-            className="group relative rounded-lg px-2 py-1 text-sm text-gray-400 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span
-              className="pointer-events-none absolute inset-0 rounded-lg bg-yellow-500 opacity-0 blur-[10px] transition-opacity duration-300 group-hover:opacity-60"
-              aria-hidden="true"
-            />
-            <span className="relative z-10">hello@codestorybro.com</span>
-          </MotionLink>
-        </nav>
+          Marcin Kołodziej — CodeStoryBro
+        </p>
       </div>
     </footer>
   );

@@ -46,18 +46,18 @@ export const SupportCraft: FC = () => {
             </div>
             <div>
               <h3 className="text-xl font-bold text-white sm:text-2xl">
-                Zatankuj następny tekst
+                Dorzuć się do kolejnego tekstu
               </h3>
               <p className="mt-1 text-sm text-amber-400/80">
-                Bez reklam. Bez sponsorów. Bez cenzury.
+                Niezależne treści o&nbsp;leadershipie i&nbsp;pracy w&nbsp;IT.
               </p>
             </div>
           </div>
 
           {/* Copy */}
           <p className="mt-6 text-base leading-relaxed text-gray-300 sm:text-lg">
-            Jeśli ten post dał Ci nową perspektywę albo po prostu dobrze się go czytało
-            to zostaw kawę. Piję jej dużo, ale piszę jeszcze więcej. Dzięki, że jesteś!
+            Jeśli ten tekst pomógł Ci nazwać trudną sytuację, spojrzeć inaczej na zespół
+            albo przygotować się do ważnej rozmowy, możesz postawić mi kawę. Dzięki, że pomagasz rozwijać CodeStoryBro.
           </p>
 
           {/* CTA */}
@@ -77,11 +77,11 @@ export const SupportCraft: FC = () => {
                 style={{ WebkitTransform: 'translateZ(0)' }}
               />
               <CoffeeIcon className="relative z-10 size-5" />
-              <span className="relative z-10">Stawiam kawkę</span>
+              <span className="relative z-10">Stawiam kawę</span>
             </motion.a>
 
             <span className="text-sm text-gray-500">
-              Dzięki Tobie treści zostają surowe i&nbsp;niezależne.
+              Dzięki Tobie kolejne materiały mogą pozostać konkretne i&nbsp;niezależne.
             </span>
           </div>
         </div>

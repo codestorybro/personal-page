@@ -5,25 +5,30 @@ import { FadeInUp } from '@/components/AnimatedElements';
 import { BlogList } from '@/components/BlogList';
 import { BlogListJsonLd } from '@/components/JsonLd';
 import { getBlogPosts } from '@/libs/notion';
+import { AppConfig } from '@/utils/AppConfig';
 
 export const dynamic = 'force-dynamic';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://codestorybro.com';
+const SITE_URL = AppConfig.url;
+const BLOG_TITLE = 'Blog o leadershipie i zarządzaniu w IT';
+const BLOG_DESCRIPTION = 'Dłuższe, konkretne teksty o leadershipie, zarządzaniu zespołem IT, trudnych rozmowach, feedbacku i karierze w technologii — bez korporacyjnej waty.';
 
 export async function generateMetadata(): Promise<Metadata> {
   const canonicalUrl = `${SITE_URL}/blog`;
 
   return {
-    title: 'Blog | Bez filtra o IT, wypaleniu i tym, co naprawdę ma znaczenie',
-    description: 'Szczere teksty o branży IT. Wypalenie, utrata sensu, fake\'owy LinkedIn pełen pseudo-sukcesów, kariera bez autopilota.',
+    title: BLOG_TITLE,
+    description: BLOG_DESCRIPTION,
     keywords: [
       'blog IT',
-      'wypalenie programisty',
-      'sens pracy w IT',
-      'kariera programisty',
-      'prawda o branży IT',
-      'burnout developer',
-      'kultura pracy IT',
+      'leadership w IT',
+      'zarządzanie zespołem IT',
+      'manager IT',
+      'trudne rozmowy w pracy',
+      'feedback w IT',
+      'kariera w IT',
+      'kultura pracy w IT',
+      'rozwój managera',
       'CodeStoryBro blog',
     ],
     authors: [{ name: 'Marcin Kołodziej', url: SITE_URL }],
@@ -33,31 +38,31 @@ export async function generateMetadata(): Promise<Metadata> {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: 'Blog | Bez filtra o IT, wypaleniu i tym, co naprawdę ma znaczenie',
-      description: 'Szczere teksty o branży IT. Wypalenie, utrata sensu, fake\'owy LinkedIn pełen pseudo-sukcesów, kariera bez autopilota.',
+      title: `${BLOG_TITLE} | CodeStoryBro`,
+      description: BLOG_DESCRIPTION,
       type: 'website',
       url: canonicalUrl,
       siteName: 'CodeStoryBro',
-      locale: 'pl',
+      locale: AppConfig.locale,
       images: [
         {
           url: `${SITE_URL}/assets/img/og-image.png`,
-          width: 1200,
-          height: 630,
-          alt: 'Blog – CodeStoryBro',
+          width: 1536,
+          height: 1024,
+          alt: 'Blog CodeStoryBro o leadershipie i zarządzaniu w IT',
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Blog | Bez filtra o IT, wypaleniu i tym, co naprawdę ma znaczenie',
-      description: 'Szczere teksty o branży IT. Wypalenie, utrata sensu, fake\'owy LinkedIn pełen pseudo-sukcesów, kariera bez autopilota.',
+      title: `${BLOG_TITLE} | CodeStoryBro`,
+      description: BLOG_DESCRIPTION,
       images: [
         {
           url: `${SITE_URL}/assets/img/og-image.png`,
-          width: 1200,
-          height: 630,
-          alt: 'Blog – CodeStoryBro',
+          width: 1536,
+          height: 1024,
+          alt: 'Blog CodeStoryBro o leadershipie i zarządzaniu w IT',
         },
       ],
       creator: '@codestorybro',
@@ -81,10 +86,10 @@ export default async function BlogPage() {
   const posts = await getBlogPosts();
 
   const translations = {
-    search_placeholder: 'Szukaj artykułów...',
-    read_more: 'Czytaj więcej',
+    search_placeholder: 'Szukaj tekstów o leadershipie, feedbacku i karierze...',
+    read_more: 'Czytaj tekst',
     min_read: 'min czytania',
-    no_posts: 'Nie znaleziono artykułów pasujących do kryteriów.',
+    no_posts: 'Nie ma tekstów pasujących do tych kryteriów.',
     all_tags: 'Wszystkie',
     clear_filters: 'Wyczyść filtry',
   };
@@ -103,10 +108,11 @@ export default async function BlogPage() {
             />
             <div className="relative">
               <h1 className="bg-gradient-to-r from-indigo-400 via-green-400 to-blue-400 bg-clip-text pb-2 text-3xl font-bold leading-relaxed text-transparent sm:text-4xl lg:text-5xl">
-                Blog
+                Leadership i&nbsp;ludzka strona IT
               </h1>
               <p className="mt-4 max-w-2xl text-lg text-gray-400">
-                Moje myśli, spostrzeżenia i doświadczenia spisane w jednym miejscu.
+                Dłuższe, konkretne teksty o&nbsp;zarządzaniu ludźmi, trudnych rozmowach,
+                feedbacku, kulturze pracy i&nbsp;karierze w&nbsp;IT. Bez gotowych recept i&nbsp;korporacyjnej nowomowy.
               </p>
             </div>
           </div>

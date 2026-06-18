@@ -161,7 +161,7 @@ export const BlogPostView: FC<BlogPostViewProps> = ({
         {/* Share buttons */}
         <FadeInUp delay={0.4}>
           <div className="mt-12 border-t border-white/10 pt-8">
-            <ShareButtons url={postUrl} title={post.title} translations={{ share: t.share }} />
+            <ShareButtons url={postUrl} translations={{ share: t.share }} />
           </div>
         </FadeInUp>
 
