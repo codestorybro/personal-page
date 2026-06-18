@@ -58,7 +58,7 @@ const Footer: FC = () => {
           ©
           {new Date().getFullYear()}
           {' '}
-          Marcin Kołodziej — CodeStoryBro
+          Marcin Kołodziej - CodeStoryBro
         </p>
       </div>
     </footer>

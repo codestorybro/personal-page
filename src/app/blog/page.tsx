@@ -11,7 +11,7 @@ export const dynamic = 'force-dynamic';
 
 const SITE_URL = AppConfig.url;
 const BLOG_TITLE = 'Blog o leadershipie i zarządzaniu w IT';
-const BLOG_DESCRIPTION = 'Dłuższe, konkretne teksty o leadershipie, zarządzaniu zespołem IT, trudnych rozmowach, feedbacku i karierze w technologii — bez korporacyjnej waty.';
+const BLOG_DESCRIPTION = 'Dłuższe, konkretne teksty o leadershipie, zarządzaniu zespołem IT, trudnych rozmowach, feedbacku i karierze w technologii.';
 
 export async function generateMetadata(): Promise<Metadata> {
   const canonicalUrl = `${SITE_URL}/blog`;

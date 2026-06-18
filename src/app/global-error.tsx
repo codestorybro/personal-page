@@ -14,7 +14,7 @@ export default function GlobalError({
             <p className="text-sm font-semibold tracking-[0.25em] text-amber-400">CODESTORYBRO</p>
             <h1 className="mt-4 text-3xl font-bold sm:text-4xl">Coś poszło nie tak.</h1>
             <p className="mt-4 leading-relaxed text-gray-400">
-              Nawet najlepszy plan czasem się wykłada. Spróbuj ponownie — bez korporacyjnego incident review.
+              Nawet najlepszy plan czasem się wykłada. Spróbuj ponownie.
             </p>
             <button
               type="button"

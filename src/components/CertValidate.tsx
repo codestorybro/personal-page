@@ -36,7 +36,7 @@ const CertValidate: FC<Props> = ({ id }) => {
             setValidationState('invalid');
             setUser(null);
           } else {
-            throw new Error(`${res.status} — ${res.statusText}`);
+            throw new Error(`${res.status} - ${res.statusText}`);
           }
           return null;
         }

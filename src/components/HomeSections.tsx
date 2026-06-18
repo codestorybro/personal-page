@@ -44,7 +44,7 @@ export const HeroSection: FC = () => {
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-gray-300">
             Nazywam się Marcin Kołodziej. Jako Engineering Manager mówię o&nbsp;tym, czego świeżych managerów,
             tech leadów i&nbsp;ambitnych ludzi z&nbsp;IT nikt nie uczy wystarczająco wcześnie:
-            odpowiedzialności, trudnych rozmowach i&nbsp;prowadzeniu ludzi.
+            odpowiedzialności, trudnych rozmów i&nbsp;prowadzenia ludzi.
           </p>
           <p className="mt-4 max-w-2xl text-lg font-medium leading-relaxed text-white">
             IT to nie tylko kod. To ludzie, decyzje i&nbsp;odpowiedzialność.
@@ -57,7 +57,7 @@ export const HeroSection: FC = () => {
               Oglądaj na YouTube →
             </ButtonLink>
             <ButtonLink href={AppConfig.social.threads} glowClassName="bg-zinc-300" variant="outline">
-              Wejdź w dyskusję na Threads →
+              Dyskutuj na Threads →
             </ButtonLink>
             <ButtonLink href={AppConfig.social.linkedin} glowClassName="bg-blue-500" variant="outline">
               Obserwuj na LinkedIn →
@@ -173,10 +173,10 @@ export const LeadershipSection: FC = () => {
         <FadeInUp delay={0.15}>
           <p className="mt-6 text-lg text-gray-300">
             To, co zrobiło z&nbsp;Ciebie dobrego developera, nie wystarczy, żeby dobrze prowadzić ludzi.
-            Rola managera wymaga nowego sposobu patrzenia na zespół, komunikację i&nbsp;własne ego.
+            Rola managera wymaga nowego sposobu patrzenia na zespół, komunikację i&nbsp;zmiany perspektywy.
           </p>
           <p className="mt-4 text-lg font-medium text-white">
-            Tutaj pracujemy nad zmianami, które naprawdę robią różnicę:
+            Tutaj pracuję nad zmianami, które naprawdę robią różnicę:
           </p>
         </FadeInUp>
 
@@ -225,7 +225,7 @@ export const SeriesSection: FC = () => {
     },
     {
       title: 'Trudne rozmowy',
-      description: 'Feedback, brak wyników, napięcia, awanse i\u00A0pieniądze — bez magicznych skryptów i\u00A0unikania sedna.',
+      description: 'Feedback, brak wyników, napięcia, awanse i\u00A0pieniądze - bez magicznych skryptów i\u00A0unikania sedna.',
     },
     {
       title: 'Branża od środka',
@@ -234,10 +234,6 @@ export const SeriesSection: FC = () => {
     {
       title: 'Manager też człowiek',
       description: 'Presja, samotność, zmęczenie decyzjami i\u00A0emocje po drugiej stronie managerskiej roli.',
-    },
-    {
-      title: 'Start tutaj',
-      description: 'Najważniejsze materiały dla tych, którzy prowadzą ludzi albo właśnie zastanawiają się nad awansem.',
     },
   ];
 
@@ -249,8 +245,8 @@ export const SeriesSection: FC = () => {
             Tematy, których nie uczą Cię po awansie.
           </h2>
           <p className="mt-5 max-w-3xl text-lg leading-relaxed text-gray-400">
-            Serie CodeStoryBro pomagają lepiej rozumieć pracę managera IT, prowadzenie zespołu
-            i&nbsp;rozmowy, od których zależy więcej niż od kolejnego procesu.
+            Pomagam lepiej zrozumieć pracę managera IT, prowadzenie zespołu
+            i&nbsp;rozmowy, od których zależy więcej niż od kolejnego procesu. Serie, które prowadzę to między innymi:
           </p>
         </FadeInUp>
 
@@ -276,7 +272,7 @@ export const SeriesSection: FC = () => {
         <FadeInUp delay={0.3}>
           <div className="mt-10">
             <ButtonLink href="https://youtube.com/@codestorybro" glowClassName="bg-red-500">
-              Zacznij tutaj na YouTube →
+              Oglądaj na YouTube →
             </ButtonLink>
           </div>
         </FadeInUp>
@@ -320,7 +316,7 @@ export const SpeakerSection: FC = () => {
         <div className="mt-10 space-y-6">
           <FadeInUp delay={0.1}>
             <p className="text-lg leading-relaxed text-gray-300">
-              Występuję na konferencjach, meetupach i&nbsp;eventach firmowych. Mówię o&nbsp;leadershipie w&nbsp;IT,
+              Występuję na ogólnopolskich konferencjach, meetupach i&nbsp;eventach firmowych. Mówię o&nbsp;leadershipie w&nbsp;IT,
               odpowiedzialności managera, trudnych rozmowach i&nbsp;ludzkiej stronie zespołów technologicznych.
             </p>
           </FadeInUp>
@@ -388,7 +384,7 @@ export const CTASection: FC = () => {
     <section className="py-16 sm:py-24">
       <div className="mx-auto max-w-4xl">
         <FadeInUp>
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-red-500/10 via-amber-500/10 to-orange-500/10 p-8 sm:p-12">
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-500/10 via-indigo-500/10 to-blue-500/10 p-8 sm:p-12">
             <div className="relative z-10 text-center">
               <h2 className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
                 Prowadź ludzi świadomie.
@@ -401,7 +397,7 @@ export const CTASection: FC = () => {
                 zostań na dłużej. Rozmawiamy tu o&nbsp;tym, co naprawdę dzieje się między ludźmi, decyzjami i&nbsp;delivery.
               </p>
               <p className="mx-auto mt-4 max-w-2xl text-lg font-semibold text-white">
-                Bez korporacyjnej waty. Z&nbsp;odpowiedzialnością za słowa i&nbsp;decyzje.
+                Z&nbsp;odpowiedzialnością za słowa i&nbsp;decyzje.
               </p>
               <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
                 <ButtonLink href={AppConfig.social.linkedin} glowClassName="bg-blue-500">
@@ -411,11 +407,11 @@ export const CTASection: FC = () => {
                   Zobacz YouTube →
                 </ButtonLink>
                 <ButtonLink href={AppConfig.social.threads} glowClassName="bg-zinc-300" variant="outline">
-                  Wejdź w dyskusję na Threads →
+                  Dyskutuj na Threads →
                 </ButtonLink>
               </div>
             </div>
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-red-500/5 via-transparent to-orange-500/5" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-indigo-500/5" />
           </div>
         </FadeInUp>
       </div>
