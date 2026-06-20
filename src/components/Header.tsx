@@ -21,6 +21,18 @@ export const Header: FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const copyEmail = useCopyEmail();
 
+  const handleLogoClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    setIsMobileMenuOpen(false);
+
+    if (window.location.pathname === '/') {
+      event.preventDefault();
+      const scrollOptions: ScrollToOptions = { top: 0, behavior: 'smooth' };
+
+      window.scrollTo(scrollOptions);
+      document.body.scrollTo(scrollOptions);
+    }
+  };
+
   return (
     <>
       <motion.div
@@ -32,6 +44,7 @@ export const Header: FC = () => {
         <MotionLink
           href="/"
           aria-label="CodeStoryBro — strona główna"
+          onClick={handleLogoClick}
           className="flex flex-row items-center rounded-lg px-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}

@@ -46,7 +46,7 @@ export const HeroSection: FC = () => {
             tech leadów i&nbsp;ambitnych ludzi z&nbsp;IT nikt nie uczy wystarczająco wcześnie:
             odpowiedzialności, trudnych rozmów i&nbsp;prowadzenia ludzi.
           </p>
-          <p className="mt-4 max-w-2xl text-lg font-medium leading-relaxed text-white">
+          <p className="mx-auto mt-4 max-w-2xl text-lg font-medium leading-relaxed text-white">
             IT to nie tylko kod. To ludzie, decyzje i&nbsp;odpowiedzialność.
           </p>
         </FadeInUp>
@@ -139,24 +139,24 @@ export const ProblemSection: FC = () => {
 export const LeadershipSection: FC = () => {
   const shifts = [
     {
-      from: 'Muszę mieć odpowiedź na wszystko',
-      to: 'zadajesz lepsze pytania i\u00A0nie udajesz nieomylnego',
+      from: 'Muszę mieć odpowiedź na wszystko.',
+      to: 'Zadajesz lepsze pytania i\u00A0nie udajesz nieomylnego.',
     },
     {
-      from: 'Chcę, żeby wszyscy mnie lubili',
-      to: 'budujesz zaufanie przez jasność, uczciwość i\u00A0konsekwencję',
+      from: 'Chcę, żeby wszyscy mnie lubili.',
+      to: 'Budujesz zaufanie przez jasność, uczciwość i\u00A0konsekwencję.',
     },
     {
-      from: 'Zespół dowozi, więc jest dobrze',
-      to: 'patrzysz także na energię, napięcia, rozwój i\u00A0współpracę',
+      from: 'Zespół dowozi, więc jest dobrze.',
+      to: 'Patrzysz także na energię, napięcia, rozwój i\u00A0współpracę.',
     },
     {
-      from: 'Jeszcze poczekam z\u00A0feedbackiem',
-      to: 'rozmawiasz wcześnie, konkretnie i\u00A0z\u00A0szacunkiem',
+      from: 'Jeszcze poczekam z\u00A0feedbackiem.',
+      to: 'Rozmawiasz wcześnie, konkretnie i\u00A0z\u00A0szacunkiem.',
     },
     {
-      from: 'Sam zrobię to szybciej',
-      to: 'oddajesz odpowiedzialność i\u00A0pomagasz ludziom rosnąć',
+      from: 'Sam zrobię to szybciej.',
+      to: 'Oddajesz odpowiedzialność i\u00A0pomagasz ludziom rosnąć.',
     },
   ];
 
@@ -173,7 +173,7 @@ export const LeadershipSection: FC = () => {
         <FadeInUp delay={0.15}>
           <p className="mt-6 text-lg text-gray-300">
             To, co zrobiło z&nbsp;Ciebie dobrego developera, nie wystarczy, żeby dobrze prowadzić ludzi.
-            Rola managera wymaga nowego sposobu patrzenia na zespół, komunikację i&nbsp;zmiany perspektywy.
+            Rola managera wymaga nowego sposobu patrzenia na zespół i&nbsp;komunikację oraz zmiany perspektywy.
           </p>
           <p className="mt-4 text-lg font-medium text-white">
             Tutaj pracuję nad zmianami, które naprawdę robią różnicę:
@@ -246,7 +246,7 @@ export const SeriesSection: FC = () => {
           </h2>
           <p className="mt-5 max-w-3xl text-lg leading-relaxed text-gray-400">
             Pomagam lepiej zrozumieć pracę managera IT, prowadzenie zespołu
-            i&nbsp;rozmowy, od których zależy więcej niż od kolejnego procesu. Serie, które prowadzę to między innymi:
+            i&nbsp;rozmowy, od których zależy więcej niż od kolejnego procesu. Serie, które prowadzę, to między innymi:
           </p>
         </FadeInUp>
 
@@ -295,7 +295,7 @@ export const SpeakerSection: FC = () => {
       event: 'Boiling Frogs Conference',
     },
     {
-      quote: 'Marcin nie prezentuje tylko uderza. Sala pełna, a\u00A0była cicho, co na konferencji IT graniczy z\u00A0cudem.',
+      quote: 'Marcin nie prezentuje, tylko uderza. Sala pełna, a\u00A0było cicho, co na konferencji IT graniczy z\u00A0cudem.',
       author: 'Monika',
       event: '4Developers Warsaw',
     },
