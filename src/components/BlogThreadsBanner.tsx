@@ -64,7 +64,7 @@ export const BlogThreadsBanner: FC<BlogThreadsBannerProps> = ({ variant }) => {
             >
               {isListVariant
                 ? 'Blog zostaje jako archiwum.'
-                : 'Hej — ten blog zostaje jako archiwum.'}
+                : 'Hej, ten blog zostaje jako archiwum.'}
             </h2>
             <p
               className={clsx(
