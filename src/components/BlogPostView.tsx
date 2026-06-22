@@ -12,7 +12,6 @@ import Link from 'next/link';
 import { FadeInUp } from './AnimatedElements';
 import { BlogThreadsBanner } from './BlogThreadsBanner';
 import { ShareButtons } from './ShareButtons';
-import { SupportCraft } from './SupportCraft';
 
 const MotionLink = motion.create(Link);
 
@@ -171,9 +170,6 @@ export const BlogPostView: FC<BlogPostViewProps> = ({
             <ShareButtons url={postUrl} translations={{ share: t.share }} />
           </div>
         </FadeInUp>
-
-        {/* Support section */}
-        <SupportCraft />
 
         {/* Back to blog */}
         <FadeInUp delay={0.6}>
