@@ -12,6 +12,7 @@ type ButtonProps = {
   ariaLabel?: string;
   className?: string;
   disabled?: boolean;
+  size?: 'default' | 'compact';
   type?: 'button' | 'submit' | 'reset';
   onClick?: () => void;
   variant?: 'default' | 'outline';
@@ -24,14 +25,20 @@ type ButtonLinkProps = {
   className?: string;
   target?: string;
   rel?: string;
+  size?: 'default' | 'compact';
   variant?: 'default' | 'outline';
 };
 
-const baseClassName = 'group relative inline-flex cursor-pointer items-center justify-center gap-3 rounded-lg border px-6 py-3 text-base font-medium text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black sm:px-8 sm:py-4 sm:text-lg';
+const baseClassName = 'group relative inline-flex cursor-pointer items-center justify-center gap-3 rounded-lg border font-medium text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black';
 
 const variantClassNames = {
   default: 'border-[#333333] hover:border-indigo-400/50',
   outline: 'border-white/20 bg-transparent hover:border-white/40 hover:bg-white/5',
+};
+
+const sizeClassNames = {
+  default: 'px-6 py-3 text-base sm:px-8 sm:py-4 sm:text-lg',
+  compact: 'px-4 py-2.5 text-sm sm:px-5',
 };
 
 const scaleTransition = { type: 'tween' as const, duration: 0.3 };
@@ -53,6 +60,7 @@ const Button: FC<ButtonProps & { glowClassName?: string }> = ({
   glowClassName,
   className,
   disabled,
+  size = 'default',
   type = 'button',
   onClick,
   variant = 'default',
@@ -60,7 +68,7 @@ const Button: FC<ButtonProps & { glowClassName?: string }> = ({
   return (
     <motion.button
       aria-label={ariaLabel}
-      className={clsx(baseClassName, variantClassNames[variant], className)}
+      className={clsx(baseClassName, sizeClassNames[size], variantClassNames[variant], className)}
       type={type}
       disabled={disabled}
       onClick={onClick}
@@ -74,11 +82,11 @@ const Button: FC<ButtonProps & { glowClassName?: string }> = ({
   );
 };
 
-export const ButtonLink: FC<ButtonLinkProps> = ({ children, href, glowClassName, className, target, rel, variant = 'default' }) => {
+export const ButtonLink: FC<ButtonLinkProps> = ({ children, href, glowClassName, className, target, rel, size = 'default', variant = 'default' }) => {
   const isExternal = href.startsWith('http') || href.startsWith('mailto:');
   const opensNewTab = href.startsWith('http');
   const isAnchor = href.startsWith('#');
-  const combinedClassName = clsx(baseClassName, variantClassNames[variant], className);
+  const combinedClassName = clsx(baseClassName, sizeClassNames[size], variantClassNames[variant], className);
 
   if (isExternal) {
     return (

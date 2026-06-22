@@ -10,6 +10,7 @@ import Link from 'next/link';
 import { useMemo, useState } from 'react';
 
 import { FadeInUp, StaggerContainer, StaggerItem } from './AnimatedElements';
+import { BlogThreadsBanner } from './BlogThreadsBanner';
 import Input from './Input';
 
 type BlogPostCardProps = {
@@ -172,6 +173,10 @@ export const BlogList: FC<BlogListProps> = ({ posts, translations: t }) => {
 
   return (
     <div className="space-y-8">
+      <FadeInUp>
+        <BlogThreadsBanner variant="list" />
+      </FadeInUp>
+
       {/* Search and filters */}
       <FadeInUp>
         <div className="space-y-4">

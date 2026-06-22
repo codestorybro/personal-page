@@ -10,6 +10,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { FadeInUp } from './AnimatedElements';
+import { BlogThreadsBanner } from './BlogThreadsBanner';
 import { ShareButtons } from './ShareButtons';
 import { SupportCraft } from './SupportCraft';
 
@@ -46,8 +47,14 @@ export const BlogPostView: FC<BlogPostViewProps> = ({
   return (
     <article className="min-h-screen py-16 sm:py-24">
       <div className="mx-auto max-w-[728px]">
-        {/* Back button */}
         <FadeInUp>
+          <div className="mb-6">
+            <BlogThreadsBanner variant="details" />
+          </div>
+        </FadeInUp>
+
+        {/* Back button */}
+        <FadeInUp delay={0.1}>
           <MotionLink
             href="/blog"
             className="group relative mb-8 inline-flex items-center gap-2 rounded-lg border border-[#333333] px-4 py-2 text-sm font-medium text-white hover:border-indigo-400/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
@@ -66,7 +73,7 @@ export const BlogPostView: FC<BlogPostViewProps> = ({
         </FadeInUp>
 
         {/* Header */}
-        <FadeInUp delay={0.1}>
+        <FadeInUp delay={0.2}>
           <header className="mb-12">
             {/* Tags */}
             <div className="mb-4 flex flex-wrap gap-2">
@@ -127,7 +134,7 @@ export const BlogPostView: FC<BlogPostViewProps> = ({
 
         {/* Cover image */}
         {post.coverImage && (
-          <FadeInUp delay={0.2}>
+          <FadeInUp delay={0.3}>
             <motion.div
               className="relative mb-12 overflow-hidden rounded-2xl"
               whileHover={{ scale: 1.01 }}
@@ -151,7 +158,7 @@ export const BlogPostView: FC<BlogPostViewProps> = ({
         )}
 
         {/* Content */}
-        <FadeInUp delay={0.3}>
+        <FadeInUp delay={0.4}>
           <div
             className="prose prose-invert max-w-none"
             dangerouslySetInnerHTML={{ __html: contentHtml }}
@@ -159,7 +166,7 @@ export const BlogPostView: FC<BlogPostViewProps> = ({
         </FadeInUp>
 
         {/* Share buttons */}
-        <FadeInUp delay={0.4}>
+        <FadeInUp delay={0.5}>
           <div className="mt-12 border-t border-white/10 pt-8">
             <ShareButtons url={postUrl} translations={{ share: t.share }} />
           </div>
@@ -169,7 +176,7 @@ export const BlogPostView: FC<BlogPostViewProps> = ({
         <SupportCraft />
 
         {/* Back to blog */}
-        <FadeInUp delay={0.5}>
+        <FadeInUp delay={0.6}>
           <div className="mt-12">
             <MotionLink
               href="/blog"
