@@ -21,7 +21,7 @@ export default {
       },
       fontFamily: {
         logoText: ['var(--font-rush-driver)', 'sans-serif'],
-        bodyText: ['Inter', 'sans-serif'],
+        bodyText: ['var(--font-inter)'],
       },
       boxShadow: {
         page: '4px 4px 16px rgba(0, 0, 0, .5), -4px -4px 16px hsla(0, 0%, 100%, .05);',

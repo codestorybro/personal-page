@@ -1,8 +1,5 @@
-'use client';
-
 import type { FC } from 'react';
 import { AppConfig } from '@/utils/AppConfig';
-import { motion } from 'framer-motion';
 import { FadeInUp } from './AnimatedElements';
 
 export const ThreadsBridge: FC = () => {
@@ -38,14 +35,11 @@ export const ThreadsBridge: FC = () => {
               </p>
 
               <div className="mt-8">
-                <motion.a
+                <a
                   href={threadsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative inline-flex items-center gap-3 rounded-lg border border-indigo-500/30 bg-indigo-500/10 px-6 py-3.5 text-base font-semibold text-white hover:border-indigo-400/50 hover:bg-indigo-500/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black sm:px-8 sm:text-lg"
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.97 }}
-                  transition={{ type: 'tween', duration: 0.2 }}
+                  className="group relative inline-flex items-center gap-3 rounded-lg border border-indigo-500/30 bg-indigo-500/10 px-6 py-3.5 text-base font-semibold text-white transition duration-200 hover:scale-[1.04] hover:border-indigo-400/50 hover:bg-indigo-500/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black active:scale-[0.97] sm:px-8 sm:text-lg"
                 >
                   <span
                     className="pointer-events-none absolute -inset-2 rounded-lg bg-indigo-500 opacity-0 blur-xl transition-opacity duration-300 will-change-transform group-hover:opacity-30"
@@ -53,7 +47,7 @@ export const ThreadsBridge: FC = () => {
                     style={{ WebkitTransform: 'translateZ(0)' }}
                   />
                   <span className="relative z-10">Czytaj na Threads →</span>
-                </motion.a>
+                </a>
               </div>
             </div>
           </div>

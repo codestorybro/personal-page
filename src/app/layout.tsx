@@ -13,6 +13,16 @@ const rushDriver = localFont({
   display: 'swap',
 });
 
+const inter = localFont({
+  src: '../../public/assets/fonts/inter-latin-ext.woff2',
+  variable: '--font-inter',
+  display: 'swap',
+  weight: '100 900',
+  style: 'normal',
+  fallback: ['Arial', 'sans-serif'],
+  adjustFontFallback: 'Arial',
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(AppConfig.url),
   title: {
@@ -64,7 +74,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pl" className={`bg-black ${rushDriver.variable}`}>
+    <html lang="pl" className={`bg-black ${inter.variable} ${rushDriver.variable}`}>
       <body suppressHydrationWarning>
         <NavigationProgress />
         <GA />

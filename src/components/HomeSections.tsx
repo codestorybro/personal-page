@@ -1,12 +1,9 @@
-'use client';
-
 import type { FC } from 'react';
-import { useCopyEmail } from '@/hooks/useCopyEmail';
 import { AppConfig } from '@/utils/AppConfig';
-import { motion } from 'framer-motion';
 import { FadeInUp, StaggerContainer, StaggerItem } from './AnimatedElements';
 import { BrandSlogan } from './BrandSlogan';
-import Button, { ButtonLink } from './Button';
+import { ButtonLink } from './ButtonLink';
+import { CopyEmailButton } from './CopyEmailButton';
 
 export { ThreadsBridge } from './ThreadsBridge';
 
@@ -253,18 +250,14 @@ export const SeriesSection: FC = () => {
         <StaggerContainer className="mt-10 grid gap-5 md:grid-cols-2" staggerDelay={0.08}>
           {series.map((item, index) => (
             <StaggerItem key={item.title}>
-              <motion.article
-                className="h-full rounded-2xl border border-white/10 bg-white/5 p-6"
-                whileHover={{ y: -3, borderColor: 'rgba(129, 140, 248, 0.4)' }}
-                transition={{ duration: 0.2 }}
-              >
+              <article className="h-full rounded-2xl border border-white/10 bg-white/5 p-6 transition duration-200 hover:-translate-y-1 hover:border-indigo-400/40">
                 <p className="text-sm font-semibold text-indigo-400">
                   0
                   {index + 1}
                 </p>
                 <h3 className="mt-3 text-xl font-bold text-white">{item.title}</h3>
                 <p className="mt-3 leading-relaxed text-gray-400">{item.description}</p>
-              </motion.article>
+              </article>
             </StaggerItem>
           ))}
         </StaggerContainer>
@@ -286,8 +279,6 @@ export const SeriesSection: FC = () => {
 // ============================================================================
 
 export const SpeakerSection: FC = () => {
-  const copyEmail = useCopyEmail();
-
   const testimonials = [
     {
       quote: 'Najlepsza prelekcja na całej konferencji. Nareszcie ktoś mówi o\u00A0tym, o\u00A0czym wszyscy myślimy.',
@@ -336,15 +327,9 @@ export const SpeakerSection: FC = () => {
 
           <FadeInUp delay={0.4}>
             <div className="pt-2">
-              <Button
-                onClick={() => {
-                  void copyEmail();
-                }}
-                ariaLabel={`Skopiuj adres email ${AppConfig.author.email}`}
-                glowClassName="bg-orange-500"
-              >
+              <CopyEmailButton glowClassName="bg-orange-500">
                 Zaproś mnie na konferencję lub event →
-              </Button>
+              </CopyEmailButton>
             </div>
           </FadeInUp>
         </div>
@@ -352,11 +337,7 @@ export const SpeakerSection: FC = () => {
         <StaggerContainer className="mt-12 grid gap-6 sm:grid-cols-2" staggerDelay={0.15}>
           {testimonials.map(testimonial => (
             <StaggerItem key={`${testimonial.author}-${testimonial.event}`}>
-              <motion.div
-                className="h-full rounded-2xl border border-orange-500/20 bg-orange-500/5 p-6"
-                whileHover={{ borderColor: 'rgba(249, 115, 22, 0.4)' }}
-                transition={{ duration: 0.2 }}
-              >
+              <div className="h-full rounded-2xl border border-orange-500/20 bg-orange-500/5 p-6 transition-colors duration-200 hover:border-orange-500/40">
                 <p className="mt-3 italic text-gray-300">
                   {testimonial.quote}
                 </p>
@@ -366,7 +347,7 @@ export const SpeakerSection: FC = () => {
                   {' '}
                   {testimonial.event}
                 </p>
-              </motion.div>
+              </div>
             </StaggerItem>
           ))}
         </StaggerContainer>

@@ -3,7 +3,6 @@
 import type { FC } from 'react';
 import { useCopyEmail } from '@/hooks/useCopyEmail';
 import { AppConfig } from '@/utils/AppConfig';
-import { motion } from 'framer-motion';
 import { BrandSlogan } from './BrandSlogan';
 
 const socialLinks = [
@@ -29,29 +28,27 @@ const Footer: FC = () => {
 
         <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2" aria-label="Social media i kontakt CodeStoryBro">
           {socialLinks.map(link => (
-            <motion.a
+            <a
               key={link.name}
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`CodeStoryBro na ${link.name}`}
-              className="text-sm text-gray-400 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
-              whileHover={{ y: -1 }}
+              className="text-sm text-gray-400 transition hover:-translate-y-px hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
             >
               {link.name}
-            </motion.a>
+            </a>
           ))}
-          <motion.button
+          <button
             type="button"
             onClick={() => {
               void copyEmail();
             }}
             aria-label={`Skopiuj adres email ${AppConfig.author.email}`}
-            className="text-sm text-gray-400 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
-            whileHover={{ y: -1 }}
+            className="text-sm text-gray-400 transition hover:-translate-y-px hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
           >
             {AppConfig.author.email}
-          </motion.button>
+          </button>
         </nav>
 
         <p className="text-xs text-gray-600">

@@ -1,7 +1,5 @@
-'use client';
-
-import type { ReactNode } from 'react';
-import { motion } from 'framer-motion';
+import type { CSSProperties, ReactNode } from 'react';
+import clsx from 'clsx';
 
 type AnimatedTextProps = {
   children: ReactNode;
@@ -9,50 +7,43 @@ type AnimatedTextProps = {
   delay?: number;
 };
 
-const defaultTransition = {
-  duration: 0.6,
-  ease: [0.25, 0.1, 0.25, 1] as const,
-};
+const animationStyle = (delay: number): CSSProperties => ({
+  '--enter-delay': `${delay}s`,
+} as CSSProperties);
 
 // Fade in from bottom animation
 export const FadeInUp = ({ children, className = '', delay = 0 }: AnimatedTextProps) => {
   return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ ...defaultTransition, delay }}
+    <div
+      className={clsx('content-enter', className)}
+      style={animationStyle(delay)}
     >
       {children}
-    </motion.div>
+    </div>
   );
 };
 
 // Fade in from left animation
 export const FadeInLeft = ({ children, className = '', delay = 0 }: AnimatedTextProps) => {
   return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, x: -50 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ ...defaultTransition, delay }}
+    <div
+      className={clsx('content-enter content-enter-left', className)}
+      style={animationStyle(delay)}
     >
       {children}
-    </motion.div>
+    </div>
   );
 };
 
 // Fade in from right animation
 export const FadeInRight = ({ children, className = '', delay = 0 }: AnimatedTextProps) => {
   return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, x: 50 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ ...defaultTransition, delay }}
+    <div
+      className={clsx('content-enter content-enter-right', className)}
+      style={animationStyle(delay)}
     >
       {children}
-    </motion.div>
+    </div>
   );
 };
 
@@ -65,43 +56,22 @@ type StaggerContainerProps = {
 
 export const StaggerContainer = ({ children, className = '', staggerDelay = 0.1 }: StaggerContainerProps) => {
   return (
-    <motion.div
-      className={className}
-      initial="hidden"
-      animate="visible"
-      variants={{
-        hidden: { opacity: 0 },
-        visible: {
-          opacity: 1,
-          transition: {
-            staggerChildren: staggerDelay,
-          },
-        },
-      }}
+    <div
+      className={clsx('stagger-container', className)}
+      style={{
+        '--stagger-delay': `${staggerDelay}s`,
+      } as CSSProperties}
     >
       {children}
-    </motion.div>
+    </div>
   );
 };
 
 // Child item for stagger animation
 export const StaggerItem = ({ children, className = '' }: Omit<AnimatedTextProps, 'delay'>) => {
   return (
-    <motion.div
-      className={className}
-      variants={{
-        hidden: { opacity: 0, y: 20 },
-        visible: {
-          opacity: 1,
-          y: 0,
-          transition: {
-            duration: 0.5,
-            ease: [0.25, 0.1, 0.25, 1],
-          },
-        },
-      }}
-    >
+    <div className={clsx('stagger-item', className)}>
       {children}
-    </motion.div>
+    </div>
   );
 };

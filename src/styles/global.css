@@ -11,22 +11,6 @@ body {
   overflow-x: hidden;
 }
 
-@layer base {
-  @font-face {
-    font-family: 'Adrip';
-    src: url('/assets/fonts/adrip.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'Inter';
-    src: url('/assets/fonts/inter.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-}
-
 /* Safari blur fix - prevents clipping of blur effects at element boundaries */
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
   .blur-xl,
@@ -191,6 +175,138 @@ body {
 
   .glitch-logo::before,
   .glitch-logo::after {
+    animation: none;
+  }
+}
+
+.content-enter {
+  animation: content-enter 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+  animation-delay: var(--enter-delay, 0ms);
+}
+
+.content-enter-left {
+  animation-name: content-enter-left;
+}
+
+.content-enter-right {
+  animation-name: content-enter-right;
+}
+
+.stagger-container > .stagger-item {
+  animation: content-enter 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+}
+
+.stagger-container > .stagger-item:nth-child(1) {
+  animation-delay: calc(var(--stagger-delay, 100ms) * 0);
+}
+
+.stagger-container > .stagger-item:nth-child(2) {
+  animation-delay: calc(var(--stagger-delay, 100ms) * 1);
+}
+
+.stagger-container > .stagger-item:nth-child(3) {
+  animation-delay: calc(var(--stagger-delay, 100ms) * 2);
+}
+
+.stagger-container > .stagger-item:nth-child(4) {
+  animation-delay: calc(var(--stagger-delay, 100ms) * 3);
+}
+
+.stagger-container > .stagger-item:nth-child(5) {
+  animation-delay: calc(var(--stagger-delay, 100ms) * 4);
+}
+
+.menu-enter {
+  animation: menu-enter 0.3s ease-out both;
+}
+
+.not-found-glow {
+  animation: not-found-glow 2s ease-in-out infinite;
+}
+
+.not-found-bubble {
+  animation: not-found-bubble var(--bubble-duration, 3s) ease-in-out infinite;
+  animation-delay: var(--bubble-delay, 0s);
+}
+
+@keyframes content-enter {
+  from {
+    opacity: 0.01;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes content-enter-left {
+  from {
+    opacity: 0.01;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes content-enter-right {
+  from {
+    opacity: 0.01;
+    transform: translateX(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes menu-enter {
+  from {
+    opacity: 0.01;
+    transform: translateY(-100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes not-found-glow {
+  0%,
+  100% {
+    text-shadow: 0 0 20px rgb(56 189 248 / 50%);
+  }
+
+  50% {
+    text-shadow: 0 0 40px rgb(56 189 248 / 30%);
+  }
+}
+
+@keyframes not-found-bubble {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: translateY(-30px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .content-enter,
+  .stagger-container > .stagger-item,
+  .menu-enter,
+  .not-found-glow,
+  .not-found-bubble {
     animation: none;
   }
 }

@@ -4,7 +4,7 @@ import type { FC } from 'react';
 import { ThreadsLogoIcon } from '@phosphor-icons/react';
 import clsx from 'clsx';
 
-import { ButtonLink } from './Button';
+import { ButtonLink } from './ButtonLink';
 
 type BlogThreadsBannerProps = {
   variant: 'list' | 'details';
