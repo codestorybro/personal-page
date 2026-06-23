@@ -8,9 +8,9 @@ import { useState } from 'react';
 import { GlitchLogo } from './GlitchLogo';
 
 const socialLinks = [
-  { name: 'YouTube', label: 'CodeStoryBro na YouTube', href: AppConfig.social.youtube, icon: YoutubeLogoIcon, hoverTextColor: 'hover:text-red-100', hoverBgColor: 'bg-red-500' },
   { name: 'LinkedIn', label: 'Marcin Kołodziej na LinkedIn', href: AppConfig.social.linkedin, icon: LinkedinLogoIcon, hoverTextColor: 'hover:text-blue-100', hoverBgColor: 'bg-blue-500' },
   { name: 'Threads', label: 'CodeStoryBro na Threads', href: AppConfig.social.threads, icon: ThreadsLogoIcon, hoverTextColor: 'hover:text-white', hoverBgColor: 'bg-zinc-300' },
+  { name: 'YouTube', label: 'CodeStoryBro na YouTube', href: AppConfig.social.youtube, icon: YoutubeLogoIcon, hoverTextColor: 'hover:text-red-100', hoverBgColor: 'bg-red-500' },
 ];
 
 export const Header: FC = () => {

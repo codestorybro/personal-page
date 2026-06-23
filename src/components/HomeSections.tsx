@@ -50,14 +50,14 @@ export const HeroSection: FC = () => {
 
         <FadeInUp delay={0.5}>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center">
-            <ButtonLink href={AppConfig.social.youtube} glowClassName="bg-red-500">
-              Oglądaj na YouTube →
+            <ButtonLink href={AppConfig.social.linkedin} glowClassName="bg-blue-500" variant="outline">
+              Obserwuj na LinkedIn →
             </ButtonLink>
             <ButtonLink href={AppConfig.social.threads} glowClassName="bg-zinc-300" variant="outline">
               Dyskutuj na Threads →
             </ButtonLink>
-            <ButtonLink href={AppConfig.social.linkedin} glowClassName="bg-blue-500" variant="outline">
-              Obserwuj na LinkedIn →
+            <ButtonLink href={AppConfig.social.youtube} glowClassName="bg-red-500">
+              Oglądaj na YouTube →
             </ButtonLink>
           </div>
         </FadeInUp>
@@ -328,7 +328,7 @@ export const SpeakerSection: FC = () => {
           <FadeInUp delay={0.4}>
             <div className="pt-2">
               <CopyEmailButton glowClassName="bg-orange-500">
-                Zaproś mnie na konferencję lub event →
+                Zaproś mnie na konferencję lub event
               </CopyEmailButton>
             </div>
           </FadeInUp>
@@ -380,15 +380,15 @@ export const CTASection: FC = () => {
               <p className="mx-auto mt-4 max-w-2xl text-lg font-semibold text-white">
                 Z&nbsp;odpowiedzialnością za słowa i&nbsp;decyzje.
               </p>
-              <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
-                <ButtonLink href={AppConfig.social.linkedin} glowClassName="bg-blue-500">
-                  Obserwuj na LinkedIn →
+              <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:mx-auto sm:flex-row sm:flex-wrap sm:gap-3">
+                <ButtonLink className="w-64" href={AppConfig.social.linkedin} glowClassName="bg-blue-500">
+                  Obserwuj na LinkedIn
                 </ButtonLink>
-                <ButtonLink href={AppConfig.social.youtube} glowClassName="bg-red-500" variant="outline">
-                  Zobacz YouTube →
+                <ButtonLink className="w-64" href={AppConfig.social.threads} glowClassName="bg-zinc-300" variant="outline">
+                  Dyskutuj na Threads
                 </ButtonLink>
-                <ButtonLink href={AppConfig.social.threads} glowClassName="bg-zinc-300" variant="outline">
-                  Dyskutuj na Threads →
+                <ButtonLink className="w-64" href={AppConfig.social.youtube} glowClassName="bg-red-500" variant="outline">
+                  Zobacz YouTube
                 </ButtonLink>
               </div>
             </div>
