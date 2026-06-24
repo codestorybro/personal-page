@@ -421,7 +421,7 @@ Strona powinna prowadzić do kanałów CodeStoryBro:
 * YouTube — dłuższe materiały, serie i mocniejsze rozwinięcia tematów,
 * LinkedIn — profesjonalne przemyślenia, wystąpienia, leadership i branża IT,
 * Threads — krótkie myśli, obserwacje i szybkie komentarze,
-* TikTok / Instagram — shorty, szybkie formaty, krótkie obserwacje,
+* Instagram — shorty, szybkie formaty, krótkie obserwacje,
 * Discord — społeczność CodeStoryBro,
 * e-mail — kontakt w sprawie wystąpień, współprac i zaproszeń.
 

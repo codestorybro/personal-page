@@ -13,7 +13,6 @@ export const AppConfig = {
   social: {
     linkedin: 'https://linkedin.com/in/codestorybro',
     youtube: 'https://youtube.com/@codestorybro',
-    tiktok: 'https://www.tiktok.com/@codestorybro',
     instagram: 'https://www.instagram.com/codestorybro/',
     threads: 'https://www.threads.com/@codestorybro',
   },

@@ -9,7 +9,6 @@ const socialLinks = [
   { name: 'YouTube', href: AppConfig.social.youtube },
   { name: 'LinkedIn', href: AppConfig.social.linkedin },
   { name: 'Threads', href: AppConfig.social.threads },
-  { name: 'TikTok', href: AppConfig.social.tiktok },
   { name: 'Instagram', href: AppConfig.social.instagram },
 ];
 
