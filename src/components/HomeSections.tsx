@@ -56,8 +56,8 @@ export const HeroSection: FC = () => {
             <ButtonLink href={AppConfig.social.threads} glowClassName="bg-zinc-300" variant="outline">
               Dyskutuj na Threads →
             </ButtonLink>
-            <ButtonLink href={AppConfig.social.youtube} glowClassName="bg-red-500">
-              Oglądaj na YouTube →
+            <ButtonLink href={AppConfig.social.instagram} glowClassName="bg-pink-500" variant="outline">
+              Zajrzyj na Instagram →
             </ButtonLink>
           </div>
         </FadeInUp>
@@ -211,62 +211,93 @@ export const LeadershipSection: FC = () => {
 // ============================================================================
 
 export const SeriesSection: FC = () => {
-  const series = [
+  const topics = [
     {
-      title: 'Błędy świeżego managera',
-      description: 'O pułapkach po awansie: kontroli, potrzebie bycia lubianym i\u00A0unikaniu odpowiedzialności.',
+      title: 'Awans i\u00A0zmiana relacji',
+      description:
+        'O\u00A0tym, co dzieje się, kiedy przestajesz być tylko częścią zespołu, a\u00A0zaczynasz odpowiadać za ludzi, decyzje i\u00A0konsekwencje.',
     },
     {
-      title: 'Jak manager widzi…',
-      description: 'Daily, konflikty, seniorów, hybrydę i\u00A0cichy zespół z\u00A0perspektywy osoby odpowiedzialnej za całość.',
+      title: 'Feedback i\u00A0trudne rozmowy',
+      description:
+        'Bez magicznych skryptów. O\u00A0rozmowach, które są niewygodne, ale potrzebne: wynikach, napięciach, oczekiwaniach i\u00A0pieniądzach.',
     },
     {
-      title: 'Trudne rozmowy',
-      description: 'Feedback, brak wyników, napięcia, awanse i\u00A0pieniądze - bez magicznych skryptów i\u00A0unikania sedna.',
+      title: 'Ludzka strona zespołu IT',
+      description:
+        'O\u00A0seniorach, juniorach, cichych problemach, konfliktach i\u00A0zachowaniach, które potrafią rozwalić zespół szybciej niż zły kod.',
     },
     {
-      title: 'Branża od środka',
-      description: 'Mechanizmy IT, których nie widać w\u00A0statusach: polityka, presja, delivery i\u00A0kultura pracy.',
+      title: 'Manager z\u00A0pierwszej linii',
+      description:
+        'Nie o\u00A0wielkiej polityce zarządów i\u00A0budżetach. O\u00A0codziennej pracy blisko zespołu: odpowiedzialności, presji, delivery i\u00A0decyzjach.',
     },
     {
       title: 'Manager też człowiek',
-      description: 'Presja, samotność, zmęczenie decyzjami i\u00A0emocje po drugiej stronie managerskiej roli.',
+      description:
+        'O\u00A0zmęczeniu, samotności, stresie, emocjach i\u00A0tym, że po drugiej stronie managerskiej roli też siedzi człowiek.',
     },
   ];
 
   return (
-    <section id="serie" className="scroll-mt-24 py-16 sm:py-24">
-      <div className="mx-auto max-w-5xl">
+    <section id="tematy" className="scroll-mt-24 py-16 sm:py-24">
+      <div className="mx-auto max-w-4xl">
         <FadeInUp>
-          <h2 className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
-            Tematy, których nie uczą Cię po awansie.
-          </h2>
-          <p className="mt-5 max-w-3xl text-lg leading-relaxed text-gray-400">
-            Pomagam lepiej zrozumieć pracę managera IT, prowadzenie zespołu
-            i&nbsp;rozmowy, od których zależy więcej niż od kolejnego procesu. Serie, które prowadzę, to między innymi:
-          </p>
-        </FadeInUp>
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-indigo-500/10 via-violet-500/5 to-transparent p-8 sm:p-12">
+            <div
+              className="pointer-events-none absolute -right-24 -top-24 size-72 rounded-full bg-indigo-500/15 blur-3xl will-change-transform"
+              aria-hidden="true"
+              style={{ WebkitTransform: 'translateZ(0)' }}
+            />
 
-        <StaggerContainer className="mt-10 grid gap-5 md:grid-cols-2" staggerDelay={0.08}>
-          {series.map((item, index) => (
-            <StaggerItem key={item.title}>
-              <article className="h-full rounded-2xl border border-white/10 bg-white/5 p-6 transition duration-200 hover:-translate-y-1 hover:border-indigo-400/40">
-                <p className="text-sm font-semibold text-indigo-400">
-                  0
-                  {index + 1}
-                </p>
-                <h3 className="mt-3 text-xl font-bold text-white">{item.title}</h3>
-                <p className="mt-3 leading-relaxed text-gray-400">{item.description}</p>
-              </article>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+            <div className="relative z-10">
+              <div className="mb-6 inline-flex items-center rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-1.5 text-sm text-blue-300">
+                Awanse • relacje • odpowiedzialność
+              </div>
 
-        <FadeInUp delay={0.3}>
-          <div className="mt-10">
-            <ButtonLink href="https://youtube.com/@codestorybro" glowClassName="bg-red-500">
-              Oglądaj na YouTube →
-            </ButtonLink>
+              <h2 className="text-2xl font-bold leading-tight text-white sm:text-3xl lg:text-4xl">
+                Tematy, które wracają
+                <span className="mt-2 block bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text pb-1 text-transparent">
+                  w rozmowach o&nbsp;IT.
+                </span>
+              </h2>
+
+              <p className="mt-6 max-w-2xl text-base leading-relaxed text-gray-300 sm:text-lg">
+                To rozmowy o&nbsp;miękkiej części branży.
+                Awanse, relacje, feedback, odpowiedzialność, czyli ludzka strona pracy w&nbsp;IT.
+              </p>
+
+              <StaggerContainer className="mt-10 grid gap-5 md:grid-cols-2" staggerDelay={0.08}>
+                {topics.map((item, index) => (
+                  <StaggerItem key={item.title}>
+                    <article className="h-full rounded-2xl border border-white/10 bg-white/5 p-6 transition duration-200 hover:-translate-y-1 hover:border-indigo-400/40 hover:bg-white/[0.07]">
+                      <p className="text-sm font-semibold text-indigo-400">
+                        0
+                        {index + 1}
+                      </p>
+                      <h3 className="mt-3 text-xl font-bold text-white">{item.title}</h3>
+                      <p className="mt-3 leading-relaxed text-gray-400">{item.description}</p>
+                    </article>
+                  </StaggerItem>
+                ))}
+              </StaggerContainer>
+
+              <div className="mt-8">
+                <a
+                  href="https://discord.com/invite/Fn2WTPfCkR"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative inline-flex items-center gap-3 rounded-lg border border-indigo-500/30 bg-indigo-500/10 px-6 py-3.5 text-base font-semibold text-white transition duration-200 hover:scale-[1.04] hover:border-indigo-400/50 hover:bg-indigo-500/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black active:scale-[0.97] sm:px-8 sm:text-lg"
+                >
+                  <span
+                    className="pointer-events-none absolute -inset-2 rounded-lg bg-indigo-500 opacity-0 blur-xl transition-opacity duration-300 will-change-transform group-hover:opacity-30"
+                    aria-hidden="true"
+                    style={{ WebkitTransform: 'translateZ(0)' }}
+                  />
+                  <span className="relative z-10">Dołącz do community →</span>
+                </a>
+              </div>
+            </div>
           </div>
         </FadeInUp>
       </div>
@@ -387,8 +418,8 @@ export const CTASection: FC = () => {
                 <ButtonLink className="w-64" href={AppConfig.social.threads} glowClassName="bg-zinc-300" variant="outline">
                   Dyskutuj na Threads
                 </ButtonLink>
-                <ButtonLink className="w-64" href={AppConfig.social.youtube} glowClassName="bg-red-500" variant="outline">
-                  Zobacz YouTube
+                <ButtonLink className="w-64" href={AppConfig.social.instagram} glowClassName="bg-pink-500" variant="outline">
+                  Zajrzyj na Instagram
                 </ButtonLink>
               </div>
             </div>

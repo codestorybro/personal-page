@@ -15,5 +15,6 @@ export const AppConfig = {
     youtube: 'https://youtube.com/@codestorybro',
     instagram: 'https://www.instagram.com/codestorybro/',
     threads: 'https://www.threads.com/@codestorybro',
+    discord: 'https://discord.com/invite/codestorybro',
   },
 } as const;

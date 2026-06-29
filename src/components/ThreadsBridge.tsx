@@ -9,21 +9,21 @@ export const ThreadsBridge: FC = () => {
     <section className="py-16 sm:py-24">
       <div className="mx-auto max-w-4xl">
         <FadeInUp>
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-indigo-500/10 via-violet-500/5 to-transparent p-8 sm:p-12">
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-gray-500/10 via-gray-500/5 to-transparent p-8 sm:p-12">
             <div
-              className="pointer-events-none absolute -right-24 -top-24 size-72 rounded-full bg-indigo-500/15 blur-3xl will-change-transform"
+              className="pointer-events-none absolute -right-24 -top-24 size-72 rounded-full bg-gray-500/15 blur-3xl will-change-transform"
               aria-hidden="true"
               style={{ WebkitTransform: 'translateZ(0)' }}
             />
 
             <div className="relative z-10">
-              <div className="mb-6 inline-flex items-center rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-1.5 text-sm text-blue-300">
+              <div className="mb-6 inline-flex items-center rounded-full border border-gray-500/20 bg-gray-500/10 px-4 py-1.5 text-sm text-gray-300">
                 Krótko • celnie • z&nbsp;życia zespołów
               </div>
 
               <h2 className="text-2xl font-bold leading-tight text-white sm:text-3xl lg:text-4xl">
                 Krótkie obserwacje
-                <span className="mt-2 block bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text pb-1 text-transparent">
+                <span className="mt-2 block bg-gradient-to-r from-gray-400 to-gray-600 bg-clip-text pb-1 text-transparent">
                   z&nbsp;ludzkiej strony IT.
                 </span>
               </h2>
@@ -39,10 +39,10 @@ export const ThreadsBridge: FC = () => {
                   href={threadsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative inline-flex items-center gap-3 rounded-lg border border-indigo-500/30 bg-indigo-500/10 px-6 py-3.5 text-base font-semibold text-white transition duration-200 hover:scale-[1.04] hover:border-indigo-400/50 hover:bg-indigo-500/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black active:scale-[0.97] sm:px-8 sm:text-lg"
+                  className="group relative inline-flex items-center gap-3 rounded-lg border border-gray-500/30 bg-gray-500/10 px-6 py-3.5 text-base font-semibold text-white transition duration-200 hover:scale-[1.04] hover:border-gray-400/50 hover:bg-gray-500/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black active:scale-[0.97] sm:px-8 sm:text-lg"
                 >
                   <span
-                    className="pointer-events-none absolute -inset-2 rounded-lg bg-indigo-500 opacity-0 blur-xl transition-opacity duration-300 will-change-transform group-hover:opacity-30"
+                    className="pointer-events-none absolute -inset-2 rounded-lg bg-gray-500 opacity-0 blur-xl transition-opacity duration-300 will-change-transform group-hover:opacity-30"
                     aria-hidden="true"
                     style={{ WebkitTransform: 'translateZ(0)' }}
                   />

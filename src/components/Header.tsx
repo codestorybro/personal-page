@@ -2,7 +2,7 @@
 import type { FC } from 'react';
 import { useCopyEmail } from '@/hooks/useCopyEmail';
 import { AppConfig } from '@/utils/AppConfig';
-import { EnvelopeSimpleIcon, LinkedinLogoIcon, ListIcon, ThreadsLogoIcon, XIcon, YoutubeLogoIcon } from '@phosphor-icons/react';
+import { EnvelopeSimpleIcon, InstagramLogoIcon, LinkedinLogoIcon, ListIcon, ThreadsLogoIcon, XIcon } from '@phosphor-icons/react';
 import Link from 'next/link';
 import { useState } from 'react';
 import { GlitchLogo } from './GlitchLogo';
@@ -10,7 +10,7 @@ import { GlitchLogo } from './GlitchLogo';
 const socialLinks = [
   { name: 'LinkedIn', label: 'Marcin Kołodziej na LinkedIn', href: AppConfig.social.linkedin, icon: LinkedinLogoIcon, hoverTextColor: 'hover:text-blue-100', hoverBgColor: 'bg-blue-500' },
   { name: 'Threads', label: 'CodeStoryBro na Threads', href: AppConfig.social.threads, icon: ThreadsLogoIcon, hoverTextColor: 'hover:text-white', hoverBgColor: 'bg-zinc-300' },
-  { name: 'YouTube', label: 'CodeStoryBro na YouTube', href: AppConfig.social.youtube, icon: YoutubeLogoIcon, hoverTextColor: 'hover:text-red-100', hoverBgColor: 'bg-red-500' },
+  { name: 'Instagram', label: 'CodeStoryBro na Instagram', href: AppConfig.social.instagram, icon: InstagramLogoIcon, hoverTextColor: 'hover:text-pink-100', hoverBgColor: 'bg-pink-500' },
 ];
 
 export const Header: FC = () => {

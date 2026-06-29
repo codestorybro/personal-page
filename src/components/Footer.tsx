@@ -6,10 +6,11 @@ import { AppConfig } from '@/utils/AppConfig';
 import { BrandSlogan } from './BrandSlogan';
 
 const socialLinks = [
-  { name: 'YouTube', href: AppConfig.social.youtube },
   { name: 'LinkedIn', href: AppConfig.social.linkedin },
   { name: 'Threads', href: AppConfig.social.threads },
   { name: 'Instagram', href: AppConfig.social.instagram },
+  { name: 'Discord', href: AppConfig.social.discord },
+  { name: 'YouTube', href: AppConfig.social.youtube },
 ];
 
 const Footer: FC = () => {
