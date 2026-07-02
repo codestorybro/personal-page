@@ -172,7 +172,6 @@ export const LinktreeHub: FC = () => {
           ©
           {' '}
           {new Date().getFullYear()}
-          ``
           {' '}
           Marcin Kołodziej - CodeStoryBro
         </footer>
