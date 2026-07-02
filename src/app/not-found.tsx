@@ -4,7 +4,7 @@ import Link from 'next/link';
 const t = {
   title: '404',
   heading: 'Tu nie ma tej strony.',
-  description: 'Link mógł się zdezaktualizować. Wróć do materiałów o leadershipie, zespołach i karierze w IT.',
+  description: 'Link mógł się zdezaktualizować.',
   back_home: 'Wróć do CodeStoryBro',
 };
 

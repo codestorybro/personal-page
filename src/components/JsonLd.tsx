@@ -13,18 +13,26 @@ const personSchema = {
   'alternateName': AppConfig.name,
   'url': SITE_URL,
   'image': `${SITE_URL}/assets/img/about/about.webp`,
-  'description': 'Engineering Manager i twórca CodeStoryBro. Mówi o leadershipie w IT, zarządzaniu zespołami, trudnych rozmowach, feedbacku i odpowiedzialności po awansie.',
+  'description': 'Engineering Manager and creator commenting on the absurdities, tensions and dysfunctions of the IT and tech world.',
   'sameAs': sameAs,
   'jobTitle': AppConfig.author.jobTitle,
   'knowsAbout': [
-    'Leadership w IT',
+    'Świat IT',
+    'Branża technologiczna',
+    'Komentarz IT',
+    'Absurdy IT',
+    'Patologie IT',
+    'Ludzka strona technologii',
     'Engineering Management',
-    'Zarządzanie zespołem IT',
-    'Trudne rozmowy w pracy',
-    'Feedback w IT',
-    'Rozwój managera',
-    'Kultura pracy w IT',
-    'Kariera w IT',
+    'Code review',
+    'Feedback w IT',
+    'Rekrutacja IT',
+    'AI w IT',
+    'Vibe coding',
+    'Big Tech',
+    'Branża gier',
+    'Kultura cyfrowa',
+    'Kultura pracy w IT',
   ],
 };
 
@@ -37,7 +45,7 @@ const organizationSchema = {
     '@type': 'ImageObject',
     'url': `${SITE_URL}/assets/img/logo-main.svg`,
   },
-  'description': AppConfig.description,
+  'description': 'Marka osobista komentująca absurdy, napięcia i patologie świata IT i technologii.',
   'founder': {
     '@id': `${SITE_URL}/#person`,
   },
@@ -55,7 +63,7 @@ const websiteSchema = {
   '@id': `${SITE_URL}/#website`,
   'url': SITE_URL,
   'name': AppConfig.name,
-  'description': AppConfig.description,
+  'description': 'Komentarze o świecie IT i technologii - wprost.',
   'inLanguage': 'pl-PL',
   'publisher': {
     '@id': `${SITE_URL}/#organization`,
@@ -119,8 +127,8 @@ export const BlogListJsonLd: FC = () => {
         {
           '@type': 'CollectionPage',
           '@id': `${blogUrl}#collection`,
-          'name': 'Blog o leadershipie i zarządzaniu w IT – CodeStoryBro',
-          'description': 'Dłuższe teksty o leadershipie, zarządzaniu zespołem IT, trudnych rozmowach, feedbacku, kulturze pracy i rozwoju kariery w technologii.',
+          'name': 'Blog o świecie IT i technologii – CodeStoryBro',
+          'description': 'Archiwalne i dłuższe teksty o świecie IT, technologii, ludziach, feedbacku, code review, kulturze pracy i branży od środka.',
           'url': blogUrl,
           'inLanguage': 'pl-PL',
           'isPartOf': {
@@ -129,7 +137,7 @@ export const BlogListJsonLd: FC = () => {
           'mainEntity': {
             '@type': 'Blog',
             'name': 'Blog CodeStoryBro',
-            'description': 'Konkretne teksty o pracy managera IT, prowadzeniu ludzi, odpowiedzialności, karierze i ludzkiej stronie technologii.',
+            'description': 'Teksty o absurdach, napięciach i ludzkiej stronie IT oraz technologii.',
             'publisher': {
               '@id': `${SITE_URL}/#organization`,
             },
@@ -190,7 +198,7 @@ export const BlogArticleJsonLd: FC<BlogArticleJsonLdProps> = ({
             '@id': articleUrl,
           },
           'keywords': tags.join(', '),
-          'articleSection': tags[0] || 'Leadership w IT',
+          'articleSection': tags[0] || 'Branża IT od środka',
           'inLanguage': 'pl-PL',
           'isPartOf': {
             '@id': `${SITE_URL}/#website`,

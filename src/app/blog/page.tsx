@@ -10,8 +10,8 @@ import { AppConfig } from '@/utils/AppConfig';
 export const dynamic = 'force-dynamic';
 
 const SITE_URL = AppConfig.url;
-const BLOG_TITLE = 'Blog o leadershipie i zarządzaniu w IT';
-const BLOG_DESCRIPTION = 'Dłuższe, konkretne teksty o leadershipie, zarządzaniu zespołem IT, trudnych rozmowach, feedbacku i karierze w technologii.';
+const BLOG_TITLE = 'Blog o świecie IT i technologii';
+const BLOG_DESCRIPTION = 'Archiwalne i dłuższe teksty CodeStoryBro o świecie IT, technologii, ludziach, feedbacku, code review, kulturze pracy i branży od środka.';
 
 export async function generateMetadata(): Promise<Metadata> {
   const canonicalUrl = `${SITE_URL}/blog`;
@@ -21,14 +21,21 @@ export async function generateMetadata(): Promise<Metadata> {
     description: BLOG_DESCRIPTION,
     keywords: [
       'blog IT',
-      'leadership w IT',
-      'zarządzanie zespołem IT',
-      'manager IT',
-      'trudne rozmowy w pracy',
-      'feedback w IT',
-      'kariera w IT',
-      'kultura pracy w IT',
-      'rozwój managera',
+      'komentarz IT',
+      'komentarz technologiczny',
+      'absurdy IT',
+      'patologie IT',
+      'ludzka strona IT',
+      'branża IT od środka',
+      'świat technologii',
+      'code review',
+      'feedback w IT',
+      'rekrutacja IT',
+      'AI w IT',
+      'vibe coding',
+      'Big Tech',
+      'kultura cyfrowa',
+      'kultura pracy w IT',
       'CodeStoryBro blog',
     ],
     authors: [{ name: 'Marcin Kołodziej', url: SITE_URL }],
@@ -49,7 +56,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: `${SITE_URL}/assets/img/og-image.png`,
           width: 1536,
           height: 1024,
-          alt: 'Blog CodeStoryBro o leadershipie i zarządzaniu w IT',
+          alt: 'Blog CodeStoryBro o świecie IT i technologii',
         },
       ],
     },
@@ -62,7 +69,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: `${SITE_URL}/assets/img/og-image.png`,
           width: 1536,
           height: 1024,
-          alt: 'Blog CodeStoryBro o leadershipie i zarządzaniu w IT',
+          alt: 'Blog CodeStoryBro o świecie IT i technologii',
         },
       ],
       creator: '@codestorybro',
@@ -86,7 +93,7 @@ export default async function BlogPage() {
   const posts = await getBlogPosts();
 
   const translations = {
-    search_placeholder: 'Szukaj tekstów o leadershipie, feedbacku i karierze...',
+    search_placeholder: 'Szukaj tekstów o IT i technologii...',
     read_more: 'Czytaj tekst',
     min_read: 'min czytania',
     no_posts: 'Nie ma tekstów pasujących do tych kryteriów.',
@@ -108,12 +115,8 @@ export default async function BlogPage() {
             />
             <div className="relative">
               <h1 className="bg-gradient-to-r from-indigo-400 via-green-400 to-blue-400 bg-clip-text pb-2 text-3xl font-bold leading-relaxed text-transparent sm:text-4xl lg:text-5xl">
-                Leadership i&nbsp;ludzka strona IT
+                Blog
               </h1>
-              <p className="mt-4 max-w-2xl text-lg text-gray-400">
-                Dłuższe, konkretne teksty o&nbsp;zarządzaniu ludźmi, trudnych rozmowach,
-                feedbacku, kulturze pracy i&nbsp;karierze w&nbsp;IT. Bez gotowych recept i&nbsp;korporacyjnej nowomowy.
-              </p>
             </div>
           </div>
         </FadeInUp>

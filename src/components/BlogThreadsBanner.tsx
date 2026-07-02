@@ -77,12 +77,12 @@ export const BlogThreadsBanner: FC<BlogThreadsBannerProps> = ({ variant }) => {
               {isListVariant
                 ? (
                     <>
-                      Nowe, krótsze przemyślenia o&nbsp;IT, zarządzaniu, karierze i&nbsp;ludzkiej stronie technologii publikuję teraz głównie na Threads.
+                      Nowe, krótsze komentarze o&nbsp;IT i&nbsp;technologii publikuję teraz głównie na Threads.
                     </>
                   )
                 : (
                     <>
-                      Nowe krótkie treści i&nbsp;bieżące przemyślenia publikuję teraz na Threads.
+                      Nowe krótkie komentarze i&nbsp;bieżące obserwacje ze&nbsp;świata IT i&nbsp;technologii publikuję teraz na Threads.
                     </>
                   )}
             </p>

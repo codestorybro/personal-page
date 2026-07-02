@@ -3,7 +3,6 @@
 import type { FC } from 'react';
 import { useCopyEmail } from '@/hooks/useCopyEmail';
 import { AppConfig } from '@/utils/AppConfig';
-import { BrandSlogan } from './BrandSlogan';
 
 const socialLinks = [
   { name: 'LinkedIn', href: AppConfig.social.linkedin },
@@ -19,21 +18,21 @@ const Footer: FC = () => {
   return (
     <footer className="mt-4 border-t-2 border-t-zinc-800">
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-4 p-8 text-center">
-        <p className="text-sm font-semibold tracking-[0.2em] text-gray-300">
-          <BrandSlogan />
-        </p>
-        <p className="text-sm text-gray-500">
+        <p className="text-sm font-semibold text-gray-300">
           Najtrudniejsze w&nbsp;IT rzadko jest techniczne.
         </p>
+        <p className="text-sm text-gray-500">
+          Komentarze o&nbsp;absurdach, napięciach i&nbsp;ludzkiej stronie świata IT i&nbsp;technologii.
+        </p>
 
-        <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2" aria-label="Social media i kontakt CodeStoryBro">
+        <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2" aria-label="Social media i kontakt CodeStoryBro">
           {socialLinks.map(link => (
             <a
               key={link.name}
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`CodeStoryBro na ${link.name}`}
+              aria-label={link.name === 'Discord' ? 'Community CSB na Discordzie' : `CodeStoryBro na ${link.name}`}
               className="text-sm text-gray-400 transition hover:-translate-y-px hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
             >
               {link.name}

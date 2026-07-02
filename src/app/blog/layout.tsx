@@ -1,11 +1,13 @@
 import Footer from '@/components/Footer';
 import { Header } from '@/components/Header';
+import { Toaster } from 'react-hot-toast';
 
 export default function BlogLayout(props: {
   children: React.ReactNode;
 }) {
   return (
     <div className="flex min-h-screen flex-col justify-between">
+      <Toaster />
       <header className="sticky top-0 z-50 border-b border-white/20 bg-black">
         <div className="mx-auto my-2 w-full max-w-screen-xl px-8">
           <Header />

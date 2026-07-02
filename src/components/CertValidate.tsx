@@ -126,7 +126,7 @@ const CertValidate: FC<Props> = ({ id }) => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.3 }}
           >
-            <p className="text-sm text-red-400">Certyfikat o podanym ID nie istnieje</p>
+            <p className="text-sm text-red-400">Certyfikat o&nbsp;podanym ID nie istnieje</p>
           </motion.div>
         </motion.div>
       )}

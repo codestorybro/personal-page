@@ -1,13 +1,5 @@
-import {
-  CTASection,
-  HeroSection,
-  LeadershipSection,
-  ProblemSection,
-  SeriesSection,
-  SpeakerSection,
-  ThreadsBridge,
-} from '@/components/HomeSections';
 import { HomeJsonLd } from '@/components/JsonLd';
+import { LinktreeHub } from '@/components/LinktreeHub';
 import { AppConfig } from '@/utils/AppConfig';
 
 const SITE_URL = AppConfig.url;
@@ -21,26 +13,32 @@ export async function generateMetadata() {
     },
     description: AppConfig.description,
     keywords: [
-      'manager IT',
-      'Engineering Manager',
-      'leadership w IT',
-      'zarządzanie zespołem IT',
-      'zarządzanie ludźmi w IT',
-      'manager w IT',
-      'świeży manager',
-      'początkujący manager',
-      'tech lead',
-      'awans na managera',
-      'trudne rozmowy w pracy',
-      'feedback w IT',
-      'kariera w IT',
-      'przywództwo w IT',
-      'kultura pracy w IT',
-      'odpowiedzialność managera',
-      'rozwój managera',
-      'prelegent IT Polska',
       'CodeStoryBro',
       'Marcin Kołodziej',
+      'świat IT',
+      'branża IT',
+      'branża technologiczna',
+      'technologia',
+      'komentarz IT',
+      'komentarz technologiczny',
+      'absurdy IT',
+      'patologie IT',
+      'ludzka strona IT',
+      'ludzka strona technologii',
+      'IT bez korpo-filtra',
+      'technologia bez korpo-filtra',
+      'branża IT od środka',
+      'Engineering Manager',
+      'creator IT',
+      'content creator IT',
+      'komentarze o IT',
+      'komentarze o technologii',
+      'AI w IT',
+      'vibe coding',
+      'Big Tech',
+      'branża gier',
+      'kultura cyfrowa',
+      'prelegent IT Polska',
     ],
     authors: [{ name: 'Marcin Kołodziej', url: SITE_URL }],
     creator: 'Marcin Kołodziej',
@@ -60,7 +58,7 @@ export async function generateMetadata() {
           url: `${SITE_URL}/assets/img/og-image.png`,
           width: 1536,
           height: 1024,
-          alt: 'CodeStoryBro – najtrudniejsze w IT rzadko jest techniczne',
+          alt: 'CodeStoryBro — IT i technologia wprost',
         },
       ],
     },
@@ -75,7 +73,7 @@ export async function generateMetadata() {
           url: `${SITE_URL}/assets/img/og-image.png`,
           width: 1536,
           height: 1024,
-          alt: 'CodeStoryBro – najtrudniejsze w IT rzadko jest techniczne',
+          alt: 'CodeStoryBro — IT i technologia wprost',
         },
       ],
     },
@@ -97,13 +95,7 @@ export default function Index() {
   return (
     <>
       <HomeJsonLd />
-      <HeroSection />
-      <ProblemSection />
-      <LeadershipSection />
-      <SeriesSection />
-      <SpeakerSection />
-      <ThreadsBridge />
-      <CTASection />
+      <LinktreeHub />
     </>
   );
 }

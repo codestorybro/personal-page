@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   return {
     title: post.title,
     description: post.description,
-    keywords: [...post.tags, 'CodeStoryBro', 'blog IT', 'kariera w IT'],
+    keywords: [...post.tags, 'CodeStoryBro', 'blog IT', 'komentarz IT', 'branża IT od środka'],
     authors: [{ name: 'Marcin Kołodziej', url: siteUrl }],
     creator: 'Marcin Kołodziej',
     publisher: 'CodeStoryBro',

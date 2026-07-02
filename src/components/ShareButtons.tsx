@@ -71,7 +71,7 @@ export const ShareButtons: FC<ShareButtonsProps> = ({
     },
     {
       name: 'Threads',
-      ariaLabel: 'Udostępnij w Threads',
+      ariaLabel: 'Udostępnij w Threads',
       href: `https://www.threads.net/intent/post?text=${encodedTitle}%20${encodedUrl}`,
       icon: ThreadsLogoIcon,
       color: 'hover:text-gray-100',

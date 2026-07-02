@@ -1,10 +1,7 @@
 import type { Metadata } from 'next';
 import GA from '@/app/ga';
-import { NavigationProgress } from '@/components/NavigationProgress';
 import { AppConfig } from '@/utils/AppConfig';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 import localFont from 'next/font/local';
-import { Toaster } from 'react-hot-toast';
 import '@/styles/global.css';
 
 const rushDriver = localFont({
@@ -76,11 +73,8 @@ export default function RootLayout({
   return (
     <html lang="pl" className={`bg-black ${inter.variable} ${rushDriver.variable}`}>
       <body suppressHydrationWarning>
-        <NavigationProgress />
         <GA />
-        <Toaster />
         {children}
-        <SpeedInsights />
       </body>
     </html>
   );
