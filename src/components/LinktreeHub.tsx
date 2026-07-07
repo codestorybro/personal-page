@@ -1,10 +1,7 @@
-'use client';
-
 import type { FC, ReactNode } from 'react';
-import { useCopyEmail } from '@/hooks/useCopyEmail';
 import { AppConfig } from '@/utils/AppConfig';
 import Image from 'next/image';
-import { Toaster } from 'react-hot-toast';
+import { CopyEmailButton } from './CopyEmailButton';
 import { GlitchLogo } from './GlitchLogo';
 
 const links = [
@@ -109,11 +106,8 @@ const LinkCardContent: FC<LinkCardContentProps> = ({ link }) => {
 };
 
 export const LinktreeHub: FC = () => {
-  const copyEmail = useCopyEmail();
-
   return (
     <main className="min-h-screen bg-[#0a0a0a] px-4 py-10 font-bodyText text-white antialiased">
-      <Toaster />
       <div className="mx-auto flex w-full max-w-md flex-col items-center gap-8">
         <header className="flex flex-col items-center gap-4 text-center">
           <div className="relative">
@@ -124,6 +118,8 @@ export const LinktreeHub: FC = () => {
                 width={112}
                 height={112}
                 priority
+                fetchPriority="high"
+                sizes="112px"
                 className="size-full object-cover"
               />
             </div>
@@ -159,16 +155,12 @@ export const LinktreeHub: FC = () => {
               <LinkCardContent link={link} />
             </a>
           ))}
-          <button
-            type="button"
+          <CopyEmailButton
             aria-label={contactLink.ariaLabel}
             className={`${linkCardClassName} cursor-pointer`}
-            onClick={() => {
-              void copyEmail();
-            }}
           >
             <LinkCardContent link={contactLink} />
-          </button>
+          </CopyEmailButton>
         </nav>
 
         <footer className="pb-2 pt-4 text-center text-xs text-gray-600">
