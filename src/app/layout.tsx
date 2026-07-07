@@ -35,11 +35,31 @@ export const metadata: Metadata = {
     type: 'website',
     locale: AppConfig.locale,
     siteName: AppConfig.name,
+    title: AppConfig.title,
+    description: AppConfig.openGraphDescription,
+    images: [
+      {
+        url: '/assets/img/og-image.png',
+        width: 1536,
+        height: 1024,
+        alt: AppConfig.ogImageAlt,
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@codestorybro',
     creator: '@codestorybro',
+    title: AppConfig.title,
+    description: AppConfig.twitterDescription,
+    images: [
+      {
+        url: '/assets/img/og-image.png',
+        width: 1536,
+        height: 1024,
+        alt: AppConfig.ogImageAlt,
+      },
+    ],
   },
   icons: [
     {

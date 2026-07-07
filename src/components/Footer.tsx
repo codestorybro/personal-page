@@ -19,10 +19,10 @@ const Footer: FC = () => {
     <footer className="mt-4 border-t-2 border-t-zinc-800">
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-4 p-8 text-center">
         <p className="text-sm font-semibold text-gray-300">
-          Najtrudniejsze w&nbsp;IT rzadko jest techniczne.
+          IT nie umarło. Skończyła się era łatwego wejścia i&nbsp;przeciętności.
         </p>
         <p className="text-sm text-gray-500">
-          Komentarze o&nbsp;absurdach, napięciach i&nbsp;ludzkiej stronie świata IT i&nbsp;technologii.
+          Komentarze o&nbsp;IT, AI, rekrutacjach, karierze i&nbsp;codziennej pracy programisty.
         </p>
 
         <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2" aria-label="Social media i kontakt CodeStoryBro">

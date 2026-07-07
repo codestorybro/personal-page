@@ -1,892 +1,631 @@
-# CODESTORYBRO_CONTEXT.md
+# CodeStoryBro — strategia contentowa na najbliższy czas
 
-## Cel aktualizacji strony
-
-Strona CodeStoryBro ma zostać zaktualizowana tak, aby odzwierciedlała aktualny kierunek marki osobistej Marcina Kołodzieja / CodeStoryBro.
-
-Aktualny kierunek to nie jest już marka stricte o programowaniu, React, tutorialach, finansach, produktywności, wypaleniu developera ani coachingowym leadershipie dla managerów.
-
-CodeStoryBro to komentator świata IT i technologii: bez korpo-filtra, bez lukru, bez udawania, że największe problemy w tej branży są zawsze techniczne.
-
-Nowa główna oś marki:
-
-> Komentuję absurdy, napięcia i patologie świata IT i technologii.
-
-Strona ma pozycjonować CodeStoryBro jako mocny, autentyczny i rozpoznawalny głos o tym, co dzieje się w IT i technologii: między ludźmi, zespołami, managerami, developerami, biznesem, produktami, AI, Big Techem, gamingiem i kulturą cyfrową.
-
-To nie ma być strona „kolejnego coacha od leadershipu”. To ma być strona człowieka z branży, który widzi mechanizmy, napięcia i absurdy technologicznego świata, a potem mówi o nich wprost.
+Data: lipiec 2026
+Cel dokumentu: uporządkować aktualne pozycjonowanie CodeStoryBro na podstawie realnych sygnałów z TikToka, Instagrama, YouTube Shorts i Threads.
 
 ---
 
-## Kim jest CodeStoryBro
+## 1. Najważniejszy wniosek
 
-CodeStoryBro to marka osobista Marcina Kołodzieja.
+Nie budujemy teraz profilu o szerokim „leadershipie w IT”, ogólnej produktywności, tech lifestyle ani luźnych absurdach pracy.
 
-Marcin jest Engineering Managerem z około 10-letnim doświadczeniem w branży technologicznej. Pracuje blisko zespołów technicznych, kodu, ludzi, decyzji, konfliktów, presji i całej niewygodnej rzeczywistości, która dzieje się pomiędzy technologią a biznesem.
+Budujemy CodeStoryBro wokół **dwóch obszarów, które realnie żrą**:
 
-Jako CodeStoryBro komentuje świat IT i technologii: absurdy branży, napięcia między ludźmi, patologie organizacyjne, AI, vibe coding, code review, rekrutację, awanse, feedback, Big Tech, produkty technologiczne, branżę gier i kulturę cyfrową.
+1. **Rynek pracy IT: zwolnienia, rekrutacje, bezrobocie, ghosting i rozjechana drabinka wejścia do branży.**
+2. **AI / vibe coding / kryzys tożsamości programisty: AI jako narzędzie, ale też jako proteza, która może ogłupiać, przykrywać braki i produkować chaos.**
 
-Marcin nie pozycjonuje się jako guru, coach ani nauczyciel życia. Jego perspektywa wynika z doświadczenia w pracy z zespołami, obserwowania branży od środka i umiejętności nazywania rzeczy, które wiele osób widzi, ale mało kto mówi o nich głośno.
-
----
-
-## Główne pozycjonowanie marki
-
-Główne zdanie marki:
-
-> Komentuję absurdy, napięcia i patologie świata IT i technologii.
-
-Główne hasło / motto:
-
-> Najtrudniejsze w IT rzadko jest techniczne.
-
-Alternatywne hasła pomocnicze:
-
-* IT i technologia bez korpo-filtra.
-* Mówię głośno o tym, co w IT wiele osób widzi, ale mało kto nazywa.
-* Ludzka strona technologii bez lukru.
-* Świat IT, technologii i ludzi, którzy próbują to wszystko dowieźć.
-* Między kodem, biznesem, ego i presją.
-
-Hasło „LEAD • THINK • GROW” nie powinno już być głównym sloganem marki. Może zostać tylko jako historyczny / poboczny element, jeśli występuje w starych materiałach, ale nie powinno dominować na stronie, w hero, metadatach, linktree ani opisach społeczności.
+Tematy typu daily, meetingi, procesy i korpo-teatr zostają jako **skoki boczne**, nie jako filary profilu.
 
 ---
 
-## Czym CodeStoryBro jest
+## 2. Główne pozycjonowanie
 
-CodeStoryBro to:
+### Najprostsza wersja
 
-* komentator świata IT i technologii,
-* głos o absurdach, napięciach i patologiach branży,
-* perspektywa Engineering Managera bez udawania coacha,
-* ludzka strona technologii: ludzie, decyzje, konflikty, presja, ambicje i odpowiedzialność,
-* komentarz do AI, vibe codingu, Big Techu, produktów technologicznych i branży gier,
-* miejsce dla ludzi z IT i technologii, którzy chcą rozumieć branżę od środka,
-* treści bez korpo-bełkotu, pustego leadershipu i motywacyjnej waty.
+> **CodeStoryBro — ból polskiego IT bez znieczulenia.**
 
----
+### Wersja opisowa
 
-## Czym CodeStoryBro nie jest
+> **Komentuję brutalną zmianę rynku IT: zwolnienia, rekrutacje widmo, rozjechaną drabinkę wejścia do branży oraz AI, które robi z programistami dziwne rzeczy.**
 
-CodeStoryBro nie powinien być pozycjonowany jako:
+### Wersja światopoglądowa
 
-* mentor Reacta,
-* kanał tutorialowy,
-* blog stricte programistyczny,
-* kanał finansowy,
-* profil produktywnościowy,
-* profil gamingowy / recenzencki,
-* recenzent sprzętu,
-* coach od leadershipu,
-* marka szkoleniowa dla managerów,
-* miejsce z poradami prawnymi lub finansowymi,
-* profil wyłącznie o AI,
-* profil wyłącznie o wypaleniu developera,
-* generyczny „rozwój osobisty dla ludzi z IT”.
+> **IT się nie skończyło. Skończyło się łatwe IT.**
 
-Gaming, Apple, iPhone, GTA VI, Big Tech, produkty technologiczne i social media mogą się pojawiać, ale jako przykłady mechanizmów świata technologii — nie jako osobne, dominujące filary marki.
+### Wersja pod stronę / bio
+
+> **Zwolnienia, rekrutacje widmo, AI, vibe coding i cała reszta bólu polskiej branży IT. Bez korpo-bełkotu. Bez udawania, że wszystko jest super.**
 
 ---
 
-## Zakres tematyczny
+## 3. Główna teza profilu
 
-### Rdzeń
+> **IT nie umarło. Skończyła się era łatwego wejścia, przeciętności i udawania, że samo „jestem w IT” wystarczy.**
 
-* branża IT od środka,
-* absurdy pracy w technologii,
-* napięcia między developerami, seniorami, juniorami, managerami i biznesem,
-* leadership bez coachingu,
-* code review, feedback, awanse, rekrutacja, konflikty,
-* AI, vibe coding i wpływ narzędzi AI na pracę ludzi w IT,
-* toksyczne zachowania, status, ego, komunikacja, presja dowożenia,
-* decyzje produktowe i organizacyjne,
-* kultura pracy w techu.
+Ta teza spina:
 
-### Naturalne rozszerzenia
-
-* Big Tech,
-* produkty technologiczne,
-* Apple / iPhone / sprzęt jako zjawiska kultury technologicznej,
-* branża gier,
-* GTA VI i gaming jako przykłady technologii, biznesu, hype’u i kultury cyfrowej,
-* social media jako część świata technologii,
-* cyfrowa kultura pracy.
-
-### Zasada rozszerzeń
-
-Nie komentować technologii i gier jak klasyczny newsowy profil technologiczny.
-
-Komentować je przez filtr CodeStoryBro:
-
-* jaki mechanizm branżowy to pokazuje,
-* jakie napięcie między ludźmi, biznesem i technologią widać,
-* co to mówi o kulturze cyfrowej,
-* jaki absurd albo patologia jest pod spodem,
-* dlaczego ludzie reagują na to tak mocno.
-
-Przykład dobrego kierunku:
-
-* „GTA VI pokazuje, jak produkty technologiczne przestały być tylko produktami, a stały się wydarzeniami kulturowymi.”
-* „Nowy iPhone coraz częściej sprzedaje emocję zmiany, a nie samą zmianę.”
-* „AI nie tylko zmienia pracę developerów. Ono zmienia gry statusowe w zespołach.”
-
-Przykład złego kierunku:
-
-* „Czy warto kupić iPhone’a?”
-* „Moja recenzja GTA VI.”
-* „Top 5 telefonów w 2026.”
+- zwolnienia,
+- masowe redukcje,
+- rekrutacje widmo,
+- ghosting kandydatów,
+- generyczne odmowy,
+- brak ofert,
+- dużą konkurencję,
+- wysokie wymagania wobec juniorów,
+- rozjechaną drabinkę wejścia,
+- elitaryzację zawodu,
+- oszukiwanie na interview,
+- AI w rekrutacji,
+- vibe coding,
+- seniorów tracących samodzielność,
+- kryzys tożsamości programisty,
+- AI jako protezę zamiast wzmacniacza.
 
 ---
 
-## Grupa docelowa
+## 4. Postawa marki
 
-Główna grupa docelowa:
+CodeStoryBro nie powinien być ani doomerem, ani tanim motywatorem.
 
-1. Ludzie z IT i technologii
+Najlepsza postawa:
 
-   * developerzy,
-   * seniorzy,
-   * juniorzy,
-   * tech leadzi,
-   * engineering managerowie,
-   * product managerowie,
-   * QA,
-   * osoby pracujące blisko zespołów technologicznych.
+> **Realista, nie doomer.**
 
-2. Osoby, które czują napięcia branży od środka
+W praktyce:
 
-   * widzą absurdy w firmach technologicznych,
-   * mają dość korpo-bełkotu,
-   * chcą rozmawiać o tym, co naprawdę dzieje się w zespołach,
-   * lubią mocne, ale trafne komentarze o branży.
+- jesteśmy po stronie ludzi, którzy chcą być dobrzy,
+- współczujemy ludziom, których rynek przemielił,
+- nie śmiejemy się z ludzi, którzy boją się zwolnienia,
+- nie udajemy, że „każdy znajdzie pracę, wystarczy chcieć”,
+- mówimy, że IT staje się trudniejsze,
+- mówimy, że AI trzeba używać,
+- ale mówimy też, że AI bez myślenia robi z ludzi operatorów losowego kodu.
 
-3. Ambitni ludzie z IT
+Kluczowe zdanie:
 
-   * osoby, które chcą rozumieć mechanizmy awansów, feedbacku, rekrutacji i pracy w organizacji,
-   * osoby, które nie chcą być tylko „od kodu”,
-   * osoby, które widzą, że technologia to ludzie, decyzje i presja, nie tylko narzędzia.
-
-4. Osoby zainteresowane światem technologii szerzej
-
-   * AI,
-   * Big Tech,
-   * gaming,
-   * produkty technologiczne,
-   * kultura cyfrowa,
-   * wpływ technologii na ludzi i pracę.
-
-5. Organizatorzy konferencji / eventów / meetupów
-
-   * osoby szukające prelegenta, który mówi o IT i technologii z ludzkiej perspektywy,
-   * konkretnie, szczerze, bez korpo-bełkotu,
-   * z energią i umiejętnością nazywania napięć, które ludzie czują, ale rzadko mówią o nich publicznie.
+> **Jestem bezwzględny wobec iluzji, ale nie wobec ludzi.**
 
 ---
 
-## Ton komunikacji
+## 5. Mechanizm przyciągania i zatrzymywania ludzi
 
-Ton powinien być:
+Założenie strategiczne:
 
-* bezpośredni,
-* konkretny,
-* szczery,
-* lekko ostry,
-* inteligentny,
-* obserwacyjny,
-* czasem prowokacyjny,
-* bez korpo-filtra,
-* bez moralizowania,
-* bez udawania guru,
-* bez coachingowego tonu,
-* z poczuciem humoru, kiedy pasuje,
-* mocny, ale nie chamski,
-* krytyczny, ale nie wiecznie zgorzkniały,
-* profesjonalny, ale bez korpomowy.
+> **Emocja przyciąga. Wartość zatrzymuje.**
 
-Język:
+Każda treść powinna zaczynać się od silnej emocji albo bólu, a potem dawać minimum jedną z trzech rzeczy:
 
-* polski jako główny język strony,
-* krótkie, rytmiczne zdania,
-* mocne nagłówki,
-* konkret zamiast waty,
-* unikać pustych fraz typu „odkryj swój potencjał”, „zostań lepszą wersją siebie”, „buduj mindset zwycięzcy”.
+1. **Ulgę** — „nie tylko ja tak mam”.
+2. **Rozwiązanie** — „wiem, co mogę z tym zrobić”.
+3. **Rozrywkę** — „śmieję się, bo inaczej bym płakał”.
 
-Dobry klimat:
+Wewnętrzna zasada produkcyjna:
 
-* „nazywam rzeczy po imieniu”,
-* „mówię o tym, co widać od środka”,
-* „bez lukru i bez korpo-slajdów”,
-* „świat technologii to nie tylko kod i produkty — to ludzie, ego, presja i decyzje”.
-
-Zły klimat:
-
-* „jestem Twoim mentorem leadershipu”,
-* „pomagam managerom stawać się lepszymi liderami”,
-* „odkryj swój potencjał w IT”,
-* „rozwój osobisty dla branży tech”,
-* „kolejny ekspert od skutecznej komunikacji”.
+> **Przyciągam bólem. Zatrzymuję prawdą, ulgą, rozrywką albo rozwiązaniem. Zarabiam na pomocy w odzyskaniu kontroli.**
 
 ---
 
-## Główna obietnica strony
+## 6. Filar 1 — rynek pracy IT, zwolnienia i rekrutacje
 
-CodeStoryBro pomaga ludziom z IT i technologii zobaczyć oraz nazwać to, co dzieje się pod powierzchnią branży: absurdy, napięcia, patologie, mechanizmy, konflikty, presję i ludzką stronę technologii.
+To jest główny filar profilu.
 
-Strona powinna komunikować, że:
+### Udział w treściach
 
-* technologia to nie tylko kod, frameworki, narzędzia i produkty,
-* największe problemy w IT rzadko są wyłącznie techniczne,
-* AI, vibe coding i Big Tech to nie tylko trendy, ale też źródło nowych napięć,
-* za decyzjami technologicznymi stoją ludzie, ego, biznes, presja i ambicje,
-* awanse, feedback, rekrutacja i code review często mówią więcej o kulturze firmy niż o samej jakości pracy,
-* branża technologiczna potrzebuje mniej korpo-bełkotu, a więcej szczerej rozmowy,
-* CodeStoryBro mówi o tym wprost.
+Około **70% publikacji**.
+
+### Dlaczego działa
+
+Bo dotyka podstawowego lęku:
+
+> **Czy ja dalej będę miał z czego żyć?**
+
+Ten temat niesie strach, złość, frustrację, poczucie niesprawiedliwości, upokorzenie i bezradność. To są emocje, które uruchamiają komentarze, udostępnienia i dyskusje.
+
+### Podtematy
+
+- zwolnienia w IT,
+- masowe redukcje,
+- strach przed zwolnieniem,
+- jak bronić się przed zwolnieniem,
+- jak zabezpieczyć się zanim dojdzie do redukcji,
+- co robić po zwolnieniu,
+- brak ofert,
+- rekrutacje widmo,
+- ghosting po rozmowach,
+- generyczne odmowy,
+- duża konkurencja,
+- juniorzy bez realnego wejścia do branży,
+- midzi utknięci w miejscu,
+- seniorzy bez poczucia bezpieczeństwa,
+- oszukiwanie na interview z AI,
+- jak manager wykrywa oszukiwanie na rozmowie,
+- AI w rekrutacji,
+- „IT się skończyło” kontra „IT wróciło do normalności”,
+- elitaryzacja zawodu,
+- rozjechana drabinka wejścia.
+
+### Główna narracja
+
+> **To nie jest koniec IT. To jest koniec łatwego IT.**
+
+### Przykładowe kąty komunikacyjne
+
+- Największy problem juniorów w 2026 nie polega na tym, że są słabi. Problem polega na tym, że firmy chcą juniora, który nie zachowuje się jak junior.
+- Rynek IT nie umarł. Po prostu przestał rozdawać nagrody za samo wejście do branży.
+- Najgorsze w zwolnieniach nie jest samo zwolnienie. Najgorsze jest to, że nagle odkrywasz, jak bardzo twoje poczucie bezpieczeństwa zależało od jednej firmy.
+- Rekrutacje widmo to idealny symbol rynku IT 2026: kandydat wysyła CV, firma udaje proces, system udaje selekcję, a człowiek udaje, że jeszcze ma kontrolę.
+- Oszukiwanie na interview z AI nie robi z ciebie sprytnego kandydata. Robi z ciebie człowieka, który może dostać pracę, której potem nie udźwignie.
 
 ---
 
-## Filary treści
+## 7. Filar 2 — AI, vibe coding i kryzys tożsamości programisty
 
-### 1. Absurdy świata IT
+To jest drugi filar profilu.
 
-Komentarze o sytuacjach, które ludzie z branży widzą codziennie, ale rzadko nazywają publicznie.
+### Udział w treściach
+
+Około **25–30% publikacji**.
+
+### Dlaczego działa
+
+Bo dotyka statusu i tożsamości ludzi technicznych.
+
+Ten temat polaryzuje, bo część osób usłyszy w nim atak na siebie. To dobrze, o ile przekaz jest dobrze ustawiony.
+
+### Kluczowe zabezpieczenie narracyjne
+
+Nie mówimy:
+
+> „AI jest złe”.
+
+Mówimy:
+
+> **Nie jestem przeciwko AI. Jestem przeciwko oddawaniu myślenia w outsourcing.**
+
+### Główna teza
+
+> **AI jest świetnym narzędziem dla ludzi, którzy wiedzą, co robią. I bardzo niebezpiecznym przyspieszaczem chaosu dla tych, którzy nie wiedzą.**
+
+### Podtematy
+
+- vibe coding jako rak,
+- AI jako proteza zamiast wzmacniacza,
+- seniorzy tracący samodzielność,
+- programiści zapominający podstaw,
+- kod bez zrozumienia,
+- debugowanie kodu wygenerowanego przez AI,
+- odpowiedzialność za kod z AI,
+- „używaj AI albo giń”,
+- kryzys tożsamości programisty,
+- czy senior bez AI dalej jest seniorem,
+- czy AI wyrównuje ludzi, czy obnaża różnice,
+- productivity theatre z AI,
+- AI slop w kodzie,
+- code review po AI,
+- promptowanie kontra architektura.
+
+### Przykładowe kąty komunikacyjne
+
+- Vibe coding jest świetny, dopóki nie trzeba odpowiedzieć na pytanie: „dlaczego to właściwie działa?”
+- Problem nie polega na tym, że programiści używają AI. Problem polega na tym, że część z nich zaczyna mylić generowanie kodu z rozumieniem systemu.
+- AI nie zwalnia cię z myślenia. AI tylko sprawia, że brak myślenia szybciej trafia na produkcję.
+- Jeżeli po odcięciu AI senior nagle nie umie pracować, to może AI nie zwiększyło jego kompetencji. Może tylko przykryło ich brak.
+- Największy problem vibe codingu? Vibe kończy się dokładnie tam, gdzie zaczyna się odpowiedzialność.
+
+---
+
+## 8. Skoki boczne — daily, meetingi i korpo absurdy
+
+Ten obszar nie jest filarem profilu.
+
+### Udział w treściach
+
+Około **5% publikacji**.
+
+### Rola
+
+Skoki boczne służą do:
+
+- testowania lekkich tematów,
+- dostarczania rozrywki,
+- odświeżenia profilu,
+- łapania Instagrama, gdzie takie tematy potrafią siadać lepiej.
+
+Nie należy budować głównej strategii wokół daily, meetingów i procesów, bo sygnał z TikToka i YouTube Shorts był słabszy.
+
+### Jak je podpinać pod główne filary
+
+Najlepiej łączyć je z rynkiem pracy, AI albo lękiem przed odpowiedzialnością.
+
+Przykłady:
+
+- Daily trwające godzinę to nie jest problem agile. To jest objaw rynku, w którym wszyscy boją się podjąć decyzję, bo nikt nie czuje się bezpiecznie.
+- AI miało skrócić meetingi. Na razie mamy te same meetingi, tylko z większą liczbą wygenerowanych notatek, których nikt nie czyta.
+- Jeżeli codziennie potrzebujesz godzinnego daily, to prawdopodobnie nie masz problemu z komunikacją, tylko z odpowiedzialnością i decyzyjnością.
+
+---
+
+## 9. Proporcje publikacji na 90 dni
+
+| Typ treści | Procent | Rola |
+|---|---:|---|
+| Zwolnienia, rekrutacje, rynek pracy IT | 70% | Główne źródło bólu, zasięgu i przyszłej monetyzacji |
+| AI, vibe coding, kryzys programisty | 25% | Kontrowersja, polaryzacja, komentarze, budowa wyrazistego stanowiska |
+| Skoki boczne: daily, korpo, meetingi, procesy | 5% | Rozrywka, odświeżenie, testy |
+
+---
+
+## 10. Serie contentowe
+
+### 1. Rynek IT bez znieczulenia
+
+Najważniejsza seria.
 
 Tematy:
 
-* absurdalne code review,
-* seniorzy mylący wysokie standardy z byciem dupkiem,
-* juniorzy wrzucani na głęboką wodę,
-* rekrutacja oderwana od realnej pracy,
-* procesy, które udają odpowiedzialność,
-* spotkania, które nie rozwiązują problemów,
-* organizacje, które mają zielone statusy i czerwone zespoły.
+- zwolnienia,
+- rekrutacje,
+- ghosting,
+- brak ofert,
+- juniorzy,
+- bezrobocie,
+- konkurencja,
+- wymagania,
+- AI w procesach rekrutacyjnych.
 
-### 2. Ludzie w technologii
+Przykładowe tytuły:
 
-Treści o emocjach, presji, ambicji, konflikcie, statusie i komunikacji w IT.
+- IT się nie skończyło. Skończyło się łatwe IT.
+- Dlaczego juniorzy mają dziś przerąbane?
+- Najgorsza rzecz po zwolnieniu w IT.
+- Dlaczego dobre CV już nie wystarcza?
+- Rekrutacje widmo to rak rynku pracy.
+- Firmy nie szukają juniorów. Firmy szukają tanich midów.
+- Co zrobić, zanim firma zrobi redukcję?
 
-Tematy:
+### 2. Zwolnili mnie z IT. Co teraz?
 
-* managerowie,
-* seniorzy,
-* juniorzy,
-* tech leadzi,
-* awanse,
-* feedback,
-* konflikty,
-* trudne rozmowy,
-* toksyczność,
-* wypalenie jako kontekst, nie główny temat marki.
-
-### 3. AI i vibe coding
-
-Komentarze o wpływie AI na pracę ludzi w IT, status, kompetencje, rynek i jakość pracy.
+Seria praktyczna, mocno potrzebna i naturalnie monetyzowalna.
 
 Tematy:
 
-* vibe coding,
-* AI jako proteza myślenia,
-* AI jako przyspieszenie dobrych i złych praktyk,
-* juniorzy i AI,
-* seniorzy i AI,
-* presja „wszyscy mają dowozić szybciej”,
-* narzędzia AI a realna odpowiedzialność za jakość.
+- pierwsze 48 godzin po zwolnieniu,
+- czego nie robić w panice,
+- jak ogarnąć LinkedIn,
+- jak pisać do ludzi,
+- jak nie palić mostów,
+- jak rozmawiać o zwolnieniu na rekrutacji,
+- jak ogarnąć budżet,
+- jak wrócić psychicznie do gry.
 
-### 4. Branża od środka
+### 3. Vibe coding bez bajek
 
-Mechanizmy IT bez marketingowej fasady.
-
-Tematy:
-
-* jak naprawdę zapadają decyzje,
-* dlaczego organizacje ignorują napięcia,
-* dlaczego ludzie odchodzą,
-* dlaczego delivery nie wystarcza,
-* jak biznes patrzy na technologię,
-* co w IT jest przemilczane,
-* jak kultura firmy wychodzi w trudnych momentach.
-
-### 5. Technologia i kultura cyfrowa
-
-Szersze komentarze o świecie technologii.
+Seria kontrowersyjna i polaryzująca.
 
 Tematy:
 
-* Big Tech,
-* Apple / iPhone,
-* produkty technologiczne,
-* gaming,
-* GTA VI,
-* social media,
-* hype technologiczny,
-* relacja ludzi z produktami cyfrowymi,
-* technologia jako emocje, status, przynależność i kultura.
+- AI jako proteza,
+- seniorzy bez podstaw,
+- kod bez zrozumienia,
+- debugowanie AI slopu,
+- utrzymanie systemu,
+- review kodu z AI,
+- odpowiedzialność za wygenerowany kod.
 
-### 6. Prelekcje i wystąpienia
+Przykładowe tytuły:
 
-Marcin jako prelegent mówi o IT i technologii z ludzkiej perspektywy: konkretnie, szczerze i wprost.
+- Vibe coding jest rakiem, jeśli nie wiesz, co robisz.
+- AI nie robi z ciebie seniora.
+- Promptowanie to nie architektura.
+- Senior, który bez AI nie dowozi, ma problem.
+- Kod wygenerowany przez AI dalej jest twoją odpowiedzialnością.
 
-Pozycjonowanie wystąpień:
+### 4. Brutalne prawdy o IT
 
-* nie „czytam slajdy”,
-* nie „keynote pełen buzzwordów”,
-* nie „coach od leadershipu”,
-* tylko mocna, żywa prelekcja o rzeczach, które ludzie w branży czują, ale często nie nazywają.
+Seria parasolowa na krótkie, mocne tezy.
+
+Przykłady:
+
+- Brutalna prawda: samo wejście do IT już nie wystarcza.
+- Brutalna prawda: rynek nie nagradza wysiłku, tylko wartość.
+- Brutalna prawda: juniorzy konkurują dziś nie tylko z juniorami.
+- Brutalna prawda: AI nie zabiera pracy każdemu po równo.
+- Brutalna prawda: seniority bez samodzielności pęka w kryzysie.
 
 ---
 
-## Community
+## 11. Schematy shortów
 
-Finalna nazwa społeczności Discord:
+### Format 1: strach → prawda → ruch
 
-> CSB OFFLog
+> Jeśli boisz się zwolnienia w IT, to najgorsze co możesz zrobić, to czekać aż firma podejmie decyzję za Ciebie.
+> Bo wtedy zaczynasz działać dopiero w momencie, w którym masz najmniej spokoju, najmniej energii i największą presję.
+> Zabezpieczenie zaczyna się wtedy, kiedy jeszcze masz pracę.
 
-Opis społeczności:
+### Format 2: kontrowersja → rozwinięcie → puenta
 
-> CSB OFFLog to miejsce dla ludzi, którzy chcą gadać otwarcie o świecie IT i technologii.
->
-> Komentujemy absurdy, napięcia i patologie branży: od awansów, feedbacku, code review, AI, vibe codingu, konfliktów i rekrutacji, po Big Tech, produkty technologiczne, branżę gier i kulturę cyfrową.
->
-> Najtrudniejsze w IT rzadko jest techniczne.
+> Vibe coding to rak, jeśli traktujesz go jak zastępstwo dla myślenia.
+> Nie dlatego, że AI jest złe.
+> Tylko dlatego, że kod, którego nie rozumiesz, nadal może trafić na produkcję pod twoim nazwiskiem.
+> Model nie pójdzie za ciebie na incident calla.
 
-CSB OFFLog powinno być przedstawiane jako współbieżny projekt / społeczność obok CodeStoryBro, a nie tylko „fanclub twórcy”.
+### Format 3: obserwacja → nazwanie bólu → ulga
 
-Unikać nazwy:
+> Jeśli szukasz pracy w IT i masz wrażenie, że nikt nawet nie czyta twojego CV, to możliwe, że masz rację.
+> Ten rynek jest dziś tak zapchany, że wielu ludzi nie przegrywa z lepszym kandydatem.
+> Przegrywa z tym, że nikt do nich nie dotarł.
 
-* CodeStoryBro Community jako głównej nazwy społeczności.
+### Format 4: „oni mówią / ja mówię”
 
-Można używać:
-
-* CSB OFFLog,
-* społeczność CSB OFFLog,
-* Discord CSB OFFLog,
-* społeczność ludzi z IT i technologii bez korpo-filtra.
+> Oni mówią: IT się skończyło.
+> Ja mówię: skończyło się łatwe IT.
+> Odróżnij jedno od drugiego, bo od tej różnicy zależy, czy zaczniesz panikować, czy zaczniesz się przygotowywać.
 
 ---
 
-## Social media — role kanałów
+## 12. Rola platform
+
+### TikTok / Instagram Reels / YouTube Shorts
+
+Cel: **emocja i zasięg**.
+
+Najlepsze tematy:
+
+- zwolnienia,
+- rekrutacje widmo,
+- juniorzy,
+- „IT się skończyło?”,
+- vibe coding,
+- AI ogłupiające seniorów.
+
+Format:
+
+- 20–45 sekund,
+- mocny hook,
+- jedna myśl,
+- konkretna puenta,
+- twarz i emocja ważniejsze niż perfekcyjna produkcja.
 
 ### Threads
 
-Rola: główne pole testowania myśli.
+Cel: **dyskusja i polaryzacja**.
 
-Treści:
+Najlepsze formaty:
 
-* krótkie, mocne komentarze,
-* obserwacje o IT i technologii,
-* jednozdaniowe tezy,
-* dyskusje,
-* szybkie reakcje na absurdy branży.
+- krótkie, ostre tezy,
+- pytania do branży,
+- kontrowersyjne obserwacje,
+- wątki rozwijające mocne shorty.
 
-Opis kierunku:
+Przykłady:
 
-> Krótkie komentarze o IT i technologii bez korpo-filtra.
+> IT nie wróci do czasów, w których sam fakt umienia Reacta robił z człowieka atrakcyjnego kandydata.
 
-### Instagram
-
-Rola: zasięg, memy, Reelsy, emocje.
-
-Treści:
-
-* memy IT,
-* krótkie Reelsy,
-* mocne obserwacje,
-* szybkie komentarze,
-* przystępna forma tego, co dzieje się w branży.
-
-Opis kierunku:
-
-> Krótsze formaty o IT i technologii: memy, rolki, obserwacje i szybkie komentarze.
+> Vibe coding jest spoko, jeśli masz kompetencje. Jeśli ich nie masz, to AI tylko szybciej dowiezie twoją pewność siebie na produkcję.
 
 ### LinkedIn
 
-Rola: wiarygodność zawodowa i prelekcyjna.
+Cel: **wiarygodność i przyszłe pieniądze**.
 
-Treści:
+Ten sam temat, ale bardziej profesjonalnie:
 
-* bardziej dojrzałe komentarze,
-* branża od środka,
-* ludzie, zespoły, decyzje,
-* wystąpienia,
-* perspektywa Engineering Managera.
+> Coraz częściej widzę, że największym problemem AI w zespołach nie jest samo narzędzie, tylko brak standardów pracy wokół niego.
 
-Opis kierunku:
+LinkedIn powinien budować grunt pod:
 
-> Zawodowa perspektywa na IT i technologię bez korpo-bełkotu.
-
-### YouTube
-
-Rola: dłuższe rozwinięcia najlepszych tematów.
-
-Treści:
-
-* dłuższe komentarze,
-* analizy,
-* rozwinięcia mocnych tez,
-* tematy, których nie da się zamknąć w jednym poście.
-
-Opis kierunku:
-
-> Dłuższe materiały o absurdach, napięciach i ludzkiej stronie IT oraz technologii.
-
-### TikTok
-
-Rola: opcjonalny repost / dodatkowa dystrybucja.
-
-Nie powinien być traktowany jako centrum strategii.
+- konsultacje,
+- warsztaty,
+- prelekcje,
+- współprace B2B,
+- podcasty,
+- zaproszenia na wydarzenia.
 
 ---
 
-## Preferowane komunikaty / motywy
+## 13. Strona internetowa — funkcja i copy
 
-Można używać:
+Obecna witryna jest prosta i ma działać jak linktree.
 
-* „Komentuję absurdy, napięcia i patologie świata IT i technologii.”
-* „Najtrudniejsze w IT rzadko jest techniczne.”
-* „IT i technologia bez korpo-filtra.”
-* „Mówię o tym, co w branży wiele osób widzi, ale mało kto mówi głośno.”
-* „Technologia to nie tylko kod, frameworki i narzędzia. To ludzie, decyzje, ego, presja i biznes.”
-* „Code review często pokazuje kulturę zespołu lepiej niż jakakolwiek wartość firmowa.”
-* „AI nie tylko zmienia narzędzia. Zmienia status, presję i oczekiwania w zespołach.”
-* „Branża technologiczna kocha mówić o innowacji, ale często nie umie rozmawiać o ludziach.”
-* „Bez lukru. Bez korpo-bełkotu. Bez udawania, że wszystko działa.”
-* „Dla ludzi z IT i technologii, którzy chcą rozumieć branżę od środka.”
+Nie należy jej na siłę zmieniać w rozbudowany landing page. Najważniejsze jest, żeby po wejściu użytkownik natychmiast rozumiał:
 
----
+1. kim jest CodeStoryBro,
+2. o czym mówi,
+3. gdzie kliknąć dalej,
+4. jak się skontaktować.
 
-## Czego unikać w copy
+### Proponowany układ strony głównej
 
-Unikać:
+#### Hero
 
-* pozycjonowania jako coach leadershipu,
-* pozycjonowania jako marka dla managerów tylko i wyłącznie,
-* dominacji hasła LEAD • THINK • GROW,
-* copy typu „pomagam managerom stawać się lepszymi liderami”,
-* generycznej narracji o rozwoju osobistym,
-* dominacji finansów,
-* dominacji wypalenia developera,
-* narracji „ucieczka z IT”,
-* pozycjonowania jako React mentor,
-* pozycjonowania jako kanał tutorialowy,
-* oldschoolowego „developer rant” jako głównej osi,
-* porad prawnych, szczególnie wokół wypowiedzeń i zwolnień,
-* recenzowania technologii bez związku z ludźmi, kulturą, branżą lub mechanizmami,
-* pustych słów: sukces, mindset, potencjał, inspiracja, rozwój bez konkretu.
+**CodeStoryBro**
+Marcin Kołodziej · Engineering Manager · Speaker
 
----
+**Komentuję ból polskiego IT: zwolnienia, rekrutacje widmo, AI, vibe coding i całą resztę technologicznego teatru.**
 
-## SEO — kierunek
+**IT się nie skończyło. Skończyło się łatwe IT.**
 
-Strona powinna być zoptymalizowana pod polskie frazy związane z komentowaniem świata IT, branży technologicznej, ludzkiej strony technologii, managementu w IT, AI, code review, kulturą pracy i absurdami branży.
+#### Linki
 
-SEO nie powinno być już ustawione wyłącznie pod „leadership w IT” ani „zarządzanie zespołem IT”. Te frazy nadal mogą się pojawiać jako poboczne, ale rdzeń powinien być szerszy: IT + technologia + komentarz + ludzie + branża od środka.
+**YouTube**
+Dłuższe materiały o rynku pracy IT, zwolnieniach, AI, vibe codingu, karierze i tym, co naprawdę dzieje się między kodem, biznesem i ludźmi.
 
-### Główne frazy SEO
+**LinkedIn**
+Zawodowa perspektywa na brutalną zmianę rynku IT, AI w zespołach, rekrutacje, decyzje, prelekcje i branżę od środka.
 
-* CodeStoryBro
-* Marcin Kołodziej
-* świat IT
-* branża IT
-* branża technologiczna
-* technologia
-* komentarz IT
-* komentarz technologiczny
-* absurdy IT
-* patologie IT
-* patologie w IT
-* ludzka strona IT
-* ludzka strona technologii
-* IT bez korpo-filtra
-* technologia bez korpo-filtra
-* branża IT od środka
-* kultura pracy w IT
-* problemy w IT
-* konflikty w IT
-* komunikacja w IT
-* code review
-* feedback w IT
-* rekrutacja IT
-* senior developer
-* junior developer
-* manager IT
-* Engineering Manager
-* tech lead
-* AI w IT
-* vibe coding
-* Big Tech
-* branża gier
-* kultura cyfrowa
+**Threads**
+Krótkie, mocne komentarze o zwolnieniach, rekrutacjach, AI, vibe codingu i absurdach polskiego IT.
 
-### Frazy poboczne
+**Instagram**
+Rolki, memy i szybkie obserwacje o rynku IT, AI, pracy w technologii i rzeczach, o których branża często mówi po cichu.
 
-* awanse w IT
-* trudne rozmowy w IT
-* toksyczny senior
-* toksyczny developer
-* zarządzanie w IT
-* leadership w IT
-* praca w IT
-* kariera w IT
-* zespół IT
-* presja w IT
-* wypalenie w IT
-* AI dla programistów
-* AI w pracy programisty
-* praca programisty
-* świat technologii
-* produkty technologiczne
-* Apple i technologia
-* gaming i technologia
-* GTA VI jako zjawisko technologiczne
+**Discord**
+Społeczność CSB dla ludzi z IT, którzy chcą pogadać otwarcie o rynku, AI, karierze, rekrutacjach i codzienności w branży.
+
+**Kontakt**
+Współpraca, podcasty, zaproszenia, prelekcje, warsztaty, konsultacje i propozycje biznesowe.
+
+### Uwagi
+
+- Nie dodawać na stronie głównej dużych sekcji sprzedażowych na siłę.
+- Nie używać „leadership w IT” jako głównego claimu.
+- Nie robić z tego strony o produktywności, lifestyle ani ogólnym rozwoju.
+- Strona ma być prosta, ostra i spójna z nową pozycją.
 
 ---
 
-## SEO — meta title
+## 14. Blog — status legacy
 
-Preferowany meta title strony głównej:
+Na stronie istnieje ukryty / legacy blog.
 
-> CodeStoryBro | Absurdy, napięcia i patologie świata IT i technologii
+Nie usuwać bloga, ponieważ w internecie mogą nadal krążyć stare linki.
 
-Alternatywy:
+Zalecenia:
 
-* CodeStoryBro | IT i technologia bez korpo-filtra
-* CodeStoryBro | Ludzka strona IT i technologii
-* CodeStoryBro | Komentarze o świecie IT i technologii
-* CodeStoryBro | Najtrudniejsze w IT rzadko jest techniczne
+- zachować istniejące URL-e bloga,
+- nie kasować starych wpisów bez przekierowań 301,
+- nie dodawać bloga jako głównego elementu strony głównej, jeśli ma pozostać ukryty,
+- zaktualizować copy i metadane bloga tak, żeby pasowały do nowego pozycjonowania,
+- blog może działać jako archiwum i zaplecze SEO,
+- jeśli istnieje strona listingu bloga, nadać jej sensowny opis zamiast generycznego „Blog”.
 
-Meta title powinien być konkretny, rozpoznawalny i spójny z aktualnym kierunkiem. Nie powinien brzmieć jak szkolenie managerskie.
+### Proponowane copy dla listingu bloga
 
----
+**Blog CodeStoryBro**
+Archiwalne i dłuższe teksty o IT, technologii, karierze, AI, pracy z ludźmi i absurdach branży.
 
-## SEO — meta description
+### Proponowany opis SEO bloga
 
-Preferowana meta description strony głównej:
-
-> CodeStoryBro komentuje absurdy, napięcia i patologie świata IT i technologii. Ludzka strona branży: AI, code review, feedback, rekrutacja, Big Tech, gaming, konflikty i decyzje bez korpo-filtra.
-
-Alternatywa krótsza:
-
-> CodeStoryBro to komentarze o świecie IT i technologii bez korpo-filtra: ludzie, decyzje, AI, code review, rekrutacja, Big Tech, gaming i ludzka strona branży.
-
-Meta description powinna zawierać:
-
-* CodeStoryBro,
-* IT,
-* technologia,
-* absurdy / napięcia / patologie,
-* ludzka strona technologii,
-* AI / code review / rekrutacja / Big Tech / gaming,
-* bez korpo-filtra.
+> Archiwum CodeStoryBro: teksty o IT, technologii, AI, karierze, rekrutacjach, pracy z ludźmi i absurdach polskiej branży technologicznej.
 
 ---
 
-## SEO — Open Graph / Twitter / social preview
+## 15. Monetyzacja pod tę strategię
 
-Każda ważna strona powinna mieć zaktualizowane:
-
-* title,
-* description,
-* og:title,
-* og:description,
-* og:type,
-* og:url,
-* og:image,
-* twitter:card,
-* twitter:title,
-* twitter:description,
-* twitter:image,
-* canonical URL.
-
-Social preview powinien komunikować aktualny kierunek, a nie stary etap.
-
-Przykład:
-
-og:title:
-
-> CodeStoryBro | IT i technologia bez korpo-filtra
-
-og:description:
-
-> Komentarze o absurdach, napięciach i ludzkiej stronie świata IT i technologii: AI, code review, feedback, rekrutacja, Big Tech, gaming i branża od środka.
-
----
-
-## SEO — dane strukturalne
-
-Jeżeli projekt ma możliwość dodania danych strukturalnych JSON-LD, warto dodać / zaktualizować:
-
-### Person
-
-* name: Marcin Kołodziej
-* alternateName: CodeStoryBro
-* jobTitle: Engineering Manager, Content Creator, Speaker
-* description: Engineering Manager and creator commenting on the absurdities, tensions and dysfunctions of the IT and tech world.
-* url: https://www.codestorybro.com/
-* sameAs: linki social z repo / konfiguracji, bez zgadywania brakujących URL-i
-
-### WebSite
-
-* name: CodeStoryBro
-* url: https://www.codestorybro.com/
-* description: Komentarze o świecie IT i technologii bez korpo-filtra.
-
-### Organization / Brand, jeśli projekt już tego używa
-
-* name: CodeStoryBro
-* description: Marka osobista komentująca absurdy, napięcia i patologie świata IT i technologii.
-
-Nie zgadywać linków social, jeśli nie są dostępne w repo.
-
----
-
-## Struktura strony — sugerowane copy
-
-### Hero
-
-Cel hero: w 3 sekundy pokazać, że CodeStoryBro to komentator IT i technologii, a nie coach, mentor Reacta ani strona o finansach.
-
-Preferowany nagłówek:
-
-> Komentuję absurdy, napięcia i patologie świata IT i technologii.
-
-Alternatywa:
-
-> IT i technologia bez korpo-filtra.
-
-Podtytuł:
-
-> Nazywam się Marcin Kołodziej. Jako Engineering Manager patrzę na technologię nie tylko przez kod, narzędzia i produkty, ale przede wszystkim przez ludzi: decyzje, konflikty, presję, AI, rekrutację, Big Tech i cały niewygodny kontekst, o którym często mówi się dopiero po pracy.
-
-Krótszy podtytuł:
-
-> CodeStoryBro to komentarze o świecie IT i technologii bez lukru: ludzie, decyzje, AI, code review, rekrutacja, Big Tech, gaming i branża od środka.
-
-CTA:
-
-* Zobacz moje treści
-* Zaproś mnie na wystąpienie
-* Dołącz do CSB OFFLog
-* Obserwuj na Threads
-
-### Sekcja problemu
-
-Powinna pokazywać napięcie:
-
-* w IT wszyscy mówią o technologii, ale najczęściej wykładają się na ludziach,
-* firmy kochają frameworki, procesy i innowacje, ale nie umieją rozmawiać o konfliktach,
-* AI przyspiesza pracę, ale też przyspiesza chaos,
-* code review potrafi pokazać kulturę zespołu lepiej niż firmowe wartości,
-* Big Tech i produkty technologiczne sprzedają nie tylko funkcje, ale emocje, status i przynależność,
-* branża lubi udawać, że wszystko jest racjonalne, a często rządzą ego, presja i polityka.
-
-### Sekcja „O czym mówię”
-
-Kategorie:
-
-* Absurdy świata IT
-* Ludzie w technologii
-* AI i vibe coding
-* Branża od środka
-* Big Tech, gaming i kultura cyfrowa
-* Prelekcje bez korpo-bełkotu
-
-### Sekcja „Dla kogo”
-
-Dla:
-
-* ludzi z IT,
-* developerów, seniorów, juniorów,
-* managerów, tech leadów i osób blisko zespołów technologicznych,
-* osób, które chcą rozumieć branżę od środka,
-* ludzi, którzy mają dość pustych haseł o innowacji i leadershipie,
-* organizatorów eventów szukających mocnego głosu o ludzkiej stronie technologii.
-
-### Sekcja wystąpień
-
-Copy:
-
-> Szukasz prelegenta, który mówi o IT i technologii z ludzkiej perspektywy — konkretnie, szczerze i wprost?
->
-> Mówię o tym, co dzieje się pomiędzy kodem, biznesem i ludźmi: o presji, decyzjach, AI, konfliktach, feedbacku, awansach i mechanizmach branży, których nie widać na slajdach z wartościami firmy.
-
-CTA:
-
-* Zaproś mnie na konferencję
-* Napisz w sprawie wystąpienia
-* Kontakt: hello@codestorybro.com
-
-### Sekcja community
+### 1. Konsultacje indywidualne
 
 Nazwa:
 
-> CSB OFFLog
+> **Przegląd pozycji na rynku IT**
 
-Copy:
+Lub ostrzej:
 
-> CSB OFFLog to społeczność dla ludzi, którzy chcą gadać otwarcie o świecie IT i technologii.
->
-> Komentujemy absurdy, napięcia i patologie branży: od awansów, feedbacku, code review, AI, vibe codingu, konfliktów i rekrutacji, po Big Tech, produkty technologiczne, branżę gier i kulturę cyfrową.
->
-> Najtrudniejsze w IT rzadko jest techniczne.
+> **Plan awaryjny dla specjalisty IT**
 
-CTA:
+Dla kogo:
 
-* Dołącz do CSB OFFLog
-* Wejdź na Discord
+- boję się zwolnienia,
+- nie wiem, czy jestem konkurencyjny,
+- szukam pracy i nikt nie odpowiada,
+- chcę poprawić CV / LinkedIn,
+- nie wiem, jak mówić o swojej wartości,
+- chcę używać AI, ale nie chcę stać się promptowym zombie.
 
-### Sekcja social media
+Cena startowa: **399–699 zł**.
 
-YouTube:
+### 2. Mini-produkt
 
-> Dłuższe materiały o świecie IT i technologii: absurdy branży, ludzie, decyzje, konflikty, AI, kariera, zarządzanie i wszystko to, co dzieje się między kodem a biznesem.
+Nazwa:
 
-Threads:
+> **Antypanika IT: co zrobić, zanim stracisz pracę**
 
-> Krótkie, mocne komentarze o IT i technologii: szybkie obserwacje, branżowe absurdy, napięcia, kontrowersje i rzeczy, które wiele osób widzi, ale mało kto mówi o nich głośno.
+Lub:
 
-LinkedIn:
+> **Rynek IT 2026: jak nie wypaść z gry**
 
-> Bardziej zawodowa perspektywa na IT i technologię: ludzie, zespoły, leadership bez ściemy, decyzje managerskie, trudne rozmowy, prelekcje i branża widziana od środka.
+Cena: **79–199 zł**.
 
-Instagram:
+Zawartość:
 
-> Krótsze formaty o IT i technologii: rolki, memy, mocne obserwacje, szybkie komentarze i bardziej przystępna forma tego, co dzieje się w branży.
+- checklisty przed zwolnieniem,
+- plan 30 dni po zwolnieniu,
+- CV / LinkedIn,
+- mapa kompetencji,
+- jak pisać do ludzi,
+- jak nie panikować,
+- jak używać AI w przygotowaniach,
+- jak sprawdzić, czy jesteś rynkowo słaby.
 
-Discord:
+### 3. Produkt AI
 
-> CSB OFFLog — społeczność dla ludzi z IT i technologii, którzy chcą gadać bez korpo-filtra.
+Nazwa:
 
-### Linktree
+> **AI bez ogłupiania: jak używać narzędzi, żeby nie stracić kompetencji**
 
-Linktree powinien być spójny z aktualnym kierunkiem.
+Cena: **99–299 zł**.
 
-Możliwy nagłówek:
+Zawartość:
 
-> CodeStoryBro
+- zasady pracy z AI,
+- kiedy nie używać AI,
+- jak weryfikować kod,
+- jak nie tracić podstaw,
+- checklista code review po AI,
+- workflow „AI jako partner, nie proteza”.
 
-Możliwy opis:
+### 4. B2B
 
-> Komentuję absurdy, napięcia i patologie świata IT i technologii.
+Nazwa warsztatu:
 
-Linki / opisy:
+> **AI bez slopu w zespole technicznym**
 
-* YouTube — dłuższe materiały o IT i technologii bez korpo-filtra
-* Threads — krótkie komentarze i branżowe obserwacje
-* LinkedIn — zawodowa perspektywa, prelekcje i branża od środka
-* Instagram — rolki, memy i szybkie komentarze
-* CSB OFFLog — Discord dla ludzi z IT i technologii
-* Kontakt — hello@codestorybro.com
+Lub:
 
----
+> **Vibe coding pod kontrolą: jak korzystać z AI bez rozwalania jakości kodu**
 
-## Domyślne opisy kanałów
+Cel:
 
-### YouTube
-
-> Dłuższe materiały o świecie IT i technologii: absurdy branży, ludzie, decyzje, konflikty, AI, kariera, zarządzanie i wszystko to, co dzieje się między kodem a biznesem.
->
-> Subskrybuj kanał, jeśli chcesz wejść głębiej w tematy, których nie da się zamknąć w jednym poście.
-
-### Threads
-
-> Krótkie, mocne komentarze o IT i technologii: szybkie obserwacje, branżowe absurdy, napięcia, kontrowersje i rzeczy, które wiele osób widzi, ale mało kto mówi o nich głośno.
->
-> Obserwuj, jeśli lubisz myśli bez korpo-filtra.
-
-### LinkedIn
-
-> Zawodowa perspektywa na IT i technologię: ludzie, zespoły, decyzje, leadership bez ściemy, trudne rozmowy, prelekcje i branża widziana od środka.
->
-> Dodaj mnie do sieci i włącz się w dyskusje o tym, jak ta branża naprawdę działa.
-
-### Instagram
-
-> Krótsze formaty o IT i technologii: rolki, memy, mocne obserwacje, szybkie komentarze i bardziej przystępna forma tego, co dzieje się w branży.
->
-> Obserwuj, jeśli chcesz być na bieżąco z rolkami, relacjami i krótkimi komentarzami.
+- zespoły używają AI bez standardów,
+- code review puchnie,
+- rośnie techniczny dług,
+- ludzie generują kod, którego nie rozumieją,
+- managerowie nie wiedzą, jak to kontrolować.
 
 ---
 
-## Opis LinkedIn — CodeStoryBro Content Creator
+## 16. Plan na 30 dni
 
-> CodeStoryBro to miejsce, w którym komentuję absurdy, napięcia i patologie świata IT i technologii.
->
-> Patrzę na technologię nie tylko przez pryzmat kodu, frameworków, narzędzi i nowych produktów, ale przede wszystkim przez ludzi: managerów, seniorów, juniorów, zespoły, użytkowników, twórców, decyzje, ambicje, konflikty i cały ten niewygodny kontekst, o którym często mówi się dopiero po pracy.
->
-> Dzielę się obserwacjami z perspektywy Engineering Managera i osoby, która od lat działa blisko zespołów technicznych. Interesuje mnie to, co dzieje się między ludźmi w IT i technologii: jak naprawdę wyglądają awanse, feedback, code review, trudne rozmowy, presja, rekrutacja, AI, vibe coding, toksyczność, komunikacja, decyzje produktowe, Big Tech, branża gier i zderzenie biznesu z technologią.
->
-> Najtrudniejsze w IT rzadko jest techniczne.
->
-> W ramach CodeStoryBro tworzę treści, w których:
->
-> 🎙️ Komentuję świat IT i technologii — jego absurdy, mechanizmy, napięcia i rzeczy, które wiele osób widzi, ale mało kto mówi o nich głośno.
->
-> 🧠 Pokazuję ludzką stronę technologii — od pracy managerów i developerów, przez dynamikę zespołów, po trudne decyzje, konflikty, kariery w techu, wpływ AI, produkty technologiczne i kulturę cyfrową.
->
-> ⚡ Buduję przestrzeń dla ludzi z IT i technologii, którzy nie chcą kolejnych pustych haseł o leadershipie, innowacji i przyszłości, tylko szczerej rozmowy o tym, jak ta branża naprawdę działa.
+### Tydzień 1 — zwolnienia i strach
 
----
+- Co zrobić, zanim cię zwolnią?
+- Najgorsze błędy po zwolnieniu.
+- Dlaczego nie możesz czekać z CV do momentu redukcji.
+- IT się nie skończyło. Skończyło się łatwe IT.
+- Jak sprawdzić, czy jesteś rynkowo bezpieczny.
 
-## Opis osobisty LinkedIn / About
+### Tydzień 2 — rekrutacyjna patologia
 
-> Za dnia jestem Engineering Managerem — pracuję blisko zespołów technicznych, ludzi, decyzji, konfliktów, presji i całej tej niewygodnej rzeczywistości, która dzieje się pomiędzy kodem a biznesem.
->
-> Po godzinach jako CodeStoryBro komentuję absurdy, napięcia i patologie świata IT i technologii.
->
-> Interesuje mnie nie tylko to, jakie frameworki, narzędzia czy procesy są aktualnie modne. Bardziej interesuje mnie to, co dzieje się między ludźmi: awanse, feedback, code review, trudne rozmowy, toksyczni seniorzy, zagubieni juniorzy, managerowie bez wsparcia, AI, vibe coding, rekrutacja, presja dowożenia i decyzje, które z zewnątrz często wyglądają prościej, niż naprawdę są.
->
-> Od lat pracuję blisko kodu, zespołów i biznesu, dlatego dobrze wiem, że największe problemy w technologii rzadko są wyłącznie techniczne. Często chodzi o komunikację, ego, odpowiedzialność, oczekiwania, brak odwagi albo system, który premiuje złe zachowania.
->
-> Nie chcę udawać kolejnego coacha od leadershipu. Nie interesuje mnie korpo-bełkot, piękne slajdy i motywacyjne hasła bez kontaktu z rzeczywistością.
->
-> Tworzę treści dla ludzi z IT i technologii, którzy chcą rozumieć branżę od środka: bez lukru, bez udawania i bez sprowadzania wszystkiego do stwierdzenia, że trzeba się lepiej komunikować.
->
-> Najtrudniejsze w IT rzadko jest techniczne.
->
-> 🎤 Szukasz prelegenta, który mówi o IT i technologii z ludzkiej perspektywy — konkretnie, szczerze i wprost? Napisz do mnie w wiadomości prywatnej lub na hello@codestorybro.com
+- ghosting,
+- rekrutacje widmo,
+- generyczne odpowiedzi,
+- zbyt wysokie wymagania,
+- juniorzy bez wejścia,
+- oszukiwanie z AI na interview.
 
----
+### Tydzień 3 — vibe coding i AI
 
-## English positioning
+- vibe coding jako rak,
+- seniorzy bez AI,
+- kod bez zrozumienia,
+- AI jako proteza,
+- odpowiedzialność za kod,
+- „używaj AI, ale nie oddawaj mózgu”.
 
-Short bio:
+### Tydzień 4 — co robić dalej
 
-> Calling out the absurdities, tensions, and dysfunctions of IT and tech
+- mapa kompetencji,
+- plan B,
+- CV,
+- LinkedIn,
+- networking,
+- AI workflow,
+- jak nie wypaść z gry.
 
-Longer description:
+Łuk miesiąca:
 
-> CodeStoryBro is a place where I comment on the absurdities, tensions, and dysfunctions of the IT and tech world.
->
-> I look at technology not only through the lens of code, frameworks, tools, and new products, but above all through people: managers, seniors, juniors, teams, users, creators, decisions, ambitions, conflicts, and all the uncomfortable context that often only gets talked about after work.
->
-> I share observations from the perspective of an Engineering Manager and someone who has worked closely with technical teams for years. What interests me most is what happens between people in IT and technology: promotions, feedback, code reviews, difficult conversations, pressure, recruitment, AI, vibe coding, toxicity, communication, product decisions, Big Tech, the gaming industry, and the clash between business and technology.
->
-> The hardest things in IT are rarely technical.
->
-> As part of CodeStoryBro, I create content where I:
->
-> 🎙️ Comment on the IT and tech world — its absurdities, mechanisms, tensions, and the things many people see, but few talk about out loud.
->
-> 🧠 Show the human side of technology — from the work of managers and developers, through team dynamics, to difficult decisions, conflicts, careers in tech, the impact of AI, technology products, and digital culture.
->
-> ⚡ Build a space for people in IT and technology who do not want more empty slogans about leadership, innovation, and the future, but an honest conversation about how this industry really works.
+> **strach → diagnoza → konflikt → plan**
 
 ---
 
-## Finalny efekt
+## 17. Ostateczna strategia w jednym zdaniu
 
-Po aktualizacji strona powinna sprawiać wrażenie:
-
-* bardziej spójnej,
-* bardziej komentatorskiej,
-* mniej coachingowej,
-* mniej leadershipowo-szkoleniowej,
-* mniej skupionej wyłącznie na managerach,
-* bardziej otwartej na świat technologii,
-* nadal mocno osadzonej w IT,
-* bez korpo-filtra,
-* z wyraźnym pazurem,
-* ale bez taniego hejtu i przypadkowego narzekania.
-
-Strona ma od razu pokazywać:
-
-> Marcin Kołodziej / CodeStoryBro to Engineering Manager i twórca, który komentuje absurdy, napięcia i patologie świata IT i technologii — bez korpo-filtra, bez lukru i bez udawania, że największe problemy w tej branży są zawsze techniczne.
+> **Przez najbliższe 90 dni CodeStoryBro buduje rozpoznawalność wokół dwóch tematów: brutalnego rynku pracy IT oraz AI / vibe codingu jako kryzysu kompetencji i tożsamości programisty. Przyciąga bólem i skrajną emocją, zatrzymuje ludzi ulgą, rozrywką albo konkretnym rozwiązaniem, a monetyzuje przez konsultacje, playbooki i docelowo warsztaty B2B.**

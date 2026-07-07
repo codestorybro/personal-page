@@ -16,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     openGraph: {
       title: AppConfig.title,
-      description: AppConfig.description,
+      description: AppConfig.openGraphDescription,
       url: SITE_URL,
       siteName: 'CodeStoryBro',
       type: 'website',
@@ -26,7 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: `${SITE_URL}/assets/img/og-image.png`,
           width: 1536,
           height: 1024,
-          alt: 'CodeStoryBro — IT i technologia wprost',
+          alt: AppConfig.ogImageAlt,
         },
       ],
     },
@@ -35,13 +35,13 @@ export async function generateMetadata(): Promise<Metadata> {
       site: '@codestorybro',
       creator: '@codestorybro',
       title: AppConfig.title,
-      description: AppConfig.description,
+      description: AppConfig.twitterDescription,
       images: [
         {
           url: `${SITE_URL}/assets/img/og-image.png`,
           width: 1536,
           height: 1024,
-          alt: 'CodeStoryBro — IT i technologia wprost',
+          alt: AppConfig.ogImageAlt,
         },
       ],
     },

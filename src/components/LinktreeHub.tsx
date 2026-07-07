@@ -14,7 +14,7 @@ const links = [
     ariaLabel: 'CodeStoryBro na YouTube',
     icon: <YouTubeIcon />,
     title: 'YouTube',
-    description: 'Dłuższe materiały o IT, technologii, ludziach, decyzjach, AI, karierze, konfliktach i tym, co dzieje się między kodem a biznesem.',
+    description: 'Dłuższe materiały o rynku IT, AI, zwolnieniach, rekrutacjach i pracy programisty.',
     accent: 'bg-red-500',
     iconBg: 'bg-red-500/10',
     textAccent: 'text-red-500',
@@ -25,7 +25,7 @@ const links = [
     ariaLabel: 'Marcin Kołodziej na LinkedIn',
     icon: <LinkedInIcon />,
     title: 'LinkedIn',
-    description: 'Zawodowa perspektywa na IT, technologię, ludzi, zespoły, decyzje, prelekcje i branżę od środka.',
+    description: 'Zawodowo o IT, AI, karierze, zespołach, decyzjach i prelekcjach na konferencjach.',
     accent: 'bg-blue-500',
     iconBg: 'bg-blue-500/10',
     textAccent: 'text-blue-500',
@@ -36,7 +36,7 @@ const links = [
     ariaLabel: 'CodeStoryBro na Threads',
     icon: <ThreadsIcon />,
     title: 'Threads',
-    description: 'Krótkie, mocne komentarze wprost o IT i technologii.',
+    description: 'Krótkie komentarze o tym, co aktualnie grzeje i boli ludzi w IT.',
     accent: 'bg-zinc-200',
     iconBg: 'bg-zinc-200/10',
     textAccent: 'text-zinc-200',
@@ -47,7 +47,7 @@ const links = [
     ariaLabel: 'CodeStoryBro na Instagramie',
     icon: <InstagramIcon />,
     title: 'Instagram',
-    description: 'Rolki, memy i szybkie obserwacje o IT i technologii.',
+    description: 'Rolki, memy i szybkie obserwacje o IT, AI, rekrutacjach i codziennej pracy w branży.',
     accent: 'bg-fuchsia-500',
     iconBg: 'bg-fuchsia-500/10',
     textAccent: 'text-fuchsia-500',
@@ -58,7 +58,7 @@ const links = [
     ariaLabel: 'Community CSB na Discordzie',
     icon: <DiscordIcon />,
     title: 'Discord',
-    description: 'Społeczność CSB dla ludzi, którzy chcą pogadać otwarcie o świecie IT i technologii.',
+    description: 'Społeczność CSB dla ludzi z IT, którzy chcą pogadać normalnie o rynku, AI, karierze i pracy.',
     accent: 'bg-indigo-500',
     iconBg: 'bg-indigo-500/10',
     textAccent: 'text-indigo-500',
@@ -70,7 +70,7 @@ const contactLink = {
   ariaLabel: `Skopiuj adres email ${AppConfig.author.email}`,
   icon: <MailIcon />,
   title: 'Kontakt',
-  description: 'Współpraca, podcasty, zaproszenia, prelekcje i propozycje biznesowe.',
+  description: 'Współpraca, podcasty, prelekcje, warsztaty, konsultacje i propozycje biznesowe.',
   accent: 'bg-amber-400',
   iconBg: 'bg-amber-400/10',
   textAccent: 'text-amber-400',
@@ -120,7 +120,7 @@ export const LinktreeHub: FC = () => {
             <div className="flex size-28 items-center justify-center overflow-hidden rounded-full border-2 border-cyan-300/30 bg-cyan-500/10 shadow-[0_0_30px_rgba(0,229,255,0.3)]">
               <Image
                 src="/assets/img/about/about.webp"
-                alt="Marcin Kołodziej, CodeStoryBro, Engineering Manager komentujący świat IT i technologii"
+                alt="Marcin Kołodziej, CodeStoryBro, Engineering Manager komentujący polskie IT, AI, zwolnienia i vibe coding"
                 width={112}
                 height={112}
                 priority
@@ -137,8 +137,11 @@ export const LinktreeHub: FC = () => {
             <p className="mt-1 text-sm leading-relaxed text-gray-400">
               Marcin Kołodziej · Engineering Manager · Speaker
             </p>
-            <p className="mt-3 text-sm leading-relaxed text-gray-300">
-              Komentuję absurdy, napięcia i&nbsp;patologie świata IT i&nbsp;technologii
+            <p className="mt-3 text-sm font-semibold leading-relaxed text-white">
+              IT nie umarło. Rynek się zaostrzył.
+            </p>
+            <p className="mt-0 text-sm font-semibold leading-relaxed text-white">
+              Skończyła się era łatwego wejścia i&nbsp;przeciętności.
             </p>
           </div>
         </header>

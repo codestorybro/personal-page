@@ -3,11 +3,14 @@ export const AppConfig = {
   locale: 'pl_PL',
   language: 'pl',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://codestorybro.com',
-  title: 'CodeStoryBro | IT i technologia - wprost',
-  description: 'CodeStoryBro komentuje absurdy, napięcia i patologie świata IT i technologii. AI, vibe coding, Big Tech, ludzie, decyzje i wszystko to, co dzieje się między kodem a biznesem.',
+  title: 'CodeStoryBro | IT, AI i kariera programisty',
+  description: 'Komentarze o polskim IT, AI, zwolnieniach, rekrutacjach, vibe codingu i tym, jak zmienia się praca programisty.',
+  openGraphDescription: 'IT nie umarło. Skończyła się era łatwego wejścia i przeciętności. Komentarze o rynku IT, AI, rekrutacjach i pracy programisty.',
+  twitterDescription: 'IT nie umarło. Skończyła się era łatwego wejścia i przeciętności. Komentarze o rynku IT, AI, rekrutacjach i pracy programisty.',
+  ogImageAlt: 'CodeStoryBro — komentarz o polskim IT, AI, zwolnieniach i vibe codingu',
   author: {
     name: 'Marcin Kołodziej',
-    jobTitle: 'Engineering Manager, Content Creator, Speaker',
+    jobTitle: 'Engineering Manager, Speaker',
     email: 'hello@codestorybro.com',
   },
   social: {
