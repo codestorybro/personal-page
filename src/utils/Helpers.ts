@@ -18,5 +18,5 @@ export const getBaseUrl = () => {
     return `https://${process.env.VERCEL_URL}`;
   }
 
-  return 'https://codestorybro.com';
+  return 'https://www.codestorybro.com';
 };

@@ -3,7 +3,6 @@ import type { FC } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import Button from '@/components/Button';
 import Input from '@/components/Input';
-import { motion } from 'framer-motion';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
@@ -41,19 +40,16 @@ const CertificateForm: FC<Props> = ({ certId }) => {
     id: string;
   }) => {
     if (!id) {
-      return toast.error('Enter a certificate ID');
+      return toast.error('Enter\u00A0a certificate ID');
     }
 
     return updateSearchQuery({ certId: id });
   };
 
   return (
-    <motion.form
+    <form
       onSubmit={handleSubmit(onSubmit)}
-      className="m-auto flex max-w-lg flex-col gap-4 sm:flex-row"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.2 }}
+      className="flex flex-col gap-4 sm:flex-row"
     >
       <Input
         {...register('id')}
@@ -71,7 +67,7 @@ const CertificateForm: FC<Props> = ({ certId }) => {
       >
         Verify
       </Button>
-    </motion.form>
+    </form>
   );
 };
 

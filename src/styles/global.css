@@ -23,3 +23,136 @@ body {
   color: #ecfeff;
   background: rgb(34 211 238 / 35%);
 }
+
+.article-content {
+  color: #d4d4d8;
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  overflow-wrap: anywhere;
+}
+
+.article-content > * + * {
+  margin-top: 1.5rem;
+}
+
+.article-content h2,
+.article-content h3 {
+  color: #fafafa;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+}
+
+.article-content h2 {
+  margin-top: 3.5rem;
+  font-size: clamp(1.65rem, 4vw, 2.15rem);
+}
+
+.article-content h3 {
+  margin-top: 2.75rem;
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
+}
+
+.article-content a {
+  color: #a5f3fc;
+  text-decoration: underline;
+  text-decoration-color: rgb(165 243 252 / 45%);
+  text-underline-offset: 0.2em;
+}
+
+.article-content a:hover {
+  text-decoration-color: #a5f3fc;
+}
+
+.article-content a:focus-visible {
+  border-radius: 0.125rem;
+  outline: 2px solid #67e8f9;
+  outline-offset: 4px;
+}
+
+.article-content ul,
+.article-content ol {
+  padding-left: 1.5rem;
+}
+
+.article-content ul {
+  list-style: disc;
+}
+
+.article-content ol {
+  list-style: decimal;
+}
+
+.article-content li + li {
+  margin-top: 0.65rem;
+}
+
+.article-content blockquote {
+  border-left: 2px solid rgb(103 232 249 / 55%);
+  padding-left: 1.25rem;
+  color: #a1a1aa;
+  font-style: italic;
+}
+
+.article-content code {
+  border: 1px solid rgb(255 255 255 / 10%);
+  border-radius: 0.35rem;
+  background: rgb(255 255 255 / 6%);
+  padding: 0.12rem 0.35rem;
+  color: #cffafe;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.88em;
+}
+
+.article-content pre {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid rgb(255 255 255 / 10%);
+  border-radius: 0.75rem;
+  background: #050607;
+  padding: 1.25rem;
+  line-height: 1.65;
+  overscroll-behavior-x: contain;
+}
+
+.article-content pre code {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: #d4d4d8;
+  white-space: pre;
+}
+
+.article-content aside {
+  display: flex;
+  gap: 0.75rem;
+  border: 1px solid rgb(255 255 255 / 10%);
+  border-radius: 0.75rem;
+  background: rgb(255 255 255 / 3%);
+  padding: 1rem 1.25rem;
+}
+
+.article-content hr {
+  margin-block: 3rem;
+  border: 0;
+  border-top: 1px solid rgb(255 255 255 / 10%);
+}
+
+.article-content figure {
+  margin-block: 2.5rem;
+}
+
+.article-content img {
+  height: auto;
+  max-width: 100%;
+  border: 1px solid rgb(255 255 255 / 10%);
+  border-radius: 0.75rem;
+}
+
+.article-content figcaption {
+  margin-top: 0.75rem;
+  color: #71717a;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  text-align: center;
+}

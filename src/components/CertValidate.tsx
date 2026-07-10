@@ -60,19 +60,19 @@ const CertValidate: FC<Props> = ({ id }) => {
       {id && validationState === 'valid' && user && (
         <motion.div
           key="valid"
-          className="my-8 flex flex-col items-center gap-4"
+          className="mt-8 flex flex-col items-center gap-4 rounded-xl border border-emerald-400/20 bg-emerald-400/[0.05] p-6"
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: -20 }}
           transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
         >
           <motion.div
-            className="flex items-center justify-center rounded-full bg-green-500/20 p-4"
+            className="flex items-center justify-center rounded-full bg-emerald-400/10 p-4"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.2, type: 'spring', stiffness: 200, damping: 15 }}
           >
-            <SealCheckIcon size={48} weight="fill" className="text-green-500" />
+            <SealCheckIcon size={48} weight="fill" className="text-emerald-300" />
           </motion.div>
           <motion.div
             className="text-center"
@@ -81,15 +81,15 @@ const CertValidate: FC<Props> = ({ id }) => {
             transition={{ delay: 0.3, duration: 0.3 }}
           >
             <p className="text-xl font-bold text-white">{user.name}</p>
-            <p className="text-gray-400">{user.type}</p>
+            <p className="text-zinc-400">{user.type}</p>
           </motion.div>
           <motion.div
-            className="mt-2 rounded-lg border border-green-500/30 bg-green-500/10 px-4 py-2"
+            className="mt-2 rounded-lg border border-emerald-400/20 px-4 py-2"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.3 }}
           >
-            <p className="text-sm text-green-400">This certificate is valid ✓</p>
+            <p className="text-sm text-emerald-300">This certificate is valid ✓</p>
           </motion.div>
         </motion.div>
       )}
@@ -97,19 +97,19 @@ const CertValidate: FC<Props> = ({ id }) => {
       {id && validationState === 'invalid' && (
         <motion.div
           key="invalid"
-          className="my-8 flex flex-col items-center gap-4"
+          className="mt-8 flex flex-col items-center gap-4 rounded-xl border border-rose-400/20 bg-rose-400/[0.05] p-6"
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: -20 }}
           transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
         >
           <motion.div
-            className="flex items-center justify-center rounded-full bg-red-500/20 p-4"
+            className="flex items-center justify-center rounded-full bg-rose-400/10 p-4"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.2, type: 'spring', stiffness: 200, damping: 15 }}
           >
-            <XCircleIcon size={48} weight="fill" className="text-red-500" />
+            <XCircleIcon size={48} weight="fill" className="text-rose-300" />
           </motion.div>
           <motion.div
             className="text-center"
@@ -118,15 +118,15 @@ const CertValidate: FC<Props> = ({ id }) => {
             transition={{ delay: 0.3, duration: 0.3 }}
           >
             <p className="text-xl font-bold text-white">Certificate not found</p>
-            <p className="text-gray-400">{id}</p>
+            <p className="text-zinc-400">{id}</p>
           </motion.div>
           <motion.div
-            className="mt-2 rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-2"
+            className="mt-2 rounded-lg border border-rose-400/20 px-4 py-2"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.3 }}
           >
-            <p className="text-sm text-red-400">No certificate exists with this ID</p>
+            <p className="text-sm text-rose-300">No certificate exists with this ID</p>
           </motion.div>
         </motion.div>
       )}

@@ -15,6 +15,15 @@ const config: NextConfig = {
   },
   poweredByHeader: false,
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        source: '/:locale(en|pl)/blog/:slug*',
+        destination: '/blog/:slug*',
+        permanent: true,
+      },
+    ];
+  },
   // Ensure consistent URL handling (no trailing slash)
   trailingSlash: false,
 };

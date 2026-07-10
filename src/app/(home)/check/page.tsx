@@ -14,13 +14,13 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: 'Certificate verification',
-    description: 'Verify the authenticity of a CodeStoryBro certificate using its certificate ID.',
+    description: 'Verify the authenticity of\u00A0a CodeStoryBro certificate using its certificate ID.',
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
       title: 'Certificate verification | CodeStoryBro',
-      description: 'Verify the authenticity of a CodeStoryBro certificate using its certificate ID.',
+      description: 'Verify the authenticity of\u00A0a CodeStoryBro certificate using its certificate ID.',
       type: 'website',
       url: canonicalUrl,
       siteName: 'CodeStoryBro',
@@ -37,7 +37,7 @@ export async function generateMetadata(): Promise<Metadata> {
     twitter: {
       card: 'summary_large_image',
       title: 'Certificate verification | CodeStoryBro',
-      description: 'Verify the authenticity of a CodeStoryBro certificate using its certificate ID.',
+      description: 'Verify the authenticity of\u00A0a CodeStoryBro certificate using its certificate ID.',
       images: [`${SITE_URL}/assets/img/og-image.png`],
       creator: '@codestorybro',
       site: '@codestorybro',

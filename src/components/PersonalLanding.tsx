@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { AppConfig } from '@/utils/AppConfig';
 import Image from 'next/image';
+import Link from 'next/link';
 
 type SocialLink = {
   name: string;
@@ -40,6 +41,12 @@ export function PersonalLanding() {
             </p>
             <p className="mt-1 text-xs text-zinc-500">Marcin Kołodziej</p>
           </div>
+          <Link
+            href="/blog"
+            className={`rounded-sm font-mono text-[0.7rem] uppercase tracking-[0.16em] text-zinc-500 no-underline transition-colors hover:text-cyan-200 ${focusRing}`}
+          >
+            Publication archive
+          </Link>
         </header>
 
         <main>
@@ -56,7 +63,7 @@ export function PersonalLanding() {
             <div className="relative mx-auto w-full max-w-xs overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-2 lg:mx-0">
               <Image
                 src="/assets/img/about/about.webp"
-                alt="Marcin Kołodziej speaking at a technology conference"
+                alt="Marcin Kołodziej speaking at\u00A0a technology conference"
                 width={320}
                 height={400}
                 priority
@@ -73,10 +80,10 @@ export function PersonalLanding() {
             </h2>
             <div className="max-w-3xl space-y-5 text-lg leading-8 text-zinc-300 sm:text-xl sm:leading-9">
               <p>
-                I build software, lead engineering teams, and speak about technology, software development, and engineering leadership.
+                I&nbsp;build software, lead engineering teams, and speak about technology, software development, and engineering leadership.
               </p>
               <p>
-                I have spent over a decade working in the technology industry, combining hands-on software engineering with technical leadership and team management.
+                I&nbsp;have spent over a&nbsp;decade working in the technology industry, combining hands-on software engineering with technical leadership and team management.
               </p>
             </div>
           </section>
@@ -98,7 +105,7 @@ export function PersonalLanding() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`Visit CodeStoryBro on ${link.name} (opens in a new tab)`}
+                  aria-label={`Visit CodeStoryBro on ${link.name} (opens in\u00A0a new tab)`}
                   className={`group flex min-h-48 flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.035] p-6 text-white no-underline transition-colors duration-200 hover:border-cyan-300/40 hover:bg-cyan-300/[0.07] sm:p-7 ${focusRing}`}
                 >
                   <div className="flex items-start justify-between gap-6">

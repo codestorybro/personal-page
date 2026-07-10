@@ -1,18 +1,35 @@
 import type { MetadataRoute } from 'next';
-import { getBaseUrl } from '@/utils/Helpers';
+import { AppConfig } from '@/utils/AppConfig';
 
 export const dynamic = 'force-dynamic';
 
 export default function robots(): MetadataRoute.Robots {
+  const isProduction = process.env.VERCEL_ENV
+    ? process.env.VERCEL_ENV === 'production'
+    : process.env.NODE_ENV === 'production';
+
+  if (!isProduction) {
+    return {
+      rules: [{ userAgent: '*', disallow: '/' }],
+      sitemap: `${AppConfig.url}/sitemap.xml`,
+    };
+  }
+
   return {
     rules: [
       {
         userAgent: '*',
-        allow: '/',
-        disallow: ['/api/'],
+        allow: ['/', '/api/blog-image/'],
+        disallow: [
+          '/api/',
+          '/linktree.html',
+          '/preview/',
+          '/draft/',
+          '/internal/',
+        ],
       },
     ],
-    sitemap: `${getBaseUrl()}/sitemap.xml`,
-    host: getBaseUrl(),
+    sitemap: `${AppConfig.url}/sitemap.xml`,
+    host: AppConfig.url,
   };
 }
