@@ -41,7 +41,7 @@ const CertificateForm: FC<Props> = ({ certId }) => {
     id: string;
   }) => {
     if (!id) {
-      return toast.error('ID certyfikatu jest puste');
+      return toast.error('Enter a certificate ID');
     }
 
     return updateSearchQuery({ certId: id });
@@ -57,7 +57,8 @@ const CertificateForm: FC<Props> = ({ certId }) => {
     >
       <Input
         {...register('id')}
-        placeholder="Sprawdź certyfikat"
+        placeholder="Certificate ID"
+        aria-label="Certificate ID"
         type="text"
         autoComplete="off"
         name="id"
@@ -68,7 +69,7 @@ const CertificateForm: FC<Props> = ({ certId }) => {
         type="submit"
         className="flex-none sm:!px-6 sm:!py-3 sm:!text-base"
       >
-        Sprawdź
+        Verify
       </Button>
     </motion.form>
   );

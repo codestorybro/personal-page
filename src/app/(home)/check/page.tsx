@@ -13,14 +13,14 @@ export async function generateMetadata(): Promise<Metadata> {
   const canonicalUrl = `${SITE_URL}/check`;
 
   return {
-    title: 'Weryfikacja certyfikatu',
-    description: 'Zweryfikuj autentyczność certyfikatu CodeStoryBro. Wprowadź ID certyfikatu, aby sprawdzić jego ważność.',
+    title: 'Certificate verification',
+    description: 'Verify the authenticity of a CodeStoryBro certificate using its certificate ID.',
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: 'Weryfikacja certyfikatu | CodeStoryBro',
-      description: 'Zweryfikuj autentyczność certyfikatu CodeStoryBro. Wprowadź ID certyfikatu, aby sprawdzić jego ważność.',
+      title: 'Certificate verification | CodeStoryBro',
+      description: 'Verify the authenticity of a CodeStoryBro certificate using its certificate ID.',
       type: 'website',
       url: canonicalUrl,
       siteName: 'CodeStoryBro',
@@ -30,14 +30,14 @@ export async function generateMetadata(): Promise<Metadata> {
           url: `${SITE_URL}/assets/img/og-image.png`,
           width: 1200,
           height: 630,
-          alt: 'CodeStoryBro - Weryfikacja certyfikatu',
+          alt: 'CodeStoryBro certificate verification',
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Weryfikacja certyfikatu | CodeStoryBro',
-      description: 'Zweryfikuj autentyczność certyfikatu CodeStoryBro. Wprowadź ID certyfikatu, aby sprawdzić jego ważność.',
+      title: 'Certificate verification | CodeStoryBro',
+      description: 'Verify the authenticity of a CodeStoryBro certificate using its certificate ID.',
       images: [`${SITE_URL}/assets/img/og-image.png`],
       creator: '@codestorybro',
       site: '@codestorybro',
@@ -58,8 +58,8 @@ export default async function Check({ searchParams }: Props) {
 
   return (
     <CheckPageWrapper
-      title="Sprawdź certyfikat"
-      subtitle="Wprowadź ID certyfikatu, aby zweryfikować jego autentyczność"
+      title="Verify a certificate"
+      subtitle="Enter the certificate ID to confirm its authenticity"
     >
       <Toaster />
       <CertificateForm certId={certId} />

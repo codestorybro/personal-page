@@ -4,12 +4,6 @@ import { AppConfig } from '@/utils/AppConfig';
 import localFont from 'next/font/local';
 import '@/styles/global.css';
 
-const rushDriver = localFont({
-  src: '../../public/assets/fonts/RushDriver-Italic.otf',
-  variable: '--font-rush-driver',
-  display: 'swap',
-});
-
 const inter = localFont({
   src: '../../public/assets/fonts/inter-latin-ext.woff2',
   variable: '--font-inter',
@@ -35,7 +29,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: AppConfig.locale,
     siteName: AppConfig.name,
-    title: AppConfig.title,
+    title: AppConfig.openGraphTitle,
     description: AppConfig.openGraphDescription,
     images: [
       {
@@ -50,7 +44,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@codestorybro',
     creator: '@codestorybro',
-    title: AppConfig.title,
+    title: AppConfig.twitterTitle,
     description: AppConfig.twitterDescription,
     images: [
       {
@@ -91,7 +85,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pl" className={`bg-black ${inter.variable} ${rushDriver.variable}`}>
+    <html lang={AppConfig.language} className={`bg-[#090b0d] ${inter.variable}`}>
       <body suppressHydrationWarning>
         <GA />
         {children}

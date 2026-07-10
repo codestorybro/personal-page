@@ -1,5 +1,5 @@
 import { HomeJsonLd } from '@/components/JsonLd';
-import { LinktreeHub } from '@/components/LinktreeHub';
+import { PersonalLanding } from '@/components/PersonalLanding';
 import { AppConfig } from '@/utils/AppConfig';
 
 const SITE_URL = AppConfig.url;
@@ -14,22 +14,16 @@ export async function generateMetadata() {
     description: AppConfig.description,
     keywords: [
       'CodeStoryBro',
-      'Marcin Kołodziej',
-      'polskie IT',
-      'rynek pracy IT',
-      'zwolnienia IT',
-      'rekrutacje IT',
-      'rekrutacje widmo',
-      'AI w IT',
-      'vibe coding',
-      'programista',
-      'kariera IT',
-      'technologia',
-      'branża technologiczna',
-      'Engineering Manager',
-      'speaker IT',
-      'komentarz do rynku IT',
-      'praca programisty',
+      'software developer',
+      'software engineer',
+      'engineering manager',
+      'technical leadership',
+      'engineering leadership',
+      'conference speaker',
+      'public speaker',
+      'software development',
+      'technology speaker',
+      'engineering management',
     ],
     authors: [{ name: 'Marcin Kołodziej', url: SITE_URL }],
     creator: 'Marcin Kołodziej',
@@ -38,7 +32,7 @@ export async function generateMetadata() {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: AppConfig.title,
+      title: AppConfig.openGraphTitle,
       description: AppConfig.openGraphDescription,
       url: canonicalUrl,
       siteName: 'CodeStoryBro',
@@ -57,7 +51,7 @@ export async function generateMetadata() {
       card: 'summary_large_image',
       site: '@codestorybro',
       creator: '@codestorybro',
-      title: AppConfig.title,
+      title: AppConfig.twitterTitle,
       description: AppConfig.twitterDescription,
       images: [
         {
@@ -86,7 +80,7 @@ export default function Index() {
   return (
     <>
       <HomeJsonLd />
-      <LinktreeHub />
+      <PersonalLanding />
     </>
   );
 }

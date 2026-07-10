@@ -51,7 +51,7 @@ const CertValidate: FC<Props> = ({ id }) => {
       .catch(() => {
         setValidationState('error');
         setUser(null);
-        toast.error('Wystąpił błąd podczas sprawdzania certyfikatu', { duration: 4000 });
+        toast.error('The certificate could not be checked', { duration: 4000 });
       });
   }, [id]);
 
@@ -89,7 +89,7 @@ const CertValidate: FC<Props> = ({ id }) => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.3 }}
           >
-            <p className="text-sm text-green-400">Certyfikat jest ważny ✓</p>
+            <p className="text-sm text-green-400">This certificate is valid ✓</p>
           </motion.div>
         </motion.div>
       )}
@@ -117,7 +117,7 @@ const CertValidate: FC<Props> = ({ id }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.3 }}
           >
-            <p className="text-xl font-bold text-white">Certyfikat nieznaleziony</p>
+            <p className="text-xl font-bold text-white">Certificate not found</p>
             <p className="text-gray-400">{id}</p>
           </motion.div>
           <motion.div
@@ -126,7 +126,7 @@ const CertValidate: FC<Props> = ({ id }) => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.3 }}
           >
-            <p className="text-sm text-red-400">Certyfikat o&nbsp;podanym ID nie istnieje</p>
+            <p className="text-sm text-red-400">No certificate exists with this ID</p>
           </motion.div>
         </motion.div>
       )}

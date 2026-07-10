@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { HomeJsonLd } from '@/components/JsonLd';
-import { LinktreeHub } from '@/components/LinktreeHub';
+import { PersonalLanding } from '@/components/PersonalLanding';
 import { AppConfig } from '@/utils/AppConfig';
 
 const SITE_URL = AppConfig.url;
@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
       canonical: SITE_URL,
     },
     openGraph: {
-      title: AppConfig.title,
+      title: AppConfig.openGraphTitle,
       description: AppConfig.openGraphDescription,
       url: SITE_URL,
       siteName: 'CodeStoryBro',
@@ -34,7 +34,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: 'summary_large_image',
       site: '@codestorybro',
       creator: '@codestorybro',
-      title: AppConfig.title,
+      title: AppConfig.twitterTitle,
       description: AppConfig.twitterDescription,
       images: [
         {
@@ -56,7 +56,7 @@ export default function LinktreePage() {
   return (
     <>
       <HomeJsonLd />
-      <LinktreeHub />
+      <PersonalLanding />
     </>
   );
 }
