@@ -1,137 +1,86 @@
 'use client';
-import type { FC } from 'react';
+
 import { SealCheckIcon, XCircleIcon } from '@phosphor-icons/react';
-import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import toast from 'react-hot-toast';
 
-type Props = {
-  id?: string;
-};
-
-type IUser = {
+type Certificate = {
   name: string;
   type: string;
 };
 
-type ValidationState = 'idle' | 'loading' | 'valid' | 'invalid' | 'error';
+type Result =
+  | { id: string; status: 'valid'; certificate: Certificate }
+  | { id: string; status: 'invalid' | 'error' };
 
-const CertValidate: FC<Props> = ({ id }) => {
-  const [user, setUser] = useState<IUser | null>(null);
-  const [validationState, setValidationState] = useState<ValidationState>('idle');
+export default function CertValidate({ id }: { id?: string }) {
+  const [result, setResult] = useState<Result>();
 
   useEffect(() => {
     if (!id) {
-      setValidationState('idle');
-      setUser(null);
+      setResult(undefined);
       return;
     }
 
-    setValidationState('loading');
+    const controller = new AbortController();
+    const query = new URLSearchParams({ certId: id });
 
-    fetch(`/api/cert-check?certId=${id}`)
-      .then((res) => {
-        if (!res.ok) {
-          if (res.status === 400 || res.status === 404) {
-            setValidationState('invalid');
-            setUser(null);
-          } else {
-            throw new Error(`${res.status} - ${res.statusText}`);
-          }
-          return null;
-        }
-        return res.json();
-      })
-      .then((data) => {
-        if (data?.body) {
-          setUser(data.body);
-          setValidationState('valid');
+    async function verify(id: string): Promise<Result> {
+      const response = await fetch(`/api/cert-check?${query}`, { signal: controller.signal });
+      if (response.status === 400 || response.status === 404) {
+        return { id, status: 'invalid' };
+      }
+      if (!response.ok) {
+        return { id, status: 'error' };
+      }
+      const data = await response.json();
+      return data?.body
+        ? { id, status: 'valid', certificate: data.body }
+        : { id, status: 'error' };
+    }
+
+    verify(id)
+      .then((nextResult) => {
+        if (!controller.signal.aborted) {
+          setResult(nextResult);
         }
       })
       .catch(() => {
-        setValidationState('error');
-        setUser(null);
-        toast.error('The certificate could not be checked', { duration: 4000 });
+        if (!controller.signal.aborted) {
+          setResult({ id, status: 'error' });
+        }
       });
+
+    return () => controller.abort();
   }, [id]);
 
+  const current = result?.id === id ? result : undefined;
+
   return (
-    <AnimatePresence mode="wait">
-      {id && validationState === 'valid' && user && (
-        <motion.div
-          key="valid"
-          className="mt-8 flex flex-col items-center gap-4 rounded-xl border border-emerald-400/20 bg-emerald-400/[0.05] p-6"
-          initial={{ opacity: 0, scale: 0.9, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.9, y: -20 }}
-          transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-        >
-          <motion.div
-            className="flex items-center justify-center rounded-full bg-emerald-400/10 p-4"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 0.2, type: 'spring', stiffness: 200, damping: 15 }}
-          >
-            <SealCheckIcon size={48} weight="fill" className="text-emerald-300" />
-          </motion.div>
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.3 }}
-          >
-            <p className="text-xl font-bold text-white">{user.name}</p>
-            <p className="text-zinc-400">{user.type}</p>
-          </motion.div>
-          <motion.div
-            className="mt-2 rounded-lg border border-emerald-400/20 px-4 py-2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.3 }}
-          >
-            <p className="text-sm text-emerald-300">This certificate is valid ✓</p>
-          </motion.div>
-        </motion.div>
+    <div role="status" aria-atomic="true">
+      {id && !current && <p className="mt-6 text-muted">Checking certificate…</p>}
+      {current?.status === 'valid' && (
+        <div className="mt-6 flex items-start gap-4 border border-rule bg-surface p-5">
+          <SealCheckIcon size={28} className="shrink-0 text-success" aria-hidden="true" />
+          <div>
+            <p className="text-sm font-semibold text-success">This certificate is valid ✓</p>
+            <p className="row-title mt-2">{current.certificate.name}</p>
+            <p className="text-muted">{current.certificate.type}</p>
+          </div>
+        </div>
       )}
-
-      {id && validationState === 'invalid' && (
-        <motion.div
-          key="invalid"
-          className="mt-8 flex flex-col items-center gap-4 rounded-xl border border-rose-400/20 bg-rose-400/[0.05] p-6"
-          initial={{ opacity: 0, scale: 0.9, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.9, y: -20 }}
-          transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-        >
-          <motion.div
-            className="flex items-center justify-center rounded-full bg-rose-400/10 p-4"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 0.2, type: 'spring', stiffness: 200, damping: 15 }}
-          >
-            <XCircleIcon size={48} weight="fill" className="text-rose-300" />
-          </motion.div>
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.3 }}
-          >
-            <p className="text-xl font-bold text-white">Certificate not found</p>
-            <p className="text-zinc-400">{id}</p>
-          </motion.div>
-          <motion.div
-            className="mt-2 rounded-lg border border-rose-400/20 px-4 py-2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.3 }}
-          >
-            <p className="text-sm text-rose-300">No certificate exists with this ID</p>
-          </motion.div>
-        </motion.div>
+      {current?.status === 'invalid' && (
+        <div className="mt-6 flex items-start gap-4 border border-rule bg-surface p-5">
+          <XCircleIcon size={28} className="shrink-0 text-error" aria-hidden="true" />
+          <div>
+            <p className="text-sm font-semibold text-error">Certificate not found</p>
+            <p className="mt-2 break-all text-ink">{id}</p>
+            <p className="text-muted">No certificate exists with this ID</p>
+          </div>
+        </div>
       )}
-    </AnimatePresence>
+      {current?.status === 'error' && (
+        <p className="mt-6 border border-rule bg-surface p-5 text-error">The certificate could not be checked</p>
+      )}
+    </div>
   );
-};
-
-export default CertValidate;
+}

@@ -46,22 +46,22 @@ export default async function BlogPage() {
   return (
     <SiteShell currentSection="Publication archive">
       <BlogArchiveJsonLd posts={posts} />
-      <main className="mx-auto max-w-4xl py-14 sm:py-20 lg:py-24">
-        <header className="mb-12 border-b border-white/10 pb-10 sm:mb-16 sm:pb-14">
-          <p className="font-mono text-xs uppercase tracking-[0.22em] text-cyan-300">Writing</p>
-          <h1 className="mt-5 text-4xl font-semibold leading-tight -tracking-wider sm:text-6xl">
+      <div className="mx-auto max-w-4xl py-14 sm:py-20 lg:py-24">
+        <header className="mb-10 sm:mb-14">
+          <p className="eyebrow text-accent-strong">Writing</p>
+          <h1 className="display-title mt-5">
             Publication Archive
           </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-8 text-zinc-400">
+          <p className="mt-5 max-w-2xl text-lg leading-8 text-ink">
             Archived articles about software development, engineering leadership, technology, and the software industry.
           </p>
-          <p className="mt-5 max-w-2xl text-sm leading-6 text-zinc-500">
+          <p className="mt-5 max-w-2xl text-sm leading-6 text-muted">
             This is an archive of previously published work. I&nbsp;am not currently publishing new posts here.
           </p>
         </header>
 
         <BlogArchive posts={posts} />
-      </main>
+      </div>
     </SiteShell>
   );
 }

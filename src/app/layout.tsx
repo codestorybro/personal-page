@@ -85,7 +85,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang={AppConfig.language} className={`bg-[#090b0d] ${inter.variable}`}>
+    <html lang={AppConfig.language} className={inter.variable}>
       <body suppressHydrationWarning>
         <GA />
         {children}

@@ -89,30 +89,31 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <SiteShell currentSection="Publication archive">
       <BlogArticleJsonLd post={post} description={description} />
-      <main className="mx-auto max-w-3xl py-12 sm:py-20">
+      <div className="mx-auto max-w-[70ch] py-12 sm:py-20">
         <Link
           href="/blog"
-          className="inline-flex rounded-sm font-mono text-xs uppercase tracking-[0.16em] text-zinc-500 no-underline transition-colors hover:text-cyan-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-4 focus-visible:ring-offset-[#090b0d]"
+          className="text-action"
         >
-          ← Publication archive
+          <span aria-hidden="true">←</span>
+          <span className="link-label">Publication archive</span>
         </Link>
 
         <article className="mt-10">
-          <header className="border-b border-white/10 pb-10 sm:pb-12">
+          <header className="border-b border-rule pb-10 sm:pb-12">
             {post.tags.length > 0 && (
               <div className="mb-5 flex flex-wrap gap-x-3 gap-y-2" aria-label="Topics">
                 {post.tags.map(tag => (
-                  <span key={tag} className="font-mono text-[0.7rem] uppercase tracking-[0.12em] text-zinc-500">{tag}</span>
+                  <span key={tag} className="eyebrow text-accent-strong">{tag}</span>
                 ))}
               </div>
             )}
-            <h1 className="text-balance text-4xl font-semibold leading-[1.08] -tracking-wider sm:text-6xl">
+            <h1 className="display-title">
               {post.title}
             </h1>
             {post.description && (
-              <p className="mt-6 text-lg leading-8 text-zinc-400 sm:text-xl">{post.description}</p>
+              <p className="mt-6 text-lg leading-8 text-ink sm:text-xl">{post.description}</p>
             )}
-            <div className="mt-7 flex flex-wrap gap-x-5 gap-y-2 font-mono text-xs uppercase tracking-widest text-zinc-500">
+            <div className="eyebrow mt-7 flex flex-wrap gap-x-5 gap-y-2 text-muted">
               <time dateTime={post.publishedAt}>{dateFormatter.format(new Date(post.publishedAt))}</time>
               {post.readingTime && (
                 <span>
@@ -125,14 +126,14 @@ export default async function BlogPostPage({ params }: Props) {
           </header>
 
           {post.coverImage && (
-            <div className="mt-10 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03]">
+            <div className="mt-10 border border-rule bg-surface">
               <Image
                 src={`/api/blog-image/${encodeURIComponent(post.id)}`}
                 alt={post.title}
                 width={1200}
                 height={675}
                 className="h-auto w-full object-cover"
-                sizes="(max-width: 768px) calc(100vw - 40px), 768px"
+                sizes="(max-width: 768px) calc(100vw - 40px), 700px"
                 unoptimized
                 priority
               />
@@ -146,11 +147,11 @@ export default async function BlogPostPage({ params }: Props) {
             dangerouslySetInnerHTML={{ __html: contentHtml }}
           />
 
-          <p className="mt-14 border-t border-white/10 pt-7 text-sm leading-6 text-zinc-500">
+          <p className="mt-14 border-t border-rule pt-7 text-sm leading-6 text-muted">
             This article is part of my publication archive. I&nbsp;am not currently publishing new posts here.
           </p>
         </article>
-      </main>
+      </div>
     </SiteShell>
   );
 }

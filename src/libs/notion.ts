@@ -310,7 +310,7 @@ async function renderBlock(block: BlockObjectResponse, depth = 0): Promise<strin
     case 'quote':
       return `<blockquote>${renderRichText(block.quote.rich_text)}</blockquote>`;
     case 'code':
-      return `<pre><code>${escapeHtml(extractPlainText(block.code.rich_text))}</code></pre>`;
+      return `<pre tabindex="0"><code>${escapeHtml(extractPlainText(block.code.rich_text))}</code></pre>`;
     case 'callout': {
       const icon = block.callout.icon?.type === 'emoji'
         ? `<span aria-hidden="true">${escapeHtml(block.callout.icon.emoji)}</span>`

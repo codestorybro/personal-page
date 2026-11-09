@@ -4,8 +4,6 @@ import CertificateForm from '@/components/CertificateForm';
 import CertValidate from '@/components/CertValidate';
 import { CheckPageWrapper } from '@/components/CheckPageWrapper';
 import { AppConfig } from '@/utils/AppConfig';
-import { Suspense } from 'react';
-import { Toaster } from 'react-hot-toast';
 
 const SITE_URL = AppConfig.url;
 
@@ -61,14 +59,9 @@ export default async function Check({ searchParams }: Props) {
       title="Verify a certificate"
       subtitle="Enter the certificate ID to confirm its authenticity"
     >
-      <Toaster />
       <CertificateForm certId={certId} />
 
-      <div className="flex flex-col items-center justify-center">
-        <Suspense fallback={<p></p>}>
-          <CertValidate id={certId} />
-        </Suspense>
-      </div>
+      <CertValidate id={certId} />
     </CheckPageWrapper>
   );
 };
