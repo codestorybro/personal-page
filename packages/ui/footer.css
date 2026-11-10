@@ -1,0 +1,15 @@
+.csb-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  border-top: 1px solid var(--line, var(--color-rule, #393b3e));
+  padding: 1.75rem 0;
+  color: var(--muted, #a5a4a2);
+  font-size: 0.75rem;
+  line-height: 1.625;
+}
+.csb-footer p {
+  margin: 0;
+}

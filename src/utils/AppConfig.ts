@@ -5,12 +5,12 @@ export const AppConfig = {
   locale: 'en_US',
   language: 'en',
   url: productionUrl,
-  title: 'CodeStoryBro | Software Developer & Engineering Manager',
-  description: 'Personal website of CodeStoryBro — software developer, engineering manager, and conference speaker sharing experience in software engineering, technology, and technical leadership.',
-  openGraphTitle: 'CodeStoryBro | Software Developer & Engineering Manager',
-  openGraphDescription: 'Software developer, engineering manager, and conference speaker with over\u00A0a decade of experience in the technology industry.',
-  twitterTitle: 'CodeStoryBro | Software Developer & Engineering Manager',
-  twitterDescription: 'Software development, engineering leadership, technology, and conference speaking.',
+  title: 'CodeStoryBro | The human side of engineering leadership',
+  description: 'Engineering leadership with care, candor, and technical depth. Marcin Kołodziej on feedback, trust, and the conversations that help teams build better software.',
+  openGraphTitle: 'CodeStoryBro | The human side of engineering leadership',
+  openGraphDescription: 'The human side of engineering: honest feedback, trust, and technical decisions. Talks and practical perspectives from Marcin Kołodziej.',
+  twitterTitle: 'CodeStoryBro | The human side of engineering leadership',
+  twitterDescription: 'Care for people. Speak with candor. Build better software together.',
   ogImageAlt: 'CodeStoryBro — Software Developer, Engineering Manager and Conference Speaker',
   author: {
     name: 'Marcin Kołodziej',
@@ -18,7 +18,7 @@ export const AppConfig = {
     email: 'hello@codestorybro.com',
   },
   social: {
-    x: 'https://x.com/codestorybro',
+    youtube: 'https://www.youtube.com/@codestorybro',
     linkedin: 'https://www.linkedin.com/in/codestorybro',
   },
 } as const;

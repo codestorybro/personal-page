@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.wrangler/
+.worker-build/
+.dev.vars*
+.env*
+!.env.example
+load-results*.json
+shared/.protocol-test.mjs
+worker/.auth-test.mjs

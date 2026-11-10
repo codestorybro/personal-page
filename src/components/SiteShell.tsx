@@ -1,6 +1,8 @@
 import type { ReactNode } from 'react';
 import { ScrollReveal } from '@/components/ScrollReveal';
+import { AppConfig } from '@/utils/AppConfig';
 import Link from 'next/link';
+import { Footer } from '../../packages/ui/Footer';
 
 export function SiteShell({ children, currentSection }: {
   children: ReactNode;
@@ -24,10 +26,10 @@ export function SiteShell({ children, currentSection }: {
           ? <span className="eyebrow text-muted">{currentSection}</span>
           : (
               <nav aria-label="Primary">
-                <Link href="/blog" className="text-action">
-                  <span className="link-label">Publication archive</span>
+                <a href={AppConfig.social.youtube} className="text-action" target="_blank" rel="noopener noreferrer">
+                  <span className="link-label">YouTube</span>
                   <span aria-hidden="true">↗</span>
-                </Link>
+                </a>
               </nav>
             )}
       </header>
@@ -36,16 +38,7 @@ export function SiteShell({ children, currentSection }: {
 
       <ScrollReveal />
 
-      <footer className="flex flex-col gap-2 border-t border-rule py-7 text-xs leading-relaxed text-muted sm:flex-row sm:items-center sm:justify-between">
-        <p>
-          ©
-          {' '}
-          {new Date().getFullYear()}
-          {' '}
-          CodeStoryBro
-        </p>
-        <p>Software Development • Engineering Leadership • Public Speaking</p>
-      </footer>
+      <Footer />
     </div>
   );
 }

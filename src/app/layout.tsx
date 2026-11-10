@@ -3,6 +3,7 @@ import GA from '@/app/ga';
 import { AppConfig } from '@/utils/AppConfig';
 import localFont from 'next/font/local';
 import '@/styles/global.css';
+import '../../packages/ui/footer.css';
 
 const inter = localFont({
   src: '../../public/assets/fonts/inter-latin-ext.woff2',

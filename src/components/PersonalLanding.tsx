@@ -12,16 +12,10 @@ type SocialLink = {
 
 const socialLinks: SocialLink[] = [
   {
-    name: 'X',
-    href: AppConfig.social.x,
-    description: 'Thoughts on software development, technology, engineering leadership, and the industry.',
-    icon: <XIcon />,
-  },
-  {
-    name: 'LinkedIn',
-    href: AppConfig.social.linkedin,
-    description: 'Professional experience, engineering leadership, conference speaking, and industry insights.',
-    icon: <LinkedInIcon />,
+    name: 'YouTube',
+    href: AppConfig.social.youtube,
+    description: 'Conversations about feedback, trust, difficult decisions, and the everyday work of leading an engineering team.',
+    icon: <YouTubeIcon />,
   },
 ];
 
@@ -30,13 +24,13 @@ export function PersonalLanding() {
     <SiteShell>
       <section className="landing-hero" aria-labelledby="professional-headline">
         <div>
-          <p className="eyebrow hero-kicker">Software · Leadership · Speaking</p>
+          <p className="eyebrow hero-kicker">People · Engineering · Leadership</p>
           <h1 id="professional-headline" className="display-title landing-title">
-            <span className="block">Software Developer.</span>
+            <span className="block">Better conversations.</span>
             {' '}
-            <span className="block">Engineering Manager.</span>
+            <span className="block">Stronger teams.</span>
             {' '}
-            <em className="block text-accent">Conference Speaker.</em>
+            <em className="block text-accent">Better software.</em>
           </h1>
         </div>
 
@@ -67,16 +61,19 @@ export function PersonalLanding() {
         <h2 id="about-heading" className="section-title">About</h2>
         <div className="max-w-2xl space-y-4">
           <p className="font-editorial text-2xl leading-snug sm:text-3xl">
-            I&nbsp;build software, lead engineering teams, and speak about technology, software development, and engineering leadership.
+            Leading engineers takes technical judgment and human understanding. I give both the attention they deserve.
           </p>
           <p className="leading-relaxed text-muted">
-            I&nbsp;have spent over a&nbsp;decade working in the technology industry, combining hands-on software engineering with technical leadership and team management.
+            I’m Marcin Kołodziej — a software developer, engineering manager, and speaker. I talk about the conversations behind good engineering: giving useful feedback, building trust, and making difficult decisions together.
+          </p>
+          <p className="leading-relaxed text-muted">
+            Kim Scott’s Radical Candor resonates with how I want to lead: care personally and challenge directly. Take people seriously, say what needs to be said, and make room for them to challenge you too.
           </p>
         </div>
       </section>
 
       <section className="editorial-section" data-reveal="" aria-labelledby="links-heading">
-        <h2 id="links-heading" className="section-title">Find me online</h2>
+        <h2 id="links-heading" className="section-title">Let’s talk leadership</h2>
         <nav aria-label="Professional profiles">
           <ul className="divide-y divide-rule border-y border-rule">
             {socialLinks.map(link => (
@@ -105,30 +102,29 @@ export function PersonalLanding() {
         <h2 id="contact-heading" className="section-title">Get in touch</h2>
         <div>
           <p className="max-w-lg leading-relaxed text-muted">
-            For conference invitations, professional opportunities, and other enquiries, contact me by email.
+            Planning a talk, working through a leadership challenge, or want to exchange perspectives? Email me or start a conversation on LinkedIn.
           </p>
           <a href={`mailto:${AppConfig.author.email}`} className="text-action mt-3" aria-label={`Email ${AppConfig.author.email}`}>
             <span className="link-label">{AppConfig.author.email}</span>
             <span aria-hidden="true">↗</span>
           </a>
+          <div>
+            <a href={AppConfig.social.linkedin} className="text-action mt-3" target="_blank" rel="noopener noreferrer">
+              <span className="link-label">LinkedIn</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
         </div>
       </section>
     </SiteShell>
   );
 }
 
-function XIcon() {
+function YouTubeIcon() {
   return (
-    <svg className="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z" />
-    </svg>
-  );
-}
-
-function LinkedInIcon() {
-  return (
-    <svg className="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13Zm1.78 13.02H3.56V9h3.56v11.45ZM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0h.01Z" />
+    <svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+      <rect x="2" y="5" width="20" height="14" rx="4" />
+      <path d="m10 9 5 3-5 3Z" fill="currentColor" stroke="none" />
     </svg>
   );
 }

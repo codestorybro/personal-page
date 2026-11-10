@@ -17,9 +17,10 @@ const config: NextConfig = {
   reactStrictMode: true,
   async redirects() {
     return [
+      { source: '/blog/:path*', destination: '/', permanent: true },
       {
         source: '/:locale(en|pl)/blog/:slug*',
-        destination: '/blog/:slug*',
+        destination: '/',
         permanent: true,
       },
     ];

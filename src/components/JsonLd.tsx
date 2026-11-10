@@ -15,7 +15,7 @@ const personSchema = {
   'jobTitle': AppConfig.author.jobTitle,
   'description': AppConfig.openGraphDescription,
   'sameAs': [
-    AppConfig.social.x,
+    AppConfig.social.youtube,
     AppConfig.social.linkedin,
   ],
   'knowsAbout': [

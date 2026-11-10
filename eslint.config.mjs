@@ -22,6 +22,7 @@ export default antfu({
   },
 
   ignores: [
+    'apps/live/**',
     'migrations/**/*',
     'next-env.d.ts',
   ],
