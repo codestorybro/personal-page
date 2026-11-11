@@ -1,8 +1,8 @@
-# CodeStoryBro Live
+# CodeStoryBro Stage, Studio i Live
 
 Osobna aplikacja: React + Vite, Cloudflare Workers **Free**, Durable Objects z SQLite, prywatne Workers KV dla PDF-ów i Cloudflare Access Free dla prezentera. Główna strona Next.js pozostaje w katalogu głównym repozytorium i na Vercel.
 
-Pełna instrukcja publikacji: [DEPLOYMENT.md](./DEPLOYMENT.md). Nie wykonano wdrożenia, zmian DNS ani utworzenia zasobów Cloudflare.
+Zasady marki i pracy agentów: [AGENTS.md](../../AGENTS.md). Pełna instrukcja publikacji: [DEPLOYMENT.md](DEPLOYMENT.md). Stan przygotowania: wdrożenie, konfiguracja konta Cloudflare i DNS pozostają osobnymi krokami; dotychczasowe sprawdzenia wykonano lokalnie.
 
 ## Limity aplikacji i zapas
 
@@ -44,7 +44,7 @@ Jeśli korzystałeś z lokalnej wersji sprzed KV, zatrzymaj lokalny serwer, uruc
 yarn migrate:local-pdfs
 ```
 
-Skrypt korzysta wyłącznie z lokalnego emulatora, kopiuje stare PDF-y do lokalnego KV, nie usuwa źródeł ani sesji SQLite i można go ponowić. Pliki powyżej 20 MB zatrzymują migrację; oryginały pozostają zachowane. Nie jest to migracja konta chmurowego. Dwa istniejące pliki z lokalnego środowiska zostały skopiowane podczas tej zmiany.
+Skrypt korzysta wyłącznie z lokalnego emulatora, kopiuje stare PDF-y do lokalnego KV, nie usuwa źródeł ani sesji SQLite i można go ponowić. Pliki powyżej 20 MB zatrzymują migrację; oryginały pozostają zachowane. Nie jest to migracja konta chmurowego.
 
 ## Przebieg prezentacji
 
@@ -66,11 +66,16 @@ Licznik online maleje po rozłączeniu. Po cichej utracie sieci heartbeat co 20 
 
 Głosy są trwale zapisywane przed ACK, mają rosnący numer i przypisaną rundę. Reconnect odtwarza stan; niepotwierdzony głos z sessionStorage jest ponawiany. WebSocket Hibernation z automatycznym ping/pong ogranicza zużycie w bezczynności.
 
-## Języki i nagłówki
+## Języki, nagłówki i metadane
 
 PL domyślnie, EN do wyboru w stopce. Preferencja jest zapamiętywana, a linki przenoszą `?lang`. Tytuły i treść pytań/PDF-ów nie są tłumaczone automatycznie. Dropdown obsługuje Enter, spację, strzałki, Escape i Tab. Wspólne animacje fokusu i hovera respektują ograniczenie ruchu i tryb wysokiego kontrastu.
 
 Marka Home prowadzi do Home, Stage do Home, Studio i Live do Stage. Studio nie ma linków Stage/YouTube, Live pozostawia YouTube. Stopka nie zawiera odnośnika do panelu; wejście bezpośrednio przez `/presenter` z logowaniem. `VITE_HOME_URL` ustala adres Home, `NEXT_PUBLIC_STAGE_URL` w Next.js adres Stage (domyślnie `https://stage.codestorybro.com`).
+
+Treści SEO są współdzielone w `../../packages/seo/content.ts`. `worker/seo.ts` ustawia metadane i język HTML zależnie od `?lang`; `packages/seo/browser.ts` synchronizuje je po zmianie języka. Publiczne Stage ma wariant PL/EN, canonical, hreflang, robots i sitemapę. Studio, projektor i uczestnicy mają noindex. Zachowaj `assets.run_worker_first` dla `/`, stron sesji, panelu, API oraz endpointów robots/sitemap; same pliki statyczne powinny nadal korzystać z Assets.
+
+Źródła obrazu OG, logotypu i ikon są wyłącznie w głównym `public/`. `vite.config.ts` kopiuje je do `dist` razem z wymaganymi zasobami PDF.js. Nie edytuj plików w `dist` ani nie przywracaj starego brandingu. Pełne zasady kolorów, typografii, copy i interakcji są w głównym AGENTS.md.
+
 
 ## Weryfikacja
 
@@ -85,3 +90,15 @@ DURATION_SECONDS=60 yarn test:load
 ```
 
 Testy integracyjne używają izolowanego lokalnego workerd, KV i SQLite, 1000 klientów oraz prób przekroczenia limitów. Test obciążeniowy domyślnie trwa godzinę: 1000 klientów, 5 pytań, 10 tys. potwierdzonych głosów ze zmianami odpowiedzi. Testy nie uderzają w produkcję i nie mierzą przydziałów Cloudflare. Do walidacji wdrożenia potrzebny jest osobny test HTTPS, Access i fizycznego telefonu w innej sieci.
+
+## Ostatnia walidacja i ograniczenia
+
+Stan lokalnej walidacji z 2026-11-11:
+
+- Build Vite/TypeScript, 7 testów jednostkowych i pakowanie Workera `--dry-run` przechodzą. Bindingi produkcyjnego szablonu to Assets, KV i dwa DO; konfiguracja konta/Access i rzeczywisty namespace ID wymagają uzupełnienia przed publikacją.
+- Test integracyjny przechodzi dla 1000 uczestników: 1001. dołączenie jest odrzucane, powrót tej samej tożsamości nie zajmuje dodatkowego miejsca. Sprawdzono zmiany odpowiedzi, retry, reconnect, spadek obecności, kolejne rundy, wyścig zamknięcia, prywatność liczników, eksport, publikację/wycofanie oraz usunięcie sesji. Produkcja bez Access odmawia dostępu.
+- Minutowa próba obciążeniowa: 1000 klientów, 5 pytań, 10 000 potwierdzonych głosów ze zmianami, 50 reconnectów, p95 ACK 343 ms. To wynik lokalnego workerd, nie pomiar Cloudflare ani sieci konferencyjnej. Ostatni raport skrypt zapisuje w ignorowanym `load-results.json`.
+- Chrome potwierdził pełny przebieg prezentacji, mobilny widok 390 px, sterowanie Studio/projektorem, pełny ekran, publikowanie i usuwanie. Osobne sprawdzenie HTTP/Chrome potwierdziło metadane PL/EN w początkowym HTML, noindex panelu, zmianę języka i odświeżenie. Podgląd PDF odtwarza się po celowym przejściowym 503 z KV.
+- Obejrzano mobilne Home, Stage i Studio oraz nowe grafiki marki. Nie testowano fizycznego klikacza ani godzinnej próby wdrożenia w chmurze. Logowanie prawdziwym Access, telefon w innej sieci i rzeczywiste zużycie limitów pozostają częścią odbioru wdrożenia opisanego w DEPLOYMENT.md.
+
+Aktualizuj ten opis po istotnej zmianie lub ponownej walidacji. Nie dopisuj osobnych dzienników rozmów ani nie zastępuj wyników rzeczywistych testów założeniami.

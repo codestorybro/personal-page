@@ -1,7 +1,8 @@
-import type { Metadata } from 'next';
 import GA from '@/app/ga';
-import { AppConfig } from '@/utils/AppConfig';
+import { pageMetadata } from '@/utils/Metadata';
 import localFont from 'next/font/local';
+import { headers } from 'next/headers';
+import { seoLocale } from '../../packages/seo/content';
 import { LocaleProvider } from '../../packages/ui/Locale';
 import '@/styles/global.css';
 import '../../packages/ui/footer.css';
@@ -18,81 +19,20 @@ const inter = localFont({
   adjustFontFallback: 'Arial',
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(AppConfig.url),
-  title: {
-    default: AppConfig.title,
-    template: '%s | CodeStoryBro',
-  },
-  description: AppConfig.description,
-  applicationName: AppConfig.name,
-  authors: [{ name: AppConfig.author.name, url: AppConfig.url }],
-  creator: AppConfig.author.name,
-  publisher: AppConfig.name,
-  openGraph: {
-    type: 'website',
-    locale: AppConfig.locale,
-    siteName: AppConfig.name,
-    title: AppConfig.openGraphTitle,
-    description: AppConfig.openGraphDescription,
-    images: [
-      {
-        url: '/assets/img/og-image.png',
-        width: 1536,
-        height: 1024,
-        alt: AppConfig.ogImageAlt,
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    site: '@codestorybro',
-    creator: '@codestorybro',
-    title: AppConfig.twitterTitle,
-    description: AppConfig.twitterDescription,
-    images: [
-      {
-        url: '/assets/img/og-image.png',
-        width: 1536,
-        height: 1024,
-        alt: AppConfig.ogImageAlt,
-      },
-    ],
-  },
-  icons: [
-    {
-      rel: 'apple-touch-icon',
-      url: '/apple-touch-icon.png',
-    },
-    {
-      rel: 'icon',
-      type: 'image/png',
-      sizes: '32x32',
-      url: '/favicon-32x32.png',
-    },
-    {
-      rel: 'icon',
-      type: 'image/png',
-      sizes: '16x16',
-      url: '/favicon-16x16.png',
-    },
-    {
-      rel: 'icon',
-      url: '/favicon.ico',
-    },
-  ],
-};
+export const metadata = pageMetadata('home', 'pl');
+export const viewport = { themeColor: '#191919', colorScheme: 'dark' };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const locale = seoLocale((await headers()).get('x-codestorybro-language'));
   return (
-    <html lang={AppConfig.language} className={inter.variable}>
+    <html data-site="home" lang={locale} className={inter.variable}>
       <body suppressHydrationWarning>
         <GA />
-        <LocaleProvider>{children}</LocaleProvider>
+        <LocaleProvider initialLocale={locale}>{children}</LocaleProvider>
       </body>
     </html>
   );

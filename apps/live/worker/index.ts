@@ -9,6 +9,7 @@ import {
 import { localRequest, participantCookie, presenter, sameOrigin } from "./auth";
 import { errorResponse } from "./objects";
 import { storePdf, pdfResponse } from "./files";
+import { stageDiscovery, stageHtml } from "./seo";
 import type { Env } from "./env";
 export { LiveSession, Catalog } from "./objects";
 async function json(request: Request): Promise<Record<string, unknown>> {
@@ -30,10 +31,12 @@ async function route(request: Request, env: Env): Promise<Response> {
   const url = new URL(request.url);
   const path = url.pathname;
   const method = request.method;
+  const discovery = stageDiscovery(request, env);
+  if (discovery) return discovery;
   if (!path.startsWith("/api/")) {
     if (path === "/presenter" || path.startsWith("/presenter/"))
       await presenter(request, env);
-    return env.ASSETS.fetch(request);
+    return stageHtml(request, env, await env.ASSETS.fetch(request));
   }
   if ((method !== "GET" && method !== "HEAD") || request.headers.get("Upgrade"))
     sameOrigin(request, env);

@@ -14,7 +14,7 @@ export function Footer() {
         {' '}
         CodeStoryBro
       </p>
-      <p>{pick('Software Development • Engineering Leadership • Public Speaking', 'Tworzenie oprogramowania • Prowadzenie zespołów • Wystąpienia publiczne')}</p>
+      <p>{pick('Software • Engineering Leadership • Public Speaking', 'Software • Prowadzenie zespołów • Wystąpienia publiczne')}</p>
       <div className="csb-footer-controls">
         <LanguageSelect />
       </div>

@@ -201,10 +201,6 @@ footer {
   align-items: center;
   margin: 1rem 0 2.5rem;
 }
-.private-badge {
-  color: var(--muted);
-  font-size: 0.8rem;
-}
 .create-form {
   background: var(--surface);
   padding: 1.5rem;
@@ -285,12 +281,6 @@ footer {
   border-left: 3px solid #e9aa77;
   padding: 1rem;
   color: #ffe4d0;
-}
-.local-banner {
-  font-size: 0.8rem;
-  color: var(--accent);
-  border: 1px dashed #536477;
-  padding: 0.7rem;
 }
 .back {
   display: inline-block;
@@ -805,9 +795,6 @@ footer {
   .page-heading {
     display: block;
   }
-  .private-badge {
-    display: none;
-  }
   .create-form {
     padding: 1rem;
   }
@@ -1074,7 +1061,7 @@ footer {
   justify-content: space-between;
   gap: 1.5rem;
   padding: 2rem 0;
-  border-bottom: 1px solid var(--line);
+  border-top: 1px solid var(--line);
 }
 .public-presentation h3 {
   font-family: Georgia, serif;

@@ -16,21 +16,21 @@ export const english: Record<string, string> = {
   'Kopiuj link': 'Copy link',
   'Otwórz widok uczestnika ↗': 'Open participant view ↗',
   'Ludzie · Technologia · Leadership': 'People · Engineering · Leadership',
-  'Lepsze rozmowy.': 'Better conversations.',
-  'Silniejsze zespoły.': 'Stronger teams.',
-  'Dobry kod potrzebuje dobrego zespołu. Zespół potrzebuje zaufania, szczerej informacji zwrotnej i odwagi do trudnych rozmów.':
-    'Good software needs a good team. A team needs trust, honest feedback, and the courage to have difficult conversations.',
-  'Jestem Marcin Kołodziej. Mówię o ludzkiej stronie prowadzenia zespołów inżynierskich, równie ważnej jak decyzje techniczne. Troska o ludzi i szczera rozmowa pomagają budować lepsze zespoły.':
-    'I’m Marcin Kołodziej. I talk about the human side of leading engineering teams, which matters as much as technical decisions. Caring about people and speaking honestly help us build better teams.',
-  'Rozmowy na YouTube ↗': 'Conversations on YouTube ↗',
+  'Materiały': 'Talks and',
+  'z wystąpień.': 'presentations.',
+  'Technologia to ludzie. Dobry produkt potrzebuje dobrego zespołu.':
+    'Technology is people. Good product needs a good team.',
+  'Żeby wymagać od zespołu, najpierw trzeba zadbać o podstawy: jasny cel, warunki do pracy i wsparcie. Na dłuższą metę samo stawianie wymagań nie wystarcza.':
+    'Before you can expect results from a team, you need the basics in place: a clear goal, the right working conditions, and support. Over time, demands alone are not enough.',
+  'YouTube ↗': 'YouTube ↗',
   'Materiały z wystąpień': 'Talk materials',
-  'Zabierz tę rozmowę do swojego zespołu.':
-    'Bring this conversation to your team.',
-  'Prezentacje do pobrania: ze slajdami, pytaniami do przemyślenia i wynikami wspólnego głosowania.':
-    'Presentations to download, with slides, questions to reflect on, and the results of our votes.',
+  'Zabierz idee z moich wystąpień do swojego zespołu.':
+    'Bring ideas from my talks to your team.',
+  'Prezentacje do pobrania':
+    'Download presentations',
   'Wczytuję prezentacje…': 'Loading presentations…',
-  'Pierwsze materiały pojawią się tutaj po wystąpieniu. Wróć po prezentację i pytania, do których warto wrócić z zespołem.':
-    'The first materials will appear here after a talk. Come back for the presentation and questions worth discussing with your team.',
+  'Materiały pojawią się tutaj po pierwszym udostępnionym wystąpieniu.':
+    'Materials will appear here after the first talk is shared.',
   'stron': 'pages',
   'Pobierz PDF ↓': 'Download PDF ↓',
   'Dołączanie do sesji': 'Joining the session',
@@ -54,11 +54,7 @@ export const english: Record<string, string> = {
   'PDF nie jest jeszcze dostępny. Spróbuj ponownie za chwilę.': 'The PDF is not available yet. Please try again shortly.',
   'W sesji jest już 1000 połączonych uczestników.': 'The session already has 1,000 connected participants.',
   'Panel prezentera': 'Presenter panel',
-  'Twoja następna': 'Your next',
-  'dobra rozmowa.': 'good conversation.',
-  '↗ Prywatne archiwum': '↗ Private archive',
-  'Tryb lokalny · dostęp prezentera bez logowania tylko na tym komputerze.':
-    'Local mode · presenter access without signing in is available only on this computer.',
+  'Sesje prezentacji': 'Presentation sessions',
   'Nowa sesja': 'New session',
   'Np. Architektura to sztuka wyboru':
     'For example: Architecture is the art of choosing',
@@ -67,7 +63,7 @@ export const english: Record<string, string> = {
   'Sesje i archiwum': 'Sessions and archive',
   '/ 100 sesji': '/ 100 sessions',
   'Wczytywanie…': 'Loading…',
-  'Tu zaczyna się pierwsze wystąpienie.': 'Your first talk starts here.',
+  'Brak sesji.': 'No sessions yet.',
   'Utwórz sesję, dodaj PDF i przygotuj pytania A/B.':
     'Create a session, upload a PDF, and prepare your A/B questions.',
   'pytań ·': 'questions ·',
@@ -90,7 +86,7 @@ export const english: Record<string, string> = {
   'Dodaj PDF': 'Upload PDF',
   'Do 20 MB · maksymalnie 2000 slajdów': 'Up to 20 MB · maximum 2,000 slides',
   '02 / Pytania': '02 / Questions',
-  'Zaplanuj moment wyboru.': 'Plan the moment of choice.',
+  'Pytania A/B': 'A/B questions',
   'Pytanie pojawi się automatycznie, gdy przejdziesz dalej po wybranym slajdzie.':
     'The question opens automatically when you advance past the selected slide.',
   'Tytuł sesji': 'Session title',
@@ -108,8 +104,8 @@ export const english: Record<string, string> = {
   'Udostępniona publicznie': 'Shared publicly',
   'Tylko w Twoim archiwum': 'Only in your archive',
   'Prezentacja do pobrania': 'Downloadable presentation',
-  'Udostępnij na stronie głównej Live PDF ze slajdami i pytaniami. Wyniki pokażą procenty z ostatniej rundy, bez liczby głosów i danych uczestników.':
-    'Share a PDF with slides and questions on Stage. Results show percentages from the last round, without vote counts or participant data.',
+  'Udostępnij na Stage PDF ze slajdami i pytaniami.':
+    'Share a PDF with slides and questions on Stage.',
   'Pobierz udostępniony PDF ↓': 'Download shared PDF ↓',
   'Wycofaj udostępnienie': 'Unshare',
   'Przygotowuję…': 'Preparing…',

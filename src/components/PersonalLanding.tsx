@@ -19,7 +19,7 @@ export function PersonalLanding() {
     {
       name: 'YouTube',
       href: AppConfig.social.youtube,
-      description: pick('Conversations about feedback, trust, difficult decisions, and the everyday work of leading an engineering team.', 'Rozmowy o informacji zwrotnej, zaufaniu, trudnych decyzjach i codziennym prowadzeniu zespołu inżynierskiego.'),
+      description: pick('I talk about the day-to-day work of leading teams and share my take on the IT industry.', 'Mówię o codziennym prowadzeniu zespołów i komentuję branżę IT.'),
       icon: <YouTubeIcon />,
     },
   ];
@@ -30,11 +30,11 @@ export function PersonalLanding() {
         <div>
           <p className="eyebrow hero-kicker">{pick('People · Engineering · Leadership', 'Ludzie · Technologia · Leadership')}</p>
           <h1 id="professional-headline" className="display-title landing-title">
-            <span className="block">{pick('Better conversations.', 'Lepsze rozmowy.')}</span>
+            <span className="block">{pick('Question.', 'Kwestionuję.')}</span>
             {' '}
-            <span className="block">{pick('Stronger teams.', 'Silniejsze zespoły.')}</span>
+            <span className="block">{pick('Build.', 'Buduję.')}</span>
             {' '}
-            <em className="block text-accent">{pick('Better software.', 'Lepsze oprogramowanie.')}</em>
+            <em className="block text-accent">{pick('Tell.', 'Opowiadam.')}</em>
           </h1>
         </div>
 
@@ -68,13 +68,13 @@ export function PersonalLanding() {
             {pick('Leading engineers takes technical judgment and human understanding. I give both the attention they deserve.', 'Prowadzenie zespołów inżynierskich wymaga wiedzy technicznej i zrozumienia ludzi. Obu poświęcam tyle uwagi, na ile zasługują.')}
           </p>
           <p className="leading-relaxed text-muted">
-            {pick('I’m Marcin Kołodziej, a software developer, engineering manager, and speaker. I talk about the conversations behind good engineering: giving useful feedback, building trust, and making difficult decisions together.', 'Jestem Marcin Kołodziej. Tworzę oprogramowanie, prowadzę zespoły inżynierskie i występuję na konferencjach. Mówię o rozmowach, które pomagają budować dobre oprogramowanie: szczerej informacji zwrotnej, zaufaniu i wspólnym podejmowaniu trudnych decyzji.')}
+            {pick('I’m Marcin Kołodziej. I lead engineering teams and share my knowledge and experience online and at conferences.', 'Jestem Marcin Kołodziej. Prowadzę zespoły inżynierskie, a swoją wiedzą i doświadczeniem dzielę się w internecie oraz na konferencjach.')}
           </p>
         </div>
       </section>
 
       <section className="editorial-section" data-reveal="" aria-labelledby="links-heading">
-        <h2 id="links-heading" className="section-title">{pick('Let’s talk leadership', 'Porozmawiajmy o leadershipie')}</h2>
+        <h2 id="links-heading" className="section-title">{pick('Creative work', 'Twórczość')}</h2>
         <nav aria-label={pick('Professional profiles', 'Materiały i rozmowy')}>
           <ul>
             {socialLinks.map(link => (
@@ -99,10 +99,10 @@ export function PersonalLanding() {
       </section>
 
       <section className="editorial-section" data-reveal="" aria-labelledby="contact-heading">
-        <h2 id="contact-heading" className="section-title">{pick('Get in touch', 'Porozmawiajmy')}</h2>
+        <h2 id="contact-heading" className="section-title">{pick('Get in touch', 'Kontakt')}</h2>
         <div>
           <p className="max-w-lg leading-relaxed text-muted">
-            {pick('Planning a talk, working through a leadership challenge, or want to exchange perspectives? Email me or start a conversation on LinkedIn.', 'Organizujesz wystąpienie, mierzysz się z wyzwaniem w prowadzeniu zespołu lub chcesz wymienić się doświadczeniami? Napisz do mnie e-mail albo odezwij się na LinkedIn.')}
+            {pick('Organising a conference, hosting a podcast, dealing with a team problem, or simply want to exchange experiences? Email me or get in touch on LinkedIn.', 'Organizujesz konferencję, prowadzisz podcast, mierzysz się z problemem w zespole lub po prostu chcesz wymienić się doświadczeniami? Napisz do mnie e-mail albo odezwij się na LinkedIn.')}
           </p>
           <a href={`mailto:${AppConfig.author.email}`} className="text-action mt-3" aria-label={`Email ${AppConfig.author.email}`}>
             <span className="link-label">{AppConfig.author.email}</span>

@@ -2,6 +2,7 @@
 
 import type { ReactNode } from 'react';
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { syncBrowserMetadata } from '../seo/browser';
 import { translate } from './translations';
 
 export type Locale = 'en' | 'pl';
@@ -16,8 +17,8 @@ const defaults = {
   link: (url: string) => url,
 };
 const LocaleContext = createContext(defaults);
-export function LocaleProvider({ children }: { children: ReactNode }) {
-  const [locale, update] = useState<Locale>('pl');
+export function LocaleProvider({ children, initialLocale = 'pl' }: { children: ReactNode; initialLocale?: Locale }) {
+  const [locale, update] = useState<Locale>(initialLocale);
   useEffect(() => {
     const query = new URLSearchParams(window.location.search).get('lang');
     let saved: string | null = null;
@@ -48,6 +49,7 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
   }, []);
   useEffect(() => {
     document.documentElement.lang = locale;
+    syncBrowserMetadata(locale);
   }, [locale]);
   const value = useMemo(
     () => ({

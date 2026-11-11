@@ -14,7 +14,7 @@ export function blogPostUrl(slug: string): string {
 export function blogPostImageUrl(post: BlogPost): string {
   return post.coverImage
     ? `${AppConfig.url}/api/blog-image/${encodeURIComponent(post.id)}`
-    : `${AppConfig.url}/assets/img/og-image.png`;
+    : `${AppConfig.url}/assets/img/og-codestorybro.png`;
 }
 
 export function normalizeArticleText(value: string): string {

@@ -1,3 +1,5 @@
+import { seoCopy } from '../../packages/seo/content';
+
 const productionUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.codestorybro.com').replace(/\/+$/u, '');
 
 export const AppConfig = {
@@ -5,16 +7,16 @@ export const AppConfig = {
   locale: 'pl_PL',
   language: 'pl',
   url: productionUrl,
-  title: 'CodeStoryBro | The human side of engineering leadership',
-  description: 'Engineering leadership with care, candor, and technical depth. Marcin Kołodziej on feedback, trust, and the conversations that help teams build better software.',
-  openGraphTitle: 'CodeStoryBro | The human side of engineering leadership',
-  openGraphDescription: 'The human side of engineering: honest feedback, trust, and technical decisions. Talks and practical perspectives from Marcin Kołodziej.',
-  twitterTitle: 'CodeStoryBro | The human side of engineering leadership',
-  twitterDescription: 'Care for people. Speak with candor. Build better software together.',
-  ogImageAlt: 'CodeStoryBro: Software Developer, Engineering Manager and Conference Speaker',
+  title: seoCopy.home.pl.title,
+  description: seoCopy.home.pl.description,
+  openGraphTitle: seoCopy.home.pl.title,
+  openGraphDescription: seoCopy.home.pl.description,
+  twitterTitle: seoCopy.home.pl.title,
+  twitterDescription: seoCopy.home.pl.description,
+  ogImageAlt: 'CodeStoryBro',
   author: {
     name: 'Marcin Kołodziej',
-    jobTitle: 'Software Developer, Engineering Manager and Conference Speaker',
+    jobTitle: 'Engineering Manager',
     email: 'hello@codestorybro.com',
   },
   social: {

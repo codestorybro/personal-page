@@ -24,7 +24,7 @@ try {
   await page.keyboard.press("ArrowDown");
   await page.keyboard.press("Enter");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-    "Better conversations. Stronger teams.",
+    "Talks and presentations.",
   );
   await page.keyboard.press("Enter");
   await page.keyboard.press("ArrowUp");

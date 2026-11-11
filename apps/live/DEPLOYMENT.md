@@ -1,6 +1,6 @@
 # Wdrożenie CodeStoryBro Stage na stage.codestorybro.com
 
-Plan zweryfikowany 2026-11-11. To instrukcja do wykonania przez właściciela kont: nie przeprowadzono wdrożenia ani zmian DNS. Publikacja Live jest oddzielna od deployu Next.js na Vercel.
+Konfiguracja zgodna z kodem na 2026-11-11. Instrukcja opisuje pierwsze wdrożenie przygotowanej aplikacji; nie potwierdza stanu kont dostawców ani wykonania operacji. Przed publikacją sprawdź bieżące warunki Free w podlinkowanej dokumentacji. Zasady projektu: [AGENTS.md](../../AGENTS.md), lokalne uruchomienie i wyniki testów: [README.md](README.md). Publikacja Stage/Studio/Live jest oddzielna od deployu Next.js na Vercel.
 
 ## 1. Potwierdź Vercel i przygotuj zmiany
 
@@ -11,10 +11,13 @@ W istniejącym projekcie Vercel sprawdź:
 - Git: właściwe repozytorium, Production Branch: **main**, automatyczne deploymenty włączone.
 - Dotychczasowe zmienne środowiskowe pozostają ustawione; dodaj/zmień `NEXT_PUBLIC_STAGE_URL=https://stage.codestorybro.com` dla Production.
 - `CODESTORYBRO_DIST_DIR` pozostaw nieustawione na Vercel. `.next-qa` jest tylko do równoległej lokalnej weryfikacji.
+- Nie konfiguruj landingu jako eksportu statycznego: język treści i metadanych jest ustalany przy żądaniu. Pozostaje to zwykły projekt Next.js; źródła brandingu i SEO są współdzielone z Live.
 
 Po zacommitowaniu bieżących zmian, ich merge do `main` i push uruchamiają standardowy deploy landingu, jeśli powyższa integracja jest aktywna. Sam push nie publikuje Workera. W repozytorium nie ma workflow publikującego Live automatycznie. Zmiana adresu Stage wymaga nowego buildu Next.js; można ją opublikować dopiero po uruchomieniu Stage, aby uniknąć przejściowego martwego linku.
 
 Źródło: [Vercel Git integration](https://vercel.com/docs/git).
+
+Jeżeli Home ma zacząć promować lub sprzedawać kursy, przed publikacją oferty sprawdź zgodność obecnego planu z [zasadami Vercel Hobby](https://vercel.com/docs/plans/hobby). Nie zakładaj, że bezpłatne wystąpienia i strona sprzedażowa mają te same warunki hostingu. Migracja Home i wybór innego planu pozostają osobnymi decyzjami.
 
 ## 2. Przygotuj darmowe konto Cloudflare
 
@@ -107,7 +110,7 @@ Oba pliki lokalne są ignorowane przez Git. W `wrangler.production.jsonc`:
 ]
 ```
 
-Pozostaw `workers_dev: false`, `preview_urls: false`, migrację `v1`, obie klasy DO oraz `assets.run_worker_first` bez zmian. Nie dodawaj `DEV_AUTH` do głównych vars. Wpis w `env.local` jest wyłącznie lokalnym środowiskiem; deploy użyje jawnie `--env=""`.
+Pozostaw `workers_dev: false`, `preview_urls: false`, migrację `v1`, obie klasy DO oraz `assets.run_worker_first` z aktualnego szablonu bez zmian. Ostatnia lista obejmuje także `/`, `/s/*`, `/robots.txt` i `/sitemap.xml`, aby Worker zwracał właściwe metadane; same pliki JS/CSS/brandingu korzystają z Assets. Nie dodawaj `DEV_AUTH` do głównych vars. Wpis w `env.local` jest wyłącznie lokalnym środowiskiem; deploy użyje jawnie `--env=""`.
 
 W `.env.local` ustaw docelowy adres landingu:
 
@@ -145,6 +148,7 @@ Cloudflare skonfiguruje DNS `stage` i certyfikat. Poczekaj na aktywny HTTPS. Nie
 ## 10. Sprawdź działanie produkcji
 
 - Otwórz `https://stage.codestorybro.com/` w incognito: publiczne Stage działa bez logowania.
+- Sprawdź również `/?lang=en`. W początkowym HTML, przed uruchomieniem JS, muszą zgadzać się język, title, description, OG, canonical i hreflang. Sprawdź `/robots.txt`, `/sitemap.xml` oraz `/assets/img/og-codestorybro.png` i `/favicon.svg`. Studio i widoki uczestnika mają pozostać noindex.
 - Wejdź na `/presenter`: pojawia się Access. Niedozwolony e-mail nie dostaje dostępu. `/api/presenter/me` również wymaga logowania; nie wystarczy samo ukrycie strony panelu.
 - Zaloguj się swoim kontem na komputerze i telefonie. Utwórz nową sesję, wgraj mały PDF, dodaj pytanie. Dane lokalnego emulatora nie są automatycznie publikowane w chmurze.
 - Otwórz projektor na komputerze, Studio na telefonie. Telefon przełącz na LTE/5G i steruj slajdami oraz pytaniami. Potwierdź synchronizację i pełny ekran.

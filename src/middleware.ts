@@ -16,6 +16,8 @@ export default function middleware(
   event: NextFetchEvent,
 ) {
   const path = request.nextUrl.pathname;
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set('x-codestorybro-language', request.nextUrl.searchParams.get('lang') === 'en' ? 'en' : 'pl');
   if (path === '/robots.txt' || path === '/sitemap.xml') {
     return;
   }
@@ -30,11 +32,11 @@ export default function middleware(
         });
       }
 
-      return NextResponse.next();
+      return NextResponse.next({ request: { headers: requestHeaders } });
     })(request, event);
   }
 
-  return NextResponse.next();
+  return NextResponse.next({ request: { headers: requestHeaders } });
 }
 
 export const config = {

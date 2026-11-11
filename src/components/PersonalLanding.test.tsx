@@ -9,7 +9,7 @@ describe('PersonalLanding', () => {
 
     expect(screen.getByRole('heading', {
       level: 1,
-      name: 'Better conversations. Stronger teams. Better software.',
+      name: 'Leading engineering teams.',
     })).toBeInTheDocument();
 
     const profiles = screen.getByRole('navigation', { name: 'Professional profiles' });

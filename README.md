@@ -1,30 +1,60 @@
-## Getting Started
+# CodeStoryBro
 
-First, install deps:
+Strona Marcina Kołodzieja o prowadzeniu zespołów inżynierskich, software i branży IT oraz aplikacja do prezentacji i głosowań podczas wystąpień.
 
-```bash
-npm install
+## Dokumentacja
+
+- [AGENTS.md](AGENTS.md): zasady marki, copy, systemu wizualnego i pracy agentów AI.
+- [apps/live/README.md](apps/live/README.md): funkcje, limity, uruchamianie i testowanie Stage/Studio/Live.
+- [apps/live/DEPLOYMENT.md](apps/live/DEPLOYMENT.md): instrukcja wdrożenia na `stage.codestorybro.com`, DNS OVH, Access i plany Free.
+
+## Aplikacje i wspólne źródła
+
+| Katalog | Odpowiedzialność |
+| --- | --- |
+| `src/` | Home i weryfikacja certyfikatów; Next.js na Vercel |
+| `apps/live/` | Publiczne Stage, panel Studio, projektor i uczestnicy Live; React/Vite oraz Cloudflare |
+| `packages/ui/` | Wspólny nagłówek, stopka, języki i animacje interakcji |
+| `packages/seo/` | Wspólne treści SEO PL/EN i synchronizacja metadanych |
+| `public/` | Źródłowe assety marki, zdjęcie i używany font; Vite kopiuje branding podczas buildu |
+
+Polski jest domyślny, EN wybiera się w stopce. `?lang=en` pozwala otworzyć angielską wersję z właściwym HTML, treścią i metadanymi od serwera. Next.js renderuje strony zależne od języka na żądanie; Worker przetwarza metadane HTML Stage. Home i Stage mają canonical, hreflang oraz wpisy PL/EN w sitemapach. Widoki prywatne i uczestnika mają noindex.
+
+Home pozostaje na Vercel. Docelowy adres Stage to `https://stage.codestorybro.com`. `NEXT_PUBLIC_STAGE_URL` ustala odnośnik z Home, `VITE_HOME_URL` odnośnik z aplikacji Live do Home. Po commicie/merge/pushu na produkcyjną gałąź Vercel landing wdraża się automatycznie, o ile integracja Git jest aktywna; ustawienia konta trzeba potwierdzić w panelu. Stage publikuje się osobno. Nie wykonano jego wdrożenia ani zmian DNS w ramach dotychczasowych prac lokalnych.
+
+YouTube jest głównym medium, LinkedIn kanałem kontaktowym. Blog jest wycofany: `/blog` i potomne adresy, także dawne `/en/blog` oraz `/pl/blog`, przekierowują trwale na Home. Sitemapy nie zawierają bloga.
+
+## Uruchomienie Home
+
+Wymagane Node.js 22.12+ i Yarn Classic 1.22. Z katalogu głównego:
+
+```sh
+yarn install --frozen-lockfile
+yarn dev:next
 ```
 
-Secondly, run the development server:
+Domyślny adres: `http://localhost:3000`. `yarn dev` uruchamia również skonfigurowany proces Spotlight. Zachowaj istniejące lokalne zmienne środowiskowe; nie commituj sekretów.
 
-```bash
-npm run dev
-```
+Aplikacja Live ma własny `package.json` i osobną instalację zależności. Instrukcja znajduje się w jej README.
 
-## Applications
+## Weryfikacja zmian
 
-The main Next.js site lives in `src/`. CodeStoryBro Live is a separate React/Vite + Cloudflare app in `apps/live/`; see its README for local startup and presenter controls. Both apps use the shared `packages/ui/Footer.tsx` and `packages/ui/footer.css`.
+| Zakres | Polecenie w katalogu głównym |
+| --- | --- |
+| Testy jednostkowe Home | `yarn test` |
+| TypeScript Home i współdzielonych komponentów | `yarn check-types` |
+| ESLint | `yarn lint` |
+| Build produkcyjny Home | `yarn build` |
 
-The blog is retired. `/blog` and its descendants, including former `/en/blog` and `/pl/blog` URLs, permanently redirect to `/`. The sitemap lists the home page only. YouTube is the primary content channel; LinkedIn is available in Get in touch.
+Dla podglądu produkcyjnego obok działającego Next dev użyj osobnego katalogu, aby nie mieszać manifestów:
 
-The shared header and footer include an EN/PL language selector (Polish by default). `NEXT_PUBLIC_STAGE_URL` configures the Stage link; Live uses `VITE_HOME_URL` for its Home link. Language travels with cross-app links and is remembered locally.
-
-For a production preview alongside an already running Next.js development server, use an isolated build directory to avoid mixing dev and production manifests:
-
-```bash
+```sh
 CODESTORYBRO_DIST_DIR=.next-qa yarn build
-CODESTORYBRO_DIST_DIR=.next-qa yarn start --port 3008
+CODESTORYBRO_DIST_DIR=.next-qa yarn start --hostname 127.0.0.1 --port 3008
 ```
 
-Live deployment is separate from Vercel: see [apps/live/DEPLOYMENT.md](apps/live/DEPLOYMENT.md). Stage targets `stage.codestorybro.com` on Workers Free + Durable Objects + KV Free (no R2). Current application limits: 1000 participants, 5 questions, 20 MB per original/export PDF, 750 MB total, 100 archived sessions. Main-site Git integration and production branch are configured in the existing Vercel project.
+Na Vercel pozostaw `CODESTORYBRO_DIST_DIR` nieustawione. Testy Live uruchamiaj w `apps/live`, zgodnie z jego README. Dla zmian UI sprawdź obie wersje językowe, desktop, telefon i obsługę klawiatury. Dla SEO sprawdź HTML przed uruchomieniem JS oraz URL-e obrazów i ikon.
+
+## Stan ostatniej walidacji
+
+Ostatnia pełna walidacja lokalna: 2026-11-11. Przeszły buildy obu aplikacji, 10 testów Home, 7 testów Live, pełny scenariusz Chrome oraz sprawdzenie początkowego HTML PL/EN. Obejrzano mobilne Home/Stage/Studio, nowy obraz OG i favicon. Szczegóły próby 1000 uczestników oraz ograniczenia pomiaru są w README Live. Nie jest to potwierdzenie działania produkcji.

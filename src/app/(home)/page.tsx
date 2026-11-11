@@ -1,85 +1,17 @@
 import { HomeJsonLd } from '@/components/JsonLd';
 import { PersonalLanding } from '@/components/PersonalLanding';
-import { AppConfig } from '@/utils/AppConfig';
+import { pageMetadata } from '@/utils/Metadata';
+import { seoLocale } from '../../../packages/seo/content';
 
-const SITE_URL = AppConfig.url;
-
-export async function generateMetadata() {
-  const canonicalUrl = SITE_URL;
-
-  return {
-    title: {
-      absolute: AppConfig.title,
-    },
-    description: AppConfig.description,
-    keywords: [
-      'CodeStoryBro',
-      'software developer',
-      'software engineer',
-      'engineering manager',
-      'technical leadership',
-      'engineering leadership',
-      'conference speaker',
-      'public speaker',
-      'software development',
-      'technology speaker',
-      'engineering management',
-    ],
-    authors: [{ name: 'Marcin Kołodziej', url: SITE_URL }],
-    creator: 'Marcin Kołodziej',
-    publisher: 'CodeStoryBro',
-    alternates: {
-      canonical: canonicalUrl,
-    },
-    openGraph: {
-      title: AppConfig.openGraphTitle,
-      description: AppConfig.openGraphDescription,
-      url: canonicalUrl,
-      siteName: 'CodeStoryBro',
-      type: 'website',
-      locale: AppConfig.locale,
-      images: [
-        {
-          url: `${SITE_URL}/assets/img/og-image.png`,
-          width: 1536,
-          height: 1024,
-          alt: AppConfig.ogImageAlt,
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      site: '@codestorybro',
-      creator: '@codestorybro',
-      title: AppConfig.twitterTitle,
-      description: AppConfig.twitterDescription,
-      images: [
-        {
-          url: `${SITE_URL}/assets/img/og-image.png`,
-          width: 1536,
-          height: 1024,
-          alt: AppConfig.ogImageAlt,
-        },
-      ],
-    },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        'index': true,
-        'follow': true,
-        'max-video-preview': -1,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
-      },
-    },
-  };
+type Props = { searchParams: Promise<{ lang?: string }> };
+export async function generateMetadata({ searchParams }: Props) {
+  return pageMetadata('home', seoLocale((await searchParams).lang));
 }
-
-export default function Index() {
+export default async function Index({ searchParams }: Props) {
+  const locale = seoLocale((await searchParams).lang);
   return (
     <>
-      <HomeJsonLd />
+      <HomeJsonLd locale={locale} />
       <PersonalLanding />
     </>
   );

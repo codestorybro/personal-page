@@ -170,17 +170,15 @@ function Home() {
       <section className="home-hero">
         <p className="eyebrow">{t("Ludzie · Technologia · Leadership")}</p>
         <h1>
-          {t("Lepsze rozmowy.")} <br />
-          <em>{t("Silniejsze zespoły.")}</em>
+          {t("Materiały")} <br />
+          <em>{t("z wystąpień.")}</em>
         </h1>
         <p className="lead">
-          {t(
-            "Dobry kod potrzebuje dobrego zespołu. Zespół potrzebuje zaufania, szczerej informacji zwrotnej i odwagi do trudnych rozmów.",
-          )}{" "}
+          {t("Technologia to ludzie. Dobry produkt potrzebuje dobrego zespołu.")}{" "}
         </p>
         <p className="home-intro">
           {t(
-            "Jestem Marcin Kołodziej. Mówię o ludzkiej stronie prowadzenia zespołów inżynierskich, równie ważnej jak decyzje techniczne. Troska o ludzi i szczera rozmowa pomagają budować lepsze zespoły.",
+            "Żeby wymagać od zespołu, najpierw trzeba zadbać o podstawy: jasny cel, warunki do pracy i wsparcie. Na dłuższą metę samo stawianie wymagań nie wystarcza.",
           )}{" "}
         </p>
         <a
@@ -189,35 +187,28 @@ function Home() {
           target="_blank"
           rel="noreferrer"
         >
-          {t("Rozmowy na YouTube ↗")}{" "}
+          {t("YouTube ↗")}{" "}
         </a>
       </section>
       <section className="public-library" aria-labelledby="library-heading">
         <p className="eyebrow">{t("Materiały z wystąpień")}</p>
         <h2 id="library-heading">
-          {t("Zabierz tę rozmowę do swojego zespołu.")}
+          {t("Zabierz idee z moich wystąpień do swojego zespołu.")}
         </h2>
-        <p className="muted">
-          {t(
-            "Prezentacje do pobrania: ze slajdami, pytaniami do przemyślenia i wynikami wspólnego głosowania.",
-          )}{" "}
-        </p>
+        <p className="muted">{t("Prezentacje do pobrania")} </p>
         <Notice>{error}</Notice>
         {loading ? (
           <p role="status">{t("Wczytuję prezentacje…")}</p>
         ) : !error && !presentations.length ? (
           <p className="library-empty">
             {t(
-              "Pierwsze materiały pojawią się tutaj po wystąpieniu. Wróć po prezentację i pytania, do których warto wrócić z zespołem.",
+              "Materiały pojawią się tutaj po pierwszym udostępnionym wystąpieniu.",
             )}{" "}
           </p>
         ) : (
           presentations.map((item) => (
             <article key={item.id} className="public-presentation">
               <div>
-                <p className="eyebrow">
-                  PDF · {item.pages} {t("stron")}
-                </p>
                 <h3>{item.title}</h3>
               </div>
               <a
@@ -332,18 +323,11 @@ function Dashboard() {
   const [sessions, setSessions] = useState<Summary[]>([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
-  const [local, setLocal] = useState(false);
   const [busy, setBusy] = useState(false);
   const [title, setTitle] = useState("");
   useEffect(() => {
-    void Promise.all([
-      api<Summary[]>("/api/presenter/sessions"),
-      api<{ local: boolean }>("/api/presenter/me"),
-    ])
-      .then(([data, me]) => {
-        setSessions(data);
-        setLocal(me.local);
-      })
+    void api<Summary[]>("/api/presenter/sessions")
+      .then(setSessions)
       .catch((e) => setError(e.message))
       .finally(() => setLoading(false));
   }, []);
@@ -385,22 +369,8 @@ function Dashboard() {
   return (
     <Shell badge="Studio">
       <div className="page-heading">
-        <div>
-          <p className="eyebrow">{t("Panel prezentera")}</p>
-          <h1>
-            {t("Twoja następna")} <br />
-            <em>{t("dobra rozmowa.")}</em>
-          </h1>
-        </div>
-        <span className="private-badge">{t("↗ Prywatne archiwum")}</span>
+        <h1>{t("Sesje prezentacji")}</h1>
       </div>
-      {local && (
-        <p className="local-banner">
-          {t(
-            "Tryb lokalny · dostęp prezentera bez logowania tylko na tym komputerze.",
-          )}{" "}
-        </p>
-      )}
       <Notice>{error}</Notice>
       <form className="create-form" onSubmit={create}>
         <label htmlFor="session-title">{t("Nowa sesja")}</label>
@@ -429,7 +399,7 @@ function Dashboard() {
           <p>{t("Wczytywanie…")}</p>
         ) : !sessions.length ? (
           <div className="empty">
-            <h3>{t("Tu zaczyna się pierwsze wystąpienie.")}</h3>
+            <h3>{t("Brak sesji.")}</h3>
             <p>{t("Utwórz sesję, dodaj PDF i przygotuj pytania A/B.")}</p>
           </div>
         ) : (
@@ -602,7 +572,7 @@ function Editor({
       </section>
       <form className="panel" onSubmit={save}>
         <p className="eyebrow">{t("02 / Pytania")}</p>
-        <h2>{t("Zaplanuj moment wyboru.")}</h2>
+        <h2>{t("Pytania A/B")}</h2>
         <p className="muted">{t("Do 5 pytań na sesję.")}</p>
         <p className="muted">
           {t(
@@ -774,9 +744,7 @@ function Publication({
       </p>
       <h3>{t("Prezentacja do pobrania")}</h3>
       <p className="muted">
-        {t(
-          "Udostępnij na stronie głównej Live PDF ze slajdami i pytaniami. Wyniki pokażą procenty z ostatniej rundy, bez liczby głosów i danych uczestników.",
-        )}{" "}
+        {t("Udostępnij na Stage PDF ze slajdami i pytaniami.")}{" "}
       </p>
       <Notice>{error}</Notice>
       {state.publishedAt ? (
@@ -1290,7 +1258,9 @@ function App() {
   );
 }
 createRoot(document.getElementById("root")!).render(
-  <LocaleProvider>
+  <LocaleProvider
+    initialLocale={document.documentElement.lang === "en" ? "en" : "pl"}
+  >
     <App />
   </LocaleProvider>,
 );
