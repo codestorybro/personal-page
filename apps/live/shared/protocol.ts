@@ -30,6 +30,7 @@ export type SessionMeta = {
   navigationVersion: number;
   pdfKey: string | null;
   pdfName: string | null;
+  peakParticipants?: number | null;
   deleting?: boolean;
   publication?: { key: string; publishedAt: string } | null;
 };
@@ -53,6 +54,7 @@ export type Snapshot = {
   closedIds?: string[];
   pdfName?: string | null;
   publishedAt?: string | null;
+  peakParticipants?: number | null;
 };
 export type Summary = {
   id: string;
@@ -62,6 +64,7 @@ export type Summary = {
   participants: number;
   questions: number;
   totalParticipants: number;
+  peakParticipants?: number | null;
   deleting?: boolean;
 };
 export type Command =

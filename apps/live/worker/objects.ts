@@ -67,7 +67,15 @@ export class LiveSession extends DurableObject<Env> {
       navigationVersion: meta.navigationVersion ?? 0,
     };
   }
+  private samplePeak(meta: SessionMeta) {
+    if (meta.status === "live" && meta.activeId)
+      meta.peakParticipants = Math.max(
+        meta.peakParticipants ?? 0,
+        this.onlineIds().size,
+      );
+  }
   private save(meta: SessionMeta) {
+    this.samplePeak(meta);
     meta.revision++;
     this.ctx.storage.sql.exec(
       "INSERT INTO metadata(id,json) VALUES(1,?) ON CONFLICT(id) DO UPDATE SET json=excluded.json",
@@ -87,6 +95,7 @@ export class LiveSession extends DurableObject<Env> {
       closedIds: [],
       rounds: {},
       navigationVersion: 0,
+      peakParticipants: 0,
       slide: 1,
       pageCount: 0,
       displayQuestionId: null,
@@ -114,6 +123,7 @@ export class LiveSession extends DurableObject<Env> {
       participants: this.onlineIds().size,
       questions: m.questions.length,
       totalParticipants: this.count(),
+      peakParticipants: m.peakParticipants ?? null,
       deleting: !!m.deleting,
     };
   }
@@ -331,6 +341,7 @@ export class LiveSession extends DurableObject<Env> {
                   })),
               ]),
             ),
+            peakParticipants: m.peakParticipants ?? null,
             pdfName: m.pdfName,
             publishedAt: m.publication?.publishedAt ?? null,
           }
@@ -475,6 +486,8 @@ export class LiveSession extends DurableObject<Env> {
   }
   async command(input: Command) {
     const m = this.read();
+    // Capture presence before close/end clears the active question.
+    this.samplePeak(m);
     if (!input || typeof input !== "object")
       throw new HttpError(400, "Niepoprawne polecenie.");
     switch (input.type) {

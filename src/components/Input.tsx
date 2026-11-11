@@ -11,7 +11,7 @@ const Input: FC<Props> = ({ className, label, ...props }) => {
       {label && <span>{label}</span>}
       <input
         className={clsx(
-          'min-h-12 w-full rounded border border-control bg-surface px-4 py-2 text-base font-normal text-ink placeholder:text-muted hover:border-accent',
+          'min-h-12 w-full rounded border border-control bg-surface px-4 py-2 text-base font-normal text-ink placeholder:text-muted',
           className,
         )}
         {...props}

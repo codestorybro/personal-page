@@ -1,4 +1,5 @@
 import { PDFDocument } from "pdf-lib";
+import { translate } from "../../../packages/ui/translations";
 import {
   percentages,
   presentationSteps,
@@ -28,7 +29,12 @@ function lines(context: CanvasRenderingContext2D, text: string, width: number) {
   }
   return output;
 }
-function questionImage(question: Question, state: Snapshot): Promise<Blob> {
+function questionImage(
+  question: Question,
+  state: Snapshot,
+  locale: "en" | "pl",
+): Promise<Blob> {
+  const t = (text: string) => translate(locale, text);
   const canvas = document.createElement("canvas");
   canvas.width = 1920;
   canvas.height = 1080;
@@ -44,11 +50,13 @@ function questionImage(question: Question, state: Snapshot): Promise<Blob> {
   ctx.fillStyle = "#a5a4a2";
   ctx.font = "26px Arial";
   ctx.fillText(
-    closed
-      ? result?.total
-        ? "Tak zagłosowała sala"
-        : "Brak odpowiedzi"
-      : "Pytanie do refleksji",
+    t(
+      closed
+        ? result?.total
+          ? "Tak zagłosowała sala"
+          : "Brak odpowiedzi"
+        : "Pytanie do refleksji",
+    ),
     110,
     112,
   );
@@ -119,6 +127,7 @@ export async function createPublication(
   state: Snapshot,
   base: string,
   progress: (text: string) => void,
+  locale: "en" | "pl" = "en",
 ): Promise<Blob> {
   if (state.status !== "ended" || !state.pdfName)
     throw new Error("Najpierw zakończ sesję z PDF-em.");
@@ -137,8 +146,8 @@ export async function createPublication(
     throw new Error("Liczba stron PDF nie zgadza się z sesją.");
   const output = await PDFDocument.create();
   output.setTitle(state.title);
-  output.setAuthor("CodeStoryBro — Marcin Kołodziej");
-  output.setLanguage("pl");
+  output.setAuthor("CodeStoryBro, Marcin Kołodziej");
+  output.setLanguage(locale);
   // Copy originals together to preserve shared resources and avoid duplicating fonts/images.
   const originals = await output.copyPages(source, source.getPageIndices());
   const steps = presentationSteps(state.pageCount, state.questions ?? []);
@@ -148,7 +157,7 @@ export async function createPublication(
     if (!step.questionId) output.addPage(originals[step.slide - 1]);
     else {
       const question = state.questions!.find((q) => q.id === step.questionId)!;
-      const blob = await questionImage(question, state);
+      const blob = await questionImage(question, state, locale);
       const image = await output.embedPng(await blob.arrayBuffer());
       output
         .addPage([960, 540])

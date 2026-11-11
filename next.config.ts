@@ -7,6 +7,7 @@ const withBundleAnalyzer = bundleAnalyzer({
 });
 
 const config: NextConfig = {
+  distDir: process.env.CODESTORYBRO_DIST_DIR || '.next',
   eslint: {
     dirs: ['.'],
   },

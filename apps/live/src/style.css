@@ -37,11 +37,6 @@ button,
   text-decoration: none;
   font-weight: 700;
   cursor: pointer;
-  transition: background 0.15s;
-}
-button:hover,
-.button:hover {
-  background: #c7ddf6;
 }
 button:disabled {
   opacity: 0.45;
@@ -52,10 +47,6 @@ button.secondary,
   background: transparent;
   color: #f1e9db;
   border-color: #536477;
-}
-button.secondary:hover,
-.button.secondary:hover {
-  background: var(--surface);
 }
 :focus-visible {
   outline: 3px solid #a9c9ef;
@@ -69,10 +60,6 @@ textarea {
   border-radius: 4px;
   padding: 0.8rem;
   width: 100%;
-}
-input:focus,
-textarea:focus {
-  border-color: var(--accent);
 }
 h1,
 h2,
@@ -647,9 +634,6 @@ footer {
   font-size: 1.1rem;
   min-height: 100px;
 }
-.choice:hover {
-  background: #273443;
-}
 .choice.selected {
   border-color: var(--accent);
   background: #283c52;
@@ -1133,4 +1117,22 @@ footer {
     align-items: flex-start;
     flex-direction: column;
   }
+}
+
+.peak-stat {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.7rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 1rem 0;
+}
+.peak-stat strong {
+  color: var(--accent);
+  font-size: 1.15rem;
+}
+.peak-summary {
+  color: var(--muted);
+  font-size: 0.8rem;
 }

@@ -124,20 +124,10 @@
     font-weight: 600;
   }
 
-  .editorial-button:hover:not(:disabled) {
-    border-color: var(--color-accent-strong);
-    background-color: var(--color-accent-strong);
-  }
-
   .editorial-button-outline {
     border-color: var(--color-control);
     background-color: transparent;
     color: var(--color-ink);
-  }
-
-  .editorial-button-outline:hover:not(:disabled) {
-    border-color: var(--color-accent);
-    background-color: var(--color-surface);
   }
 
   .landing-hero {
@@ -398,4 +388,8 @@
     text-decoration: underline;
     text-underline-offset: 0.2em;
   }
+}
+
+.editorial-row.social-link:is(:hover, :focus-visible) {
+  background-color: transparent;
 }

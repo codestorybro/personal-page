@@ -1,9 +1,11 @@
 import { render, screen, within } from '@testing-library/react';
+import { LocaleProvider } from '../../packages/ui/Locale';
 import { PersonalLanding } from './PersonalLanding';
 
 describe('PersonalLanding', () => {
   it('renders the professional positioning and only the active profile cards', () => {
-    render(<PersonalLanding />);
+    window.history.replaceState({}, '', '/?lang=en');
+    render(<LocaleProvider><PersonalLanding /></LocaleProvider>);
 
     expect(screen.getByRole('heading', {
       level: 1,
@@ -26,7 +28,8 @@ describe('PersonalLanding', () => {
   });
 
   it('provides the configured email as a mail link', () => {
-    render(<PersonalLanding />);
+    window.history.replaceState({}, '', '/?lang=en');
+    render(<LocaleProvider><PersonalLanding /></LocaleProvider>);
 
     expect(screen.getByRole('link', { name: 'Email hello@codestorybro.com' }))
       .toHaveAttribute('href', 'mailto:hello@codestorybro.com');

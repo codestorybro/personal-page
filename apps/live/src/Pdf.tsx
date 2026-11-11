@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useLocale } from "../../../packages/ui/Locale";
 import {
   getDocument,
   GlobalWorkerOptions,
@@ -17,6 +18,7 @@ export async function inspectPdf(file: File): Promise<number> {
   }
 }
 export function Pdf({ url, page }: { url: string; page: number }) {
+  const { t, locale } = useLocale();
   const canvas = useRef<HTMLCanvasElement>(null);
   const [doc, setDoc] = useState<PDFDocumentProxy | null>(null);
   const [error, setError] = useState("");
@@ -81,7 +83,7 @@ export function Pdf({ url, page }: { url: string; page: number }) {
           target.width = buffer.width;
           target.height = buffer.height;
           context.drawImage(buffer, 0, 0);
-          target.setAttribute("aria-label", `Slajd ${page}`);
+          target.setAttribute("aria-label", t(`Slajd ${page}`));
         });
       })
       .catch((e) => {
@@ -92,14 +94,14 @@ export function Pdf({ url, page }: { url: string; page: number }) {
       cancelled = true;
       render?.cancel();
     };
-  }, [doc, page, width]);
+  }, [doc, page, width, locale]);
   return (
     <div className="pdf" ref={container}>
       {error ? (
-        <p role="alert">{error}</p>
+        <p role="alert">{t(error)}</p>
       ) : (
         <>
-          <canvas ref={canvas} aria-label="Wczytywanie slajdu" />
+          <canvas ref={canvas} aria-label={t("Wczytywanie slajdu")} />
         </>
       )}
     </div>

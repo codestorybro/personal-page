@@ -2,6 +2,7 @@
 
 import { SealCheckIcon, XCircleIcon } from '@phosphor-icons/react';
 import { useEffect, useState } from 'react';
+import { useLocale } from '../../packages/ui/Locale';
 
 type Certificate = {
   name: string;
@@ -13,6 +14,7 @@ type Result =
   | { id: string; status: 'invalid' | 'error' };
 
 export default function CertValidate({ id }: { id?: string }) {
+  const { pick } = useLocale();
   const [result, setResult] = useState<Result>();
 
   useEffect(() => {
@@ -57,12 +59,12 @@ export default function CertValidate({ id }: { id?: string }) {
 
   return (
     <div role="status" aria-atomic="true">
-      {id && !current && <p className="mt-6 text-muted">Checking certificate…</p>}
+      {id && !current && <p className="mt-6 text-muted">{pick('Checking certificate…', 'Sprawdzam certyfikat…')}</p>}
       {current?.status === 'valid' && (
         <div className="mt-6 flex items-start gap-4 border border-rule bg-surface p-5">
           <SealCheckIcon size={28} className="shrink-0 text-success" aria-hidden="true" />
           <div>
-            <p className="text-sm font-semibold text-success">This certificate is valid ✓</p>
+            <p className="text-sm font-semibold text-success">{pick('This certificate is valid ✓', 'Ten certyfikat jest ważny ✓')}</p>
             <p className="row-title mt-2">{current.certificate.name}</p>
             <p className="text-muted">{current.certificate.type}</p>
           </div>
@@ -72,14 +74,14 @@ export default function CertValidate({ id }: { id?: string }) {
         <div className="mt-6 flex items-start gap-4 border border-rule bg-surface p-5">
           <XCircleIcon size={28} className="shrink-0 text-error" aria-hidden="true" />
           <div>
-            <p className="text-sm font-semibold text-error">Certificate not found</p>
+            <p className="text-sm font-semibold text-error">{pick('Certificate not found', 'Nie znaleziono certyfikatu')}</p>
             <p className="mt-2 break-all text-ink">{id}</p>
-            <p className="text-muted">No certificate exists with this ID</p>
+            <p className="text-muted">{pick('No certificate exists with this ID', 'Nie ma certyfikatu o tym identyfikatorze')}</p>
           </div>
         </div>
       )}
       {current?.status === 'error' && (
-        <p className="mt-6 border border-rule bg-surface p-5 text-error">The certificate could not be checked</p>
+        <p className="mt-6 border border-rule bg-surface p-5 text-error">{pick('The certificate could not be checked', 'Nie udało się sprawdzić certyfikatu')}</p>
       )}
     </div>
   );

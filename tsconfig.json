@@ -65,6 +65,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
+    ".next-qa/types/**/*.ts",
     "**/*.mts"
   ]
 }

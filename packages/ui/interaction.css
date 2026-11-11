@@ -1,0 +1,158 @@
+/* Text links use the same underline for pointer and keyboard interaction. */
+a:not(.button):not(.editorial-button) {
+  text-decoration: none;
+}
+a:not(.button):not(.editorial-button):not(:has(.link-label)),
+a .link-label,
+summary {
+  background-image: linear-gradient(
+    var(--accent, var(--color-accent-strong, #a9c9ef)),
+    var(--accent, var(--color-accent-strong, #a9c9ef))
+  );
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: 0 1px;
+  transition:
+    background-size 0.22s ease,
+    color 0.22s ease;
+}
+a:not(.button):not(.editorial-button):is(:hover, :focus-visible),
+a:is(:hover, :focus-visible) .link-label,
+summary:is(:hover, :focus-visible) {
+  background-size: 100% 1px;
+}
+a:not(.button):not(.editorial-button):focus-visible,
+summary:focus-visible {
+  outline: none;
+}
+@property --control-reveal {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
+input,
+textarea,
+select {
+  --control-fill: var(--color-surface, #191919);
+  --control-border: var(--color-control, #647282);
+  border-color: transparent;
+  background-image: linear-gradient(var(--control-fill), var(--control-fill)), linear-gradient(#c7ddf6, #c7ddf6),
+    linear-gradient(var(--control-border), var(--control-border));
+  background-origin: padding-box, border-box, border-box;
+  background-clip: padding-box, border-box, border-box;
+  background-position: left top;
+  background-size:
+    100% 100%,
+    var(--control-reveal) 100%,
+    100% 100%;
+  background-repeat: no-repeat;
+  transition: --control-reveal 0.25s ease;
+}
+input:is(:hover, :focus),
+textarea:is(:hover, :focus),
+select:is(:hover, :focus) {
+  --control-reveal: 100%;
+  border-color: transparent;
+  outline: none;
+  box-shadow: none;
+}
+button,
+.button,
+.editorial-button {
+  position: relative;
+}
+button:focus-visible,
+.button:focus-visible,
+.editorial-button:focus-visible {
+  outline: none;
+}
+.csb-language {
+  position: relative;
+}
+.csb-language > button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-width: 64px;
+  min-height: 36px;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--line, var(--color-rule, #393b3e));
+  border-radius: 3px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+button::after,
+.button::after,
+.editorial-button::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border: 1px solid #c7ddf6;
+  border-radius: inherit;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.25s ease;
+  pointer-events: none;
+}
+.csb-language > button:is(:hover, :focus-visible, [aria-expanded='true']) {
+  outline: none;
+  background: transparent;
+}
+button:not(:disabled):is(:hover, :focus-visible)::after,
+.button:is(:hover, :focus-visible)::after,
+.editorial-button:not(:disabled):is(:hover, :focus-visible)::after,
+.csb-language > button[aria-expanded='true']::after {
+  clip-path: inset(0);
+}
+.csb-language [role='listbox'] {
+  position: absolute;
+  z-index: 20;
+  bottom: calc(100% + 0.4rem);
+  right: 0;
+  min-width: 100%;
+  margin: 0;
+  padding: 0.3rem;
+  list-style: none;
+  background: #222426;
+  color: #f1e9db;
+  border: 1px solid var(--line, var(--color-rule, #393b3e));
+  border-radius: 4px;
+  box-shadow: 0 4px 16px #0005;
+}
+.csb-language [role='option'] {
+  padding: 0.45rem 0.7rem;
+  cursor: pointer;
+  border-radius: 2px;
+}
+.csb-language [role='option'].is-active {
+  background: #344454;
+  color: #c7ddf6;
+}
+@media (prefers-reduced-motion: reduce) {
+  a,
+  a .link-label,
+  summary,
+  input,
+  textarea,
+  select,
+  button::after,
+  .button::after,
+  .editorial-button::after {
+    transition: none;
+  }
+}
+@media (forced-colors: active) {
+  a:focus-visible,
+  summary:focus-visible,
+  button:focus-visible,
+  .button:focus-visible,
+  .editorial-button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 1px solid Highlight;
+  }
+}

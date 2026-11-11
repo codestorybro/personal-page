@@ -15,7 +15,25 @@ try {
   });
   const page = await context.newPage();
   page.on("pageerror", (e) => errors.push(e.message));
+  await page.goto(server.origin);
+  const language = page.getByRole("combobox", { name: "Język" });
+  await expect(language).toContainText("PL");
+  await language.focus();
+  await page.keyboard.press("Enter");
+  await expect(page.getByRole("listbox")).toBeVisible();
+  await page.keyboard.press("ArrowDown");
+  await page.keyboard.press("Enter");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+    "Better conversations. Stronger teams.",
+  );
+  await page.keyboard.press("Enter");
+  await page.keyboard.press("ArrowUp");
+  await page.keyboard.press("Enter");
   await page.goto(`${server.origin}/presenter`);
+  await expect(page.locator(".csb-badge")).toHaveText("Studio");
+  await expect(page.getByRole("combobox", { name: "Język" })).toContainText(
+    "PL",
+  );
   await page.getByLabel("Nowa sesja").fill("Architektura to sztuka wyboru");
   await page.getByRole("button", { name: "Utwórz sesję" }).click();
   await expect(
@@ -51,7 +69,7 @@ try {
   });
   const phone = await phoneContext.newPage();
   phone.on("pageerror", (e) => errors.push(e.message));
-  await phone.goto(`${server.origin}/s/${id}`);
+  await phone.goto(`${server.origin}/s/${id}?lang=pl`);
   await expect(
     phone.getByRole("heading", { name: "Jesteś na miejscu." }),
   ).toBeVisible();
@@ -63,10 +81,40 @@ try {
   await expect
     .poll(() => page.locator("canvas").evaluate((canvas) => canvas.width))
     .toBeGreaterThan(300);
+  await expect(page.locator(".csb-header nav")).toHaveCount(0);
+  await page.getByRole("combobox", { name: "Język" }).focus();
+  await page.keyboard.press("Enter");
+  await page.keyboard.press("ArrowRight");
+  await expect(page.locator("canvas")).toHaveAttribute("aria-label", "Slajd 1");
+  await page.keyboard.press("Escape");
+  await expect(page.getByRole("listbox")).toHaveCount(0);
+  await page.locator("h1").click();
+  await page.keyboard.press("ArrowRight");
+  await expect(page.locator(".presenter-preview h1")).toHaveText(
+    "Monolit czy mikroserwisy?",
+  );
+  await page.keyboard.press("ArrowLeft");
+  await expect(page.locator("canvas")).toHaveAttribute("aria-label", "Slajd 1");
+  await page.keyboard.press("PageDown");
+  await expect(page.locator(".presenter-preview h1")).toHaveText("Monolit czy mikroserwisy?");
+  await page.keyboard.press("PageUp");
+  await expect(page.locator("canvas")).toHaveAttribute("aria-label", "Slajd 1");
   const screen = await context.newPage();
   screen.on("pageerror", (e) => errors.push(e.message));
   await screen.goto(`${server.origin}/presenter/${id}/screen`);
   await expect(screen.locator("canvas")).toBeVisible();
+  await expect(screen.locator(".csb-badge")).toHaveText("Live");
+  await expect(
+    screen
+      .locator(".csb-header")
+      .getByRole("link", { name: "Prezentacje", exact: true }),
+  ).toHaveCount(0);
+  await expect(
+    screen
+      .locator(".csb-header")
+      .getByRole("link", { name: "YouTube", exact: true }),
+  ).toBeVisible();
+  await expect(screen.getByText("Połączono na żywo")).toHaveCount(0);
   // No QR under slides; preserve the original PDF proportions and fill the viewport.
   await expect(screen.locator(".qr-card")).toHaveCount(0);
   await expect(page.locator(".live-grid .qr-card")).toHaveCount(0);
@@ -107,6 +155,19 @@ try {
   await expect(
     phone.getByRole("heading", { name: "Monolit czy mikroserwisy?" }),
   ).toBeVisible();
+  await phone.getByRole("combobox", { name: "Język" }).click();
+  await phone.getByRole("option", { name: "EN", exact: true }).click();
+  await expect(
+    phone.getByText("Voting is open", { exact: true }),
+  ).toBeVisible();
+  await expect(
+    phone.getByRole("heading", { name: "Monolit czy mikroserwisy?" }),
+  ).toBeVisible();
+  await expect(
+    phone.getByRole("button", { name: /A Zaczynam od monolitu/ }),
+  ).toBeVisible();
+  await phone.getByRole("combobox", { name: "Language" }).click();
+  await phone.getByRole("option", { name: "PL", exact: true }).click();
   await phone.getByRole("button", { name: /A Zaczynam od monolitu/ }).click();
   await expect(phone.getByText("✓ Przyjęto odpowiedź A")).toBeVisible();
   await phone.getByRole("button", { name: /B Wybieram mikroserwisy/ }).click();
@@ -118,7 +179,9 @@ try {
   await expect(page.locator(".session-count strong")).toHaveText("1/200");
   await phone.goto("about:blank");
   await expect(page.locator(".session-count strong")).toHaveText("0/200");
-  await phone.goto(`${server.origin}/s/${id}`);
+  await expect(page.locator(".peak-stat strong")).toHaveText("1");
+  await expect(phone.locator(".peak-stat")).toHaveCount(0);
+  await phone.goto(`${server.origin}/s/${id}?lang=pl`);
   await expect(page.locator(".session-count strong")).toHaveText("1/200");
   await phone.reload();
   await expect(phone.getByText("✓ Przyjęto odpowiedź B")).toBeVisible();
@@ -229,6 +292,8 @@ try {
     phone.getByRole("heading", { name: "Dzięki za udział." }),
   ).toBeVisible();
   await expect(page.getByText("Poprzednia runda 1")).toBeVisible();
+  await page.reload();
+  await expect(page.locator(".peak-stat strong")).toHaveText("1");
   await expect(phone.locator("body")).toHaveJSProperty("scrollWidth", 390);
   const home = await phoneContext.newPage();
   await home.goto(server.origin);

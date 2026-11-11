@@ -1,4 +1,10 @@
+'use client';
+
+import { LanguageSelect } from './LanguageSelect';
+import { useLocale } from './Locale';
+
 export function Footer() {
+  const { pick } = useLocale();
   return (
     <footer className="csb-footer">
       <p>
@@ -8,7 +14,10 @@ export function Footer() {
         {' '}
         CodeStoryBro
       </p>
-      <p>Software Development • Engineering Leadership • Public Speaking</p>
+      <p>{pick('Software Development • Engineering Leadership • Public Speaking', 'Tworzenie oprogramowania • Prowadzenie zespołów • Wystąpienia publiczne')}</p>
+      <div className="csb-footer-controls">
+        <LanguageSelect />
+      </div>
     </footer>
   );
 }

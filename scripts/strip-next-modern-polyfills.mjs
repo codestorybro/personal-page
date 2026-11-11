@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-const chunksDir = join(process.cwd(), '.next/static/chunks');
+const chunksDir = join(process.cwd(), process.env.CODESTORYBRO_DIST_DIR || '.next', 'static/chunks');
 const marker = '"trimStart"in String.prototype';
 
 const findBodyEnd = (source, openIndex) => {

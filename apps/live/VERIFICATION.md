@@ -45,3 +45,24 @@ Testy integracyjne potwierdzają cofanie przez wiele zakończonych pytań po jed
 - Chrome: rzeczywiste wejście do Fullscreen API ukrywa nagłówek i przyciski dla PDF oraz pytania, PDF zajmuje wysokość okna, QR ma 300 px. Page Down/Page Up nadal działają, wyjście przywraca sterowanie. Podgląd prezentera nadal odpowiada projektorowi.
 - Chrome: zakończenie → Udostępnij → lista publiczna → pobranie → wycofanie → ponowne udostępnienie → usunięcie sesji. Pobrany plik zawiera cztery strony (PDF 1, pytanie 1, PDF 2, pytanie 2), tytuł sesji i oryginalne wymiary stron źródłowych. Wyrenderowano i obejrzano strony pytań z tego pliku: procenty ostatniej rundy, polskie znaki, bez surowych liczników. Biblioteka na telefonie 390 px nie wychodzi poza ekran.
 - Next.js: pełny build (wraz z ESLint i TypeScript) oraz 7 testów Vitest przechodzą. Chrome potwierdził desktop/mobile, jeden profil YouTube, LinkedIn w kontakcie i wspólną stopkę. Sprawdzono HTTP 308 na `/blog`, starym wpisie, zagnieżdżonej ścieżce z query oraz dawnych adresach `/en/blog` i `/pl/blog/...`. Sitemap nie zawiera bloga.
+
+## 2026-11-10 — EN/PL, wspólna nawigacja i szczyt obecności
+
+- Zapisano stan sprzed zmian w lokalnym commicie `8ad18ac`.
+- Build Live i pełny build Next.js przechodzą. Next.js testowano w `.next-qa`, ponieważ uruchomiony równolegle serwer deweloperski nadpisywał manifesty w `.next`. Nie zatrzymano serwera użytkownika. Ostrzeżenia Fast Refresh dotyczą współdzielonych plików komponentów i hooków, nie błędów buildu.
+- 10 testów Vitest przechodzi, w tym domyślny EN, zapis PL, jawny język linku między aplikacjami i komunikaty z parametrami.
+- Chrome potwierdza EN domyślnie, selektor EN/PL w stopce, polskie copy, zachowanie preferencji przy odświeżeniu i przejściu na certyfikaty/404, link Stage i YouTube w nagłówku oraz panel w stopce. Brak logo kodu, odwołań do Kim Scott, półpauzy em dash w copy i dodatkowego hovera/dividerów w karcie YouTube. Obejrzano polską wersję mobilną bez poziomego przepełnienia.
+- Test Chrome Live obejmuje Stage/Studio/Live, zmianę języka uczestnika podczas otwartego pytania bez modyfikacji jego treści, głosowanie, sterowanie projektorem, pełny ekran, archiwum, udostępnienie i usuwanie. Szczyt pozostaje równy 1 po odłączeniu jedynego uczestnika i po odświeżeniu zakończonej sesji. Pole nie jest renderowane u uczestnika.
+- Test integracyjny 200 uczestników przechodzi. Szczyt 200 jest utrwalony po zakończeniu i w prywatnej liście sesji, nie występuje w odpowiedzi uczestnika. Endpointy stron panelu i projektora również odrzucają dostęp przy braku konfiguracji Access; ustawienie `run_worker_first` obejmuje `/presenter` i `/presenter/*`.
+- Nie wykonywano publikacji, zmian DNS ani testu na fizycznym telefonie w innej sieci. Mechanizm synchronizacji przez wspólny Durable Object nie zależy od wspólnego LAN; logowanie rzeczywistym Access nadal wymaga konfiguracji środowiska wdrożenia.
+
+## 2026-11-10: polski domyślnie i obsługa klawiatury
+
+- Domyślny język zmieniono na PL; zapisany wybór EN i jawny parametr języka nadal mają pierwszeństwo. Przechodzą 10 testów jednostkowych oraz buildy Next.js i Live.
+- Chrome potwierdził otwieranie selektora przez Enter i spację, wybór strzałkami, zatwierdzanie, Escape, Tab i zachowanie preferencji po odświeżeniu. Fokus linków animuje podkreślenie, a selektora obramowanie.
+- Pełny test przeglądarkowy Live przechodzi, w tym nawigacja strzałkami i Page Up/Page Down w Studio, brak przełączania slajdu podczas obsługi selektora oraz docelowe linki nagłówków Studio i Live. Nie testowano fizycznego klikacza.
+- Ujednolicono animację obramowania przycisków, pól i selektora. Build Live, ESLint zmienionych plików i pełny test Chrome przechodzą. Dodatkowy pomiar w Chrome potwierdza hover/fokus bez zmiany tła przycisku i odstęp między akcjami pytania na szerokościach 1440 i 390 px; obejrzano układ mobilny.
+
+## 2026-11-11: wejście prezentera bez linku w stopce
+
+Usunięto odnośnik do panelu ze wspólnej stopki obu aplikacji i jej konfiguracji. Dotychczasowa ścieżka `/presenter` oraz kontrola Access pozostają aktywne; nowa ścieżka nie została jeszcze wybrana. Przechodzą 10 testów jednostkowych Next.js, ESLint zmienionych komponentów i build Live. Nie wykonywano wdrożenia ani zmian DNS.

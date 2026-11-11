@@ -2,8 +2,11 @@ import type { Metadata } from 'next';
 import GA from '@/app/ga';
 import { AppConfig } from '@/utils/AppConfig';
 import localFont from 'next/font/local';
+import { LocaleProvider } from '../../packages/ui/Locale';
 import '@/styles/global.css';
 import '../../packages/ui/footer.css';
+import '../../packages/ui/interaction.css';
+import '../../packages/ui/header.css';
 
 const inter = localFont({
   src: '../../public/assets/fonts/inter-latin-ext.woff2',
@@ -89,7 +92,7 @@ export default function RootLayout({
     <html lang={AppConfig.language} className={inter.variable}>
       <body suppressHydrationWarning>
         <GA />
-        {children}
+        <LocaleProvider>{children}</LocaleProvider>
       </body>
     </html>
   );

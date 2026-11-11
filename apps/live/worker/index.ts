@@ -1,3 +1,4 @@
+import { translate } from "../../../packages/ui/translations";
 import {
   HttpError,
   boundedText,
@@ -28,7 +29,11 @@ async function route(request: Request, env: Env): Promise<Response> {
   const url = new URL(request.url);
   const path = url.pathname;
   const method = request.method;
-  if (!path.startsWith("/api/")) return env.ASSETS.fetch(request);
+  if (!path.startsWith("/api/")) {
+    if (path === "/presenter" || path.startsWith("/presenter/"))
+      await presenter(request, env);
+    return env.ASSETS.fetch(request);
+  }
   if ((method !== "GET" && method !== "HEAD") || request.headers.get("Upgrade"))
     sameOrigin(request, env);
   if (path === "/api/health" && method === "GET")
@@ -248,6 +253,9 @@ async function route(request: Request, env: Env): Promise<Response> {
         ]);
       }
     }
+    const locale = url.searchParams.get("lang") === "pl" ? "pl" : "en";
+    rows[0] = rows[0].map((label) => translate(locale, String(label)));
+    for (const row of rows.slice(1)) row[8] = translate(locale, String(row[8]));
     return new Response(
       "\uFEFF" + rows.map((r) => r.map(csvCell).join(",")).join("\r\n"),
       {

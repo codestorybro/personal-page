@@ -17,3 +17,12 @@ npm run dev
 The main Next.js site lives in `src/`. CodeStoryBro Live is a separate React/Vite + Cloudflare app in `apps/live/`; see its README for local startup and presenter controls. Both apps use the shared `packages/ui/Footer.tsx` and `packages/ui/footer.css`.
 
 The blog is retired. `/blog` and its descendants, including former `/en/blog` and `/pl/blog` URLs, permanently redirect to `/`. The sitemap lists the home page only. YouTube is the primary content channel; LinkedIn is available in Get in touch.
+
+The shared header and footer include an EN/PL language selector (Polish by default). `NEXT_PUBLIC_STAGE_URL` configures the Stage link; Live uses `VITE_HOME_URL` for its Home link. Language travels with cross-app links and is remembered locally.
+
+For a production preview alongside an already running Next.js development server, use an isolated build directory to avoid mixing dev and production manifests:
+
+```bash
+CODESTORYBRO_DIST_DIR=.next-qa yarn build
+CODESTORYBRO_DIST_DIR=.next-qa yarn start --port 3008
+```

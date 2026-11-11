@@ -10,6 +10,9 @@ import {
 import { createRoot } from "react-dom/client";
 import QRCode from "qrcode";
 import { Footer } from "../../../packages/ui/Footer";
+import { Header, useAppLinks } from "../../../packages/ui/Header";
+import { LocaleProvider, useLocale } from "../../../packages/ui/Locale";
+import "../../../packages/ui/header.css";
 import "../../../packages/ui/footer.css";
 import type {
   Command,
@@ -26,47 +29,44 @@ const LazyPdf = lazy(() =>
   import("./Pdf").then((module) => ({ default: module.Pdf })),
 );
 function Pdf(props: { url: string; page: number }) {
+  const { t } = useLocale();
   return (
-    <Suspense fallback={<p>Wczytywanie odtwarzacza PDF…</p>}>
+    <Suspense fallback={<p>{t("Wczytywanie odtwarzacza PDF…")}</p>}>
       <LazyPdf {...props} />
     </Suspense>
   );
 }
 import "./style.css";
+import "../../../packages/ui/interaction.css";
 
 function Shell({
   children,
-  badge = "LIVE",
+  badge = "Live",
 }: {
   children: ReactNode;
-  badge?: string;
+  badge?: "Stage" | "Studio" | "Live";
 }) {
+  const { home } = useAppLinks(undefined, import.meta.env.VITE_HOME_URL);
   return (
     <>
-      <header className="topbar">
-        <a className="brand" href="/">
-          CodeStoryBro<span className="live-tag">{badge}</span>
-        </a>
-      </header>
+      <Header
+        variant={badge}
+        brandUrl={home}
+        stageUrl="/"
+        className="topbar"
+      />
       <main>{children}</main>
       <Footer />
     </>
   );
 }
 function Notice({ children }: { children: ReactNode }) {
+  const { t } = useLocale();
   return children ? (
     <p className="notice" role="alert">
-      {children}
+      {typeof children === "string" ? t(children) : children}
     </p>
   ) : null;
-}
-function Status({ connected }: { connected: boolean }) {
-  return (
-    <span className={`connection ${connected ? "online" : ""}`} role="status">
-      <i />
-      {connected ? "Połączono na żywo" : "Łączenie…"}
-    </span>
-  );
 }
 function Results({
   result,
@@ -79,6 +79,7 @@ function Results({
   b: string;
   showCounts?: boolean;
 }) {
+  const { t } = useLocale();
   const publicResult = "total" in result ? percentages(result) : result;
   const counts = showCounts && "total" in result ? result : null;
   return (
@@ -104,13 +105,14 @@ function Results({
       })}
       {counts && (
         <p className="muted">
-          {counts.total} {counts.total === 1 ? "głos" : "głosów"}
+          {counts.total} {counts.total === 1 ? t("głos") : t("głosów")}
         </p>
       )}
     </div>
   );
 }
 function QR({ id, compact = false }: { id: string; compact?: boolean }) {
+  const { t } = useLocale();
   const [data, setData] = useState("");
   const [copied, setCopied] = useState(false);
   const url = `${location.origin}/s/${id}`;
@@ -127,35 +129,36 @@ function QR({ id, compact = false }: { id: string; compact?: boolean }) {
         {data && (
           <img
             src={data}
-            alt="Kod QR dołączenia do tej sesji"
+            alt={t("Kod QR dołączenia do tej sesji")}
             width="180"
             height="180"
           />
         )}
       </div>
       <div>
-        <p className="eyebrow">Zeskanuj i dołącz</p>
-        <h3>Jeden kod na całą sesję.</h3>
-        <p className="muted">Bez konta. Głosujesz na swoim telefonie.</p>
+        <p className="eyebrow">{t("Zeskanuj i dołącz")}</p>
+        <h3>{t("Jeden kod na całą sesję.")}</h3>
+        <p className="muted">{t("Bez konta. Głosujesz na swoim telefonie.")}</p>
         <button
           className="secondary small"
           onClick={() =>
             void navigator.clipboard
               .writeText(url)
               .then(() => setCopied(true))
-              .catch(() => window.prompt("Skopiuj adres sesji:", url))
+              .catch(() => window.prompt(t("Skopiuj adres sesji:"), url))
           }
         >
-          {copied ? "Skopiowano link" : "Kopiuj link"}
+          {copied ? t("Skopiowano link") : t("Kopiuj link")}
         </button>
         <a className="tiny-link" href={url} target="_blank" rel="noreferrer">
-          Otwórz widok uczestnika ↗
+          {t("Otwórz widok uczestnika ↗")}{" "}
         </a>
       </div>
     </section>
   );
 }
 function Home() {
+  const { t } = useLocale();
   const [presentations, setPresentations] = useState<PublishedPresentation[]>(
     [],
   );
@@ -168,23 +171,22 @@ function Home() {
       .finally(() => setLoading(false));
   }, []);
   return (
-    <Shell>
+    <Shell badge="Stage">
       <section className="home-hero">
-        <p className="eyebrow">Ludzie · Technologia · Leadership</p>
+        <p className="eyebrow">{t("Ludzie · Technologia · Leadership")}</p>
         <h1>
-          Lepsze rozmowy.
-          <br />
-          <em>Silniejsze zespoły.</em>
+          {t("Lepsze rozmowy.")} <br />
+          <em>{t("Silniejsze zespoły.")}</em>
         </h1>
         <p className="lead">
-          Dobry kod potrzebuje dobrego zespołu. A zespół — zaufania, szczerej
-          informacji zwrotnej i odwagi do trudnych rozmów.
+          {t(
+            "Dobry kod potrzebuje dobrego zespołu. Zespół potrzebuje zaufania, szczerej informacji zwrotnej i odwagi do trudnych rozmów.",
+          )}{" "}
         </p>
         <p className="home-intro">
-          Jestem Marcin Kołodziej. Mówię o ludzkiej stronie prowadzenia zespołów
-          inżynierskich — równie ważnej jak decyzje techniczne. Bliskie jest mi
-          podejście Kim Scott: troska o drugą osobę i mówienie wprost mogą iść w
-          parze.
+          {t(
+            "Jestem Marcin Kołodziej. Mówię o ludzkiej stronie prowadzenia zespołów inżynierskich, równie ważnej jak decyzje techniczne. Troska o ludzi i szczera rozmowa pomagają budować lepsze zespoły.",
+          )}{" "}
         </p>
         <a
           className="button secondary"
@@ -192,29 +194,35 @@ function Home() {
           target="_blank"
           rel="noreferrer"
         >
-          Rozmowy na YouTube ↗
+          {t("Rozmowy na YouTube ↗")}{" "}
         </a>
       </section>
       <section className="public-library" aria-labelledby="library-heading">
-        <p className="eyebrow">Materiały z wystąpień</p>
-        <h2 id="library-heading">Zabierz tę rozmowę do swojego zespołu.</h2>
+        <p className="eyebrow">{t("Materiały z wystąpień")}</p>
+        <h2 id="library-heading">
+          {t("Zabierz tę rozmowę do swojego zespołu.")}
+        </h2>
         <p className="muted">
-          Prezentacje do pobrania — ze slajdami, pytaniami do przemyślenia i
-          wynikami wspólnego głosowania.
+          {t(
+            "Prezentacje do pobrania: ze slajdami, pytaniami do przemyślenia i wynikami wspólnego głosowania.",
+          )}{" "}
         </p>
         <Notice>{error}</Notice>
         {loading ? (
-          <p role="status">Wczytuję prezentacje…</p>
+          <p role="status">{t("Wczytuję prezentacje…")}</p>
         ) : !error && !presentations.length ? (
           <p className="library-empty">
-            Pierwsze materiały pojawią się tutaj po wystąpieniu. Wróć po
-            prezentację i pytania, do których warto wrócić z zespołem.
+            {t(
+              "Pierwsze materiały pojawią się tutaj po wystąpieniu. Wróć po prezentację i pytania, do których warto wrócić z zespołem.",
+            )}{" "}
           </p>
         ) : (
           presentations.map((item) => (
             <article key={item.id} className="public-presentation">
               <div>
-                <p className="eyebrow">PDF · {item.pages} stron</p>
+                <p className="eyebrow">
+                  PDF · {item.pages} {t("stron")}
+                </p>
                 <h3>{item.title}</h3>
               </div>
               <a
@@ -222,41 +230,41 @@ function Home() {
                 href={`/api/presentations/${item.id}/pdf`}
                 download
               >
-                Pobierz PDF ↓<span className="sr-only"> — {item.title}</span>
+                {t("Pobierz PDF ↓")}
+                <span className="sr-only">: {item.title}</span>
               </a>
             </article>
           ))
         )}
       </section>
-      <div className="studio-entry">
-        <a href="/presenter">Panel prezentera ↗</a>
-      </div>
     </Shell>
   );
 }
 
 function Participant({ id }: { id: string }) {
+  const { t } = useLocale();
   const { state, connected, error, pending, vote } = useLive(id, "participant");
   return (
     <Shell>
       <div className="participant">
-        <Status connected={connected} />
         <Notice>{error}</Notice>
         {!state ? (
           <section className="waiting">
             <span className="orb">↗</span>
-            <h1>Dołączanie do sesji</h1>
-            <p className="muted">Za chwilę zobaczysz pytanie prezentera.</p>
+            <h1>{t("Dołączanie do sesji")}</h1>
+            <p className="muted">
+              {t("Za chwilę zobaczysz pytanie prezentera.")}
+            </p>
           </section>
         ) : (
           <>
             <p className="eyebrow session-label">{state.title}</p>
             {state.active ? (
               <section>
-                <p className="eyebrow">Głosowanie otwarte</p>
+                <p className="eyebrow">{t("Głosowanie otwarte")}</p>
                 <h1 className="question-title">{state.active.text}</h1>
                 <p className="muted">
-                  Możesz zmienić zdanie do zamknięcia pytania.
+                  {t("Możesz zmienić zdanie do zamknięcia pytania.")}{" "}
                 </p>
                 <div className="choices">
                   {(["A", "B"] as const).map((choice) => (
@@ -279,10 +287,10 @@ function Participant({ id }: { id: string }) {
                 </div>
                 <p className="vote-status" role="status">
                   {pending
-                    ? `Zapisuję odpowiedź ${pending}…`
+                    ? t(`Zapisuję odpowiedź ${pending}…`)
                     : state.vote
-                      ? `✓ Przyjęto odpowiedź ${state.vote.choice}`
-                      : "Wybierz odpowiedź powyżej."}
+                      ? t(`✓ Przyjęto odpowiedź ${state.vote.choice}`)
+                      : t("Wybierz odpowiedź powyżej.")}
                 </p>
               </section>
             ) : (
@@ -292,19 +300,21 @@ function Participant({ id }: { id: string }) {
                 </span>
                 <h1>
                   {state.status === "ended"
-                    ? "Dzięki za udział."
+                    ? t("Dzięki za udział.")
                     : state.lastClosed
-                      ? "Głosowanie zamknięte."
-                      : "Jesteś na miejscu."}
+                      ? t("Głosowanie zamknięte.")
+                      : t("Jesteś na miejscu.")}
                 </h1>
                 <p className="muted">
                   {state.status === "ended"
-                    ? "Sesja została zakończona."
-                    : "Pozostań na tej stronie. Kolejne pytanie pojawi się automatycznie."}
+                    ? t("Sesja została zakończona.")
+                    : t(
+                        "Pozostań na tej stronie. Kolejne pytanie pojawi się automatycznie.",
+                      )}
                 </p>
                 {state.lastClosed && (
                   <div className="closed-results">
-                    <p className="eyebrow">Wynik ostatniego pytania</p>
+                    <p className="eyebrow">{t("Wynik ostatniego pytania")}</p>
                     <h2>{state.lastClosed.text}</h2>
                     <Results
                       result={state.lastClosed.result}
@@ -322,6 +332,7 @@ function Participant({ id }: { id: string }) {
   );
 }
 function Dashboard() {
+  const { t, locale } = useLocale();
   const [deleting, setDeleting] = useState<string | null>(null);
   const [sessions, setSessions] = useState<Summary[]>([]);
   const [error, setError] = useState("");
@@ -344,7 +355,9 @@ function Dashboard() {
   async function removeSession(session: Summary) {
     if (
       !window.confirm(
-        `Usunąć sesję „${session.title}” razem z PDF-em, pytaniami i wszystkimi wynikami? Tej operacji nie można cofnąć.`,
+        t(
+          `Usunąć sesję „${session.title}” razem z PDF-em, pytaniami i wszystkimi wynikami? Tej operacji nie można cofnąć.`,
+        ),
       )
     )
       return;
@@ -375,52 +388,54 @@ function Dashboard() {
     }
   }
   return (
-    <Shell badge="STUDIO">
+    <Shell badge="Studio">
       <div className="page-heading">
         <div>
-          <p className="eyebrow">Panel prezentera</p>
+          <p className="eyebrow">{t("Panel prezentera")}</p>
           <h1>
-            Twoja następna
-            <br />
-            <em>dobra rozmowa.</em>
+            {t("Twoja następna")} <br />
+            <em>{t("dobra rozmowa.")}</em>
           </h1>
         </div>
-        <span className="private-badge">↗ Prywatne archiwum</span>
+        <span className="private-badge">{t("↗ Prywatne archiwum")}</span>
       </div>
       {local && (
         <p className="local-banner">
-          Tryb lokalny · dostęp prezentera bez logowania tylko na tym
-          komputerze.
+          {t(
+            "Tryb lokalny · dostęp prezentera bez logowania tylko na tym komputerze.",
+          )}{" "}
         </p>
       )}
       <Notice>{error}</Notice>
       <form className="create-form" onSubmit={create}>
-        <label htmlFor="session-title">Nowa sesja</label>
+        <label htmlFor="session-title">{t("Nowa sesja")}</label>
         <div>
           <input
             id="session-title"
-            placeholder="Np. Architektura to sztuka wyboru"
+            placeholder={t("Np. Architektura to sztuka wyboru")}
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             maxLength={160}
             required
           />
           <button disabled={busy || loading || !title.trim()}>
-            {busy ? "Tworzę…" : "Utwórz sesję +"}{" "}
+            {busy ? t("Tworzę…") : t("Utwórz sesję +")}{" "}
           </button>
         </div>
       </form>
       <section>
         <div className="section-heading">
-          <h2>Sesje i archiwum</h2>
-          <span className="muted">{sessions.length} / 100 sesji</span>
+          <h2>{t("Sesje i archiwum")}</h2>
+          <span className="muted">
+            {sessions.length} {t("/ 100 sesji")}
+          </span>
         </div>
         {loading ? (
-          <p>Wczytywanie…</p>
+          <p>{t("Wczytywanie…")}</p>
         ) : !sessions.length ? (
           <div className="empty">
-            <h3>Tu zaczyna się pierwsze wystąpienie.</h3>
-            <p>Utwórz sesję, dodaj PDF i przygotuj pytania A/B.</p>
+            <h3>{t("Tu zaczyna się pierwsze wystąpienie.")}</h3>
+            <p>{t("Utwórz sesję, dodaj PDF i przygotuj pytania A/B.")}</p>
           </div>
         ) : (
           <div className="session-list">
@@ -429,17 +444,21 @@ function Dashboard() {
                 <a href={`/presenter/${s.id}`} className="session-link">
                   <div>
                     <span className={`pill ${s.status}`}>
-                      {statusLabel(s.status)}
+                      {t(statusLabel(s.status))}
                     </span>
                     <h3>{s.title}</h3>
                     <p>
                       {s.createdAt
-                        ? `${new Date(s.createdAt).toLocaleDateString("pl-PL")} · `
+                        ? `${new Date(s.createdAt).toLocaleDateString(locale === "pl" ? "pl-PL" : "en-GB")} · `
                         : ""}
-                      {s.questions} pytań ·{" "}
+                      {s.questions} {t("pytań ·")}{" "}
                       {s.status === "ended"
-                        ? `${s.totalParticipants} uczestników łącznie`
+                        ? t(`${s.totalParticipants} uczestników łącznie`)
                         : `${s.participants} online`}
+                    </p>
+                    <p className="peak-summary">
+                      {t("Szczyt uczestników podczas głosowania")}:{" "}
+                      {s.peakParticipants ?? t("Brak historycznego pomiaru")}
                     </p>
                   </div>
                   <span className="arrow">↗</span>
@@ -449,16 +468,16 @@ function Dashboard() {
                   disabled={s.status === "live" || deleting !== null}
                   title={
                     s.status === "live"
-                      ? "Zakończ sesję przed usunięciem"
-                      : "Usuń sesję wraz z PDF-em i wynikami"
+                      ? t("Zakończ sesję przed usunięciem")
+                      : t("Usuń sesję wraz z PDF-em i wynikami")
                   }
                   onClick={() => void removeSession(s)}
                 >
                   {deleting === s.id
-                    ? "Usuwanie…"
+                    ? t("Usuwanie…")
                     : s.deleting
-                      ? "Dokończ usuwanie"
-                      : "Usuń sesję"}
+                      ? t("Dokończ usuwanie")
+                      : t("Usuń sesję")}
                 </button>
               </div>
             ))}
@@ -479,6 +498,7 @@ function Editor({
   refresh: () => Promise<void>;
   onError: (message: string) => void;
 }) {
+  const { t } = useLocale();
   const [title, setTitle] = useState(state.title);
   const [questions, setQuestions] = useState<Question[]>(state.questions ?? []);
   const [busy, setBusy] = useState(false);
@@ -539,17 +559,19 @@ function Editor({
   return (
     <div className="setup">
       <section className="panel">
-        <p className="eyebrow">01 / Prezentacja</p>
-        <h2>Dodaj slajdy w PDF.</h2>
+        <p className="eyebrow">{t("01 / Prezentacja")}</p>
+        <h2>{t("Dodaj slajdy w PDF.")}</h2>
         <p className="muted">
-          Plik jest prywatny. Uczestnicy widzą tylko pytania i wyniki.
+          {t("Plik jest prywatny. Uczestnicy widzą tylko pytania i wyniki.")}{" "}
         </p>
         {state.pdfName ? (
           <div className="file-card">
             <span>PDF</span>
             <div>
               <strong>{state.pdfName}</strong>
-              <p>{state.pageCount} slajdów</p>
+              <p>
+                {state.pageCount} {t("slajdów")}
+              </p>
             </div>
             <button
               className="secondary small"
@@ -566,32 +588,33 @@ function Editor({
                 }
               }}
             >
-              Usuń
+              {t("Usuń")}{" "}
             </button>
           </div>
         ) : (
           <label className="upload">
-            {busy ? "Przetwarzanie…" : "↑ Wybierz PDF"}
+            {busy ? t("Przetwarzanie…") : t("↑ Wybierz PDF")}
             <input
-              aria-label="Dodaj PDF"
+              aria-label={t("Dodaj PDF")}
               type="file"
               accept="application/pdf,.pdf"
               disabled={busy}
               onChange={(e) => void upload(e.target.files?.[0])}
             />
-            <small>Do 50 MB · maksymalnie 2000 slajdów</small>
+            <small>{t("Do 50 MB · maksymalnie 2000 slajdów")}</small>
           </label>
         )}
       </section>
       <form className="panel" onSubmit={save}>
-        <p className="eyebrow">02 / Pytania</p>
-        <h2>Zaplanuj moment wyboru.</h2>
+        <p className="eyebrow">{t("02 / Pytania")}</p>
+        <h2>{t("Zaplanuj moment wyboru.")}</h2>
         <p className="muted">
-          Pytanie pojawi się automatycznie, gdy przejdziesz dalej po wybranym
-          slajdzie.
+          {t(
+            "Pytanie pojawi się automatycznie, gdy przejdziesz dalej po wybranym slajdzie.",
+          )}{" "}
         </p>
         <label className="field">
-          Tytuł sesji
+          {t("Tytuł sesji")}{" "}
           <input
             value={title}
             onChange={(e) => {
@@ -604,10 +627,12 @@ function Editor({
         </label>
         {questions.map((q, index) => (
           <fieldset className="question-editor" key={q.id}>
-            <legend>Pytanie {index + 1}</legend>
+            <legend>
+              {t("Pytanie")} {index + 1}
+            </legend>
             <div className="question-meta">
               <label className="field">
-                Po slajdzie
+                {t("Po slajdzie")}{" "}
                 <input
                   type="number"
                   min="1"
@@ -627,11 +652,11 @@ function Editor({
                   setSaved(false);
                 }}
               >
-                Usuń pytanie
+                {t("Usuń pytanie")}{" "}
               </button>
             </div>
             <label className="field">
-              Treść pytania
+              {t("Treść pytania")}{" "}
               <textarea
                 rows={2}
                 value={q.text}
@@ -675,15 +700,20 @@ function Editor({
               setSaved(false);
             }}
           >
-            + Dodaj pytanie
+            {t("+ Dodaj pytanie")}{" "}
           </button>
           <button disabled={busy}>
-            {busy ? "Zapisuję…" : saved ? "✓ Zapisano" : "Zapisz pytania"}
+            {busy
+              ? t("Zapisuję…")
+              : saved
+                ? t("✓ Zapisano")
+                : t("Zapisz pytania")}
           </button>
         </div>
         <p className="muted small-text">
-          Przed rozpoczęciem zapisz zmiany. Sesja korzysta wyłącznie z
-          zapisanych pytań.
+          {t(
+            "Przed rozpoczęciem zapisz zmiany. Sesja korzysta wyłącznie z zapisanych pytań.",
+          )}{" "}
         </p>
       </form>
     </div>
@@ -698,6 +728,7 @@ function Publication({
   base: string;
   onUpdate: (next: Snapshot) => void;
 }) {
+  const { t, locale } = useLocale();
   const [busy, setBusy] = useState(false);
   const [progress, setProgress] = useState("");
   const [error, setError] = useState("");
@@ -706,7 +737,7 @@ function Publication({
     setError("");
     try {
       const { createPublication } = await import("./publication");
-      const pdf = await createPublication(state, base, setProgress);
+      const pdf = await createPublication(state, base, setProgress, locale);
       setProgress("Udostępniam prezentację…");
       onUpdate(
         await api<Snapshot>(`${base}/publication`, {
@@ -738,18 +769,18 @@ function Publication({
   return (
     <section
       className="publication-panel panel"
-      aria-label="Udostępnianie prezentacji"
+      aria-label={t("Udostępnianie prezentacji")}
     >
       <p className="eyebrow">
         {state.publishedAt
-          ? "Udostępniona publicznie"
-          : "Tylko w Twoim archiwum"}
+          ? t("Udostępniona publicznie")
+          : t("Tylko w Twoim archiwum")}
       </p>
-      <h3>Prezentacja do pobrania</h3>
+      <h3>{t("Prezentacja do pobrania")}</h3>
       <p className="muted">
-        Udostępnij na stronie głównej Live PDF ze slajdami i pytaniami. Wyniki
-        pokażą procenty z ostatniej rundy, bez liczby głosów i danych
-        uczestników.
+        {t(
+          "Udostępnij na stronie głównej Live PDF ze slajdami i pytaniami. Wyniki pokażą procenty z ostatniej rundy, bez liczby głosów i danych uczestników.",
+        )}{" "}
       </p>
       <Notice>{error}</Notice>
       {state.publishedAt ? (
@@ -759,24 +790,24 @@ function Publication({
             href={`/api/presentations/${state.id}/pdf`}
             download
           >
-            Pobierz udostępniony PDF ↓
+            {t("Pobierz udostępniony PDF ↓")}{" "}
           </a>
           <button
             className="secondary"
             disabled={busy}
             onClick={() => void withdraw()}
           >
-            Wycofaj udostępnienie
+            {t("Wycofaj udostępnienie")}{" "}
           </button>
         </div>
       ) : (
         <button disabled={busy || !state.pdfName} onClick={() => void share()}>
-          {busy ? "Przygotowuję…" : "Udostępnij"}
+          {busy ? t("Przygotowuję…") : t("Udostępnij")}
         </button>
       )}
       {progress && (
         <p role="status" className="muted">
-          {progress}
+          {t(progress)}
         </p>
       )}
     </section>
@@ -789,6 +820,7 @@ function Presenter({
   id: string;
   projector?: boolean;
 }) {
+  const { t, locale } = useLocale();
   const live = useLive(id, "presenter");
   const { state, connected } = live;
   const [error, setError] = useState("");
@@ -825,17 +857,23 @@ function Presenter({
     });
   }
   useEffect(() => {
-    if (!projector) return;
     const key = (event: KeyboardEvent) => {
       if (
+        event.defaultPrevented ||
         event.altKey ||
         event.ctrlKey ||
         event.metaKey ||
         event.isComposing ||
         (event.target instanceof Element &&
           event.target.closest(
-            "input, textarea, select, [contenteditable='true']",
+            "input, textarea, select, [role='combobox'], [role='listbox'], [contenteditable='true']",
           ))
+      )
+        return;
+      if (
+        event.key === " " &&
+        event.target instanceof Element &&
+        event.target.closest("button, a, summary")
       )
         return;
       const next = [
@@ -854,7 +892,7 @@ function Presenter({
         "p",
         "P",
       ].includes(event.key);
-      const fullscreen = ["f", "F", "F5"].includes(event.key);
+      const fullscreen = projector && ["f", "F", "F5"].includes(event.key);
       if (!next && !previous && !fullscreen) return;
       event.preventDefault();
       if (event.repeat) return;
@@ -869,7 +907,7 @@ function Presenter({
     return (
       <Shell>
         <Notice>{live.error}</Notice>
-        <p>Wczytywanie sesji…</p>
+        <p>{t("Wczytywanie sesji…")}</p>
       </Shell>
     );
   const steps = presentationSteps(state.pageCount, state.questions ?? []);
@@ -891,7 +929,7 @@ function Presenter({
   const questionPreview = projectedQuestion ? (
     <section className="projector-question">
       {state.active?.id !== projectedQuestion.id && (
-        <p className="eyebrow">Tak zagłosowała sala</p>
+        <p className="eyebrow">{t("Tak zagłosowała sala")}</p>
       )}
       <h1>{projectedQuestion.text}</h1>
       {projectedResult && (
@@ -908,24 +946,25 @@ function Presenter({
       <div
         className={`projector ${state.status === "live" && !projectedQuestion ? "showing-slide" : ""}`}
       >
-        <div className="projector-bar">
-          <a className="brand" href={`/presenter/${id}`}>
-            CodeStoryBro<span className="live-tag">LIVE</span>
-          </a>
-          <Status connected={connected} />
+        <Header
+          variant="Live"
+          brandUrl="/"
+          stageUrl="/"
+          className="projector-bar"
+        >
           <button
             className="secondary small"
             onClick={() =>
               void document.documentElement.requestFullscreen().catch(() => {})
             }
           >
-            Pełny ekran
+            {t("Pełny ekran")}
           </button>
-        </div>
+        </Header>
         <Notice>{error || live.error}</Notice>
         {state.status === "draft" ? (
           <section className="projector-join">
-            <p className="eyebrow">Za chwilę zaczynamy</p>
+            <p className="eyebrow">{t("Za chwilę zaczynamy")}</p>
             <h1>{state.title}</h1>
             <QR id={id} />
           </section>
@@ -938,19 +977,19 @@ function Presenter({
             <h1>{state.title}</h1>
             <p>
               {state.status === "ended"
-                ? "Dziękuję za udział."
-                : "Za chwilę zaczynamy."}
+                ? t("Dziękuję za udział.")
+                : t("Za chwilę zaczynamy.")}
             </p>
           </div>
         )}
         <div className="projector-bottom">
           {projectedQuestion && <QR id={id} compact />}
           {state.status === "live" && (
-            <nav className="actions" aria-label="Sterowanie prezentacją">
+            <nav className="actions" aria-label={t("Sterowanie prezentacją")}>
               <button
                 className="secondary"
-                aria-label="Poprzedni slajd"
-                title="Poprzedni slajd (← / Page Up)"
+                aria-label={t("Poprzedni slajd")}
+                title={t("Poprzedni slajd (← / Page Up)")}
                 disabled={busy || !connected || !canPrevious}
                 onClick={() => navigate(-1)}
               >
@@ -958,8 +997,8 @@ function Presenter({
               </button>
               <button
                 className="secondary"
-                aria-label="Następny slajd"
-                title="Następny slajd (→ / Page Down / spacja)"
+                aria-label={t("Następny slajd")}
+                title={t("Następny slajd (→ / Page Down / spacja)")}
                 disabled={busy || !connected || !canNext}
                 onClick={() => navigate(1)}
               >
@@ -971,25 +1010,33 @@ function Presenter({
       </div>
     );
   return (
-    <Shell badge="STUDIO">
+    <Shell badge="Studio">
       <a className="back" href="/presenter">
-        ← Sesje i archiwum
+        {t("← Sesje i archiwum")}{" "}
       </a>
       <div className="session-heading">
         <div>
           <span className={`pill ${state.status}`}>
-            {statusLabel(state.status)}
+            {t(statusLabel(state.status))}
           </span>
           <h1>{state.title}</h1>
-          <Status connected={connected} />
         </div>
         <div className="session-count">
           <strong>
             {state.participants}
             <small>/200</small>
           </strong>
-          <span>uczestników online</span>
+          <span>{t("uczestników online")}</span>
         </div>
+      </div>
+      <div
+        className="peak-stat"
+        aria-label={t("Szczyt uczestników podczas głosowania")}
+      >
+        <span>{t("Szczyt uczestników podczas głosowania")}</span>
+        <strong>
+          {state.peakParticipants ?? t("Brak historycznego pomiaru")}
+        </strong>
       </div>
       <Notice>{error || live.error}</Notice>
       <div className="session-actions">
@@ -999,23 +1046,23 @@ function Presenter({
           target="_blank"
           rel="noreferrer"
         >
-          Otwórz ekran projektora ↗
+          {t("Otwórz ekran projektora ↗")}{" "}
         </a>
-        <a className="button secondary" href={`${base}/export`}>
-          Eksport CSV ↓
+        <a className="button secondary" href={`${base}/export?lang=${locale}`}>
+          {t("Eksport CSV ↓")}{" "}
         </a>
         {state.status === "draft" && (
           <button
             disabled={busy || !connected || !state.pdfName}
             onClick={() => void command({ type: "start" })}
           >
-            Rozpocznij sesję →
+            {t("Rozpocznij sesję →")}{" "}
           </button>
         )}
         {state.status === "live" &&
           (confirmEnd ? (
             <>
-              <span>Zakończyć sesję i zamknąć głosowanie?</span>
+              <span>{t("Zakończyć sesję i zamknąć głosowanie?")}</span>
               <button
                 className="danger"
                 disabled={busy}
@@ -1024,18 +1071,18 @@ function Presenter({
                   void command({ type: "end" });
                 }}
               >
-                Tak, zakończ
+                {t("Tak, zakończ")}{" "}
               </button>
               <button
                 className="secondary"
                 onClick={() => setConfirmEnd(false)}
               >
-                Anuluj
+                {t("Anuluj")}{" "}
               </button>
             </>
           ) : (
             <button className="secondary" onClick={() => setConfirmEnd(true)}>
-              Zakończ sesję
+              {t("Zakończ sesję")}{" "}
             </button>
           ))}
       </div>
@@ -1048,10 +1095,10 @@ function Presenter({
         <div className="live-grid">
           <section>
             <div className="slide-toolbar">
-              <h2>Prezentacja</h2>
+              <h2>{t("Prezentacja")}</h2>
               <div className="actions">
                 <button
-                  aria-label="Poprzedni slajd"
+                  aria-label={t("Poprzedni slajd")}
                   className="secondary small"
                   disabled={busy || !connected || !canPrevious}
                   onClick={() => navigate(-1)}
@@ -1059,7 +1106,7 @@ function Presenter({
                   ←
                 </button>
                 <button
-                  aria-label="Następny slajd"
+                  aria-label={t("Następny slajd")}
                   className="secondary small"
                   disabled={busy || !connected || !canNext}
                   onClick={() => navigate(1)}
@@ -1080,7 +1127,7 @@ function Presenter({
           <aside>
             {state.active && (
               <section className="panel active-panel">
-                <p className="eyebrow">Głosowanie otwarte</p>
+                <p className="eyebrow">{t("Głosowanie otwarte")}</p>
                 <h2>{state.active.text}</h2>
                 {result && (
                   <Results
@@ -1095,7 +1142,7 @@ function Presenter({
                   disabled={busy || !connected}
                   onClick={() => void command({ type: "close" })}
                 >
-                  Zamknij pytanie
+                  {t("Zamknij pytanie")}{" "}
                 </button>
               </section>
             )}
@@ -1106,40 +1153,42 @@ function Presenter({
                   className={`question-item ${q.slide === state.slide ? "current" : ""}`}
                 >
                   <p className="eyebrow">
-                    Po slajdzie {q.slide}{" "}
-                    {q.slide === state.slide ? "· teraz" : ""}
+                    {t("Po slajdzie")} {q.slide}{" "}
+                    {q.slide === state.slide ? t("· teraz") : ""}
                   </p>
                   <h3>{q.text}</h3>
-                  {(state.closedIds?.includes(q.id) ||
-                    state.active?.id === q.id) && (
+                  <div className="actions question-actions">
+                    {(state.closedIds?.includes(q.id) ||
+                      state.active?.id === q.id) && (
+                      <button
+                        className="secondary small"
+                        disabled={
+                          busy || !connected || state.displayQuestionId === q.id
+                        }
+                        onClick={() =>
+                          void command({
+                            type: "show-question",
+                            questionId: q.id,
+                          })
+                        }
+                      >
+                        {t("Pokaż pytanie na ekranie")}{" "}
+                      </button>
+                    )}
                     <button
                       className="secondary small"
-                      disabled={
-                        busy || !connected || state.displayQuestionId === q.id
-                      }
+                      disabled={busy || !connected || !!state.active}
                       onClick={() =>
-                        void command({
-                          type: "show-question",
-                          questionId: q.id,
-                        })
+                        void command({ type: "open", questionId: q.id })
                       }
                     >
-                      Pokaż pytanie na ekranie
+                      {state.closedIds?.includes(q.id)
+                        ? t("Uruchom ponownie od zera ↻")
+                        : state.active?.id === q.id
+                          ? t("Otwarte")
+                          : t("Otwórz pytanie →")}
                     </button>
-                  )}
-                  <button
-                    className="secondary small"
-                    disabled={busy || !connected || !!state.active}
-                    onClick={() =>
-                      void command({ type: "open", questionId: q.id })
-                    }
-                  >
-                    {state.closedIds?.includes(q.id)
-                      ? "Uruchom ponownie od zera ↻"
-                      : state.active?.id === q.id
-                        ? "Otwarte"
-                        : "Otwórz pytanie →"}
-                  </button>
+                  </div>
                 </div>
               ))}
             </div>
@@ -1147,20 +1196,20 @@ function Presenter({
         </div>
       ) : (
         <section>
-          <p className="eyebrow">Archiwum sesji</p>
+          <p className="eyebrow">{t("Archiwum sesji")}</p>
           <Publication state={state} base={base} onUpdate={live.apply} />
-          <h2>Tak zagłosowała sala.</h2>
+          <h2>{t("Tak zagłosowała sala.")}</h2>
           {state.questions?.map((q) => (
             <article key={q.id} className="archive-question">
               <p className="eyebrow">
-                Slajd {q.slide} ·{" "}
+                {t("Slajd")} {q.slide} ·{" "}
                 {state.closedIds?.includes(q.id)
-                  ? "Zamknięte"
-                  : "Nieuruchomione"}
+                  ? t("Zamknięte")
+                  : t("Nieuruchomione")}
               </p>
               <h3>{q.text}</h3>
               <p className="eyebrow">
-                Runda {(state.history?.[q.id]?.length ?? 0) + 1}
+                {t("Runda")} {(state.history?.[q.id]?.length ?? 0) + 1}
               </p>
               <Results
                 showCounts
@@ -1170,7 +1219,9 @@ function Presenter({
               />
               {state.history?.[q.id]?.map((previous) => (
                 <details key={previous.round}>
-                  <summary>Poprzednia runda {previous.round}</summary>
+                  <summary>
+                    {t("Poprzednia runda")} {previous.round}
+                  </summary>
                   <Results
                     showCounts
                     result={previous.result}
@@ -1191,20 +1242,20 @@ function Presenter({
                 target="_blank"
                 rel="noreferrer"
               >
-                Otwórz PDF ↗
+                {t("Otwórz PDF ↗")}{" "}
               </a>
               <button
                 className="text-button"
                 disabled={!!state.publishedAt}
                 title={
                   state.publishedAt
-                    ? "Najpierw wycofaj udostępnienie"
+                    ? t("Najpierw wycofaj udostępnienie")
                     : undefined
                 }
                 onClick={async () => {
                   if (
                     !window.confirm(
-                      "Usunąć PDF z archiwum? Wyniki pozostaną zapisane.",
+                      t("Usunąć PDF z archiwum? Wyniki pozostaną zapisane."),
                     )
                   )
                     return;
@@ -1216,7 +1267,7 @@ function Presenter({
                   }
                 }}
               >
-                Usuń PDF
+                {t("Usuń PDF")}{" "}
               </button>
             </div>
           )}
@@ -1226,6 +1277,7 @@ function Presenter({
   );
 }
 function App() {
+  const { t } = useLocale();
   const path = location.pathname;
   if (path === "/") return <Home />;
   if (path === "/presenter" || path === "/presenter/") return <Dashboard />;
@@ -1235,10 +1287,14 @@ function App() {
   if (participant) return <Participant id={participant[1]} />;
   return (
     <Shell>
-      <h1>Nie ma takiej strony.</h1>
-      <p>Otwórz adres z kodu QR prezentera.</p>
-      <a href="/">Wróć na początek</a>
+      <h1>{t("Nie ma takiej strony.")}</h1>
+      <p>{t("Otwórz adres z kodu QR prezentera.")}</p>
+      <a href="/">{t("Wróć na początek")}</a>
     </Shell>
   );
 }
-createRoot(document.getElementById("root")!).render(<App />);
+createRoot(document.getElementById("root")!).render(
+  <LocaleProvider>
+    <App />
+  </LocaleProvider>,
+);

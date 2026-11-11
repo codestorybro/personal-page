@@ -104,6 +104,17 @@ try {
   );
   let state = (await request(origin, base)).data;
   assert.equal(state.results.q1.A, 200);
+  assert.equal(state.peakParticipants, 200);
+  const participantState = (
+    await request(
+      origin,
+      `/api/sessions/${id}/join`,
+      "POST",
+      undefined,
+      joins[0].cookie,
+    )
+  ).data;
+  assert.equal("peakParticipants" in participantState, false);
   await delay(180);
   sockets[0].send({ type: "vote", questionId: "q1", choice: "B", seq: 2 });
   await sockets[0].next((m) => m.type === "ack" && m.seq === 2);
@@ -233,6 +244,14 @@ try {
   assert.equal(state.status, "ended");
   assert.equal(state.results.q1.total, 1);
   assert.equal(state.history.q1[0].result.total, 200);
+  assert.equal(state.peakParticipants, 200);
+  assert.equal((await request(origin, base)).data.peakParticipants, 200);
+  assert.equal(
+    (await request(origin, "/api/presenter/sessions")).data.find(
+      (s) => s.id === id,
+    ).peakParticipants,
+    200,
+  );
   const csv = await (await fetch(`${origin}${base}/export`)).text();
   assert.match(csv, /199,|"199"/);
   assert.equal(
@@ -411,6 +430,15 @@ try {
     },
   });
   assert.equal(denied.status, 503);
+  assert.equal((await fetch(`${production.origin}/presenter`)).status, 503);
+  assert.equal(
+    (
+      await fetch(
+        `${production.origin}/presenter/00000000-0000-0000-0000-000000000000/screen`,
+      )
+    ).status,
+    503,
+  );
   assert.equal((await fetch(`${production.origin}/api/health`)).status, 200);
   assert.equal(
     (await fetch(`${production.origin}/api/presentations`)).status,

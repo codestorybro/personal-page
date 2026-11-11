@@ -5,12 +5,14 @@ import Button from '@/components/Button';
 import Input from '@/components/Input';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useForm } from 'react-hook-form';
+import { useLocale } from '../../packages/ui/Locale';
 
 type Props = {
   certId?: string;
 };
 
 const CertificateForm: FC<Props> = ({ certId }) => {
+  const { pick } = useLocale();
   const { register, handleSubmit } = useForm<{ id: string }>();
   const searchParams = useSearchParams();
   const pathname = usePathname();
@@ -48,7 +50,7 @@ const CertificateForm: FC<Props> = ({ certId }) => {
     >
       <Input
         {...register('id')}
-        label="Certificate ID"
+        label={pick('Certificate ID', 'Identyfikator certyfikatu')}
         required
         type="text"
         autoComplete="off"
@@ -61,7 +63,7 @@ const CertificateForm: FC<Props> = ({ certId }) => {
         className="min-h-12 shrink-0"
         size="compact"
       >
-        Verify
+        {pick('Verify', 'Sprawdź')}
       </Button>
     </form>
   );
