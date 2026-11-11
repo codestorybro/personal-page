@@ -73,13 +73,30 @@ try {
   await expect(
     phone.getByRole("heading", { name: "Jesteś na miejscu." }),
   ).toBeVisible();
+  // A new KV file can briefly be unavailable in another location.
+  let delayedPdf = true;
+  await page.route(
+    `${server.origin}/api/presenter/sessions/${id}/pdf`,
+    async (route) => {
+      if (route.request().method() === "GET" && delayedPdf) {
+        delayedPdf = false;
+        await route.fulfill({
+          status: 503,
+          headers: { "Retry-After": "5" },
+          body: "PDF is propagating",
+        });
+      } else await route.continue();
+    },
+  );
   await page.getByRole("button", { name: "Rozpocznij sesję" }).click();
   await expect(
     page.getByRole("heading", { name: "Prezentacja", exact: true }),
   ).toBeVisible();
   await expect(page.locator("canvas")).toBeVisible();
   await expect
-    .poll(() => page.locator("canvas").evaluate((canvas) => canvas.width))
+    .poll(() => page.locator("canvas").evaluate((canvas) => canvas.width), {
+      timeout: 15000,
+    })
     .toBeGreaterThan(300);
   await expect(page.locator(".csb-header nav")).toHaveCount(0);
   await page.getByRole("combobox", { name: "Język" }).focus();
@@ -96,7 +113,9 @@ try {
   await page.keyboard.press("ArrowLeft");
   await expect(page.locator("canvas")).toHaveAttribute("aria-label", "Slajd 1");
   await page.keyboard.press("PageDown");
-  await expect(page.locator(".presenter-preview h1")).toHaveText("Monolit czy mikroserwisy?");
+  await expect(page.locator(".presenter-preview h1")).toHaveText(
+    "Monolit czy mikroserwisy?",
+  );
   await page.keyboard.press("PageUp");
   await expect(page.locator("canvas")).toHaveAttribute("aria-label", "Slajd 1");
   const screen = await context.newPage();
@@ -176,13 +195,13 @@ try {
     path: "/private/tmp/codestorybro-live-phone.png",
     fullPage: true,
   });
-  await expect(page.locator(".session-count strong")).toHaveText("1/200");
+  await expect(page.locator(".session-count strong")).toHaveText("1/1000");
   await phone.goto("about:blank");
-  await expect(page.locator(".session-count strong")).toHaveText("0/200");
+  await expect(page.locator(".session-count strong")).toHaveText("0/1000");
   await expect(page.locator(".peak-stat strong")).toHaveText("1");
   await expect(phone.locator(".peak-stat")).toHaveCount(0);
   await phone.goto(`${server.origin}/s/${id}?lang=pl`);
-  await expect(page.locator(".session-count strong")).toHaveText("1/200");
+  await expect(page.locator(".session-count strong")).toHaveText("1/1000");
   await phone.reload();
   await expect(phone.getByText("✓ Przyjęto odpowiedź B")).toBeVisible();
   await screen.keyboard.press("PageDown");

@@ -5,6 +5,7 @@ import {
   presentationSteps,
   HttpError,
   parseQuestions,
+  LIMITS,
   type Choice,
   type Command,
   type Result,
@@ -68,7 +69,11 @@ export class LiveSession extends DurableObject<Env> {
     };
   }
   private samplePeak(meta: SessionMeta) {
-    if (meta.status === "live" && meta.activeId)
+    if (
+      meta.status === "live" &&
+      meta.activeId &&
+      meta.peakParticipants !== LIMITS.participants
+    )
       meta.peakParticipants = Math.max(
         meta.peakParticipants ?? 0,
         this.onlineIds().size,
@@ -161,8 +166,11 @@ export class LiveSession extends DurableObject<Env> {
       "SELECT participant_id FROM reservations",
     ))
       occupied.add(r.participant_id);
-    if (!occupied.has(id) && occupied.size >= 200)
-      throw new HttpError(409, "W sesji jest już 200 połączonych uczestników.");
+    if (!occupied.has(id) && occupied.size >= LIMITS.participants)
+      throw new HttpError(
+        409,
+        "W sesji jest już 1000 połączonych uczestników.",
+      );
     if (!this.onlineIds().has(id))
       this.ctx.storage.sql.exec(
         "INSERT INTO reservations(participant_id,expires) VALUES(?,?) ON CONFLICT(participant_id) DO UPDATE SET expires=excluded.expires",
@@ -233,19 +241,13 @@ export class LiveSession extends DurableObject<Env> {
       for (const ws of this.ctx.getWebSockets())
         ws.close(4004, "Sesja została usunięta.");
       await this.ctx.storage.deleteAlarm();
-      // Include abandoned uploads, not just the PDF currently attached to metadata.
-      let cursor: string | undefined;
-      do {
-        const listed = await this.env.PDFS.list({ prefix: `${id}/`, cursor });
-        if (listed.objects.length)
-          await this.env.PDFS.delete(
-            listed.objects.map((object) => object.key),
-          );
-        cursor = listed.truncated ? listed.cursor : undefined;
-      } while (cursor);
       const catalog = this.env.CATALOG.get(
         this.env.CATALOG.idFromName("presenter"),
       );
+      // The strongly consistent catalog includes abandoned uploads. KV list/delete
+      // propagation cannot be used as the source of truth for archive cleanup.
+      for (const key of await catalog.fileKeys(id))
+        await this.env.PDFS.delete(key);
       // Keep empty schema for retries on this instance; remove every session record.
       this.ctx.storage.transactionSync(() => {
         for (const table of [
@@ -443,13 +445,15 @@ export class LiveSession extends DurableObject<Env> {
       );
       await catalog.unpublish(m.id);
       if (m.publication) {
-        // Remove the downloadable copy before clearing its reference, so retries can finish cleanup.
-        await this.env.PDFS.delete(m.publication.key);
-        await catalog.release(m.publication.key);
+        // Revoke in strongly consistent SQLite first: KV deletion may propagate
+        // later or fail at a free quota. Leftover keys stay tracked for cleanup.
+        const key = m.publication.key;
         m.publication = null;
         this.save(m);
         await this.ctx.storage.sync();
         this.broadcast(false);
+        await this.env.PDFS.delete(key);
+        await catalog.release(key);
       }
       return this.snapshot("presenter");
     });
@@ -776,7 +780,21 @@ export class LiveSession extends DurableObject<Env> {
   }
   private broadcast(everyone: boolean) {
     let presenterState: string | undefined;
-    for (const ws of this.ctx.getWebSockets()) {
+    const participantState = everyone ? this.snapshot("participant") : null;
+    const votes = new Map<string, VoteRow>();
+    if (participantState?.active) {
+      const { id, round } = participantState.active;
+      for (const row of this.ctx.storage.sql.exec<
+        VoteRow & { participant_id: string }
+      >(
+        "SELECT participant_id,choice,seq FROM votes WHERE question_id=?",
+        round === 1 ? id : `${id}@${round}`,
+      ))
+        votes.set(row.participant_id, { choice: row.choice, seq: row.seq });
+    }
+    for (const ws of this.ctx.getWebSockets(
+      everyone ? undefined : "presenter",
+    )) {
       try {
         const a = this.valid(ws);
         if (!a || (!everyone && a.role !== "presenter")) continue;
@@ -785,7 +803,10 @@ export class LiveSession extends DurableObject<Env> {
           ws.send(presenterState);
         } else
           ws.send(
-            JSON.stringify(this.snapshot("participant", a.participantId)),
+            JSON.stringify({
+              ...participantState,
+              vote: votes.get(a.participantId!) ?? null,
+            }),
           );
       } catch {
         /* closed between enumeration and send */
@@ -828,7 +849,7 @@ export class Catalog extends DurableObject<Env> {
       .map((r) => r.id);
   }
   async add(id: string) {
-    if (this.list().length >= 100)
+    if (this.list().length >= LIMITS.sessions)
       throw new HttpError(409, "Limit MVP: 100 sesji w archiwum.");
     this.ctx.storage.sql.exec(
       "INSERT OR IGNORE INTO sessions(id,created_at) VALUES(?,?)",
@@ -852,14 +873,23 @@ export class Catalog extends DurableObject<Env> {
     });
     await this.ctx.storage.sync();
   }
+  fileKeys(id: string): string[] {
+    return this.ctx.storage.sql
+      .exec<{ key: string }>(
+        "SELECT key FROM files WHERE key LIKE ?",
+        `${id}/%`,
+      )
+      .toArray()
+      .map((row) => row.key);
+  }
   async reserve(key: string, bytes: number) {
     const total = this.ctx.storage.sql
       .exec<{ n: number }>("SELECT COALESCE(SUM(bytes),0) AS n FROM files")
       .one().n;
-    if (total + bytes > 1_000_000_000)
+    if (total + bytes > LIMITS.archiveBytes)
       throw new HttpError(
         409,
-        "Archiwum PDF osiągnęło limit 1 GB. Usuń niepotrzebne PDF-y.",
+        "Archiwum PDF osiągnęło limit 750 MB. Usuń niepotrzebne PDF-y.",
       );
     this.ctx.storage.sql.exec(
       "INSERT INTO files(key,bytes) VALUES(?,?)",

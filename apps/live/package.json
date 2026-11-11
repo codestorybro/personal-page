@@ -16,7 +16,8 @@
     "check:worker": "wrangler deploy --env=\"\" --dry-run --outdir .worker-build",
     "test:e2e": "node scripts/browser.mjs",
     "typecheck": "tsc --noEmit",
-    "test:presence": "node scripts/presence.mjs"
+    "test:presence": "node scripts/presence.mjs",
+    "migrate:local-pdfs": "node scripts/migrate-local-pdfs.mjs"
   },
   "dependencies": {
     "jose": "^6.1.0",

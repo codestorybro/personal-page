@@ -20,11 +20,12 @@
   "migrations": [
     { "tag": "v1", "new_sqlite_classes": ["LiveSession", "Catalog"] },
   ],
-  "r2_buckets": [
-    { "binding": "PDFS", "bucket_name": "codestorybro-live-private-pdfs" },
+  // Create a KV namespace on Workers Free, then replace this ID before deployment.
+  "kv_namespaces": [
+    { "binding": "PDFS", "id": "00000000000000000000000000000000" },
   ],
   "vars": {
-    "APP_ORIGIN": "",
+    "APP_ORIGIN": "https://stage.codestorybro.com",
     "ACCESS_TEAM_DOMAIN": "",
     "ACCESS_AUD": "",
     "PRESENTER_EMAIL": "",
@@ -45,11 +46,8 @@
           { "name": "CATALOG", "class_name": "Catalog" },
         ],
       },
-      "r2_buckets": [
-        {
-          "binding": "PDFS",
-          "bucket_name": "codestorybro-live-private-pdfs-local",
-        },
+      "kv_namespaces": [
+        { "binding": "PDFS", "id": "codestorybro-live-pdfs-local" },
       ],
     },
   },

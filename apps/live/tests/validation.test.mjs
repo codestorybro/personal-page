@@ -23,6 +23,15 @@ test("rejects malformed questions, duplicate IDs and out-of-range slides", () =>
   );
   const q = { id: "q", slide: 1, text: "?", a: "A", b: "B" };
   assert.throws(() => parseQuestions([q, q]));
-  assert.throws(() => parseQuestions(Array(101).fill(q)));
+  assert.throws(() =>
+    parseQuestions(
+      Array.from({ length: 6 }, (_, i) => ({ ...q, id: `q${i}` })),
+    ),
+  );
+  assert.equal(
+    parseQuestions(Array.from({ length: 5 }, (_, i) => ({ ...q, id: `q${i}` })))
+      .length,
+    5,
+  );
   assert.deepEqual(parseQuestions([q]), [q]);
 });

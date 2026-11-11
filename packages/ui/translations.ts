@@ -51,6 +51,8 @@ export const english: Record<string, string> = {
   'Wynik ostatniego pytania': 'Last question’s results',
   'Usunąć sesję „{0}” razem z PDF-em, pytaniami i wszystkimi wynikami? Tej operacji nie można cofnąć.':
     'Delete session “{0}” along with its PDF, questions, and all results? This cannot be undone.',
+  'PDF nie jest jeszcze dostępny. Spróbuj ponownie za chwilę.': 'The PDF is not available yet. Please try again shortly.',
+  'W sesji jest już 1000 połączonych uczestników.': 'The session already has 1,000 connected participants.',
   'Panel prezentera': 'Presenter panel',
   'Twoja następna': 'Your next',
   'dobra rozmowa.': 'good conversation.',
@@ -78,7 +80,7 @@ export const english: Record<string, string> = {
   'Szkic': 'Draft',
   'Na żywo': 'Live',
   'Archiwum': 'Archive',
-  'PDF może mieć maksymalnie 50 MB.': 'The PDF must be no larger than 50 MB.',
+  'PDF może mieć maksymalnie 20 MB.': 'The PDF must be no larger than 20 MB.',
   '01 / Prezentacja': '01 / Presentation',
   'Dodaj slajdy w PDF.': 'Upload your PDF slides.',
   'Plik jest prywatny. Uczestnicy widzą tylko pytania i wyniki.':
@@ -86,7 +88,7 @@ export const english: Record<string, string> = {
   'slajdów': 'slides',
   'Usuń': 'Delete',
   'Dodaj PDF': 'Upload PDF',
-  'Do 50 MB · maksymalnie 2000 slajdów': 'Up to 50 MB · maximum 2,000 slides',
+  'Do 20 MB · maksymalnie 2000 slajdów': 'Up to 20 MB · maximum 2,000 slides',
   '02 / Pytania': '02 / Questions',
   'Zaplanuj moment wyboru.': 'Plan the moment of choice.',
   'Pytanie pojawi się automatycznie, gdy przejdziesz dalej po wybranym slajdzie.':
@@ -169,8 +171,8 @@ export const english: Record<string, string> = {
   'Liczba stron PDF nie zgadza się z sesją.':
     'The PDF page count does not match the session.',
   'Przygotowuję stronę {0} z {1}…': 'Preparing page {0} of {1}…',
-  'Gotowy PDF przekracza limit 75 MB. Zmniejsz rozmiar oryginalnej prezentacji.':
-    'The prepared PDF exceeds 75 MB. Reduce the size of the original presentation.',
+  'Gotowy PDF przekracza limit 20 MB. Zmniejsz rozmiar oryginalnej prezentacji.':
+    'The prepared PDF exceeds 20 MB. Reduce the size of the original presentation.',
   'Błąd {0}.': 'Error {0}.',
   'Poprzednia runda została zakończona. Liczą się tylko potwierdzone głosy.':
     'The previous round has ended. Only confirmed votes count.',
@@ -201,8 +203,8 @@ export const english: Record<string, string> = {
   'Brak dostępu.': 'Access denied.',
   'Najpierw zakończ sesję. W archiwum musi być PDF.':
     'End the session first. Its archive must contain a PDF.',
-  'Udostępniony PDF może mieć maksymalnie 75 MB.':
-    'The shared PDF must be no larger than 75 MB.',
+  'Udostępniony PDF może mieć maksymalnie 20 MB.':
+    'The shared PDF must be no larger than 20 MB.',
   'Wybierz plik PDF.': 'Choose a PDF file.',
   'Niepoprawny PDF.': 'Invalid PDF.',
   'Niedozwolona operacja.': 'This operation is not allowed.',
@@ -226,8 +228,6 @@ export const english: Record<string, string> = {
     'This session does not exist. Check the QR code link.',
   'Sesja jest usuwana.': 'The session is being deleted.',
   'Sesja już istnieje.': 'The session already exists.',
-  'W sesji jest już 200 połączonych uczestników.':
-    'There are already 200 connected participants in this session.',
   'Brak odpowiedzi. Połącz ponownie.': 'No response. Reconnect.',
   'Najpierw zakończ sesję.': 'End the session first.',
   'Ta sesja już się zakończyła.': 'This session has already ended.',
@@ -273,9 +273,10 @@ export const english: Record<string, string> = {
   'Błąd serwera.': 'Server error.',
   'Połącz ponownie.': 'Reconnect.',
   'Limit MVP: 100 sesji w archiwum.': 'MVP limit: 100 archived sessions.',
-  'Archiwum PDF osiągnęło limit 1 GB. Usuń niepotrzebne PDF-y.':
-    'The PDF archive has reached its 1 GB limit. Delete PDFs you no longer need.',
-  'Maksymalnie 100 pytań.': 'Maximum 100 questions.',
+  'Archiwum PDF osiągnęło limit 750 MB. Usuń niepotrzebne PDF-y.':
+    'The PDF archive has reached its 750 MB limit. Delete PDFs you no longer need.',
+  'Do 5 pytań na sesję.': 'Up to 5 questions per session.',
+  'Maksymalnie 5 pytań.': 'Maximum 5 questions.',
   'Niepoprawne pytanie.': 'Invalid question.',
   'Powtórzony identyfikator pytania.': 'Duplicate question ID.',
   'Slajd musi być liczbą od 1 do 2000.':

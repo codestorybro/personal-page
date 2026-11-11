@@ -35,23 +35,34 @@ export function Pdf({ url, page }: { url: string; page: number }) {
     setError("");
     setDoc(null);
     let cancelled = false;
-    const task = getDocument({
-      url,
-      withCredentials: true,
-      cMapUrl: "/pdf/cmaps/",
-      cMapPacked: true,
-      standardFontDataUrl: "/pdf/standard_fonts/",
-      wasmUrl: "/pdf/wasm/",
-    });
-    task.promise
-      .then((pdf) => {
-        if (!cancelled) setDoc(pdf);
-      })
-      .catch((e) => {
-        if (!cancelled) setError(`Nie udało się otworzyć PDF: ${e.message}`);
+    let retry: ReturnType<typeof setTimeout> | undefined;
+    let attempts = 0;
+    let task: ReturnType<typeof getDocument>;
+    const load = () => {
+      task = getDocument({
+        url,
+        withCredentials: true,
+        cMapUrl: "/pdf/cmaps/",
+        cMapPacked: true,
+        standardFontDataUrl: "/pdf/standard_fonts/",
+        wasmUrl: "/pdf/wasm/",
       });
+      task.promise
+        .then((pdf) => {
+          if (!cancelled) setDoc(pdf);
+        })
+        .catch((e) => {
+          if (cancelled) return;
+          if (e.status === 503 && attempts++ < 15) {
+            void task.destroy();
+            retry = setTimeout(load, 5000);
+          } else setError(`Nie udało się otworzyć PDF: ${e.message}`);
+        });
+    };
+    load();
     return () => {
       cancelled = true;
+      clearTimeout(retry);
       void task.destroy();
     };
   }, [url]);

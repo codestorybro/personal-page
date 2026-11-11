@@ -12,15 +12,15 @@ const clients = [];
 const latency = [];
 const result = {
   durationSeconds: duration,
-  participants: 200,
-  questions: 10,
+  participants: 1000,
+  questions: 5,
   acknowledged: 0,
   reconnects: 0,
   p95AckMs: 0,
   completed: false,
 };
 try {
-  const questions = Array.from({ length: 10 }, (_, i) => ({
+  const questions = Array.from({ length: 5 }, (_, i) => ({
     id: `q${i}`,
     slide: i + 1,
     text: `Pytanie ${i + 1}`,
@@ -34,14 +34,14 @@ try {
     { title: "Local load test", questions },
   );
   const base = `/api/presenter/sessions/${session.id}`;
-  await uploadPdf(origin, session.id, 10);
+  await uploadPdf(origin, session.id, 5);
   const command = async (body) => {
     const r = await request(origin, `${base}/commands`, "POST", body);
     assert.ok(r.response.ok, JSON.stringify(r.data));
   };
   await command({ type: "start" });
   const joins = await Promise.all(
-    Array.from({ length: 200 }, () =>
+    Array.from({ length: 1000 }, () =>
       request(origin, `/api/sessions/${session.id}/join`, "POST"),
     ),
   );
@@ -52,7 +52,7 @@ try {
     )),
   );
   const began = performance.now();
-  for (let round = 0; round < 10; round++) {
+  for (let round = 0; round < 5; round++) {
     await command({ type: "open", questionId: `q${round}` });
     await Promise.all(
       clients.map(async (client, i) => {
@@ -82,7 +82,7 @@ try {
     );
     // Reconnect ten clients while voting is open and check restored choice.
     for (let i = 0; i < 10; i++) {
-      const index = (round * 10 + i) % 200;
+      const index = (round * 10 + i) % 1000;
       clients[index].close();
       clients[index] = await connect(origin, session.id, joins[index].cookie);
       const state = await clients[index].next((m) => m.type === "state");
@@ -91,11 +91,15 @@ try {
     }
     await command({ type: "close" });
     const state = (await request(origin, base)).data;
-    assert.deepEqual(state.results[`q${round}`], { A: 0, B: 200, total: 200 });
+    assert.deepEqual(state.results[`q${round}`], {
+      A: 0,
+      B: 1000,
+      total: 1000,
+    });
     console.log(
-      `Question ${round + 1}/10: 200 votes, 200 changes, 10 reconnects; consistent results.`,
+      `Question ${round + 1}/5: 1000 votes, 1000 changes, 10 reconnects; consistent results.`,
     );
-    const target = began + ((round + 1) * duration * 1000) / 10;
+    const target = began + ((round + 1) * duration * 1000) / 5;
     while (performance.now() < target) {
       clients.forEach((c) => c.ws.send("ping"));
       await delay(Math.min(15000, target - performance.now()));
@@ -103,7 +107,7 @@ try {
   }
   await command({ type: "end" });
   const archive = (await request(origin, base)).data;
-  for (const q of questions) assert.equal(archive.results[q.id].B, 200);
+  for (const q of questions) assert.equal(archive.results[q.id].B, 1000);
   latency.sort((a, b) => a - b);
   result.p95AckMs = Math.round(latency[Math.floor(latency.length * 0.95)]);
   result.completed = true;

@@ -66,3 +66,13 @@ Testy integracyjne potwierdzają cofanie przez wiele zakończonych pytań po jed
 ## 2026-11-11: wejście prezentera bez linku w stopce
 
 Usunięto odnośnik do panelu ze wspólnej stopki obu aplikacji i jej konfiguracji. Dotychczasowa ścieżka `/presenter` oraz kontrola Access pozostają aktywne; nowa ścieżka nie została jeszcze wybrana. Przechodzą 10 testów jednostkowych Next.js, ESLint zmienionych komponentów i build Live. Nie wykonywano wdrożenia ani zmian DNS.
+
+## 2026-11-11: limity Free, KV i przygotowanie Stage
+
+- Wspólne limity klienta/serwera: 1000 uczestników, 5 pytań, 20 MB na każdy PDF (także eksport), 750 MB łącznie, 100 sesji. Produkcyjny binding PDFS jest KV, bez R2; namespace ID w szablonie pozostaje pustym identyfikatorem z samych zer do zastąpienia przed publikacją. APP_ORIGIN wskazuje docelowe Stage.
+- Test integracyjny na rzeczywistym lokalnym workerd/KV/SQLite przechodzi dla 1000 klientów: odmowa 1001. dołączenia, spadek obecności, deduplikacja kart, ponowne połączenie, zmiana odpowiedzi, nowa runda, wyścig zamknięcia, prywatność liczb, publikacja/wycofanie/usuwanie oraz odmowa dostępu produkcyjnego bez Access.
+- Minutowy scenariusz obciążeniowy: 1000 klientów, 5 pytań, 10 000 potwierdzonych głosów ze zmianami, 50 reconnectów, p95 ACK 343 ms. To wynik lokalny, nie pomiar Cloudflare ani sieci konferencyjnej. Godzinnej próby wdrożonego systemu nie wykonano.
+- Przechodzi 7 testów jednostkowych Live, w tym granica 5/6 pytań, limit rozmiaru, błędne/przerwane przesyłanie, pełny PDF, Range/suffix/416 i przejściowe 503 KV. Pełny test Chrome przechodzi również po celowym pierwszym 503 PDF; podgląd automatycznie ponawia odczyt. Usunięcie dostępu sprawdza SQLite niezależnie od propagacji KV. Rozsyłanie wspólnego stanu i odczyt głosów do broadcastu nie wykonują osobnej pełnej migawki dla każdego z 1000 uczestników.
+- Przechodzą buildy Live i Next.js (izolowany `.next-qa`), 10 testów głównej aplikacji, ESLint zmienionych współdzielonych plików i pakowanie Workera dry-run. Podsumowanie dry-run zawiera Assets, KV i dwa DO, bez R2. Znane ostrzeżenia Fast Refresh / ignorowania `use client` przez Vite nie blokują buildu.
+- Lokalna migracja skopiowała 2 dotychczasowe PDF-y z emulatora R2 do emulatora KV, zachowując źródła i dane SQLite. Skrypt jest lokalny, ponawialny i nie korzysta ze zdalnych bindingów.
+- Dodano `DEPLOYMENT.md` z pełną instrukcją OVH/DNSSEC, Vercel, Access, KV, lokalnego pliku produkcyjnego, dry-run, deployu i testów po publikacji. Nie wykonano publikacji, zmian DNS, tworzenia zasobów chmurowych ani pusha.

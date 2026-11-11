@@ -12,7 +12,7 @@ export function useAppLinks(stageOverride?: string, homeOverride?: string) {
   return {
     stage:
       stageOverride
-      || (local ? 'http://127.0.0.1:8787' : 'https://vote.codestorybro.com'),
+      || (local ? 'http://127.0.0.1:8787' : 'https://stage.codestorybro.com'),
     home:
       homeOverride
       || (local ? 'http://127.0.0.1:3000' : 'https://www.codestorybro.com'),

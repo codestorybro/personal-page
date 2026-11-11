@@ -23,7 +23,7 @@ import type {
   Summary,
   PublishedPresentation,
 } from "../shared/protocol";
-import { percentages, presentationSteps } from "../shared/protocol";
+import { LIMITS, percentages, presentationSteps } from "../shared/protocol";
 import { api, useLive } from "./api";
 const LazyPdf = lazy(() =>
   import("./Pdf").then((module) => ({ default: module.Pdf })),
@@ -49,12 +49,7 @@ function Shell({
   const { home } = useAppLinks(undefined, import.meta.env.VITE_HOME_URL);
   return (
     <>
-      <Header
-        variant={badge}
-        brandUrl={home}
-        stageUrl="/"
-        className="topbar"
-      />
+      <Header variant={badge} brandUrl={home} stageUrl="/" className="topbar" />
       <main>{children}</main>
       <Footer />
     </>
@@ -536,8 +531,8 @@ function Editor({
     setBusy(true);
     onError("");
     try {
-      if (file.size > 50_000_000)
-        throw new Error("PDF może mieć maksymalnie 50 MB.");
+      if (file.size > LIMITS.pdfBytes)
+        throw new Error("PDF może mieć maksymalnie 20 MB.");
       const { inspectPdf } = await import("./Pdf");
       const pages = await inspectPdf(file);
       await api(`${base}/pdf`, {
@@ -601,13 +596,14 @@ function Editor({
               disabled={busy}
               onChange={(e) => void upload(e.target.files?.[0])}
             />
-            <small>{t("Do 50 MB · maksymalnie 2000 slajdów")}</small>
+            <small>{t("Do 20 MB · maksymalnie 2000 slajdów")}</small>
           </label>
         )}
       </section>
       <form className="panel" onSubmit={save}>
         <p className="eyebrow">{t("02 / Pytania")}</p>
         <h2>{t("Zaplanuj moment wyboru.")}</h2>
+        <p className="muted">{t("Do 5 pytań na sesję.")}</p>
         <p className="muted">
           {t(
             "Pytanie pojawi się automatycznie, gdy przejdziesz dalej po wybranym slajdzie.",
@@ -636,7 +632,7 @@ function Editor({
                 <input
                   type="number"
                   min="1"
-                  max={state.pageCount || 2000}
+                  max={state.pageCount || LIMITS.slides}
                   value={q.slide}
                   required
                   onChange={(e) =>
@@ -691,7 +687,7 @@ function Editor({
           <button
             type="button"
             className="secondary"
-            disabled={questions.length >= 100 || busy}
+            disabled={questions.length >= LIMITS.questions || busy}
             onClick={() => {
               setQuestions((qs) => [
                 ...qs,
@@ -1024,7 +1020,7 @@ function Presenter({
         <div className="session-count">
           <strong>
             {state.participants}
-            <small>/200</small>
+            <small>/{LIMITS.participants}</small>
           </strong>
           <span>{t("uczestników online")}</span>
         </div>

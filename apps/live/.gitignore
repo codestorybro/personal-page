@@ -8,3 +8,4 @@ dist/
 load-results*.json
 shared/.protocol-test.mjs
 worker/.auth-test.mjs
+wrangler.production.jsonc

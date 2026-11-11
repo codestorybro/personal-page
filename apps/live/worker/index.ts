@@ -1,15 +1,16 @@
 import { translate } from "../../../packages/ui/translations";
 import {
   HttpError,
+  LIMITS,
   boundedText,
   parseQuestions,
   type Command,
 } from "../shared/protocol";
 import { localRequest, participantCookie, presenter, sameOrigin } from "./auth";
 import { errorResponse } from "./objects";
+import { storePdf, pdfResponse } from "./files";
 import type { Env } from "./env";
 export { LiveSession, Catalog } from "./objects";
-const MAX_PDF = 50_000_000;
 async function json(request: Request): Promise<Record<string, unknown>> {
   const text = await request.text();
   if (text.length > 100_000) throw new HttpError(413, "Żądanie jest za duże.");
@@ -51,15 +52,12 @@ async function route(request: Request, env: Env): Promise<Response> {
     const info = await env.SESSIONS.get(
       env.SESSIONS.idFromName(id),
     ).publicationInfo();
-    const object = await env.PDFS.get(info.key);
-    if (!object) throw new HttpError(404, "Ta prezentacja nie jest dostępna.");
-    return new Response(object.body, {
-      headers: {
-        "Content-Type": "application/pdf",
-        "Content-Length": String(object.size),
-        "Content-Disposition": `attachment; filename="codestorybro-${id}.pdf"`,
-      },
-    });
+    return pdfResponse(
+      request,
+      env,
+      info.key,
+      `attachment; filename="codestorybro-${id}.pdf"`,
+    );
   }
   if (path === "/api/presenter/me" && method === "GET")
     return Response.json({
@@ -162,10 +160,14 @@ async function route(request: Request, env: Env): Promise<Response> {
           "Najpierw zakończ sesję. W archiwum musi być PDF.",
         );
       const length = Number(request.headers.get("Content-Length"));
-      if (!Number.isSafeInteger(length) || length < 5 || length > 75_000_000)
+      if (
+        !Number.isSafeInteger(length) ||
+        length < 5 ||
+        length > LIMITS.pdfBytes
+      )
         throw new HttpError(
           413,
-          "Udostępniony PDF może mieć maksymalnie 75 MB.",
+          "Udostępniony PDF może mieć maksymalnie 20 MB.",
         );
       if (
         request.headers.get("Content-Type") !== "application/pdf" ||
@@ -175,26 +177,7 @@ async function route(request: Request, env: Env): Promise<Response> {
       const key = `${id}/publication-${crypto.randomUUID()}.pdf`;
       await catalog.reserve(key, length);
       try {
-        let prefix = "";
-        const validate = new TransformStream<Uint8Array, Uint8Array>({
-          transform(chunk, controller) {
-            if (prefix.length < 5) {
-              prefix += new TextDecoder().decode(
-                chunk.slice(0, 5 - prefix.length),
-              );
-              if (prefix.length === 5 && prefix !== "%PDF-")
-                throw new HttpError(400, "Niepoprawny PDF.");
-            }
-            controller.enqueue(chunk);
-          },
-        });
-        const fixed = new FixedLengthStream(length);
-        await Promise.all([
-          request.body.pipeThrough(validate).pipeTo(fixed.writable),
-          env.PDFS.put(key, fixed.readable, {
-            httpMetadata: { contentType: "application/pdf" },
-          }),
-        ]);
+        await storePdf(env, key, request.body, length);
         return Response.json(await session.publish(key, info.key));
       } catch (e) {
         await env.PDFS.delete(key);
@@ -275,10 +258,18 @@ async function route(request: Request, env: Env): Promise<Response> {
           "Usuń poprzedni PDF przed dodaniem nowego. Sesja musi być szkicem.",
         );
       const length = Number(request.headers.get("Content-Length"));
-      if (!length || length > MAX_PDF)
-        throw new HttpError(413, "PDF może mieć maksymalnie 50 MB.");
+      if (
+        !Number.isSafeInteger(length) ||
+        length < 5 ||
+        length > LIMITS.pdfBytes
+      )
+        throw new HttpError(413, "PDF może mieć maksymalnie 20 MB.");
       const pageCount = Number(request.headers.get("X-Pdf-Pages"));
-      if (!Number.isInteger(pageCount) || pageCount < 1 || pageCount > 2000)
+      if (
+        !Number.isInteger(pageCount) ||
+        pageCount < 1 ||
+        pageCount > LIMITS.slides
+      )
         throw new HttpError(400, "Niepoprawna liczba slajdów.");
       const name = boundedText(
         decodeURIComponent(
@@ -294,35 +285,7 @@ async function route(request: Request, env: Env): Promise<Response> {
       const key = `${id}/${crypto.randomUUID()}.pdf`;
       await catalog.reserve(key, length);
       try {
-        // Stream instead of buffering a 50 MB PDF in the 128 MB Worker isolate.
-        let prefix = "";
-        let received = 0;
-        const validate = new TransformStream<Uint8Array, Uint8Array>({
-          transform(chunk, controller) {
-            received += chunk.byteLength;
-            if (received > length)
-              throw new HttpError(413, "PDF jest za duży.");
-            if (prefix.length < 5) {
-              prefix += new TextDecoder().decode(
-                chunk.slice(0, 5 - prefix.length),
-              );
-              if (prefix.length === 5 && prefix !== "%PDF-")
-                throw new HttpError(400, "Plik nie jest poprawnym PDF-em.");
-            }
-            controller.enqueue(chunk);
-          },
-          flush() {
-            if (received !== length || prefix !== "%PDF-")
-              throw new HttpError(400, "Przesyłanie PDF zostało przerwane.");
-          },
-        });
-        const fixed = new FixedLengthStream(length);
-        await Promise.all([
-          request.body.pipeThrough(validate).pipeTo(fixed.writable),
-          env.PDFS.put(key, fixed.readable, {
-            httpMetadata: { contentType: "application/pdf" },
-          }),
-        ]);
+        await storePdf(env, key, request.body, length);
         await session.attachPdf(key, name, pageCount);
       } catch (e) {
         await env.PDFS.delete(key);
@@ -333,29 +296,12 @@ async function route(request: Request, env: Env): Promise<Response> {
     }
     if (method === "GET") {
       if (!info.key) throw new HttpError(404, "Nie dodano PDF.");
-      const object = await env.PDFS.get(info.key, { range: request.headers });
-      if (!object) throw new HttpError(404, "Plik PDF jest niedostępny.");
-      const headers = new Headers({
-        "Content-Type": "application/pdf",
-        "Content-Disposition": 'inline; filename="presentation.pdf"',
-        "Accept-Ranges": "bytes",
-        ETag: object.httpEtag,
-      });
-      let status = 200;
-      if (
-        object.range &&
-        "offset" in object.range &&
-        object.range.offset !== undefined &&
-        object.range.length !== undefined
-      ) {
-        status = 206;
-        headers.set(
-          "Content-Range",
-          `bytes ${object.range.offset}-${object.range.offset + object.range.length - 1}/${object.size}`,
-        );
-        headers.set("Content-Length", String(object.range.length));
-      } else headers.set("Content-Length", String(object.size));
-      return new Response(object.body, { status, headers });
+      return pdfResponse(
+        request,
+        env,
+        info.key,
+        'inline; filename="presentation.pdf"',
+      );
     }
     if (method === "DELETE") {
       if (info.status === "live")

@@ -92,11 +92,11 @@ export function connect(origin, id, cookie, presenter = false) {
     const timeout = setTimeout(() => {
       ws.terminate();
       reject(new Error("Socket timeout"));
-    }, 10000);
+    }, 30000);
     const client = {
       ws,
       messages,
-      next(predicate, timeoutMs = 10000) {
+      next(predicate, timeoutMs = 30000) {
         const existing = messages.findIndex(predicate);
         if (existing >= 0)
           return Promise.resolve(messages.splice(existing, 1)[0]);

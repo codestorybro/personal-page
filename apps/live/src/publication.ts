@@ -1,3 +1,4 @@
+import { LIMITS } from "../shared/protocol";
 import { PDFDocument } from "pdf-lib";
 import { translate } from "../../../packages/ui/translations";
 import {
@@ -165,9 +166,9 @@ export async function createPublication(
     }
   }
   const bytes = await output.save();
-  if (bytes.byteLength > 75_000_000)
+  if (bytes.byteLength > LIMITS.pdfBytes)
     throw new Error(
-      "Gotowy PDF przekracza limit 75 MB. Zmniejsz rozmiar oryginalnej prezentacji.",
+      "Gotowy PDF przekracza limit 20 MB. Zmniejsz rozmiar oryginalnej prezentacji.",
     );
   return new Blob([new Uint8Array(bytes)], { type: "application/pdf" });
 }

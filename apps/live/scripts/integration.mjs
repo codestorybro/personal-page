@@ -65,14 +65,14 @@ try {
   assert.equal((await command({ type: "start" })).response.ok, true);
   assert.equal((await share()).ok, false); // live cannot be shared
   const joins = await Promise.all(
-    Array.from({ length: 200 }, () =>
+    Array.from({ length: 1000 }, () =>
       request(origin, `/api/sessions/${id}/join`, "POST"),
     ),
   );
   assert.ok(joins.every((j) => j.response.ok));
   const full = await request(origin, `/api/sessions/${id}/join`, "POST");
   assert.equal(full.response.ok, false);
-  assert.match(full.data.error, /200/);
+  assert.match(full.data.error, /1000/);
   const again = await request(
     origin,
     `/api/sessions/${id}/join`,
@@ -83,7 +83,7 @@ try {
   assert.equal(again.response.ok, true);
   assert.equal(again.data.participants, 0);
   console.log(
-    "PASS: 200 joins, 201st rejected, existing identity restored; PDF private; CSRF rejected.",
+    "PASS: 1000 joins, 1001st rejected, existing identity restored; PDF private; CSRF rejected.",
   );
   const admin = await connect(origin, id, null, true);
   clients.push(admin);
@@ -103,8 +103,8 @@ try {
     sockets.map((s) => s.next((m) => m.type === "ack" && m.seq === 1)),
   );
   let state = (await request(origin, base)).data;
-  assert.equal(state.results.q1.A, 200);
-  assert.equal(state.peakParticipants, 200);
+  assert.equal(state.results.q1.A, 1000);
+  assert.equal(state.peakParticipants, 1000);
   const participantState = (
     await request(
       origin,
@@ -122,7 +122,7 @@ try {
   sockets[0].send({ type: "vote", questionId: "q1", choice: "B", seq: 2 });
   await sockets[0].next((m) => m.type === "ack" && m.seq === 2);
   state = (await request(origin, base)).data;
-  assert.deepEqual(state.results.q1, { A: 199, B: 1, total: 200 });
+  assert.deepEqual(state.results.q1, { A: 999, B: 1, total: 1000 });
   async function expectOnline(expected) {
     for (let i = 0; i < 50; i++) {
       if ((await request(origin, base)).data.participants === expected) return;
@@ -130,25 +130,25 @@ try {
     }
     assert.equal((await request(origin, base)).data.participants, expected);
   }
-  await expectOnline(200);
+  await expectOnline(1000);
   const secondTab = await connect(origin, id, joins[0].cookie);
   clients.push(secondTab);
-  await expectOnline(200);
+  await expectOnline(1000);
   secondTab.close();
   await delay(100);
-  await expectOnline(200);
+  await expectOnline(1000);
   sockets[0].close();
-  await expectOnline(199);
+  await expectOnline(999);
   assert.deepEqual((await request(origin, base)).data.results.q1, {
-    A: 199,
+    A: 999,
     B: 1,
-    total: 200,
+    total: 1000,
   });
   const replacement = await request(origin, `/api/sessions/${id}/join`, "POST");
   assert.equal(replacement.response.ok, true);
   const replacementSocket = await connect(origin, id, replacement.cookie);
   clients.push(replacementSocket);
-  await expectOnline(200);
+  await expectOnline(1000);
   assert.equal(
     (
       await request(
@@ -162,7 +162,7 @@ try {
     false,
   );
   replacementSocket.close();
-  await expectOnline(199);
+  await expectOnline(999);
   console.log(
     "PASS: live presence decreases, deduplicates tabs, frees capacity and preserves votes.",
   );
@@ -189,13 +189,13 @@ try {
     true,
   );
   console.log(
-    "PASS: 200 simultaneous votes, A → B, idempotent retry, reconnect, close and late vote rejection.",
+    "PASS: 1000 simultaneous votes, A → B, idempotent retry, reconnect, close and late vote rejection.",
   );
   state = (await request(origin, base)).data;
   assert.equal(state.active.round, 2);
   assert.deepEqual(state.results.q1, { A: 0, B: 0, total: 0 });
   assert.deepEqual(state.history.q1, [
-    { round: 1, result: { A: 199, B: 1, total: 200 } },
+    { round: 1, result: { A: 999, B: 1, total: 1000 } },
   ]);
   const roundTwo = await reconnected.next(
     (m) => m.type === "state" && m.active?.round === 2,
@@ -243,17 +243,17 @@ try {
   state = (await request(origin, base)).data;
   assert.equal(state.status, "ended");
   assert.equal(state.results.q1.total, 1);
-  assert.equal(state.history.q1[0].result.total, 200);
-  assert.equal(state.peakParticipants, 200);
-  assert.equal((await request(origin, base)).data.peakParticipants, 200);
+  assert.equal(state.history.q1[0].result.total, 1000);
+  assert.equal(state.peakParticipants, 1000);
+  assert.equal((await request(origin, base)).data.peakParticipants, 1000);
   assert.equal(
     (await request(origin, "/api/presenter/sessions")).data.find(
       (s) => s.id === id,
     ).peakParticipants,
-    200,
+    1000,
   );
   const csv = await (await fetch(`${origin}${base}/export`)).text();
-  assert.match(csv, /199,|"199"/);
+  assert.match(csv, /999,|"999"/);
   assert.equal(
     (await request(origin, `/api/sessions/${id}/join`, "POST")).response.ok,
     false,

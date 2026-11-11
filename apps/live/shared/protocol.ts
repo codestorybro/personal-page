@@ -1,3 +1,12 @@
+// Leave headroom below KV Free's 1 GB / 25 MiB limits. Free plans fail closed.
+export const LIMITS = {
+  participants: 1000,
+  questions: 5,
+  sessions: 100,
+  pdfBytes: 20_000_000,
+  archiveBytes: 750_000_000,
+  slides: 2000,
+} as const;
 export type Choice = "A" | "B";
 export type Question = {
   id: string;
@@ -81,8 +90,8 @@ export class HttpError extends Error {
   }
 }
 export function parseQuestions(value: unknown): Question[] {
-  if (!Array.isArray(value) || value.length > 100)
-    throw new HttpError(400, "Maksymalnie 100 pytań.");
+  if (!Array.isArray(value) || value.length > LIMITS.questions)
+    throw new HttpError(400, "Maksymalnie 5 pytań.");
   const seen = new Set<string>();
   return value.map((q: unknown) => {
     if (!q || typeof q !== "object")
@@ -98,7 +107,7 @@ export function parseQuestions(value: unknown): Question[] {
     if (
       !Number.isInteger(row.slide) ||
       Number(row.slide) < 1 ||
-      Number(row.slide) > 2000
+      Number(row.slide) > LIMITS.slides
     )
       throw new HttpError(400, "Slajd musi być liczbą od 1 do 2000.");
     const text = boundedText(row.text, 500, "Treść pytania");

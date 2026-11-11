@@ -26,3 +26,5 @@ For a production preview alongside an already running Next.js development server
 CODESTORYBRO_DIST_DIR=.next-qa yarn build
 CODESTORYBRO_DIST_DIR=.next-qa yarn start --port 3008
 ```
+
+Live deployment is separate from Vercel: see [apps/live/DEPLOYMENT.md](apps/live/DEPLOYMENT.md). Stage targets `stage.codestorybro.com` on Workers Free + Durable Objects + KV Free (no R2). Current application limits: 1000 participants, 5 questions, 20 MB per original/export PDF, 750 MB total, 100 archived sessions. Main-site Git integration and production branch are configured in the existing Vercel project.

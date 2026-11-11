@@ -2,7 +2,7 @@ import type { LiveSession, Catalog } from "./objects";
 export interface Env {
   SESSIONS: DurableObjectNamespace<LiveSession>;
   CATALOG: DurableObjectNamespace<Catalog>;
-  PDFS: R2Bucket;
+  PDFS: KVNamespace;
   ASSETS: Fetcher;
   APP_ORIGIN: string;
   ACCESS_TEAM_DOMAIN: string;
