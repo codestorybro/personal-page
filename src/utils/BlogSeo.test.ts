@@ -20,7 +20,7 @@ const post: BlogPost = {
 describe('blog SEO helpers', () => {
   it('builds absolute canonical and fallback image URLs on the production host', () => {
     expect(blogPostUrl(post.slug)).toBe('https://www.codestorybro.com/blog/article-slug');
-    expect(blogPostImageUrl(post)).toBe('https://www.codestorybro.com/assets/img/og-image.png');
+    expect(blogPostImageUrl(post)).toBe('https://www.codestorybro.com/assets/img/og-codestorybro.png');
   });
 
   it('uses a plain-text article excerpt when no explicit description exists', () => {

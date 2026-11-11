@@ -1,7 +1,9 @@
 import type { BlogPost } from '@/libs/notion';
 import type { FC } from 'react';
+import type { SeoLocale } from '../../packages/seo/content';
 import { AppConfig } from '@/utils/AppConfig';
 import { blogPostImageUrl, blogPostUrl } from '@/utils/BlogSeo';
+import { brandAssets, languageUrl, seoCopy } from '../../packages/seo/content';
 
 const personSchema = {
   '@context': 'https://schema.org',
@@ -15,7 +17,7 @@ const personSchema = {
   'jobTitle': AppConfig.author.jobTitle,
   'description': AppConfig.openGraphDescription,
   'sameAs': [
-    AppConfig.social.x,
+    AppConfig.social.youtube,
     AppConfig.social.linkedin,
   ],
   'knowsAbout': [
@@ -28,8 +30,16 @@ const personSchema = {
   ],
 };
 
-export const HomeJsonLd: FC = () => {
-  return <JsonLd data={personSchema} />;
+export const HomeJsonLd: FC<{ locale?: SeoLocale }> = ({ locale = 'pl' }) => {
+  const url = languageUrl(AppConfig.url, locale);
+  return (
+    <JsonLd data={[
+      { ...personSchema, description: seoCopy.home[locale].description },
+      { '@type': 'Organization', '@id': `${AppConfig.url}/#brand`, 'name': 'CodeStoryBro', 'url': AppConfig.url, 'logo': `${AppConfig.url}${brandAssets.logo}` },
+      { '@type': 'WebSite', '@id': `${AppConfig.url}/#website`, 'name': 'CodeStoryBro', url, 'inLanguage': locale, 'description': seoCopy.home[locale].description },
+    ]}
+    />
+  );
 };
 
 function JsonLd({ data }: { data: Record<string, unknown> | Record<string, unknown>[] }) {

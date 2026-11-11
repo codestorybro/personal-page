@@ -1,0 +1,56 @@
+.csb-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--line, var(--color-rule));
+}
+.csb-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: inherit;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  text-decoration: none;
+}
+.csb-badge {
+  background: var(--accent, var(--color-accent));
+  color: #172536;
+  padding: 0.15rem 0.45rem;
+  border-radius: 3px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.csb-header nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.4rem;
+  margin-left: auto;
+  color: var(--accent, var(--color-accent));
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.csb-header nav a {
+  color: inherit;
+  text-decoration: none;
+}
+.csb-header nav .link-label {
+  background: linear-gradient(currentColor, currentColor) left bottom / 0 1px no-repeat;
+  padding-bottom: 0.15em;
+  transition: background-size 0.22s ease;
+}
+.csb-header nav a:is(:hover, :focus-visible) .link-label {
+  background-size: 100% 1px;
+}
+@media (max-width: 480px) {
+  .csb-header nav {
+    gap: 1rem;
+    font-size: 0.8rem;
+  }
+}

@@ -7,6 +7,7 @@ const withBundleAnalyzer = bundleAnalyzer({
 });
 
 const config: NextConfig = {
+  distDir: process.env.CODESTORYBRO_DIST_DIR || '.next',
   eslint: {
     dirs: ['.'],
   },
@@ -17,9 +18,10 @@ const config: NextConfig = {
   reactStrictMode: true,
   async redirects() {
     return [
+      { source: '/blog/:path*', destination: '/', permanent: true },
       {
         source: '/:locale(en|pl)/blog/:slug*',
-        destination: '/blog/:slug*',
+        destination: '/',
         permanent: true,
       },
     ];

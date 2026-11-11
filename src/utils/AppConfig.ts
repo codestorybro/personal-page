@@ -1,24 +1,26 @@
+import { seoCopy } from '../../packages/seo/content';
+
 const productionUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.codestorybro.com').replace(/\/+$/u, '');
 
 export const AppConfig = {
   name: 'CodeStoryBro',
-  locale: 'en_US',
-  language: 'en',
+  locale: 'pl_PL',
+  language: 'pl',
   url: productionUrl,
-  title: 'CodeStoryBro | Software Developer & Engineering Manager',
-  description: 'Personal website of CodeStoryBro — software developer, engineering manager, and conference speaker sharing experience in software engineering, technology, and technical leadership.',
-  openGraphTitle: 'CodeStoryBro | Software Developer & Engineering Manager',
-  openGraphDescription: 'Software developer, engineering manager, and conference speaker with over\u00A0a decade of experience in the technology industry.',
-  twitterTitle: 'CodeStoryBro | Software Developer & Engineering Manager',
-  twitterDescription: 'Software development, engineering leadership, technology, and conference speaking.',
-  ogImageAlt: 'CodeStoryBro — Software Developer, Engineering Manager and Conference Speaker',
+  title: seoCopy.home.pl.title,
+  description: seoCopy.home.pl.description,
+  openGraphTitle: seoCopy.home.pl.title,
+  openGraphDescription: seoCopy.home.pl.description,
+  twitterTitle: seoCopy.home.pl.title,
+  twitterDescription: seoCopy.home.pl.description,
+  ogImageAlt: 'CodeStoryBro',
   author: {
     name: 'Marcin Kołodziej',
-    jobTitle: 'Software Developer, Engineering Manager and Conference Speaker',
+    jobTitle: 'Engineering Manager',
     email: 'hello@codestorybro.com',
   },
   social: {
-    x: 'https://x.com/codestorybro',
+    youtube: 'https://www.youtube.com/@codestorybro',
     linkedin: 'https://www.linkedin.com/in/codestorybro',
   },
 } as const;

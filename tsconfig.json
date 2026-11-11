@@ -54,6 +54,7 @@
     ]
   },
   "exclude": [
+    "./apps/live/**/*",
     "./out/**/*",
     "./node_modules/**/*",
     "**/*.spec.ts",
@@ -64,6 +65,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
+    ".next-qa/types/**/*.ts",
     "**/*.mts"
   ]
 }

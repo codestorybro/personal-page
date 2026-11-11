@@ -29,7 +29,7 @@ describe('BlogArticleJsonLd', () => {
       'datePublished': post.publishedAt,
       'dateModified': post.modifiedAt,
       'url': 'https://www.codestorybro.com/blog/structured-data-article',
-      'image': 'https://www.codestorybro.com/assets/img/og-image.png',
+      'image': 'https://www.codestorybro.com/assets/img/og-codestorybro.png',
     });
     expect(breadcrumbs['@type']).toBe('BreadcrumbList');
     expect(breadcrumbs.itemListElement).toHaveLength(3);

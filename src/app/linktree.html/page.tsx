@@ -1,61 +1,16 @@
-import type { Metadata } from 'next';
 import { HomeJsonLd } from '@/components/JsonLd';
 import { PersonalLanding } from '@/components/PersonalLanding';
-import { AppConfig } from '@/utils/AppConfig';
+import { pageMetadata } from '@/utils/Metadata';
+import { seoLocale } from '../../../packages/seo/content';
 
-const SITE_URL = AppConfig.url;
-
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: {
-      absolute: AppConfig.title,
-    },
-    description: AppConfig.description,
-    alternates: {
-      canonical: SITE_URL,
-    },
-    openGraph: {
-      title: AppConfig.openGraphTitle,
-      description: AppConfig.openGraphDescription,
-      url: SITE_URL,
-      siteName: 'CodeStoryBro',
-      type: 'website',
-      locale: AppConfig.locale,
-      images: [
-        {
-          url: `${SITE_URL}/assets/img/og-image.png`,
-          width: 1536,
-          height: 1024,
-          alt: AppConfig.ogImageAlt,
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      site: '@codestorybro',
-      creator: '@codestorybro',
-      title: AppConfig.twitterTitle,
-      description: AppConfig.twitterDescription,
-      images: [
-        {
-          url: `${SITE_URL}/assets/img/og-image.png`,
-          width: 1536,
-          height: 1024,
-          alt: AppConfig.ogImageAlt,
-        },
-      ],
-    },
-    robots: {
-      index: false,
-      follow: true,
-    },
-  };
+type Props = { searchParams: Promise<{ lang?: string }> };
+export async function generateMetadata({ searchParams }: Props) {
+  return pageMetadata('home', seoLocale((await searchParams).lang), false);
 }
-
-export default function LinktreePage() {
+export default async function LinktreePage({ searchParams }: Props) {
   return (
     <>
-      <HomeJsonLd />
+      <HomeJsonLd locale={seoLocale((await searchParams).lang)} />
       <PersonalLanding />
     </>
   );

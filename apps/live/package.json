@@ -1,0 +1,42 @@
+{
+  "name": "@codestorybro/live",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite build && wrangler dev --env local --port 8787 --ip 127.0.0.1",
+    "dev:web": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "test": "node --test tests/*.test.mjs",
+    "test:integration": "node scripts/integration.mjs",
+    "test:load": "node scripts/load.mjs",
+    "check:worker": "wrangler deploy --env=\"\" --dry-run --outdir .worker-build",
+    "test:e2e": "node scripts/browser.mjs",
+    "typecheck": "tsc --noEmit",
+    "test:presence": "node scripts/presence.mjs",
+    "migrate:local-pdfs": "node scripts/migrate-local-pdfs.mjs"
+  },
+  "dependencies": {
+    "jose": "^6.1.0",
+    "pdf-lib": "1.17.1",
+    "pdfjs-dist": "^5.4.394",
+    "qrcode": "^1.5.4",
+    "react": "19.2.1",
+    "react-dom": "19.2.1"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20251101.0",
+    "@playwright/test": "1.50.1",
+    "@types/node": "^22.10.1",
+    "@types/qrcode": "^1.5.5",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.2",
+    "wrangler": "^4.45.0",
+    "ws": "^8.18.3"
+  }
+}
